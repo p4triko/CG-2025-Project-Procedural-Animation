@@ -1,6 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://ce1088c0bu02g"]
+[gd_scene load_steps=4 format=3 uid="uid://ce1088c0bu02g"]
 
 [ext_resource type="Script" uid="uid://bp6fqsffaeghk" path="res://scripts/test.gd" id="1_uhqqe"]
 
+[sub_resource type="SkeletonModification2DPhysicalBones" id="SkeletonModification2DPhysicalBones_g7g4h"]
+fetch_bones = null
+
+[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_j8ivh"]
+modification_count = 1
+modifications/0 = SubResource("SkeletonModification2DPhysicalBones_g7g4h")
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_uhqqe")
+
+[node name="Skeleton2D" type="Skeleton2D" parent="."]
+modification_stack = SubResource("SkeletonModificationStack2D_j8ivh")
+
+[node name="Bone2D" type="Bone2D" parent="Skeleton2D"]

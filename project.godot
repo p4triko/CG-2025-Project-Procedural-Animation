@@ -14,6 +14,10 @@ config/name="CG 2025 Project Procedural Animation"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="uid://dyqq6uaewyaa1"
 
+[autoload]
+
+Global="*res://scripts/globals/global.gd"
+
 [dotnet]
 
 project/assembly_name="CG 2025 Project Prodecural Animation"

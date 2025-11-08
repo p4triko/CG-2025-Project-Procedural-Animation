@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bb1pxqi6pqurf"]
+
+[ext_resource type="Script" uid="uid://dftxhty2hpwup" path="res://objects/IK/ik_joint.gd" id="1_wb0sm"]
+
+[node name="IK_Joint" type="Node2D"]
+script = ExtResource("1_wb0sm")
