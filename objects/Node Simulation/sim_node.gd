@@ -10,7 +10,7 @@
 # - Better debug bone visuals
 #
 # System for interpolating smoothly the joing positions:
-# - Just interpolating joint towards end position
+# - Just interpolating node towards end position
 # - Interpolating joing without changing distance - interpolating the angle
 # For both of those there has to be some interpolation system like here https://www.youtube.com/watch?v=KPoeNZZ6H4s
 # For that _physics_process non-linear interpolation should be used. 
@@ -19,7 +19,8 @@
 # add _process linear interpolation, that will be just visual.
 
 @tool
-class_name IKJoint
+@icon("res://assets/images/SimNode_icon.png")
+class_name SimNode
 extends Node2D
 
 @export_group("Acnhor")
@@ -29,11 +30,14 @@ extends Node2D
 ## Works only if it has IKJoint parent
 @export var distance_range: Vector2 = Vector2(10, 10);
 
+@export_group("Visuals")
+@export var draw_distance_constraint: bool = false
+
 # Returns joint that has variables for contraints between some two neighbour joints
-func get_neighbour_joint_data(joint: IKJoint): 
+func get_neighbour_joint_data(joint: SimNode): 
 	return self if get_parent() == joint else joint
 
-func apply_distance_constraint(origin: IKJoint):
+func apply_distance_constraint(origin: SimNode):
 	var distance = get_neighbour_joint_data(origin).distance_range
 	var idk_vector = global_position - origin.global_position
 	var idk_vector_length = idk_vector.length()
@@ -44,12 +48,12 @@ func constraint_wave(origin):
 	if !is_anchored:
 		apply_distance_constraint(origin)
 	for neighbour in get_children() + [get_parent()]:
-		if neighbour is IKJoint && neighbour != origin:
+		if neighbour is SimNode && neighbour != origin:
 			neighbour.constraint_wave(self)
 
 func chain_update():
 	for child in get_children():
-		if child is IKJoint:
+		if child is SimNode:
 			child.chain_update()
 	if is_anchored:
 		constraint_wave(self)
@@ -58,7 +62,7 @@ func _ready() -> void:
 	top_level = true
 
 func _physics_process(_delta: float) -> void:
-	if get_parent() is not IKJoint: # Root of the tree
+	if get_parent() is not SimNode: # Root of the tree
 		chain_update()
 	if Engine.is_editor_hint():
 		queue_redraw()
@@ -67,7 +71,7 @@ func _draw() -> void:
 	if Engine.is_editor_hint():
 		seed(hash(get_path()))
 		var bone_color = Color(randf(), randf(), randf(), 1.0)
-		if get_parent() is IKJoint:
+		if get_parent() is SimNode:
 			#draw_circle(Vector2.ZERO, lerpf(distance_range.y, distance_range.x, 0.5), bone_color, false, max(0.2, abs(distance_range.x - distance_range.y)), false)
 			draw_circle(get_parent().global_position - global_position, lerpf(distance_range.y, distance_range.x, 0.5), bone_color, false, max(0.2, abs(distance_range.x - distance_range.y)), false)
 			draw_line(Vector2.ZERO, get_parent().global_position - global_position, bone_color, 0.5)
