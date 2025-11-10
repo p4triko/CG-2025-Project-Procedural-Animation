@@ -7,7 +7,6 @@
 #
 # Visualisation:
 # - Ability to add sprites to follow the bones and joints
-# - Better debug bone visuals
 #
 # System for interpolating smoothly the joing positions:
 # - Just interpolating node towards end position
@@ -29,10 +28,11 @@ class_name SimNode extends SimAbstract
 @export var distance_range: Vector2 = Vector2(10, 10);
 
 var sim_root: SimRoot
-var wanted_position: Vector2
+var actual_position: Vector2
 
 func _ready() -> void:
 	top_level = true
+	sim_root = get_parent().sim_root
 
 func update_sim_root(root):
 	sim_root = root
@@ -50,14 +50,20 @@ func apply_distance_constraint(origin: SimNode):
 	global_position = origin.global_position + idk_vector * clampf(idk_vector_length, min(distance.x, distance.y), max(distance.x, distance.y))
 
 func constraint_wave(origin):
-	if !is_anchored:
+	if !is_anchored: # If it is an node that can actually move
+		actual_position = global_position
+		# Applying different constraints
 		apply_distance_constraint(origin)
 	run_for_every_neighbour(origin, "constraint_wave", [self])
 
+func apply_positons():
+	if !is_anchored:
+		global_position = lerp(global_position, actual_position, 0.0) ## Should change smoothing of points, WIP
+	run_for_every_child("apply_positons")
+	
+
 func chain_update():
-	for child in get_children():
-		if child is SimNode:
-			child.chain_update()
+	run_for_every_child("chain_update")
 	if is_anchored:
 		constraint_wave(self)
 	queue_redraw();
@@ -76,8 +82,8 @@ func _draw() -> void:
 				draw_circle(get_parent().global_position - global_position, distance_range.y, bone_color, false, 0.2)
 				draw_circle(get_parent().global_position - global_position, distance_range.x, bone_color, false, 0.2)                            
 			if do_draw_bones:
-				draw_line(Vector2.ZERO, get_parent().global_position - global_position, bone_color, 0.5)
-				draw_circle(Vector2.ZERO, 1, bone_color, true)
+				draw_line(Vector2.ZERO, get_parent().global_position - global_position, bone_color, 0.2)
+				draw_circle(Vector2.ZERO, 0.75, bone_color, true)
 		if do_draw_bones:
 			if is_anchored:
 				draw_circle(Vector2.ZERO, 0.5, Color(0.918, 0.167, 0.0), true)
