@@ -1,5 +1,6 @@
 # TODO
 # Additional constraints:
+# - Distance constraint should addidionally check if it even can reach the anchor (by calculating closest anchor, excluding origin)
 # - Angle constraint, will make sure that angle between 2 bones is in some range, or side (uses 2 previous joint positions)
 # - Middle angle constraint, will make sure that current bone is perpendicular to two other bones (uses 1 previous and 1 next joint positions)
 # - Maybe, on that makes angles even, will make an arch out of the chain (uses 3 previous joint positions)
@@ -22,11 +23,13 @@ class_name SimNode extends SimAbstract
 ## Works only if it has SimRoot parent
 @export var distance_range: Vector2 = Vector2(10, 10);
 
-
 var sim_root: SimRoot
 var prev_global_position: Vector2
 var visual_position: Vector2
 
+"""
+Setup
+"""
 func _ready() -> void:
 	top_level = true
 	visual_position = global_position
@@ -35,7 +38,23 @@ func update_sim_root(root):
 	sim_root = root
 	run_for_every_child("update_sim_root", [root])
 
+"""
+Simulation
+"""
 # Returns joint that has variables for constraints between some two neighbour joints
+func chain_update():
+	run_for_every_child("chain_update")
+	if is_anchored:
+		run_for_every_neighbour(null, "constraint_wave", [self])
+
+func constraint_wave(origin):
+	if is_anchored: return
+	# If it is an node that can actually move
+	# Applying different constraints
+	apply_distance_constraint(origin)
+	apply_angle_constraint(origin)
+	run_for_every_neighbour(origin, "constraint_wave", [self])
+
 func get_neighbour_joint_data(joint: SimNode): 
 	return self if get_parent() == joint else joint
 
@@ -46,29 +65,24 @@ func apply_distance_constraint(origin: SimNode):
 	idk_vector = idk_vector.normalized()
 	global_position = origin.global_position + idk_vector * clampf(idk_vector_length, min(distance.x, distance.y), max(distance.x, distance.y))
 
-func constraint_wave(origin):
-	if !is_anchored: # If it is an node that can actually move
-		# Applying different constraints
-		apply_distance_constraint(origin)
-	run_for_every_neighbour(origin, "constraint_wave", [self])
+func apply_angle_constraint(origin: SimNode):
+	pass
 
+"""
+Rendering
+"""
 func interpolate_visuals():
 	run_for_every_child("interpolate_visuals")
 	# Linear interpolation for visuals
 	visual_position = lerp(prev_global_position, global_position, Engine.get_physics_interpolation_fraction())
 
-func queue_redraws():
-	run_for_every_child("queue_redraws")
-	queue_redraw();
-
 func save_prev_position():
 	prev_global_position = global_position
 	run_for_every_child("save_prev_position")
 
-func chain_update():
-	run_for_every_child("chain_update")
-	if is_anchored:
-		constraint_wave(self)
+func queue_redraws():
+	run_for_every_child("queue_redraws")
+	queue_redraw();
 
 func _draw() -> void:
 	var do_draw_bones = check_debug_enum(sim_root.draw_debug_bones)
