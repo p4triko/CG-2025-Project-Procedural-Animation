@@ -1,11 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://ce1088c0bu02g"]
+[gd_scene load_steps=3 format=3 uid="uid://ce1088c0bu02g"]
 
-[ext_resource type="Script" uid="uid://bp6fqsffaeghk" path="res://scripts/test.gd" id="1_uhqqe"]
 [ext_resource type="Script" uid="uid://dftxhty2hpwup" path="res://objects/Node Simulation/sim_node.gd" id="2_j8ivh"]
 [ext_resource type="Script" uid="uid://ckdrfipawwquh" path="res://objects/Node Simulation/sim_root.gd" id="2_nd71p"]
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource("1_uhqqe")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(97.00001, 75)
