@@ -10,5 +10,9 @@ func _ready() -> void:
 	run_for_every_child("update_sim_root", [self])
 
 func _physics_process(_delta: float) -> void:
+	run_for_every_child("save_prev_position")
 	run_for_every_child("chain_update")
-	run_for_every_child("apply_positons")
+
+func _process(_delta: float) -> void:
+	run_for_every_child("interpolate_visuals")
+	run_for_every_child("queue_redraws")
