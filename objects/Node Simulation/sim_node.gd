@@ -3,7 +3,7 @@
 # - Angle constraint, will make sure that angle between 2 bones is in some range, or side (uses 2 previous joint positions)
 # - Middle angle constraint, will make sure that current bone is perpendicular to two other bones (uses 1 previous and 1 next joint positions)
 # - Maybe, on that makes angles even, will make an arch out of the chain (uses 3 previous joint positions)
-# - Maybe, one that stretches the distance constraint
+# - Maybe, one that positions point between parent and children
 #
 # Visualisation:
 # - Ability to add sprites to follow the bones and joints
@@ -18,7 +18,6 @@
 # If we decide to not increase _physics_process fps, then we will have to also 
 # add _process linear interpolation, that will be just visual.
 
-
 @tool @icon("res://assets/images/SimNode_icon.png")
 class_name SimNode extends SimAbstract
 
@@ -29,11 +28,15 @@ class_name SimNode extends SimAbstract
 ## Works only if it has IKJoint parent
 @export var distance_range: Vector2 = Vector2(10, 10);
 
-@export_group("Visuals")
-@export var draw_distance_constraint: bool = false
+var sim_root: SimRoot
+var wanted_position: Vector2
 
 func _ready() -> void:
 	top_level = true
+
+func update_sim_root(root):
+	sim_root = root
+	run_for_every_child("update_sim_root", [root])
 
 # Returns joint that has variables for constraints between some two neighbour joints
 func get_neighbour_joint_data(joint: SimNode): 
@@ -44,7 +47,7 @@ func apply_distance_constraint(origin: SimNode):
 	var idk_vector = global_position - origin.global_position
 	var idk_vector_length = idk_vector.length()
 	idk_vector = idk_vector.normalized()
-	global_position = origin.global_position + idk_vector * clampf(idk_vector_length, distance.y, distance.x)
+	global_position = origin.global_position + idk_vector * clampf(idk_vector_length, min(distance.x, distance.y), max(distance.x, distance.y))
 
 func constraint_wave(origin):
 	if !is_anchored:
@@ -57,18 +60,26 @@ func chain_update():
 			child.chain_update()
 	if is_anchored:
 		constraint_wave(self)
-	if Engine.is_editor_hint():
-		queue_redraw();
+	queue_redraw();
 
 func _draw() -> void:
 	if Engine.is_editor_hint():
+		var do_draw_bones = check_debug_enum(sim_root.draw_debug_bones)
+		var do_draw_constraints = check_debug_enum(sim_root.draw_distance_constraint)
+		
 		seed(hash(get_path()))
-		var bone_color = Color(randf(), randf(), randf(), 1.0)
+		var bone_color = Color(randf(), randf(), randf())
+		
 		if get_parent() is SimNode:
-			draw_circle(get_parent().global_position - global_position, lerpf(distance_range.y, distance_range.x, 0.5), bone_color, false, max(0.2, abs(distance_range.x - distance_range.y)), false)
-			draw_line(Vector2.ZERO, get_parent().global_position - global_position, bone_color, 0.5)
-			draw_circle(Vector2.ZERO, 1, bone_color, true)
-		if is_anchored:
-			draw_circle(Vector2.ZERO, 0.5, Color(0.918, 0.167, 0.0, 1.0), true)
-		else:
-			draw_circle(Vector2.ZERO, 0.5, Color(0.339, 0.584, 0.0, 1.0), true)
+			if do_draw_constraints:
+				draw_circle(get_parent().global_position - global_position, lerpf(distance_range.y, distance_range.x, 0.5), Color(bone_color, 0.5), false, max(0.2, abs(distance_range.x - distance_range.y)), false)
+				draw_circle(get_parent().global_position - global_position, distance_range.y, bone_color, false, 0.2)
+				draw_circle(get_parent().global_position - global_position, distance_range.x, bone_color, false, 0.2)                            
+			if do_draw_bones:
+				draw_line(Vector2.ZERO, get_parent().global_position - global_position, bone_color, 0.5)
+				draw_circle(Vector2.ZERO, 1, bone_color, true)
+		if do_draw_bones:
+			if is_anchored:
+				draw_circle(Vector2.ZERO, 0.5, Color(0.918, 0.167, 0.0), true)
+			else:
+				draw_circle(Vector2.ZERO, 0.5, Color(0.339, 0.584, 0.0), true)
