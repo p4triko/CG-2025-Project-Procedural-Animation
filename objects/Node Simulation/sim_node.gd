@@ -20,7 +20,7 @@
 @tool @icon("res://assets/images/SimNode_icon.png")
 class_name SimNode extends SimAbstract
 
-@export_group("Acnhor")
+@export_group("Anchor")
 @export var is_anchored: bool = false
 
 @export_group("Distance")
