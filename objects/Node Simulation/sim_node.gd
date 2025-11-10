@@ -32,7 +32,8 @@ var actual_position: Vector2
 
 func _ready() -> void:
 	top_level = true
-	sim_root = get_parent().sim_root
+	#if get_parent() is SimRoot:
+		#sim_root = get_parent().sim_root
 
 func update_sim_root(root):
 	sim_root = root
@@ -69,23 +70,22 @@ func chain_update():
 	queue_redraw();
 
 func _draw() -> void:
-	if Engine.is_editor_hint():
-		var do_draw_bones = check_debug_enum(sim_root.draw_debug_bones)
-		var do_draw_constraints = check_debug_enum(sim_root.draw_distance_constraint)
-		
-		seed(hash(get_path()))
-		var bone_color = Color(randf(), randf(), randf())
-		
-		if get_parent() is SimNode:
-			if do_draw_constraints:
-				draw_circle(get_parent().global_position - global_position, lerpf(distance_range.y, distance_range.x, 0.5), Color(bone_color, 0.5), false, max(0.2, abs(distance_range.x - distance_range.y)), false)
-				draw_circle(get_parent().global_position - global_position, distance_range.y, bone_color, false, 0.2)
-				draw_circle(get_parent().global_position - global_position, distance_range.x, bone_color, false, 0.2)                            
-			if do_draw_bones:
-				draw_line(Vector2.ZERO, get_parent().global_position - global_position, bone_color, 0.2)
-				draw_circle(Vector2.ZERO, 0.75, bone_color, true)
+	var do_draw_bones = check_debug_enum(sim_root.draw_debug_bones)
+	var do_draw_constraints = check_debug_enum(sim_root.draw_distance_constraint)
+	
+	seed(hash(get_path()))
+	var bone_color = Color(randf(), randf(), randf())
+	
+	if get_parent() is SimNode:
+		if do_draw_constraints:
+			draw_circle(get_parent().global_position - global_position, lerpf(distance_range.y, distance_range.x, 0.5), Color(bone_color, 0.5), false, max(0.2, abs(distance_range.x - distance_range.y)), false)
+			draw_circle(get_parent().global_position - global_position, distance_range.y, bone_color, false, 0.2)
+			draw_circle(get_parent().global_position - global_position, distance_range.x, bone_color, false, 0.2)                            
 		if do_draw_bones:
-			if is_anchored:
-				draw_circle(Vector2.ZERO, 0.5, Color(0.918, 0.167, 0.0), true)
-			else:
-				draw_circle(Vector2.ZERO, 0.5, Color(0.339, 0.584, 0.0), true)
+			draw_line(Vector2.ZERO, get_parent().global_position - global_position, bone_color, 0.2)
+			draw_circle(Vector2.ZERO, 0.75, bone_color, true)
+	if do_draw_bones:
+		if is_anchored:
+			draw_circle(Vector2.ZERO, 0.5, Color(0.918, 0.167, 0.0), true)
+		else:
+			draw_circle(Vector2.ZERO, 0.5, Color(0.339, 0.584, 0.0), true)
