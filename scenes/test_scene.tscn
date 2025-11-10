@@ -1,74 +1,140 @@
-[gd_scene load_steps=3 format=3 uid="uid://ce1088c0bu02g"]
+[gd_scene load_steps=4 format=3 uid="uid://ce1088c0bu02g"]
 
 [ext_resource type="Script" uid="uid://bp6fqsffaeghk" path="res://scripts/test.gd" id="1_uhqqe"]
 [ext_resource type="Script" uid="uid://dftxhty2hpwup" path="res://objects/Node Simulation/sim_node.gd" id="2_j8ivh"]
+[ext_resource type="Script" uid="uid://ckdrfipawwquh" path="res://objects/Node Simulation/sim_root.gd" id="2_nd71p"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_uhqqe")
 
-[node name="IKJoint" type="Node2D" parent="."]
+[node name="SimRoot" type="Node2D" parent="."]
+position = Vector2(17, 53)
+script = ExtResource("2_nd71p")
+metadata/_custom_type_script = "uid://ckdrfipawwquh"
+
+[node name="IKJoint" type="Node2D" parent="SimRoot"]
 top_level = true
-position = Vector2(-43, 4)
+position = Vector2(16, -7)
 script = ExtResource("2_j8ivh")
 is_anchored = true
 distance_range = Vector2(20, 20)
 metadata/_custom_type_script = "uid://dftxhty2hpwup"
 
-[node name="IKJoint2" type="Node2D" parent="IKJoint"]
+[node name="IKJoint2" type="Node2D" parent="SimRoot/IKJoint"]
 top_level = true
-position = Vector2(-51.112144, 9.8474865)
+position = Vector2(25.18547, -3.046885)
 script = ExtResource("2_j8ivh")
 metadata/_custom_type_script = "uid://dftxhty2hpwup"
 
-[node name="IKJoint3" type="Node2D" parent="IKJoint/IKJoint2"]
+[node name="IKJoint3" type="Node2D" parent="SimRoot/IKJoint/IKJoint2"]
 top_level = true
-position = Vector2(-55.416676, 18.873615)
+position = Vector2(34.37094, 0.90623116)
 script = ExtResource("2_j8ivh")
 metadata/_custom_type_script = "uid://dftxhty2hpwup"
 
-[node name="IKJoint4" type="Node2D" parent="IKJoint/IKJoint2/IKJoint3"]
+[node name="IKJoint4" type="Node2D" parent="SimRoot/IKJoint/IKJoint2/IKJoint3"]
 top_level = true
-position = Vector2(-51.341347, 38.454006)
+position = Vector2(52.741898, 8.81243)
 script = ExtResource("2_j8ivh")
 distance_range = Vector2(20, 20)
 metadata/_custom_type_script = "uid://dftxhty2hpwup"
 
-[node name="IKJoint5" type="Node2D" parent="IKJoint/IKJoint2/IKJoint3/IKJoint4"]
+[node name="IKJoint5" type="Node2D" parent="SimRoot/IKJoint/IKJoint2/IKJoint3/IKJoint4"]
 top_level = true
-position = Vector2(-42.99997, 43.969566)
+position = Vector2(61.92787, 12.764374)
 script = ExtResource("2_j8ivh")
 metadata/_custom_type_script = "uid://dftxhty2hpwup"
 
-[node name="IKJoint6" type="Node2D" parent="IKJoint/IKJoint2/IKJoint3/IKJoint4/IKJoint5"]
+[node name="IKJoint4" type="Node2D" parent="SimRoot/IKJoint/IKJoint2/IKJoint3/IKJoint4/IKJoint5"]
 top_level = true
-position = Vector2(-28, 44)
+position = Vector2(71.13643, 16.663414)
+script = ExtResource("2_j8ivh")
+metadata/_custom_type_script = "uid://dftxhty2hpwup"
+
+[node name="IKJoint4" type="Node2D" parent="SimRoot/IKJoint/IKJoint2/IKJoint3/IKJoint4/IKJoint5/IKJoint4"]
+top_level = true
+position = Vector2(66.9835, 36.227493)
+script = ExtResource("2_j8ivh")
+distance_range = Vector2(20, 20)
+metadata/_custom_type_script = "uid://dftxhty2hpwup"
+
+[node name="IKJoint5" type="Node2D" parent="SimRoot/IKJoint/IKJoint2/IKJoint3/IKJoint4/IKJoint5/IKJoint4/IKJoint4"]
+top_level = true
+position = Vector2(63.930008, 45.7499)
+script = ExtResource("2_j8ivh")
+metadata/_custom_type_script = "uid://dftxhty2hpwup"
+
+[node name="IKJoint6" type="Node2D" parent="SimRoot/IKJoint/IKJoint2/IKJoint3/IKJoint4/IKJoint5/IKJoint4/IKJoint4/IKJoint5"]
+top_level = true
+position = Vector2(59, 61)
 script = ExtResource("2_j8ivh")
 is_anchored = true
 distance_range = Vector2(15, 15)
 metadata/_custom_type_script = "uid://dftxhty2hpwup"
 
-[node name="IKJoint4" type="Node2D" parent="IKJoint/IKJoint2"]
+[node name="IKJoint6" type="Node2D" parent="SimRoot/IKJoint/IKJoint2/IKJoint3/IKJoint4/IKJoint5/IKJoint4"]
 top_level = true
-position = Vector2(-43.117573, 3.8402557)
+position = Vector2(89, 19)
+script = ExtResource("2_j8ivh")
+is_anchored = true
+distance_range = Vector2(15, 15)
+metadata/_custom_type_script = "uid://dftxhty2hpwup"
+
+[node name="IKJoint3" type="Node2D" parent="SimRoot/IKJoint"]
+top_level = true
+position = Vector2(9.14949, 0.28495073)
 script = ExtResource("2_j8ivh")
 metadata/_custom_type_script = "uid://dftxhty2hpwup"
 
-[node name="IKJoint4" type="Node2D" parent="IKJoint/IKJoint2/IKJoint4"]
+[node name="IKJoint3" type="Node2D" parent="SimRoot/IKJoint/IKJoint3"]
 top_level = true
-position = Vector2(-25.405445, 13.128986)
+position = Vector2(1.6641426, 6.915906)
+script = ExtResource("2_j8ivh")
+metadata/_custom_type_script = "uid://dftxhty2hpwup"
+
+[node name="IKJoint4" type="Node2D" parent="SimRoot/IKJoint/IKJoint3/IKJoint3"]
+top_level = true
+position = Vector2(-15.034233, 17.92337)
 script = ExtResource("2_j8ivh")
 distance_range = Vector2(20, 20)
 metadata/_custom_type_script = "uid://dftxhty2hpwup"
 
-[node name="IKJoint5" type="Node2D" parent="IKJoint/IKJoint2/IKJoint4/IKJoint4"]
+[node name="IKJoint5" type="Node2D" parent="SimRoot/IKJoint/IKJoint3/IKJoint3/IKJoint4"]
 top_level = true
-position = Vector2(-17.6282, 19.41504)
+position = Vector2(-23.77544, 22.780458)
 script = ExtResource("2_j8ivh")
 metadata/_custom_type_script = "uid://dftxhty2hpwup"
 
-[node name="IKJoint6" type="Node2D" parent="IKJoint/IKJoint2/IKJoint4/IKJoint4/IKJoint5"]
+[node name="IKJoint6" type="Node2D" parent="SimRoot/IKJoint/IKJoint3/IKJoint3/IKJoint4/IKJoint5"]
 top_level = true
-position = Vector2(-7, 30)
+position = Vector2(-19, 37)
+script = ExtResource("2_j8ivh")
+is_anchored = true
+distance_range = Vector2(15, 15)
+metadata/_custom_type_script = "uid://dftxhty2hpwup"
+
+[node name="IKJoint4" type="Node2D" parent="SimRoot/IKJoint/IKJoint3/IKJoint3/IKJoint4/IKJoint5"]
+top_level = true
+position = Vector2(-32.347366, 17.630497)
+script = ExtResource("2_j8ivh")
+metadata/_custom_type_script = "uid://dftxhty2hpwup"
+
+[node name="IKJoint4" type="Node2D" parent="SimRoot/IKJoint/IKJoint3/IKJoint3/IKJoint4/IKJoint5/IKJoint4"]
+top_level = true
+position = Vector2(-50.221283, 8.657033)
+script = ExtResource("2_j8ivh")
+distance_range = Vector2(20, 20)
+metadata/_custom_type_script = "uid://dftxhty2hpwup"
+
+[node name="IKJoint5" type="Node2D" parent="SimRoot/IKJoint/IKJoint3/IKJoint3/IKJoint4/IKJoint5/IKJoint4/IKJoint4"]
+top_level = true
+position = Vector2(-59.58339, 5.1426415)
+script = ExtResource("2_j8ivh")
+metadata/_custom_type_script = "uid://dftxhty2hpwup"
+
+[node name="IKJoint6" type="Node2D" parent="SimRoot/IKJoint/IKJoint3/IKJoint3/IKJoint4/IKJoint5/IKJoint4/IKJoint4/IKJoint5"]
+top_level = true
+position = Vector2(-74, 1)
 script = ExtResource("2_j8ivh")
 is_anchored = true
 distance_range = Vector2(15, 15)

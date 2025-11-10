@@ -6,7 +6,7 @@
 # - Maybe, one that stretches the distance constraint
 #
 # Visualisation:
-# - Ability to add sprites to follor the bone
+# - Ability to add sprites to follow the bones and joints
 # - Better debug bone visuals
 #
 # System for interpolating smoothly the joing positions:
@@ -18,10 +18,9 @@
 # If we decide to not increase _physics_process fps, then we will have to also 
 # add _process linear interpolation, that will be just visual.
 
-@tool
-@icon("res://assets/images/SimNode_icon.png")
-class_name SimNode
-extends Node2D
+
+@tool @icon("res://assets/images/SimNode_icon.png")
+class_name SimNode extends SimAbstract
 
 @export_group("Acnhor")
 @export var is_anchored: bool = false
@@ -33,7 +32,10 @@ extends Node2D
 @export_group("Visuals")
 @export var draw_distance_constraint: bool = false
 
-# Returns joint that has variables for contraints between some two neighbour joints
+func _ready() -> void:
+	top_level = true
+
+# Returns joint that has variables for constraints between some two neighbour joints
 func get_neighbour_joint_data(joint: SimNode): 
 	return self if get_parent() == joint else joint
 
@@ -47,9 +49,7 @@ func apply_distance_constraint(origin: SimNode):
 func constraint_wave(origin):
 	if !is_anchored:
 		apply_distance_constraint(origin)
-	for neighbour in get_children() + [get_parent()]:
-		if neighbour is SimNode && neighbour != origin:
-			neighbour.constraint_wave(self)
+	run_for_every_neighbour(origin, "constraint_wave", [self])
 
 func chain_update():
 	for child in get_children():
@@ -57,22 +57,14 @@ func chain_update():
 			child.chain_update()
 	if is_anchored:
 		constraint_wave(self)
-
-func _ready() -> void:
-	top_level = true
-
-func _physics_process(_delta: float) -> void:
-	if get_parent() is not SimNode: # Root of the tree
-		chain_update()
 	if Engine.is_editor_hint():
-		queue_redraw()
+		queue_redraw();
 
 func _draw() -> void:
 	if Engine.is_editor_hint():
 		seed(hash(get_path()))
 		var bone_color = Color(randf(), randf(), randf(), 1.0)
 		if get_parent() is SimNode:
-			#draw_circle(Vector2.ZERO, lerpf(distance_range.y, distance_range.x, 0.5), bone_color, false, max(0.2, abs(distance_range.x - distance_range.y)), false)
 			draw_circle(get_parent().global_position - global_position, lerpf(distance_range.y, distance_range.x, 0.5), bone_color, false, max(0.2, abs(distance_range.x - distance_range.y)), false)
 			draw_line(Vector2.ZERO, get_parent().global_position - global_position, bone_color, 0.5)
 			draw_circle(Vector2.ZERO, 1, bone_color, true)
