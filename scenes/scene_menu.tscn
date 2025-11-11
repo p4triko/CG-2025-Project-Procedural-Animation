@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://3cbftbbsmx1b"]
+
+[ext_resource type="Script" uid="uid://dyrhdvufnnfyi" path="res://scripts/ui/scene_button.gd" id="1_4xdfu"]
+[ext_resource type="PackedScene" uid="uid://ce1088c0bu02g" path="res://scenes/test_scene.tscn" id="2_44wrp"]
+[ext_resource type="PackedScene" uid="uid://dlx0w7jlmress" path="res://scenes/test_scene2.tscn" id="3_4kt5k"]
+[ext_resource type="PackedScene" uid="uid://b7dn36u0lq0jo" path="res://scenes/test_scene3.tscn" id="4_5v4gl"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="SceneMenu" type="VBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button_IKTest" type="Button" parent="SceneMenu"]
+layout_mode = 2
+text = "IK test"
+script = ExtResource("1_4xdfu")
+scene = ExtResource("2_44wrp")
+
+[node name="Button_Spine" type="Button" parent="SceneMenu"]
+layout_mode = 2
+text = "Spine"
+script = ExtResource("1_4xdfu")
+scene = ExtResource("3_4kt5k")
+
+[node name="Button_Test" type="Button" parent="SceneMenu"]
+layout_mode = 2
+text = "Test 3"
+script = ExtResource("1_4xdfu")
+scene = ExtResource("4_5v4gl")

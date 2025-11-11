@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="CG 2025 Project Procedural Animation"
-run/main_scene="uid://gllpygv1egb3"
+run/main_scene="uid://ce1088c0bu02g"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="uid://dyqq6uaewyaa1"
+
+[autoload]
+
+Global="*res://scripts/globals/global.gd"
+SceneMenu="*res://scenes/scene_menu.tscn"
 
 [dotnet]
 

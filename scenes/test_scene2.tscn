@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlx0w7jlmress"]
+
+[ext_resource type="Script" uid="uid://bkimi84ca4v7p" path="res://scripts/spine.gd" id="1_g2r3l"]
+
+[node name="Spine" type="Node2D"]
+script = ExtResource("1_g2r3l")
+segment_length = 20

@@ -1,0 +1,79 @@
+[gd_scene load_steps=3 format=3 uid="uid://ce1088c0bu02g"]
+
+[ext_resource type="Script" uid="uid://dftxhty2hpwup" path="res://objects/Node Simulation/sim_node.gd" id="2_j8ivh"]
+[ext_resource type="Script" uid="uid://ckdrfipawwquh" path="res://objects/Node Simulation/sim_root.gd" id="2_nd71p"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(97.00001, 75)
+rotation = 3.1415927
+scale = Vector2(0.15646966, -0.11529613)
+zoom = Vector2(-10, -10)
+
+[node name="SimRoot2" type="Node2D" parent="."]
+position = Vector2(76, 78)
+script = ExtResource("2_nd71p")
+metadata/_custom_type_script = "uid://ckdrfipawwquh"
+
+[node name="SimNode" type="Node2D" parent="SimRoot2"]
+top_level = true
+position = Vector2(103, 88)
+script = ExtResource("2_j8ivh")
+is_anchored = true
+metadata/_custom_type_script = "uid://dftxhty2hpwup"
+
+[node name="SimNode2" type="Node2D" parent="SimRoot2/SimNode"]
+top_level = true
+position = Vector2(111.41315, 82.59455)
+script = ExtResource("2_j8ivh")
+metadata/_custom_type_script = "uid://dftxhty2hpwup"
+
+[node name="SimNode3" type="Node2D" parent="SimRoot2/SimNode/SimNode2"]
+top_level = true
+position = Vector2(111.97614, 72.61041)
+script = ExtResource("2_j8ivh")
+metadata/_custom_type_script = "uid://dftxhty2hpwup"
+
+[node name="SimNode4" type="Node2D" parent="SimRoot2/SimNode/SimNode2/SimNode3"]
+top_level = true
+position = Vector2(104.24887, 66.26303)
+script = ExtResource("2_j8ivh")
+metadata/_custom_type_script = "uid://dftxhty2hpwup"
+
+[node name="SimNode5" type="Node2D" parent="SimRoot2/SimNode/SimNode2/SimNode3/SimNode4"]
+top_level = true
+position = Vector2(94.25528, 65.905106)
+script = ExtResource("2_j8ivh")
+metadata/_custom_type_script = "uid://dftxhty2hpwup"
+
+[node name="SimNode6" type="Node2D" parent="SimRoot2/SimNode/SimNode2/SimNode3/SimNode4/SimNode5"]
+top_level = true
+position = Vector2(84.265785, 66.36341)
+script = ExtResource("2_j8ivh")
+metadata/_custom_type_script = "uid://dftxhty2hpwup"
+
+[node name="SimNode7" type="Node2D" parent="SimRoot2/SimNode/SimNode2/SimNode3/SimNode4/SimNode5/SimNode6"]
+top_level = true
+position = Vector2(75.486115, 71.15062)
+script = ExtResource("2_j8ivh")
+metadata/_custom_type_script = "uid://dftxhty2hpwup"
+
+[node name="SimNode8" type="Node2D" parent="SimRoot2/SimNode/SimNode2/SimNode3/SimNode4/SimNode5/SimNode6/SimNode7"]
+top_level = true
+position = Vector2(65.55857, 69.949)
+script = ExtResource("2_j8ivh")
+metadata/_custom_type_script = "uid://dftxhty2hpwup"
+
+[node name="SimNode9" type="Node2D" parent="SimRoot2/SimNode/SimNode2/SimNode3/SimNode4/SimNode5/SimNode6/SimNode7/SimNode8"]
+top_level = true
+position = Vector2(60.98456, 78.8416)
+script = ExtResource("2_j8ivh")
+metadata/_custom_type_script = "uid://dftxhty2hpwup"
+
+[node name="SimNode10" type="Node2D" parent="SimRoot2/SimNode/SimNode2/SimNode3/SimNode4/SimNode5/SimNode6/SimNode7/SimNode8/SimNode9"]
+top_level = true
+position = Vector2(65, 88)
+script = ExtResource("2_j8ivh")
+is_anchored = true
+metadata/_custom_type_script = "uid://dftxhty2hpwup"

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bb1pxqi6pqurf"]
+
+[ext_resource type="Script" uid="uid://dftxhty2hpwup" path="res://objects/Node Simulation/sim_node.gd" id="1_36fma"]
+
+[node name="SimNode" type="Node2D"]
+top_level = true
+script = ExtResource("1_36fma")
+distance_range = Vector2(0, 0)
