@@ -1,10 +1,11 @@
 # TODO
-# Additional constraints:
+# Fixes:
 # - Distance constraint should addidionally check if it even can reach the anchor (by calculating closest anchor, excluding origin)
-# - Angle constraint, will make sure that angle between 2 bones is in some range, or side (uses 2 previous joint positions)
-# - Middle angle constraint, will make sure that current bone is perpendicular to two other bones (uses 1 previous and 1 next joint positions)
+# - Make angle constraint smoother somehow
+#
+# Additional constraints:
+# - Middle angle constraint, will make sure that current bone is perpendicular to two other bones (uses 1 previous and 1 next joint positio
 # - Maybe, on that makes angles even, will make an arch out of the chain (uses 3 previous joint positions)
-# - Maybe, one that positions point between parent and children
 #
 # Visualisation:
 # - Ability to add sprites to follow the bones and joints
@@ -19,6 +20,7 @@
 class_name SimNode extends SimAbstract
 
 @export var is_anchored: bool = false
+@export var is_top_level: bool = true
 
 ## Works only if it has SimRoot parent
 @export var distance_range: Vector2 = Vector2(10, 10);
@@ -29,12 +31,12 @@ class_name SimNode extends SimAbstract
 var sim_root: SimRoot
 var prev_global_position: Vector2
 var visual_position: Vector2
+var wanted_position = null
 
 """
 Setup
 """
 func _ready() -> void:
-	top_level = true
 	visual_position = global_position
 
 func update_sim_root(root):
@@ -46,6 +48,11 @@ Simulation
 """
 # Returns joint that has variables for constraints between some two neighbour joints
 func chain_update():
+	# Updatig some variables
+	top_level = !is_anchored || is_top_level
+	if wanted_position != null:
+		global_position = wanted_position
+		wanted_position = null
 	run_for_every_child("chain_update")
 	if is_anchored:
 		run_for_every_neighbour(null, "constraint_wave", [[self]])
