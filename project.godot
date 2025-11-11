@@ -23,3 +23,7 @@ SceneMenu="*res://scenes/scene_menu.tscn"
 [dotnet]
 
 project/assembly_name="CG 2025 Project Prodecural Animation"
+
+[physics]
+
+common/physics_ticks_per_second=20
