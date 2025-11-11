@@ -1,0 +1,80 @@
+[gd_scene load_steps=7 format=3 uid="uid://gllpygv1egb3"]
+
+[ext_resource type="Script" uid="uid://c87c24p726028" path="res://scripts/polygon_collision.gd" id="1_lg5hv"]
+[ext_resource type="Script" uid="uid://ckdrfipawwquh" path="res://objects/Node Simulation/sim_root.gd" id="2_3r3xl"]
+[ext_resource type="Script" uid="uid://dftxhty2hpwup" path="res://objects/Node Simulation/sim_node.gd" id="3_x408e"]
+[ext_resource type="Script" uid="uid://b6v5i7wyjd843" path="res://scripts/point_towards.gd" id="4_x408e"]
+[ext_resource type="Script" uid="uid://wve0h3pk7sp0" path="res://scenes/track_mouse.gd" id="5_fe581"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fe581"]
+radius = 25.0
+
+[node name="TestLevel" type="Node2D"]
+
+[node name="Terrain" type="StaticBody2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="Terrain"]
+polygon = PackedVector2Array(-176, -146, -172, 689, 1360, 706, 1346, -110, 1157, -108, 1105, 229, 1073, 300, 1016, 351, 282, 448, 138, 388, 79, 274, 23, -142)
+script = ExtResource("1_lg5hv")
+
+[node name="Ball" type="RigidBody2D" parent="."]
+position = Vector2(364, 409)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
+shape = SubResource("CircleShape2D_fe581")
+
+[node name="Polygon2D" type="Polygon2D" parent="Ball"]
+color = Color(1, 0.5, 0.5, 1)
+polygon = PackedVector2Array(25, 0, 18, 18, 0, 25, -18, 18, -25, 0, -18, -18, 0, -25, 18, -18)
+
+[node name="SimRoot" type="Node2D" parent="."]
+script = ExtResource("2_3r3xl")
+draw_debug_bones = 1
+draw_distance_constraint = 1
+metadata/_custom_type_script = "uid://ckdrfipawwquh"
+
+[node name="SimNode" type="Node2D" parent="SimRoot"]
+top_level = true
+position = Vector2(204, 190)
+script = ExtResource("3_x408e")
+is_anchored = true
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="SimRoot/SimNode" node_paths=PackedStringArray("target")]
+rotation = 1.2579829
+script = ExtResource("4_x408e")
+target = NodePath("../SimNode")
+
+[node name="Polygon2D" type="Polygon2D" parent="SimRoot/SimNode/AnimatableBody2D"]
+color = Color(0.65, 0.9241667, 1, 1)
+polygon = PackedVector2Array(-3.6799927, -14.791901, -2.788025, 14.194388, 140.41272, 11.792828, 149.31548, 1.5097523, 141.57617, -8.983261)
+script = ExtResource("1_lg5hv")
+metadata/_edit_lock_ = true
+
+[node name="SimNode" type="Node2D" parent="SimRoot/SimNode"]
+top_level = true
+position = Vector2(247.08315, 323.206)
+script = ExtResource("3_x408e")
+distance_range = Vector2(140, 140)
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="SimRoot/SimNode/SimNode" node_paths=PackedStringArray("target")]
+rotation = 1.2579831
+script = ExtResource("4_x408e")
+target = NodePath("../SimNode")
+
+[node name="Polygon2D" type="Polygon2D" parent="SimRoot/SimNode/SimNode/AnimatableBody2D"]
+color = Color(0.6509804, 0.9254902, 1, 1)
+polygon = PackedVector2Array(-0.41394043, 11.791183, -7.16803, -0.12487793, 1.5227661, -8.982605, 57.1092, -4.7254753, 111.226295, -4.142765, 51.835464, 11.404861)
+script = ExtResource("1_lg5hv")
+metadata/_edit_lock_ = true
+
+[node name="SimNode" type="Node2D" parent="SimRoot/SimNode/SimNode"]
+top_level = true
+position = Vector2(302, 493)
+script = ExtResource("3_x408e")
+is_anchored = true
+distance_range = Vector2(100, 100)
+
+[node name="MouseTracker" type="RemoteTransform2D" parent="."]
+position = Vector2(733, 305.09088)
+remote_path = NodePath("../SimRoot/SimNode/SimNode/SimNode")
+script = ExtResource("5_fe581")
