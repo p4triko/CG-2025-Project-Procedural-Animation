@@ -23,6 +23,9 @@ class_name SimNode extends SimAbstract
 ## Works only if it has SimRoot parent
 @export var distance_range: Vector2 = Vector2(10, 10);
 
+@export var target_angle: float = 0 # From -1 to 1
+@export var angle_sway: float = 1 # From 0 to 1
+
 var sim_root: SimRoot
 var prev_global_position: Vector2
 var visual_position: Vector2
@@ -45,28 +48,36 @@ Simulation
 func chain_update():
 	run_for_every_child("chain_update")
 	if is_anchored:
-		run_for_every_neighbour(null, "constraint_wave", [self])
+		run_for_every_neighbour(null, "constraint_wave", [[self]])
+		return
+	apply_angle_constraint()
 
-func constraint_wave(origin):
+func constraint_wave(history: Array):
 	if is_anchored: return
 	# If it is an node that can actually move
 	# Applying different constraints
-	apply_distance_constraint(origin)
-	apply_angle_constraint(origin)
-	run_for_every_neighbour(origin, "constraint_wave", [self])
+	apply_distance_constraint(history[-1])
+	run_for_every_neighbour(history[-1], "constraint_wave", [history + [self]])
 
 func get_neighbour_joint_data(joint: SimNode): 
 	return self if get_parent() == joint else joint
 
-func apply_distance_constraint(origin: SimNode):
-	var distance = get_neighbour_joint_data(origin).distance_range
-	var idk_vector = global_position - origin.global_position
-	var idk_vector_length = idk_vector.length()
-	idk_vector = idk_vector.normalized()
-	global_position = origin.global_position + idk_vector * clampf(idk_vector_length, min(distance.x, distance.y), max(distance.x, distance.y))
+func apply_distance_constraint(prev: SimNode):
+	var distance = get_neighbour_joint_data(prev).distance_range
+	var vector_to = global_position - prev.global_position
+	var vector_length = vector_to.length()
+	vector_to = vector_to.normalized()
+	global_position = prev.global_position + vector_to * clampf(vector_length, min(distance.x, distance.y), max(distance.x, distance.y))
 
-func apply_angle_constraint(origin: SimNode):
-	pass
+func apply_angle_constraint():
+	if get_parent().get_parent() is not SimNode: return
+	var vec_main: Vector2 = self.global_position - get_parent() .global_position
+	var vec_sec: Vector2 = get_parent().global_position - get_parent().get_parent().global_position
+	var angle: float = vec_sec.angle_to(vec_main)
+	var clamped_angle = clamp(angle - target_angle*PI, -angle_sway*PI, angle_sway*PI) + target_angle*PI
+	var new_vec = Vector2.from_angle(vec_sec.angle() + clamped_angle) * vec_main.length()
+	global_position = get_parent().global_position + new_vec
+	
 
 """
 Rendering
@@ -74,7 +85,10 @@ Rendering
 func interpolate_visuals():
 	run_for_every_child("interpolate_visuals")
 	# Linear interpolation for visuals
-	visual_position = lerp(prev_global_position, global_position, Engine.get_physics_interpolation_fraction())
+	if sim_root.enable_interpolation:
+		visual_position = lerp(prev_global_position, global_position, Engine.get_physics_interpolation_fraction())
+	else:
+		visual_position = global_position
 
 func save_prev_position():
 	prev_global_position = global_position

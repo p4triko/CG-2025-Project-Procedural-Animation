@@ -5,6 +5,8 @@ class_name SimRoot extends SimAbstract
 @export_enum("All", "Debug", "None") var draw_debug_bones: int = 0
 @export_enum("All", "Debug", "None") var draw_distance_constraint: int = 0
 
+@export var enable_interpolation: bool = true
+
 ## Event setup # Maybe change to ready?
 func _ready() -> void:
 	run_for_every_child("update_sim_root", [self])
