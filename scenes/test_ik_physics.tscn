@@ -14,7 +14,7 @@ radius = 25.0
 [node name="Terrain" type="StaticBody2D" parent="."]
 
 [node name="Polygon2D" type="Polygon2D" parent="Terrain"]
-polygon = PackedVector2Array(-176, -146, -172, 689, 1360, 706, 1346, -110, 1157, -108, 1105, 229, 1073, 300, 1016, 351, 282, 448, 138, 388, 79, 274, 23, -142)
+polygon = PackedVector2Array(-425, -137, -411, 1018, 1855, 1012, 1852, -115, 1157, -108, 1105, 229, 1073, 300, 1016, 351, 282, 448, 138, 388, 79, 274, 23, -142)
 script = ExtResource("1_lg5hv")
 
 [node name="Ball" type="RigidBody2D" parent="."]
@@ -40,7 +40,7 @@ script = ExtResource("3_x408e")
 is_anchored = true
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="SimRoot/SimNode" node_paths=PackedStringArray("target")]
-rotation = 1.2579829
+rotation = 0.21422471
 script = ExtResource("4_x408e")
 target = NodePath("../SimNode")
 
@@ -52,12 +52,12 @@ metadata/_edit_lock_ = true
 
 [node name="SimNode" type="Node2D" parent="SimRoot/SimNode"]
 top_level = true
-position = Vector2(247.08315, 323.206)
+position = Vector2(340.7998, 219.76259)
 script = ExtResource("3_x408e")
 distance_range = Vector2(140, 140)
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="SimRoot/SimNode/SimNode" node_paths=PackedStringArray("target")]
-rotation = 1.2579831
+rotation = 0.21422473
 script = ExtResource("4_x408e")
 target = NodePath("../SimNode")
 
@@ -69,7 +69,7 @@ metadata/_edit_lock_ = true
 
 [node name="SimNode" type="Node2D" parent="SimRoot/SimNode/SimNode"]
 top_level = true
-position = Vector2(302, 493)
+position = Vector2(733, 305.09088)
 script = ExtResource("3_x408e")
 is_anchored = true
 distance_range = Vector2(100, 100)
@@ -78,3 +78,6 @@ distance_range = Vector2(100, 100)
 position = Vector2(733, 305.09088)
 remote_path = NodePath("../SimRoot/SimNode/SimNode/SimNode")
 script = ExtResource("5_fe581")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(588, 233)
