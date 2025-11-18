@@ -13,123 +13,140 @@ scale = Vector2(0.15646966, -0.11529613)
 zoom = Vector2(10, 10)
 
 [node name="SimRoot2" type="Node2D" parent="."]
-position = Vector2(59, 77)
+position = Vector2(4, -18)
 script = ExtResource("2_nd71p")
-draw_distance_constraint = 1
+draw_distance_constraint = 2
 metadata/_custom_type_script = "uid://ckdrfipawwquh"
 
 [node name="SimNode" type="Node2D" parent="SimRoot2"]
 top_level = true
-position = Vector2(6, -15)
+position = Vector2(59, -48)
 script = ExtResource("2_j8ivh")
 is_anchored = true
 metadata/_custom_type_script = "uid://dftxhty2hpwup"
 
 [node name="SimNode2" type="Node2D" parent="SimRoot2/SimNode"]
 top_level = true
-position = Vector2(4.4287415, -5.124214)
+position = Vector2(52.695564, -40.237648)
 script = ExtResource("2_j8ivh")
-angle_sway = 0.25
+allowed_angle_polarity = null
 metadata/_custom_type_script = "uid://dftxhty2hpwup"
 
 [node name="SimNode3" type="Node2D" parent="SimRoot2/SimNode/SimNode2"]
 top_level = true
-position = Vector2(-3.354066, 1.1549501)
+position = Vector2(44.819786, -34.075497)
 script = ExtResource("2_j8ivh")
 angle_sway = 0.25
+allowed_angle_polarity = null
 metadata/_custom_type_script = "uid://dftxhty2hpwup"
 
 [node name="SimNode4" type="Node2D" parent="SimRoot2/SimNode/SimNode2/SimNode3"]
 top_level = true
-position = Vector2(-10.02846, 8.601592)
+position = Vector2(35.42636, -30.64569)
 script = ExtResource("2_j8ivh")
 angle_sway = 0.25
+allowed_angle_polarity = null
 metadata/_custom_type_script = "uid://dftxhty2hpwup"
 
 [node name="SimNode3" type="Node2D" parent="SimRoot2/SimNode/SimNode2/SimNode3/SimNode4"]
 top_level = true
-position = Vector2(-10.227122, 18.599619)
+position = Vector2(25.459148, -29.836569)
 script = ExtResource("2_j8ivh")
 angle_sway = 0.25
+allowed_angle_polarity = null
 metadata/_custom_type_script = "uid://dftxhty2hpwup"
 
 [node name="SimNode3" type="Node2D" parent="SimRoot2/SimNode/SimNode2/SimNode3/SimNode4/SimNode3"]
 top_level = true
-position = Vector2(-3.2979279, 25.809769)
+position = Vector2(15.492598, -30.653793)
 script = ExtResource("2_j8ivh")
 angle_sway = 0.25
+allowed_angle_polarity = null
 metadata/_custom_type_script = "uid://dftxhty2hpwup"
 
 [node name="SimNode4" type="Node2D" parent="SimRoot2/SimNode/SimNode2/SimNode3/SimNode4/SimNode3/SimNode3"]
 top_level = true
-position = Vector2(6.700099, 26.008434)
+position = Vector2(5.6072683, -32.16385)
 script = ExtResource("2_j8ivh")
 angle_sway = 0.25
+allowed_angle_polarity = null
 metadata/_custom_type_script = "uid://dftxhty2hpwup"
 
 [node name="SimNode4" type="Node2D" parent="SimRoot2/SimNode/SimNode2/SimNode3/SimNode4/SimNode3/SimNode3/SimNode4"]
 top_level = true
-position = Vector2(13.910249, 19.079239)
+position = Vector2(-4.252653, -33.831764)
 script = ExtResource("2_j8ivh")
 angle_sway = 0.25
+allowed_angle_polarity = null
 metadata/_custom_type_script = "uid://dftxhty2hpwup"
 
 [node name="SimNode3" type="Node2D" parent="SimRoot2/SimNode/SimNode2/SimNode3/SimNode4/SimNode3/SimNode3/SimNode4/SimNode4"]
 top_level = true
-position = Vector2(14.108913, 9.081212)
+position = Vector2(-14.120958, -35.44934)
 script = ExtResource("2_j8ivh")
 angle_sway = 0.25
+allowed_angle_polarity = null
 metadata/_custom_type_script = "uid://dftxhty2hpwup"
 
 [node name="SimNode4" type="Node2D" parent="SimRoot2/SimNode/SimNode2/SimNode3/SimNode4/SimNode3/SimNode3/SimNode4/SimNode4/SimNode3"]
 top_level = true
-position = Vector2(7.179717, 1.8710632)
+position = Vector2(-24, -37)
 script = ExtResource("2_j8ivh")
+is_anchored = true
 angle_sway = 0.25
+allowed_angle_polarity = null
 metadata/_custom_type_script = "uid://dftxhty2hpwup"
 
 [node name="SimNode5" type="Node2D" parent="SimRoot2/SimNode/SimNode2/SimNode3/SimNode4/SimNode3/SimNode3/SimNode4/SimNode4/SimNode3/SimNode4"]
 top_level = true
-position = Vector2(-2.8183098, 1.6724006)
+position = Vector2(-32.082016, -31.110943)
 script = ExtResource("2_j8ivh")
 target_angle = -0.25
 angle_sway = 0.0
+allowed_angle_polarity = null
 metadata/_custom_type_script = "uid://dftxhty2hpwup"
 
 [node name="SimNode6" type="Node2D" parent="SimRoot2/SimNode/SimNode2/SimNode3/SimNode4/SimNode3/SimNode3/SimNode4/SimNode4/SimNode3/SimNode4"]
 top_level = true
-position = Vector2(7.3783803, -8.126964)
+position = Vector2(-29.889053, -45.08202)
 script = ExtResource("2_j8ivh")
 target_angle = 0.25
 angle_sway = 0.0
+allowed_angle_polarity = null
 metadata/_custom_type_script = "uid://dftxhty2hpwup"
 
 [node name="SimNode5" type="Node2D" parent="SimRoot2/SimNode/SimNode2/SimNode3/SimNode4/SimNode3"]
 top_level = true
-position = Vector2(-17.156319, 11.389471)
+position = Vector2(31.934895, -37.45659)
 script = ExtResource("2_j8ivh")
 target_angle = 0.75
 angle_sway = 0.0
+allowed_angle_polarity = null
 metadata/_custom_type_script = "uid://dftxhty2hpwup"
 
 [node name="SimNode7" type="Node2D" parent="SimRoot2/SimNode/SimNode2/SimNode3/SimNode4/SimNode3/SimNode5"]
 top_level = true
-position = Vector2(-24.085514, 4.1793222)
+position = Vector2(41.902107, -38.265713)
 script = ExtResource("2_j8ivh")
+target_angle = 0.25
 angle_sway = 0.0
+allowed_angle_polarity = null
 metadata/_custom_type_script = "uid://dftxhty2hpwup"
 
 [node name="SimNode6" type="Node2D" parent="SimRoot2/SimNode/SimNode2/SimNode3/SimNode4/SimNode3"]
 top_level = true
-position = Vector2(-3.0169744, 11.670422)
+position = Vector2(33.079166, -23.36082)
 script = ExtResource("2_j8ivh")
 target_angle = -0.75
 angle_sway = 0.0
+allowed_angle_polarity = null
 metadata/_custom_type_script = "uid://dftxhty2hpwup"
 
 [node name="SimNode7" type="Node2D" parent="SimRoot2/SimNode/SimNode2/SimNode3/SimNode4/SimNode3/SimNode6"]
 top_level = true
-position = Vector2(4.193173, 4.741225)
+position = Vector2(43.04638, -24.16994)
 script = ExtResource("2_j8ivh")
+target_angle = -0.25
 angle_sway = 0.0
+allowed_angle_polarity = null
 metadata/_custom_type_script = "uid://dftxhty2hpwup"

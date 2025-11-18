@@ -1,20 +1,16 @@
 # TODO
-# Fixes:
-# - Distance constraint should addidionally check if it even can reach the anchor (by calculating closest anchor, excluding origin)
-# - Make angle constraint smoother somehow
-#
+# Fix angle constraint to use CCD IK. It will begin from root of the tree and try to get just one anchor child to its wanted position.
+# 
 # Additional constraints:
-# - Middle angle constraint, will make sure that current bone is perpendicular to two other bones (uses 1 previous and 1 next joint positio
-# - Maybe, on that makes angles even, will make an arch out of the chain (uses 3 previous joint positions)
+# - Makes angles even, will make an arch out of the chain (uses 3 previous node positions), uses curve for sahape
 #
 # Visualisation:
 # - Ability to add sprites to follow the bones and joints
+# - Creates Path2D from the nodes
 #
-# System for non-linearly smoothing out actual movement in _physics_process:
-# - Just interpolating node towards end position
-# - Interpolating joing without changing distance - interpolating the angle
-# For both of those there has to be some interpolation system like here https://www.youtube.com/watch?v=KPoeNZZ6H4s
-# Note: It wont be just visual, just visual interpolation is already implemented in _process
+# Implement this thing for anchors (interpolation, for smoother movement): https://www.youtube.com/watch?v=KPoeNZZ6H4s
+# The nodes will update instantly, it only matters to make the anchors smooth
+# Note: Visual interpolation is already implemented in _process
 
 @tool @icon("res://assets/images/SimNode_icon.png")
 class_name SimNode extends SimAbstract
@@ -25,12 +21,16 @@ class_name SimNode extends SimAbstract
 ## Works only if it has SimRoot parent
 @export var distance_range: Vector2 = Vector2(10, 10);
 
-@export var target_angle: float = 0 # From -1 to 1
-@export var angle_sway: float = 1 # From 0 to 1
+## From -1 to 1
+@export var target_angle: float = 0
+## From 0 to 1
+@export var angle_sway: float = 1
+
+@export_enum("Both", "Right", "Left") var allowed_angle_polarity: int = 0 
 
 var sim_root: SimRoot
-var prev_global_position: Vector2
-var visual_position: Vector2
+var prev_global_position: Vector2 = Vector2.ZERO
+var visual_position: Vector2 = Vector2.ZERO
 var wanted_position = null
 
 """
@@ -38,6 +38,9 @@ Setup
 """
 func _ready() -> void:
 	visual_position = global_position
+
+func _enter_tree() -> void:
+	sim_root = get_parent().sim_root
 
 func update_sim_root(root):
 	sim_root = root
@@ -57,13 +60,13 @@ func chain_update():
 	if is_anchored:
 		run_for_every_neighbour(null, "constraint_wave", [[self]])
 		return
-	apply_angle_constraint()
 
 func constraint_wave(history: Array):
-	if is_anchored: return
-	# If it is an node that can actually move
+	if is_anchored: return # If it is an node that can actually move
 	# Applying different constraints
+	apply_angle_constraint()
 	apply_distance_constraint(history[-1])
+	
 	run_for_every_neighbour(history[-1], "constraint_wave", [history + [self]])
 
 func get_neighbour_joint_data(joint: SimNode): 
@@ -77,11 +80,20 @@ func apply_distance_constraint(prev: SimNode):
 	global_position = prev.global_position + vector_to * clampf(vector_length, min(distance.x, distance.y), max(distance.x, distance.y))
 
 func apply_angle_constraint():
-	if get_parent().get_parent() is not SimNode: return
+	if get_parent() is not SimNode: return
+	
 	var vec_main: Vector2 = self.global_position - get_parent() .global_position
-	var vec_sec: Vector2 = get_parent().global_position - get_parent().get_parent().global_position
+	var vec_sec: Vector2
+	if get_parent().get_parent() is not SimNode:
+		vec_sec = Vector2.UP
+	else:
+		vec_sec = get_parent().global_position - get_parent().get_parent().global_position
+	if vec_main.length() == 0 || vec_sec.length() == 0: return
+	
 	var angle: float = vec_sec.angle_to(vec_main)
 	var clamped_angle = clamp(angle - target_angle*PI, -angle_sway*PI, angle_sway*PI) + target_angle*PI
+	
+	
 	var new_vec = Vector2.from_angle(vec_sec.angle() + clamped_angle) * vec_main.length()
 	global_position = get_parent().global_position + new_vec
 	
