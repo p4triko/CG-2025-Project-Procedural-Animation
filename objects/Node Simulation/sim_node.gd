@@ -59,44 +59,53 @@ func chain_update():
 	run_for_every_child("chain_update")
 	if is_anchored:
 		run_for_every_neighbour(null, "constraint_wave", [[self]])
-		return
 
 func constraint_wave(history: Array):
-	if is_anchored: return # If it is an node that can actually move
 	# Applying different constraints
 	apply_angle_constraint()
+	apply_polarity_constraint()
 	apply_distance_constraint(history[-1])
 	
+	if is_anchored: return
 	run_for_every_neighbour(history[-1], "constraint_wave", [history + [self]])
 
 func get_neighbour_joint_data(joint: SimNode): 
 	return self if get_parent() == joint else joint
 
 func apply_distance_constraint(prev: SimNode):
-	var distance = get_neighbour_joint_data(prev).distance_range
-	var vector_to = global_position - prev.global_position
-	var vector_length = vector_to.length()
-	vector_to = vector_to.normalized()
-	global_position = prev.global_position + vector_to * clampf(vector_length, min(distance.x, distance.y), max(distance.x, distance.y))
+	if !is_anchored:
+		var distance = get_neighbour_joint_data(prev).distance_range
+		var vector_to = global_position - prev.global_position
+		var vector_length = vector_to.length()
+		vector_to = vector_to.normalized()
+		global_position = prev.global_position + vector_to * clampf(vector_length, min(distance.x, distance.y), max(distance.x, distance.y))
 
 func apply_angle_constraint():
 	if get_parent() is not SimNode: return
 	
 	var vec_main: Vector2 = self.global_position - get_parent() .global_position
 	var vec_sec: Vector2
-	if get_parent().get_parent() is not SimNode:
-		vec_sec = Vector2.UP
-	else:
-		vec_sec = get_parent().global_position - get_parent().get_parent().global_position
-	if vec_main.length() == 0 || vec_sec.length() == 0: return
-	
+	if get_parent().get_parent() is not SimNode: vec_sec = Vector2.UP
+	else: vec_sec = get_parent().global_position - get_parent().get_parent().global_position
 	var angle: float = vec_sec.angle_to(vec_main)
+	
+	if vec_main.length() == 0 || vec_sec.length() == 0: return
 	var clamped_angle = clamp(angle - target_angle*PI, -angle_sway*PI, angle_sway*PI) + target_angle*PI
-	
-	
 	var new_vec = Vector2.from_angle(vec_sec.angle() + clamped_angle) * vec_main.length()
 	global_position = get_parent().global_position + new_vec
+
+func apply_polarity_constraint():
+	if get_parent() is not SimNode: return
+	var vec_main = self.global_position - get_parent() .global_position
+	var vec_sec: Vector2
+	if get_parent().get_parent() is not SimNode: vec_sec = Vector2.UP
+	else: vec_sec = get_parent().global_position - get_parent().get_parent().global_position
+	var angle = vec_sec.angle_to(vec_main)
+	if vec_main.length() == 0 || vec_sec.length() == 0: return
 	
+	if !get_parent().is_anchored && get_parent().allowed_angle_polarity != 0:
+		if angle <= 0 if get_parent().allowed_angle_polarity == 1 else angle >= 0:
+			get_parent().global_position += 2 * ((get_parent().get_parent().global_position + global_position)/2 - get_parent().global_position)
 
 """
 Rendering

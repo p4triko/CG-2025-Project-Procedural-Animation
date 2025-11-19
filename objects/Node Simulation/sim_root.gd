@@ -7,7 +7,12 @@ class_name SimRoot extends SimAbstract
 
 @export var enable_interpolation: bool = true
 
+var sim_root: SimRoot
+
 ## Event setup # Maybe change to ready?
+func _enter_tree() -> void:
+	sim_root = self
+
 func _ready() -> void:
 	run_for_every_child("update_sim_root", [self])
 
