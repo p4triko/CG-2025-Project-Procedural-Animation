@@ -32,19 +32,44 @@ func _process(_delta: float) -> void:
 
 func _draw() -> void:
 	transform = Transform2D()
+	# Bone texture
 	for sim_node in sim_nodes:
-		if sim_node.get_parent() is not SimRoot and sim_node.bone_texture:
-			var tex: Texture2D = sim_node.bone_texture
-			var self_pos: Vector2 = (sim_node.global_position)
-			var parent_pos: Vector2 = (sim_node.get_parent().global_position)
-			var distance = self_pos.distance_to(parent_pos)
+		if !sim_node.bone_texture: continue
+		if sim_node.get_parent() is not SimNode: continue
+		
+		var tex: Texture2D = sim_node.bone_texture
+		var self_pos: Vector2 = sim_node.global_position
+		var parent_pos: Vector2 = sim_node.get_parent().global_position
+		var distance = self_pos.distance_to(parent_pos)
+		
+		var x_axis = (self_pos - parent_pos).normalized()
+		var y_axis = x_axis.rotated(deg_to_rad(90))
+		var image_transform: Transform2D = Transform2D(
+			x_axis/tex.get_size() * distance, 
+			y_axis/tex.get_size() * sim_node.bone_texture_y_scale, 
+			parent_pos - y_axis/2*sim_node.bone_texture_y_scale
+		)
+		draw_set_transform_matrix(image_transform)
+		draw_texture(tex, Vector2.ZERO, modulate)
+	
+	# Joint texture
+	for sim_node in sim_nodes:
+		if !sim_node.joint_texture: continue
+		
+		var parent_joint_exists = sim_node.get_parent() is SimNode
+		var child_joint_exists = sim_node.get_children() != [] and sim_node.get_child(0) is SimNode
 			
-			var x_axis = (self_pos - parent_pos).normalized()
-			var y_axis = x_axis.rotated(deg_to_rad(90))
-			var image_transform: Transform2D = Transform2D(
-				x_axis/tex.get_size() * distance, 
-				y_axis/tex.get_size() * sim_node.texture_y_scale, 
-				(parent_pos - y_axis/2*sim_node.texture_y_scale)
-			)
-			draw_set_transform_matrix(image_transform)
-			draw_texture(sim_node.bone_texture, Vector2.ZERO, modulate)
+		var tex: Texture2D = sim_node.joint_texture
+		var self_pos: Vector2 = sim_node.global_position
+		var parent_pos: Vector2 = sim_node.get_parent().global_position if parent_joint_exists else self_pos
+		var child_pos: Vector2 = sim_node.get_child(0).global_position if child_joint_exists else self_pos
+		
+		var x_axis = ((self_pos - parent_pos).normalized() + (child_pos - self_pos).normalized()).normalized()
+		var y_axis = x_axis.rotated(deg_to_rad(90))
+		var image_transform: Transform2D = Transform2D(
+			x_axis/tex.get_size() * sim_node.joint_texture_scale, 
+			y_axis/tex.get_size() * sim_node.joint_texture_scale, 
+			self_pos - (x_axis + y_axis)*sim_node.joint_texture_scale/2
+		)
+		draw_set_transform_matrix(image_transform)
+		draw_texture(tex, Vector2.ZERO, modulate)

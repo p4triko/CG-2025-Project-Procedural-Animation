@@ -30,7 +30,9 @@ class_name SimNode extends SimAbstract
 
 @export var bone_texture: Texture
 @export var joint_texture: Texture
-@export var texture_y_scale: float = 1
+@export var bone_texture_y_scale: float = 1
+@export var joint_texture_scale: float = 1
+
 
 var sim_root: SimRoot
 var prev_global_position: Vector2 = Vector2.ZERO
