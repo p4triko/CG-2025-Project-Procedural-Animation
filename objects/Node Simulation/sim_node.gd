@@ -28,6 +28,10 @@ class_name SimNode extends SimAbstract
 
 @export_enum("Both", "Right", "Left") var allowed_angle_polarity: int = 0 
 
+@export var bone_texture: Texture
+@export var joint_texture: Texture
+@export var texture_y_scale: float = 1
+
 var sim_root: SimRoot
 var prev_global_position: Vector2 = Vector2.ZERO
 var visual_position: Vector2 = Vector2.ZERO
@@ -81,31 +85,34 @@ func apply_distance_constraint(prev: SimNode):
 		global_position = prev.global_position + vector_to * clampf(vector_length, min(distance.x, distance.y), max(distance.x, distance.y))
 
 func apply_angle_constraint():
+	if is_anchored: return
 	if get_parent() is not SimNode: return
 	
 	var vec_main: Vector2 = self.global_position - get_parent() .global_position
 	var vec_sec: Vector2
 	if get_parent().get_parent() is not SimNode: vec_sec = Vector2.UP
 	else: vec_sec = get_parent().global_position - get_parent().get_parent().global_position
-	var angle: float = vec_sec.angle_to(vec_main)
-	
 	if vec_main.length() == 0 || vec_sec.length() == 0: return
+	
+	var angle: float = vec_sec.angle_to(vec_main)
 	var clamped_angle = clamp(angle - target_angle*PI, -angle_sway*PI, angle_sway*PI) + target_angle*PI
 	var new_vec = Vector2.from_angle(vec_sec.angle() + clamped_angle) * vec_main.length()
 	global_position = get_parent().global_position + new_vec
 
 func apply_polarity_constraint():
-	if get_parent() is not SimNode: return
-	var vec_main = self.global_position - get_parent() .global_position
-	var vec_sec: Vector2
-	if get_parent().get_parent() is not SimNode: vec_sec = Vector2.UP
-	else: vec_sec = get_parent().global_position - get_parent().get_parent().global_position
-	var angle = vec_sec.angle_to(vec_main)
-	if vec_main.length() == 0 || vec_sec.length() == 0: return
+	if allowed_angle_polarity == 0: return
+	if is_anchored: return
+	if get_children() == []: return
 	
-	if !get_parent().is_anchored && get_parent().allowed_angle_polarity != 0:
-		if angle <= 0 if get_parent().allowed_angle_polarity == 1 else angle >= 0:
-			get_parent().global_position += 2 * ((get_parent().get_parent().global_position + global_position)/2 - get_parent().global_position)
+	var vec_child = get_child(0).global_position - global_position
+	var vec_parent: Vector2
+	if get_parent() is not SimNode: vec_parent = Vector2.UP
+	else: vec_parent = global_position - get_parent().global_position
+	if vec_child.length() == 0 || vec_parent.length() == 0: return
+	
+	var angle = vec_parent.angle_to(vec_child)
+	if angle <= 0 if allowed_angle_polarity == 1 else angle >= 0:
+		global_position += 2 * ((get_parent().global_position + get_child(0).global_position)/2 - global_position)
 
 """
 Rendering
@@ -126,13 +133,17 @@ func queue_redraws():
 	run_for_every_child("queue_redraws")
 	queue_redraw();
 
+func update_node_list():
+	if sim_root:
+		sim_root.sim_nodes.append(self)
+	run_for_every_child("update_node_list")
+
 func _draw() -> void:
+	# Debug draw
 	var do_draw_bones = check_debug_enum(sim_root.draw_debug_bones)
 	var do_draw_constraints = check_debug_enum(sim_root.draw_distance_constraint)
-	
 	seed(hash(get_path()))
 	var bone_color = Color(randf(), randf(), randf())
-	
 	var local_visual_position = visual_position - global_position
 	if get_parent() is SimNode:
 		var parent_local_visual_position = get_parent().visual_position - global_position
