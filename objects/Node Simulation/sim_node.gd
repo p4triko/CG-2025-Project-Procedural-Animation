@@ -56,12 +56,17 @@ Simulation
 # Returns joint that has variables for constraints between some two neighbour joints
 func chain_update():
 	# Updatig some variables
-	top_level = !is_anchored || is_top_level
+	if Engine.is_editor_hint() && !sim_root.simulate_in_debug:
+		top_level = false
+	else:
+		top_level = !is_anchored || is_top_level
+		
 	if wanted_position != null:
 		global_position = wanted_position
 		wanted_position = null
 	run_for_every_child("chain_update")
-	if is_anchored:
+	
+	if is_anchored && !(Engine.is_editor_hint() && !sim_root.simulate_in_debug):
 		run_for_every_neighbour(null, "constraint_wave", [[self]])
 
 func constraint_wave(history: Array):
@@ -120,7 +125,7 @@ Rendering
 func interpolate_visuals():
 	run_for_every_child("interpolate_visuals")
 	# Linear interpolation for visuals
-	if sim_root.enable_interpolation:
+	if sim_root.enable_physics_interpolation:
 		visual_position = lerp(prev_global_position, global_position, Engine.get_physics_interpolation_fraction())
 	else:
 		visual_position = global_position
