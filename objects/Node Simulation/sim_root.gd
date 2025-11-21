@@ -45,9 +45,9 @@ func _draw() -> void:
 		var x_axis = (self_pos - parent_pos).normalized()
 		var y_axis = x_axis.rotated(deg_to_rad(90))
 		var image_transform: Transform2D = Transform2D(
-			x_axis/tex.get_size() * distance, 
-			y_axis/tex.get_size() * sim_node.bone_texture_y_scale, 
-			parent_pos - y_axis/2*sim_node.bone_texture_y_scale
+			x_axis/tex.get_size().x * distance, 
+			y_axis * sim_node.bone_texture_y_scale, 
+			parent_pos - y_axis/2*sim_node.bone_texture_y_scale*tex.get_size().y
 		)
 		draw_set_transform_matrix(image_transform)
 		draw_texture(tex, Vector2.ZERO, modulate)
@@ -67,8 +67,8 @@ func _draw() -> void:
 		var x_axis = ((self_pos - parent_pos).normalized() + (child_pos - self_pos).normalized()).normalized()
 		var y_axis = x_axis.rotated(deg_to_rad(90))
 		var image_transform: Transform2D = Transform2D(
-			x_axis/tex.get_size() * sim_node.joint_texture_scale, 
-			y_axis/tex.get_size() * sim_node.joint_texture_scale, 
+			x_axis/tex.get_size().x * sim_node.joint_texture_scale, 
+			y_axis/tex.get_size().y * sim_node.joint_texture_scale, 
 			self_pos - (x_axis + y_axis)*sim_node.joint_texture_scale/2
 		)
 		draw_set_transform_matrix(image_transform)

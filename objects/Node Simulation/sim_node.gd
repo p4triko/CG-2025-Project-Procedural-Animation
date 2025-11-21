@@ -5,7 +5,6 @@
 # - Makes angles even, will make an arch out of the chain (uses 3 previous node positions), uses curve for sahape
 #
 # Visualisation:
-# - Ability to add sprites to follow the bones and joints
 # - Creates Path2D from the nodes
 #
 # Implement this thing for anchors (interpolation, for smoother movement): https://www.youtube.com/watch?v=KPoeNZZ6H4s
@@ -32,7 +31,6 @@ class_name SimNode extends SimAbstract
 @export var joint_texture: Texture
 @export var bone_texture_y_scale: float = 1
 @export var joint_texture_scale: float = 1
-
 
 var sim_root: SimRoot
 var prev_global_position: Vector2 = Vector2.ZERO

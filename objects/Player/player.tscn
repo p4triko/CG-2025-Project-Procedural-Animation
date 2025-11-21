@@ -1,10 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://c0pigba0ihfvs"]
+[gd_scene load_steps=8 format=3 uid="uid://c0pigba0ihfvs"]
 
 [ext_resource type="Script" uid="uid://btxtc8h4my7xj" path="res://objects/Player/player.gd" id="1_fwodp"]
 [ext_resource type="Texture2D" uid="uid://drkij5rd4qwh6" path="res://assets/images/Spider/spider_body.png" id="2_76bfe"]
 [ext_resource type="Script" uid="uid://ckdrfipawwquh" path="res://objects/Node Simulation/sim_root.gd" id="3_8e3mr"]
 [ext_resource type="Script" uid="uid://dftxhty2hpwup" path="res://objects/Node Simulation/sim_node.gd" id="4_sp50d"]
-[ext_resource type="Texture2D" uid="uid://dyqq6uaewyaa1" path="res://assets/images/icon.png" id="5_8e3mr"]
+[ext_resource type="Texture2D" uid="uid://dl6t6e0hmpusc" path="res://assets/images/Spider/spider_legs.png" id="6_sp50d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8e3mr"]
+atlas = ExtResource("6_sp50d")
+region = Rect2(0, 35, 49, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sp50d"]
+atlas = ExtResource("6_sp50d")
+region = Rect2(0, 97, 49, 6)
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_fwodp")
@@ -24,29 +32,25 @@ top_level = true
 position = Vector2(20, 10)
 script = ExtResource("4_sp50d")
 is_anchored = true
-distance_range = Vector2(35, 35)
-bone_texture = ExtResource("5_8e3mr")
-joint_texture = ExtResource("5_8e3mr")
+distance_range = Vector2(49, 49)
 metadata/_custom_type_script = "uid://dftxhty2hpwup"
 
 [node name="LegRightNear2" type="Node2D" parent="SimRoot/LegRightNear1"]
 top_level = true
-position = Vector2(50.85857, -6.5151024)
+position = Vector2(68.78189, 14.618142)
 script = ExtResource("4_sp50d")
-distance_range = Vector2(35, 35)
+distance_range = Vector2(49, 49)
 allowed_angle_polarity = 1
-bone_texture = ExtResource("5_8e3mr")
-joint_texture = ExtResource("5_8e3mr")
+bone_texture = SubResource("AtlasTexture_8e3mr")
 metadata/_custom_type_script = "uid://dftxhty2hpwup"
 
 [node name="LegRightNear3" type="Node2D" parent="SimRoot/LegRightNear1/LegRightNear2"]
 top_level = true
-position = Vector2(68, 24)
+position = Vector2(46, 58)
 script = ExtResource("4_sp50d")
 is_anchored = true
-distance_range = Vector2(35, 35)
-bone_texture = ExtResource("5_8e3mr")
-joint_texture = ExtResource("5_8e3mr")
+distance_range = Vector2(49, 49)
+bone_texture = SubResource("AtlasTexture_sp50d")
 metadata/_custom_type_script = "uid://dftxhty2hpwup"
 
 [node name="LegRightFar1" type="Node2D" parent="SimRoot"]
@@ -54,29 +58,25 @@ top_level = true
 position = Vector2(-20, -10)
 script = ExtResource("4_sp50d")
 is_anchored = true
-distance_range = Vector2(35, 35)
-bone_texture = ExtResource("5_8e3mr")
-joint_texture = ExtResource("5_8e3mr")
+distance_range = Vector2(49, 49)
 metadata/_custom_type_script = "uid://dftxhty2hpwup"
 
 [node name="LegRightFar2" type="Node2D" parent="SimRoot/LegRightFar1"]
 top_level = true
-position = Vector2(-47.412254, -31.761623)
+position = Vector2(-68.478386, -17.13065)
 script = ExtResource("4_sp50d")
-distance_range = Vector2(35, 35)
+distance_range = Vector2(49, 49)
 allowed_angle_polarity = 2
-bone_texture = ExtResource("5_8e3mr")
-joint_texture = ExtResource("5_8e3mr")
+bone_texture = SubResource("AtlasTexture_8e3mr")
 metadata/_custom_type_script = "uid://dftxhty2hpwup"
 
 [node name="LegRightFar3" type="Node2D" parent="SimRoot/LegRightFar1/LegRightFar2"]
 top_level = true
-position = Vector2(-74, -9)
+position = Vector2(-85, 29)
 script = ExtResource("4_sp50d")
 is_anchored = true
-distance_range = Vector2(35, 35)
-bone_texture = ExtResource("5_8e3mr")
-joint_texture = ExtResource("5_8e3mr")
+distance_range = Vector2(49, 49)
+bone_texture = SubResource("AtlasTexture_sp50d")
 metadata/_custom_type_script = "uid://dftxhty2hpwup"
 
 [node name="LegLeftFar1" type="Node2D" parent="SimRoot"]
@@ -84,34 +84,25 @@ top_level = true
 position = Vector2(20, -10)
 script = ExtResource("4_sp50d")
 is_anchored = true
-distance_range = Vector2(35, 35)
-bone_texture = ExtResource("5_8e3mr")
-joint_texture = ExtResource("5_8e3mr")
-bone_texture_y_scale = 8.0
-joint_texture_scale = 8.0
+distance_range = Vector2(49, 49)
 metadata/_custom_type_script = "uid://dftxhty2hpwup"
 
 [node name="LegLeftFar2" type="Node2D" parent="SimRoot/LegLeftFar1"]
 top_level = true
-position = Vector2(47.61875, -31.498941)
+position = Vector2(68.3331, -1.9432249)
 script = ExtResource("4_sp50d")
-distance_range = Vector2(35, 35)
-bone_texture = ExtResource("5_8e3mr")
-joint_texture = ExtResource("5_8e3mr")
-bone_texture_y_scale = 8.0
-joint_texture_scale = 8.0
+distance_range = Vector2(49, 49)
+allowed_angle_polarity = 1
+bone_texture = SubResource("AtlasTexture_8e3mr")
 metadata/_custom_type_script = "uid://dftxhty2hpwup"
 
 [node name="LegLeftFar3" type="Node2D" parent="SimRoot/LegLeftFar1/LegLeftFar2"]
 top_level = true
-position = Vector2(79, -16)
+position = Vector2(43, 40)
 script = ExtResource("4_sp50d")
 is_anchored = true
-distance_range = Vector2(35, 35)
-bone_texture = ExtResource("5_8e3mr")
-joint_texture = ExtResource("5_8e3mr")
-bone_texture_y_scale = 8.0
-joint_texture_scale = 8.0
+distance_range = Vector2(49, 49)
+bone_texture = SubResource("AtlasTexture_sp50d")
 metadata/_custom_type_script = "uid://dftxhty2hpwup"
 
 [node name="LegLeftNear1" type="Node2D" parent="SimRoot"]
@@ -119,28 +110,24 @@ top_level = true
 position = Vector2(-20, 10)
 script = ExtResource("4_sp50d")
 is_anchored = true
-distance_range = Vector2(35, 35)
-bone_texture = ExtResource("5_8e3mr")
-joint_texture = ExtResource("5_8e3mr")
+distance_range = Vector2(49, 49)
 metadata/_custom_type_script = "uid://dftxhty2hpwup"
 
 [node name="LegLeftNear2" type="Node2D" parent="SimRoot/LegLeftNear1"]
 top_level = true
-position = Vector2(-44.56134, -14.934725)
+position = Vector2(-68.9892, 11.029006)
 script = ExtResource("4_sp50d")
-distance_range = Vector2(35, 35)
+distance_range = Vector2(49, 49)
 allowed_angle_polarity = 2
-bone_texture = ExtResource("5_8e3mr")
-joint_texture = ExtResource("5_8e3mr")
+bone_texture = SubResource("AtlasTexture_8e3mr")
 metadata/_custom_type_script = "uid://dftxhty2hpwup"
 
 [node name="LegLeftNear3" type="Node2D" parent="SimRoot/LegLeftNear1/LegLeftNear2"]
 top_level = true
-position = Vector2(-71, 7.9999027)
+position = Vector2(-59, 59)
 script = ExtResource("4_sp50d")
 is_anchored = true
-distance_range = Vector2(35, 35)
+distance_range = Vector2(49, 49)
 allowed_angle_polarity = 1
-bone_texture = ExtResource("5_8e3mr")
-joint_texture = ExtResource("5_8e3mr")
+bone_texture = SubResource("AtlasTexture_sp50d")
 metadata/_custom_type_script = "uid://dftxhty2hpwup"
