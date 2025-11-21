@@ -17,7 +17,7 @@ func _ready():
 	for i in range(segment_count):
 		segment_widths[i] = lerp(20.0, 5.0, float(i) / (segment_count - 1))
 
-func _process(delta):
+func _process(_delta):
 	# we use FABRIK here, so forward and backwards reaching inverse kinematics, since we want to follow the head,
 	# anchor point should be the head so we do a forward pass, better explaination on this video below 
 	# https://www.youtube.com/watch?v=UNoX65PRehA
