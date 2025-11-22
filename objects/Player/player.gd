@@ -6,8 +6,9 @@ extends CharacterBody2D
 
 @export_group("Horisontal")
 @export var h_accel: float = 1200.0
-@export var h_deaccel: float = 1200.0
+@export var h_deaccel: float = 2400.0
 @export var h_target_velocity: float = 300
+@export var sprint_multiplier: float = 1.5
 
 var wanted_floor_distance = 40;
 var wanted_velocity: Vector2
@@ -25,7 +26,8 @@ func _ready() -> void:
 	legs = [leg_left_far_3, leg_left_near_3, leg_right_near_3, leg_right_far_3]
 
 func _physics_process(delta: float) -> void:
-	var input_axis = Input.get_vector("game_left", "game_right", "game_up", "game_down")
+	var input_axis: Vector2 = Input.get_vector("game_left", "game_right", "game_up", "game_down")
+	var input_sprint: bool = Input.is_action_pressed("game_sprint")
 	
 	var avg_leg_pos: Vector2 = Vector2.ZERO
 	for leg in legs: avg_leg_pos += leg.global_position
@@ -37,7 +39,7 @@ func _physics_process(delta: float) -> void:
 	wanted_velocity.y = 0
 	
 	# Horizontal velocity
-	wanted_velocity.x = input_axis.x * h_target_velocity
+	wanted_velocity.x = input_axis.x * h_target_velocity * (sprint_multiplier if input_sprint else 1.0)
 	var velocity_diff: float = wanted_velocity.x - velocity.x
 	var is_speeding_up: bool = abs(wanted_velocity.x) > abs(velocity.x)
 	velocity.x += sign(velocity_diff) * delta * (h_accel if is_speeding_up else h_deaccel)
@@ -54,7 +56,7 @@ func _physics_process(delta: float) -> void:
 		var query = PhysicsRayQueryParameters2D.create(global_position, global_position + leg_ray + velocity/20)
 		var result = space_state.intersect_ray(query)
 		if result:
-			if result.position.distance_to(leg.global_position) > 150:
+			if result.position.distance_to(leg.global_position) > 100:
 				leg.wanted_position = result.position
 		$SimRoot._physics_process(delta)
 	

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="CG 2025 Project Procedural Animation"
-run/main_scene="uid://ce1088c0bu02g"
+run/main_scene="uid://cakvphaqkix4w"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="uid://dyqq6uaewyaa1"
 

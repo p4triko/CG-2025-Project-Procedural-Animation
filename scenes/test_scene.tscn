@@ -28,8 +28,8 @@ script = ExtResource("2_j8ivh")
 is_anchored = true
 bone_texture = ExtResource("4_7ddre")
 joint_texture = ExtResource("4_7ddre")
-bone_texture_y_scale = 0.125
-joint_texture_scale = 8.83
+bone_texture_y_scale = 0.045
+joint_texture_scale = 2.86
 metadata/_custom_type_script = "uid://dftxhty2hpwup"
 
 [node name="SimNode2" type="Node2D" parent="SimRoot2/SimNode"]
@@ -38,8 +38,8 @@ position = Vector2(-29.947205, -8.811987)
 script = ExtResource("2_j8ivh")
 bone_texture = ExtResource("4_7ddre")
 joint_texture = ExtResource("4_7ddre")
-bone_texture_y_scale = 0.125
-joint_texture_scale = 8.83
+bone_texture_y_scale = 0.045
+joint_texture_scale = 2.86
 metadata/_custom_type_script = "uid://dftxhty2hpwup"
 
 [node name="SimNode3" type="Node2D" parent="SimRoot2/SimNode/SimNode2"]
@@ -49,155 +49,155 @@ script = ExtResource("2_j8ivh")
 angle_sway = 0.25
 bone_texture = ExtResource("4_7ddre")
 joint_texture = ExtResource("4_7ddre")
-bone_texture_y_scale = 0.125
-joint_texture_scale = 8.83
+bone_texture_y_scale = 0.045
+joint_texture_scale = 2.86
 metadata/_custom_type_script = "uid://dftxhty2hpwup"
 
 [node name="SimNode4" type="Node2D" parent="SimRoot2/SimNode/SimNode2/SimNode3"]
 top_level = true
-position = Vector2(-17.053381, 4.423219)
+position = Vector2(-17.053383, 4.4232187)
 script = ExtResource("2_j8ivh")
 angle_sway = 0.25
 bone_texture = ExtResource("4_7ddre")
 joint_texture = ExtResource("4_7ddre")
-bone_texture_y_scale = 0.125
-joint_texture_scale = 8.83
+bone_texture_y_scale = 0.045
+joint_texture_scale = 2.86
 metadata/_custom_type_script = "uid://dftxhty2hpwup"
 
 [node name="SimNode3" type="Node2D" parent="SimRoot2/SimNode/SimNode2/SimNode3/SimNode4"]
 top_level = true
-position = Vector2(-7.765379, 0.7174101)
+position = Vector2(-7.765381, 0.71741104)
 script = ExtResource("2_j8ivh")
 angle_sway = 0.25
 bone_texture = ExtResource("4_7ddre")
 joint_texture = ExtResource("4_7ddre")
-bone_texture_y_scale = 0.125
-joint_texture_scale = 8.83
+bone_texture_y_scale = 0.045
+joint_texture_scale = 2.86
 metadata/_custom_type_script = "uid://dftxhty2hpwup"
 
 [node name="SimNode3" type="Node2D" parent="SimRoot2/SimNode/SimNode2/SimNode3/SimNode4/SimNode3"]
 top_level = true
-position = Vector2(-0.049818993, -5.6442037)
+position = Vector2(-0.049819946, -5.644202)
 script = ExtResource("2_j8ivh")
 angle_sway = 0.25
 bone_texture = ExtResource("4_7ddre")
 joint_texture = ExtResource("4_7ddre")
-bone_texture_y_scale = 0.125
-joint_texture_scale = 8.83
+bone_texture_y_scale = 0.045
+joint_texture_scale = 2.86
 metadata/_custom_type_script = "uid://dftxhty2hpwup"
 
 [node name="SimNode4" type="Node2D" parent="SimRoot2/SimNode/SimNode2/SimNode3/SimNode4/SimNode3/SimNode3"]
 top_level = true
-position = Vector2(9.93166, -6.252544)
+position = Vector2(9.931659, -6.2525434)
 script = ExtResource("2_j8ivh")
 angle_sway = 0.25
 bone_texture = ExtResource("4_7ddre")
 joint_texture = ExtResource("4_7ddre")
-bone_texture_y_scale = 0.125
-joint_texture_scale = 8.83
+bone_texture_y_scale = 0.045
+joint_texture_scale = 2.86
 metadata/_custom_type_script = "uid://dftxhty2hpwup"
 
 [node name="SimNode4" type="Node2D" parent="SimRoot2/SimNode/SimNode2/SimNode3/SimNode4/SimNode3/SimNode3/SimNode4"]
 top_level = true
-position = Vector2(18.331223, -0.82600164)
+position = Vector2(18.33122, -0.8260021)
 script = ExtResource("2_j8ivh")
 angle_sway = 0.25
 bone_texture = ExtResource("4_7ddre")
 joint_texture = ExtResource("4_7ddre")
-bone_texture_y_scale = 0.125
-joint_texture_scale = 8.83
+bone_texture_y_scale = 0.045
+joint_texture_scale = 2.86
 metadata/_custom_type_script = "uid://dftxhty2hpwup"
 
 [node name="SimNode3" type="Node2D" parent="SimRoot2/SimNode/SimNode2/SimNode3/SimNode4/SimNode3/SimNode3/SimNode4/SimNode4"]
 top_level = true
-position = Vector2(20.433464, 8.950531)
+position = Vector2(20.433464, 8.95053)
 script = ExtResource("2_j8ivh")
 angle_sway = 0.25
 bone_texture = ExtResource("4_7ddre")
 joint_texture = ExtResource("4_7ddre")
-bone_texture_y_scale = 0.125
-joint_texture_scale = 8.83
+bone_texture_y_scale = 0.045
+joint_texture_scale = 2.86
 metadata/_custom_type_script = "uid://dftxhty2hpwup"
 
 [node name="SimNode4" type="Node2D" parent="SimRoot2/SimNode/SimNode2/SimNode3/SimNode4/SimNode3/SimNode3/SimNode4/SimNode4/SimNode3"]
 top_level = true
-position = Vector2(15.013749, 17.3545)
+position = Vector2(15.013749, 17.354498)
 script = ExtResource("2_j8ivh")
 angle_sway = 0.25
 bone_texture = ExtResource("4_7ddre")
 joint_texture = ExtResource("4_7ddre")
-bone_texture_y_scale = 0.125
-joint_texture_scale = 8.83
+bone_texture_y_scale = 0.045
+joint_texture_scale = 2.86
 metadata/_custom_type_script = "uid://dftxhty2hpwup"
 
 [node name="SimNode5" type="Node2D" parent="SimRoot2/SimNode/SimNode2/SimNode3/SimNode4/SimNode3/SimNode3/SimNode4/SimNode4/SimNode3/SimNode4"]
 top_level = true
-position = Vector2(17.123934, 27.12932)
+position = Vector2(17.123936, 27.129318)
 script = ExtResource("2_j8ivh")
 target_angle = -0.25
 angle_sway = 0.0
 bone_texture = ExtResource("4_7ddre")
 joint_texture = ExtResource("4_7ddre")
-bone_texture_y_scale = 0.125
-joint_texture_scale = 8.83
+bone_texture_y_scale = 0.045
+joint_texture_scale = 2.86
 metadata/_custom_type_script = "uid://dftxhty2hpwup"
 
 [node name="SimNode6" type="Node2D" parent="SimRoot2/SimNode/SimNode2/SimNode3/SimNode4/SimNode3/SimNode3/SimNode4/SimNode4/SimNode3/SimNode4"]
 top_level = true
-position = Vector2(5.238929, 19.464685)
+position = Vector2(5.238929, 19.464684)
 script = ExtResource("2_j8ivh")
 target_angle = 0.25
 angle_sway = 0.0
 bone_texture = ExtResource("4_7ddre")
 joint_texture = ExtResource("4_7ddre")
-bone_texture_y_scale = 0.125
-joint_texture_scale = 8.83
+bone_texture_y_scale = 0.045
+joint_texture_scale = 2.86
 metadata/_custom_type_script = "uid://dftxhty2hpwup"
 
 [node name="SimNode5" type="Node2D" parent="SimRoot2/SimNode/SimNode2/SimNode3/SimNode4/SimNode3"]
 top_level = true
-position = Vector2(-11.712585, 9.905422)
+position = Vector2(-11.712588, 9.905422)
 script = ExtResource("2_j8ivh")
 target_angle = 0.75
 angle_sway = 0.0
 bone_texture = ExtResource("4_7ddre")
 joint_texture = ExtResource("4_7ddre")
-bone_texture_y_scale = 0.125
-joint_texture_scale = 8.83
+bone_texture_y_scale = 0.045
+joint_texture_scale = 2.86
 metadata/_custom_type_script = "uid://dftxhty2hpwup"
 
 [node name="SimNode7" type="Node2D" parent="SimRoot2/SimNode/SimNode2/SimNode3/SimNode4/SimNode3/SimNode5"]
 top_level = true
-position = Vector2(-21.000587, 13.611231)
+position = Vector2(-21.000591, 13.611231)
 script = ExtResource("2_j8ivh")
 target_angle = 0.25
 angle_sway = 0.0
 bone_texture = ExtResource("4_7ddre")
 joint_texture = ExtResource("4_7ddre")
-bone_texture_y_scale = 0.125
-joint_texture_scale = 8.83
+bone_texture_y_scale = 0.045
+joint_texture_scale = 2.86
 metadata/_custom_type_script = "uid://dftxhty2hpwup"
 
 [node name="SimNode6" type="Node2D" parent="SimRoot2/SimNode/SimNode2/SimNode3/SimNode4/SimNode3"]
 top_level = true
-position = Vector2(-16.95339, -3.2297964)
+position = Vector2(-16.953392, -3.2297974)
 script = ExtResource("2_j8ivh")
 target_angle = -0.75
 angle_sway = 0.0
 bone_texture = ExtResource("4_7ddre")
 joint_texture = ExtResource("4_7ddre")
-bone_texture_y_scale = 0.125
-joint_texture_scale = 8.83
+bone_texture_y_scale = 0.045
+joint_texture_scale = 2.86
 metadata/_custom_type_script = "uid://dftxhty2hpwup"
 
 [node name="SimNode7" type="Node2D" parent="SimRoot2/SimNode/SimNode2/SimNode3/SimNode4/SimNode3/SimNode6"]
 top_level = true
-position = Vector2(-26.241392, 0.47601318)
+position = Vector2(-26.241394, 0.47600985)
 script = ExtResource("2_j8ivh")
 target_angle = -0.25
 angle_sway = 0.0
 bone_texture = ExtResource("4_7ddre")
 joint_texture = ExtResource("4_7ddre")
-bone_texture_y_scale = 0.125
-joint_texture_scale = 8.83
+bone_texture_y_scale = 0.045
+joint_texture_scale = 2.86
 metadata/_custom_type_script = "uid://dftxhty2hpwup"

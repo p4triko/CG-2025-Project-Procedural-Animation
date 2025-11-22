@@ -18,6 +18,7 @@ region = Rect2(0, 97, 49, 6)
 radius = 33.13608
 
 [node name="Player" type="CharacterBody2D"]
+position = Vector2(-16, -22)
 script = ExtResource("1_fwodp")
 
 [node name="SpiderBody" type="Sprite2D" parent="."]
@@ -41,7 +42,7 @@ metadata/_custom_type_script = "uid://dftxhty2hpwup"
 
 [node name="LegRightNear2" type="Node2D" parent="SimRoot/LegRightNear1"]
 top_level = true
-position = Vector2(88.32738, -9.254392)
+position = Vector2(72.86058, -17.777872)
 script = ExtResource("4_sp50d")
 distance_range = Vector2(64, 64)
 allowed_angle_polarity = 1
@@ -70,7 +71,7 @@ metadata/_custom_type_script = "uid://dftxhty2hpwup"
 
 [node name="LegRightFar2" type="Node2D" parent="SimRoot/LegRightFar1"]
 top_level = true
-position = Vector2(85.10222, -21.993708)
+position = Vector2(72.98603, -20.662886)
 script = ExtResource("4_sp50d")
 distance_range = Vector2(64, 64)
 allowed_angle_polarity = 1
@@ -99,7 +100,7 @@ metadata/_custom_type_script = "uid://dftxhty2hpwup"
 
 [node name="LegLeftFar2" type="Node2D" parent="SimRoot/LegLeftFar1"]
 top_level = true
-position = Vector2(-87.91051, -11.758756)
+position = Vector2(-102.39794, -3.9364262)
 script = ExtResource("4_sp50d")
 distance_range = Vector2(64, 64)
 allowed_angle_polarity = 2
@@ -128,7 +129,7 @@ metadata/_custom_type_script = "uid://dftxhty2hpwup"
 
 [node name="LegLeftNear2" type="Node2D" parent="SimRoot/LegLeftNear1"]
 top_level = true
-position = Vector2(-87.70903, 12.789729)
+position = Vector2(-90.70364, 18.318085)
 script = ExtResource("4_sp50d")
 distance_range = Vector2(64, 64)
 allowed_angle_polarity = 2

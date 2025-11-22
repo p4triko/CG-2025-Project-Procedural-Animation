@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ce1088c0bu02g" path="res://scenes/test_scene.tscn" id="2_44wrp"]
 [ext_resource type="PackedScene" uid="uid://dlx0w7jlmress" path="res://scenes/test_scene2.tscn" id="3_4kt5k"]
 [ext_resource type="PackedScene" uid="uid://gllpygv1egb3" path="res://scenes/test_ik_physics.tscn" id="3_5v4gl"]
-[ext_resource type="PackedScene" uid="uid://b7dn36u0lq0jo" path="res://scenes/test_scene3.tscn" id="4_5v4gl"]
+[ext_resource type="PackedScene" uid="uid://cakvphaqkix4w" path="res://scenes/player_testing.tscn" id="5_4kt5k"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
@@ -30,8 +30,8 @@ text = "Spine"
 script = ExtResource("1_4xdfu")
 scene = ExtResource("3_4kt5k")
 
-[node name="Button_Test" type="Button" parent="SceneMenu"]
+[node name="Button_Player" type="Button" parent="SceneMenu"]
 layout_mode = 2
-text = "Test 3"
+text = "Player"
 script = ExtResource("1_4xdfu")
-scene = ExtResource("4_5v4gl")
+scene = ExtResource("5_4kt5k")
