@@ -14,8 +14,3 @@ polygon = PackedVector2Array(85, -169, 128, -169, 202, -172, 262, -172, 331, -17
 
 [node name="Player" parent="." instance=ExtResource("1_grv1o")]
 position = Vector2(-144, 744)
-gravity = null
-v_accel = null
-h_accel = null
-h_deaccel = null
-h_target_velocity = null
