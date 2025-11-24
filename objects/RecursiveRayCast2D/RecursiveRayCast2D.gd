@@ -1,6 +1,5 @@
 @tool
-class_name RecursiveRayCast2D
-extends Node2D
+class_name RecursiveRayCast2D extends Node2D
 
 ## In local space
 @export var target_positon: Vector2 = Vector2(0, 50):
@@ -10,11 +9,13 @@ extends Node2D
 @export var max_iterations: int = 20
 @export var exclude: Array[RID]
 @export var epsilon: float = 1.0
+@export_enum("All", "Debug", "None") var draw_debug: int = 1
 
 @export_tool_button("Run") var a = func (): print(get_collisions())
 
 var saved_hits: Array[Array] # For visualization
 
+## Retturns [code]Array[[Vector2, Vector2]][/code] where vectors are [b]position[/b] and [b]normal[/b] vector of the collision.
 func get_collisions() -> Array[Array]:
 	var space_state := get_world_2d().direct_space_state
 	
@@ -38,6 +39,7 @@ func get_collisions() -> Array[Array]:
 	return hits
 
 func _draw() -> void:
-	draw_line(Vector2.ZERO, target_positon, Color(1, 0.2, 0.2, 0.7), 1.5)
-	for i in saved_hits:
-		draw_circle(i[0] - global_position, 2, Color(1, 0.2, 0.2, 0.7), false, 1)
+	if Utils.check_debug_enum(draw_debug):
+		draw_line(Vector2.ZERO, target_positon, Color(1, 0.2, 0.2, 0.7), 1.5)
+		for i in saved_hits:
+			draw_circle(i[0] - global_position, 2, Color(1, 0.2, 0.2, 0.7), false, 1)

@@ -145,8 +145,8 @@ func update_node_list():
 
 func _draw() -> void:
 	# Debug draw
-	var do_draw_bones = check_debug_enum(sim_root.draw_debug_bones)
-	var do_draw_constraints = check_debug_enum(sim_root.draw_distance_constraint)
+	var do_draw_bones = Utils.check_debug_enum(sim_root.draw_debug_bones)
+	var do_draw_constraints = Utils.check_debug_enum(sim_root.draw_distance_constraint)
 	seed(hash(get_path()))
 	var bone_color = Color(randf(), randf(), randf())
 	var local_visual_position = visual_position - global_position

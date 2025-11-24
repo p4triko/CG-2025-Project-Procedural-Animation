@@ -19,7 +19,6 @@ config/icon="uid://dyqq6uaewyaa1"
 
 Global="*res://scripts/globals/global.gd"
 SceneMenu="*res://scenes/scene_menu.tscn"
-Utils="*res://scripts/globals/utils.gd"
 
 [dotnet]
 
