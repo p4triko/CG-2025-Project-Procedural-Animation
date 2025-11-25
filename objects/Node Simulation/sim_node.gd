@@ -54,8 +54,9 @@ func update_sim_root(root):
 Simulation
 """
 # Returns joint that has variables for constraints between some two neighbour joints
-func chain_update():
+func chain_update(length = 0):
 	# Updatig some variables
+	length += max(distance_range.x, distance_range.y)
 	if Engine.is_editor_hint() && !sim_root.simulate_in_debug:
 		top_level = false
 	else:
@@ -64,7 +65,7 @@ func chain_update():
 	if wanted_position != null:
 		global_position = wanted_position
 		wanted_position = null
-	run_for_every_child("chain_update")
+	run_for_every_child("chain_update", [length])
 	
 	if is_anchored && !(Engine.is_editor_hint() && !sim_root.simulate_in_debug):
 		run_for_every_neighbour(null, "constraint_wave", [[self]])

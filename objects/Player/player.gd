@@ -5,8 +5,8 @@ extends CharacterBody2D
 @export var v_accel: float = 1.0
 
 @export_group("Horisontal")
-@export var h_accel: float = 1200.0
-@export var h_deaccel: float = 2400.0
+@export var h_accel: float = 2000.0
+@export var h_deaccel: float = 4000.0
 @export var h_target_velocity: float = 300
 @export var sprint_multiplier: float = 1.5
 
@@ -26,12 +26,8 @@ func _ready() -> void:
 	legs = [leg_left_far_3, leg_left_near_3, leg_right_near_3, leg_right_far_3]
 
 func _physics_process(delta: float) -> void:
-	var input_axis: Vector2 = Input.get_vector("game_left", "game_right", "game_up", "game_down")
+	var input_axis: Vector2 = Vector2(Input.get_axis("game_left", "game_right"), Input.get_axis("game_up", "game_down"))
 	var input_sprint: bool = Input.is_action_pressed("game_sprint")
-	
-	var avg_leg_pos: Vector2 = Vector2.ZERO
-	for leg in legs: avg_leg_pos += leg.global_position
-	avg_leg_pos /= legs.size()
 	
 	# Vertical velocity
 	if abs(input_axis.y) > 0.5:
@@ -41,7 +37,7 @@ func _physics_process(delta: float) -> void:
 	# Horizontal velocity
 	wanted_velocity.x = input_axis.x * h_target_velocity * (sprint_multiplier if input_sprint else 1.0)
 	var velocity_diff: float = wanted_velocity.x - velocity.x
-	var is_speeding_up: bool = abs(wanted_velocity.x) > abs(velocity.x)
+	var is_speeding_up: bool = sign(velocity.x) * wanted_velocity.x > sign(velocity.x) * velocity.x
 	velocity.x += sign(velocity_diff) * delta * (h_accel if is_speeding_up else h_deaccel)
 	if -sign(velocity_diff) == sign(wanted_velocity.x - velocity.x):
 		velocity.x = wanted_velocity.x
