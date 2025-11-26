@@ -36,6 +36,7 @@ var sim_root: SimRoot
 var prev_global_position: Vector2 = Vector2.ZERO
 var visual_position: Vector2 = Vector2.ZERO
 var wanted_position = null
+var length = 0
 
 """
 Setup
@@ -54,9 +55,9 @@ func update_sim_root(root):
 Simulation
 """
 # Returns joint that has variables for constraints between some two neighbour joints
-func chain_update(length = 0):
+func chain_update(prev_length = 0):
 	# Updatig some variables
-	length += max(distance_range.x, distance_range.y)
+	length = max(prev_length + distance_range.x, distance_range.y)
 	if Engine.is_editor_hint() && !sim_root.simulate_in_debug:
 		top_level = false
 	else:
