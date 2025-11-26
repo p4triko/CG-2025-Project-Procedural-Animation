@@ -3,7 +3,7 @@ extends SimRoot
 
 @export_tool_button("blah") var a = func(): 
 	seed(Engine.get_physics_frames())
-	wanted_position = Vector2(randf_range(0, 100), randf_range(-100, 100));
+	wanted_position = Vector2(randf_range(0, 100 * (-1 if leg_polarity else 1)), randf_range(-100, 100));
 	step()
 
 # Exports
@@ -36,11 +36,15 @@ func _physics_process(delta: float) -> void:
 	middle_node.allowed_angle_polarity = int(leg_polarity) + 1
 	if state == states.STEPPING:
 		progress_step(delta)
+	else:
+		move_leg_closest_to(wanted_position)
 
-func step():
-	intermediate_position = Vector2(lerpf(current_position.x, wanted_position.x, step_weight), min(current_position.y, wanted_position.y) - step_curve_height)
-	stepping_progress = 0
-	state = states.STEPPING
+func step(to: Vector2 = wanted_position):
+	if state == states.GROUNDED:
+		wanted_position = to
+		intermediate_position = Vector2(lerpf(current_position.x, wanted_position.x, step_weight), min(current_position.y, wanted_position.y) - step_curve_height)
+		stepping_progress = 0
+		state = states.STEPPING
 
 func progress_step(delta):
 	stepping_progress = min(stepping_progress + delta / leg_reposition_speed, 1.0)
@@ -56,4 +60,4 @@ func progress_step(delta):
 
 func move_leg_closest_to(target_position: Vector2):
 	leg_node.wanted_position = target_position.normalized() * min(leg_node.length, global_position.distance_to(target_position))
-	
+	leg_node.wanted_position = target_position

@@ -15,15 +15,15 @@ var wanted_velocity: Vector2
 var is_grounded: bool = false
 var is_touching_wall: bool = false
 
-@onready var leg_right_near_3: SimNode = $SimRoot/LegRightNear1/LegRightNear2/LegRightNear3
-@onready var leg_right_far_3: SimNode = $SimRoot/LegRightFar1/LegRightFar2/LegRightFar3
-@onready var leg_left_far_3: SimNode = $SimRoot/LegLeftFar1/LegLeftFar2/LegLeftFar3
-@onready var leg_left_near_3: SimNode = $SimRoot/LegLeftNear1/LegLeftNear2/LegLeftNear3
-var legs: Array[SimNode]
+var left_legs: Array
+var right_legs: Array
+var legs: Array
 var leg_rays: Array[Vector2] = [Vector2(-100, 200), Vector2(-50, 200), Vector2(50, 200), Vector2(100, 200)]
 
 func _ready() -> void:
-	legs = [leg_left_far_3, leg_left_near_3, leg_right_near_3, leg_right_far_3]
+	left_legs = [%LegLeft1, %LegLeft2]
+	right_legs = [%LegRight1, %LegRight2]
+	legs = left_legs + right_legs
 
 func _physics_process(delta: float) -> void:
 	var input_axis: Vector2 = Vector2(Input.get_axis("game_left", "game_right"), Input.get_axis("game_up", "game_down"))
@@ -49,10 +49,11 @@ func _physics_process(delta: float) -> void:
 		var leg_ray = leg_rays[i]
 		
 		var space_state = get_world_2d().direct_space_state
-		var query = PhysicsRayQueryParameters2D.create(global_position, global_position + leg_ray + velocity/20)
+		var ray_start_pos = global_position + velocity * delta * 15
+		var query = PhysicsRayQueryParameters2D.create(ray_start_pos, ray_start_pos + leg_ray + velocity/20)
+		query.exclude = [self]
 		var result = space_state.intersect_ray(query)
 		if result:
-			if result.position.distance_to(leg.global_position) > 100:
-				leg.wanted_position = result.position
-		$SimRoot._physics_process(delta)
+			if result.position.distance_to(leg.current_position) > 100:
+				leg.step(result.position)
 	
