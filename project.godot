@@ -20,6 +20,10 @@ config/icon="uid://dyqq6uaewyaa1"
 Global="*res://scripts/globals/global.gd"
 SceneMenu="*res://scenes/scene_menu.tscn"
 
+[display]
+
+window/size/always_on_top=true
+
 [dotnet]
 
 project/assembly_name="CG 2025 Project Prodecural Animation"

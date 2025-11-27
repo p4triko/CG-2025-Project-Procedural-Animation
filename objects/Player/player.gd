@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+@export var d: Vector4 ## Debug Variables
+@export var debug_gradient: GradientTexture1D
+
 @export_group("Vertical")
 @export var gravity: float = 1.0
 @export var v_accel: float = 1.0
@@ -26,6 +29,8 @@ func _ready() -> void:
 	legs = left_legs + right_legs
 
 func _physics_process(delta: float) -> void:
+	queue_redraw()
+	
 	var input_axis: Vector2 = Vector2(Input.get_axis("game_left", "game_right"), Input.get_axis("game_up", "game_down"))
 	var input_sprint: bool = Input.is_action_pressed("game_sprint")
 	
@@ -56,4 +61,36 @@ func _physics_process(delta: float) -> void:
 		if result:
 			if result.position.distance_to(leg.current_position) > 100:
 				leg.step(result.position)
+
+## Raycasts a bunch to find points where a leg could go
+func get_potential_surfaces() -> Array[Array]:
+	return []
+
+func calculate_weight(pos: Vector2, normal: Vector2, wanted_angle: float, leg_length: float) -> float:
+	# Normal
+	var normal_width = PI * 3/5
+	var normal_sharpness = 4
+	var normal_weight = clamp((1 - abs(normal.angle_to(Vector2.UP)) / normal_width) * normal_sharpness, 0, 1)
 	
+	# Distance
+	var rest_distance_ratio = 0.75
+	var distance_weight = clamp(1 - abs(leg_length*rest_distance_ratio/d.z - pos.length()/d.z), 0, 1)
+	
+	# Angle
+	var angle_width = d.x
+	var angle_sharpness = d.w
+	var angle_weight = clamp((1 - abs(pos.angle_to(Vector2.from_angle(wanted_angle + PI/2))) * angle_width) * angle_sharpness, 0, 1)
+	
+	# Max length
+	var near_cap = 20
+	var max_length_weight = int(leg_length > pos.length() && near_cap < pos.length())
+	
+	# Blah
+	return distance_weight * angle_weight * max_length_weight * normal_weight
+
+func _draw():
+	draw_set_transform(Vector2(24, 0))
+	for x in range(-128, 129, 8):
+		for y in range(-128, 129, 8):
+			var weight = calculate_weight(Vector2(x, y), Vector2.UP, d.y, 128)
+			draw_circle(Vector2(x, y), 3, debug_gradient.gradient.sample(weight))

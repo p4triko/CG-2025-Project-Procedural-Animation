@@ -1,16 +1,28 @@
-[gd_scene load_steps=5 format=3 uid="uid://c0pigba0ihfvs"]
+[gd_scene load_steps=7 format=3 uid="uid://c0pigba0ihfvs"]
 
 [ext_resource type="Script" uid="uid://btxtc8h4my7xj" path="res://objects/Player/player.gd" id="1_fwodp"]
 [ext_resource type="Texture2D" uid="uid://drkij5rd4qwh6" path="res://assets/images/Spider/spider_body.png" id="2_76bfe"]
 [ext_resource type="PackedScene" uid="uid://cq6t7jx8fbq3w" path="res://objects/Player/spider_leg.tscn" id="3_hi0mj"]
+
+[sub_resource type="Gradient" id="Gradient_hi0mj"]
+interpolation_mode = 2
+interpolation_color_space = 2
+offsets = PackedFloat32Array(0, 0.5057252, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0.89624393, 0, 1, 0, 1, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_76bfe"]
+gradient = SubResource("Gradient_hi0mj")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8e3mr"]
 radius = 33.13608
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_fwodp")
+d = Vector4(0.8, -1.1, 66.44, 2.935)
+debug_gradient = SubResource("GradientTexture1D_76bfe")
 
 [node name="SpiderBody" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("2_76bfe")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -18,7 +30,9 @@ texture = ExtResource("2_76bfe")
 [node name="LegLeft1" parent="." instance=ExtResource("3_hi0mj")]
 unique_name_in_owner = true
 position = Vector2(-24, 0)
+wanted_position = Vector2(-34.807358, 87.84268)
 leg_polarity = true
+leg_reposition_speed = 0.2
 
 [node name="LegLeft2" parent="." instance=ExtResource("3_hi0mj")]
 unique_name_in_owner = true

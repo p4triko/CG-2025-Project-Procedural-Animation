@@ -54,7 +54,6 @@ func update_sim_root(root):
 """
 Simulation
 """
-# Returns joint that has variables for constraints between some two neighbour joints
 func chain_update(prev_length = 0):
 	# Updatig some variables
 	length = max(prev_length + distance_range.x, distance_range.y)
