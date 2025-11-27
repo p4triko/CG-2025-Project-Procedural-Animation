@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://c0pigba0ihfvs"]
+[gd_scene load_steps=8 format=3 uid="uid://c0pigba0ihfvs"]
 
 [ext_resource type="Script" uid="uid://btxtc8h4my7xj" path="res://objects/Player/player.gd" id="1_fwodp"]
 [ext_resource type="Texture2D" uid="uid://drkij5rd4qwh6" path="res://assets/images/Spider/spider_body.png" id="2_76bfe"]
 [ext_resource type="PackedScene" uid="uid://cq6t7jx8fbq3w" path="res://objects/Player/spider_leg.tscn" id="3_hi0mj"]
+[ext_resource type="Script" uid="uid://bnyh50e0grrse" path="res://objects/RecursiveRayCast2D/RecursiveRayCast2D.gd" id="4_76bfe"]
 
 [sub_resource type="Gradient" id="Gradient_hi0mj"]
 interpolation_mode = 2
@@ -18,11 +19,10 @@ radius = 33.13608
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_fwodp")
-d = Vector4(0.8, -1.1, 66.44, 2.935)
+d = Vector4(0.8, -1.1, 66.44, 9.405)
 debug_gradient = SubResource("GradientTexture1D_76bfe")
 
 [node name="SpiderBody" type="Sprite2D" parent="."]
-visible = false
 texture = ExtResource("2_76bfe")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -52,3 +52,281 @@ wanted_position = Vector2(2.3123076, 80.41855)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_8e3mr")
+
+[node name="Raycasts" type="Node2D" parent="."]
+
+[node name="RecursiveRayCast2D" type="Node2D" parent="Raycasts"]
+position = Vector2(0, -128)
+script = ExtResource("4_76bfe")
+target_positon = Vector2(128, 256)
+metadata/_custom_type_script = "uid://bnyh50e0grrse"
+
+[node name="RecursiveRayCast2D2" type="Node2D" parent="Raycasts"]
+position = Vector2(16, -128)
+script = ExtResource("4_76bfe")
+target_positon = Vector2(128, 256)
+metadata/_custom_type_script = "uid://bnyh50e0grrse"
+
+[node name="RecursiveRayCast2D3" type="Node2D" parent="Raycasts"]
+position = Vector2(32, -128)
+script = ExtResource("4_76bfe")
+target_positon = Vector2(128, 256)
+metadata/_custom_type_script = "uid://bnyh50e0grrse"
+
+[node name="RecursiveRayCast2D4" type="Node2D" parent="Raycasts"]
+position = Vector2(48, -128)
+script = ExtResource("4_76bfe")
+target_positon = Vector2(128, 256)
+metadata/_custom_type_script = "uid://bnyh50e0grrse"
+
+[node name="RecursiveRayCast2D5" type="Node2D" parent="Raycasts"]
+position = Vector2(-64, -128)
+script = ExtResource("4_76bfe")
+target_positon = Vector2(128, 256)
+metadata/_custom_type_script = "uid://bnyh50e0grrse"
+
+[node name="RecursiveRayCast2D6" type="Node2D" parent="Raycasts"]
+position = Vector2(-48, -128)
+script = ExtResource("4_76bfe")
+target_positon = Vector2(128, 256)
+metadata/_custom_type_script = "uid://bnyh50e0grrse"
+
+[node name="RecursiveRayCast2D7" type="Node2D" parent="Raycasts"]
+position = Vector2(-32, -128)
+script = ExtResource("4_76bfe")
+target_positon = Vector2(128, 256)
+metadata/_custom_type_script = "uid://bnyh50e0grrse"
+
+[node name="RecursiveRayCast2D8" type="Node2D" parent="Raycasts"]
+position = Vector2(-16, -128)
+script = ExtResource("4_76bfe")
+target_positon = Vector2(128, 256)
+metadata/_custom_type_script = "uid://bnyh50e0grrse"
+
+[node name="RecursiveRayCast2D9" type="Node2D" parent="Raycasts"]
+position = Vector2(-128, -128)
+script = ExtResource("4_76bfe")
+target_positon = Vector2(128, 256)
+metadata/_custom_type_script = "uid://bnyh50e0grrse"
+
+[node name="RecursiveRayCast2D10" type="Node2D" parent="Raycasts"]
+position = Vector2(-112, -128)
+script = ExtResource("4_76bfe")
+target_positon = Vector2(128, 256)
+metadata/_custom_type_script = "uid://bnyh50e0grrse"
+
+[node name="RecursiveRayCast2D11" type="Node2D" parent="Raycasts"]
+position = Vector2(-96, -128)
+script = ExtResource("4_76bfe")
+target_positon = Vector2(128, 256)
+metadata/_custom_type_script = "uid://bnyh50e0grrse"
+
+[node name="RecursiveRayCast2D12" type="Node2D" parent="Raycasts"]
+position = Vector2(-80, -128)
+script = ExtResource("4_76bfe")
+target_positon = Vector2(128, 256)
+metadata/_custom_type_script = "uid://bnyh50e0grrse"
+
+[node name="RecursiveRayCast2D13" type="Node2D" parent="Raycasts"]
+position = Vector2(-128, -64)
+script = ExtResource("4_76bfe")
+target_positon = Vector2(128, 256)
+metadata/_custom_type_script = "uid://bnyh50e0grrse"
+
+[node name="RecursiveRayCast2D15" type="Node2D" parent="Raycasts"]
+position = Vector2(-128, -96)
+script = ExtResource("4_76bfe")
+target_positon = Vector2(128, 256)
+metadata/_custom_type_script = "uid://bnyh50e0grrse"
+
+[node name="RecursiveRayCast2D21" type="Node2D" parent="Raycasts"]
+position = Vector2(-128, 0)
+script = ExtResource("4_76bfe")
+target_positon = Vector2(128, 256)
+metadata/_custom_type_script = "uid://bnyh50e0grrse"
+
+[node name="RecursiveRayCast2D23" type="Node2D" parent="Raycasts"]
+position = Vector2(-128, -32)
+script = ExtResource("4_76bfe")
+target_positon = Vector2(128, 256)
+metadata/_custom_type_script = "uid://bnyh50e0grrse"
+
+[node name="RecursiveRayCast2D25" type="Node2D" parent="Raycasts"]
+position = Vector2(-128, 64)
+script = ExtResource("4_76bfe")
+target_positon = Vector2(128, 256)
+metadata/_custom_type_script = "uid://bnyh50e0grrse"
+
+[node name="RecursiveRayCast2D27" type="Node2D" parent="Raycasts"]
+position = Vector2(-128, 32)
+script = ExtResource("4_76bfe")
+target_positon = Vector2(128, 256)
+metadata/_custom_type_script = "uid://bnyh50e0grrse"
+
+[node name="RecursiveRayCast2D28" type="Node2D" parent="Raycasts"]
+position = Vector2(-128, 96)
+script = ExtResource("4_76bfe")
+target_positon = Vector2(128, 256)
+metadata/_custom_type_script = "uid://bnyh50e0grrse"
+
+[node name="RecursiveRayCast2D17" type="Node2D" parent="Raycasts"]
+position = Vector2(64, -128)
+script = ExtResource("4_76bfe")
+target_positon = Vector2(128, 256)
+metadata/_custom_type_script = "uid://bnyh50e0grrse"
+
+[node name="RecursiveRayCast2D18" type="Node2D" parent="Raycasts"]
+position = Vector2(80, -128)
+script = ExtResource("4_76bfe")
+target_positon = Vector2(128, 256)
+metadata/_custom_type_script = "uid://bnyh50e0grrse"
+
+[node name="RecursiveRayCast2D19" type="Node2D" parent="Raycasts"]
+position = Vector2(96, -128)
+script = ExtResource("4_76bfe")
+target_positon = Vector2(128, 256)
+metadata/_custom_type_script = "uid://bnyh50e0grrse"
+
+[node name="RecursiveRayCast2D20" type="Node2D" parent="Raycasts"]
+position = Vector2(112, -128)
+script = ExtResource("4_76bfe")
+target_positon = Vector2(128, 256)
+metadata/_custom_type_script = "uid://bnyh50e0grrse"
+
+[node name="RecursiveRayCast2D14" type="Node2D" parent="Raycasts"]
+position = Vector2(16, -128)
+script = ExtResource("4_76bfe")
+target_positon = Vector2(-128, 256)
+metadata/_custom_type_script = "uid://bnyh50e0grrse"
+
+[node name="RecursiveRayCast2D16" type="Node2D" parent="Raycasts"]
+position = Vector2(32, -128)
+script = ExtResource("4_76bfe")
+target_positon = Vector2(-128, 256)
+metadata/_custom_type_script = "uid://bnyh50e0grrse"
+
+[node name="RecursiveRayCast2D30" type="Node2D" parent="Raycasts"]
+position = Vector2(48, -128)
+script = ExtResource("4_76bfe")
+target_positon = Vector2(-128, 256)
+metadata/_custom_type_script = "uid://bnyh50e0grrse"
+
+[node name="RecursiveRayCast2D31" type="Node2D" parent="Raycasts"]
+position = Vector2(64, -128)
+script = ExtResource("4_76bfe")
+target_positon = Vector2(-128, 256)
+metadata/_custom_type_script = "uid://bnyh50e0grrse"
+
+[node name="RecursiveRayCast2D32" type="Node2D" parent="Raycasts"]
+position = Vector2(-48, -128)
+script = ExtResource("4_76bfe")
+target_positon = Vector2(-128, 256)
+metadata/_custom_type_script = "uid://bnyh50e0grrse"
+
+[node name="RecursiveRayCast2D33" type="Node2D" parent="Raycasts"]
+position = Vector2(-32, -128)
+script = ExtResource("4_76bfe")
+target_positon = Vector2(-128, 256)
+metadata/_custom_type_script = "uid://bnyh50e0grrse"
+
+[node name="RecursiveRayCast2D34" type="Node2D" parent="Raycasts"]
+position = Vector2(-16, -128)
+script = ExtResource("4_76bfe")
+target_positon = Vector2(-128, 256)
+metadata/_custom_type_script = "uid://bnyh50e0grrse"
+
+[node name="RecursiveRayCast2D35" type="Node2D" parent="Raycasts"]
+position = Vector2(0, -128)
+script = ExtResource("4_76bfe")
+target_positon = Vector2(-128, 256)
+metadata/_custom_type_script = "uid://bnyh50e0grrse"
+
+[node name="RecursiveRayCast2D36" type="Node2D" parent="Raycasts"]
+position = Vector2(-112, -128)
+script = ExtResource("4_76bfe")
+target_positon = Vector2(-128, 256)
+metadata/_custom_type_script = "uid://bnyh50e0grrse"
+
+[node name="RecursiveRayCast2D37" type="Node2D" parent="Raycasts"]
+position = Vector2(-96, -128)
+script = ExtResource("4_76bfe")
+target_positon = Vector2(-128, 256)
+metadata/_custom_type_script = "uid://bnyh50e0grrse"
+
+[node name="RecursiveRayCast2D38" type="Node2D" parent="Raycasts"]
+position = Vector2(-80, -128)
+script = ExtResource("4_76bfe")
+target_positon = Vector2(-128, 256)
+metadata/_custom_type_script = "uid://bnyh50e0grrse"
+
+[node name="RecursiveRayCast2D39" type="Node2D" parent="Raycasts"]
+position = Vector2(-64, -128)
+script = ExtResource("4_76bfe")
+target_positon = Vector2(-128, 256)
+metadata/_custom_type_script = "uid://bnyh50e0grrse"
+
+[node name="RecursiveRayCast2D40" type="Node2D" parent="Raycasts"]
+position = Vector2(128, -64)
+script = ExtResource("4_76bfe")
+target_positon = Vector2(-128, 256)
+metadata/_custom_type_script = "uid://bnyh50e0grrse"
+
+[node name="RecursiveRayCast2D41" type="Node2D" parent="Raycasts"]
+position = Vector2(128, -96)
+script = ExtResource("4_76bfe")
+target_positon = Vector2(-128, 256)
+metadata/_custom_type_script = "uid://bnyh50e0grrse"
+
+[node name="RecursiveRayCast2D42" type="Node2D" parent="Raycasts"]
+position = Vector2(128, 0)
+script = ExtResource("4_76bfe")
+target_positon = Vector2(-128, 256)
+metadata/_custom_type_script = "uid://bnyh50e0grrse"
+
+[node name="RecursiveRayCast2D43" type="Node2D" parent="Raycasts"]
+position = Vector2(128, -32)
+script = ExtResource("4_76bfe")
+target_positon = Vector2(-128, 256)
+metadata/_custom_type_script = "uid://bnyh50e0grrse"
+
+[node name="RecursiveRayCast2D44" type="Node2D" parent="Raycasts"]
+position = Vector2(128, 64)
+script = ExtResource("4_76bfe")
+target_positon = Vector2(-128, 256)
+metadata/_custom_type_script = "uid://bnyh50e0grrse"
+
+[node name="RecursiveRayCast2D45" type="Node2D" parent="Raycasts"]
+position = Vector2(128, 32)
+script = ExtResource("4_76bfe")
+target_positon = Vector2(-128, 256)
+metadata/_custom_type_script = "uid://bnyh50e0grrse"
+
+[node name="RecursiveRayCast2D46" type="Node2D" parent="Raycasts"]
+position = Vector2(128, 96)
+script = ExtResource("4_76bfe")
+target_positon = Vector2(-128, 256)
+metadata/_custom_type_script = "uid://bnyh50e0grrse"
+
+[node name="RecursiveRayCast2D47" type="Node2D" parent="Raycasts"]
+position = Vector2(80, -128)
+script = ExtResource("4_76bfe")
+target_positon = Vector2(-128, 256)
+metadata/_custom_type_script = "uid://bnyh50e0grrse"
+
+[node name="RecursiveRayCast2D48" type="Node2D" parent="Raycasts"]
+position = Vector2(96, -128)
+script = ExtResource("4_76bfe")
+target_positon = Vector2(-128, 256)
+metadata/_custom_type_script = "uid://bnyh50e0grrse"
+
+[node name="RecursiveRayCast2D49" type="Node2D" parent="Raycasts"]
+position = Vector2(112, -128)
+script = ExtResource("4_76bfe")
+target_positon = Vector2(-128, 256)
+metadata/_custom_type_script = "uid://bnyh50e0grrse"
+
+[node name="RecursiveRayCast2D50" type="Node2D" parent="Raycasts"]
+position = Vector2(128, -128)
+script = ExtResource("4_76bfe")
+target_positon = Vector2(-128, 256)
+metadata/_custom_type_script = "uid://bnyh50e0grrse"

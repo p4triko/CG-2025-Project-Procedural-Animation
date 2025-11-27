@@ -11,7 +11,7 @@ class_name RecursiveRayCast2D extends Node2D
 @export var epsilon: float = 1.0
 @export_enum("All", "Debug", "None") var draw_debug: int = 1
 
-@export_tool_button("Run") var a = func (): print(get_collisions())
+#@export_tool_button("Run") var a = func (): print(get_collisions())
 
 var saved_hits: Array[Array] # For visualization
 
@@ -35,7 +35,7 @@ func get_collisions() -> Array[Array]:
 		hits.append([result.position, result.normal])
 		curr_pos = result.position + global_position.direction_to(global_position + target_positon).normalized() * epsilon
 	saved_hits = hits
-	queue_redraw()
+	#queue_redraw()
 	return hits
 
 func _draw() -> void:
