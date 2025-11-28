@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-@export var d: Vector4 ## Debug Variables
 @export var debug_gradient: GradientTexture1D
 
 @export_group("Vertical")
@@ -52,18 +51,23 @@ func _physics_process(delta: float) -> void:
 	var surfaces = get_potential_surfaces()
 	debug_draw_surfaces = surfaces
 	
-	for i in legs.size():
-		var leg = legs[i]
-		var leg_ray = leg_rays[i]
+	for leg in legs:
+		var if_left_leg: float = (1.0 if leg in left_legs else -1.0)
 		
-		var space_state = get_world_2d().direct_space_state
-		var ray_start_pos = global_position + velocity * delta * 15
-		var query = PhysicsRayQueryParameters2D.create(ray_start_pos, ray_start_pos + leg_ray + velocity/20)
-		query.exclude = [self]
-		var result = space_state.intersect_ray(query)
-		if result:
-			if result.position.distance_to(leg.current_position) > 100:
-				leg.step(result.position)
+		# Pick best surface
+		var best_surface = surfaces[0]
+		var best_surface_weight: float = 0
+		for surface in surfaces:
+			var weight = calculate_weight(surface[0]- leg.global_position, surface[1], 0.8, 1.1 * if_left_leg)
+			if weight > best_surface_weight:
+				best_surface = surface
+				best_surface_weight = weight
+		
+		# If new surface is way better than current surface, then step
+		var current_weight = calculate_weight(leg.current_position - leg.global_position, leg.current_normal, 0.8, 1.1 * if_left_leg)
+		if best_surface_weight > current_weight + 0.2:
+			leg.step(best_surface[0])
+			leg.current_normal = best_surface[1]
 	
 	queue_redraw()
 
@@ -75,22 +79,23 @@ func get_potential_surfaces() -> Array:
 		all_collisions += raycast.get_collisions()
 	return all_collisions
 
-func calculate_weight(pos: Vector2, normal: Vector2, angle_width: float = 0.8, wanted_angle: float = d.y, leg_length: float = 128) -> float:
+func calculate_weight(pos: Vector2, normal: Vector2, angle_width: float = 0.8, wanted_angle: float = 1.1, leg_length: float = 128) -> float:
 	# Normal
 	var normal_width = PI * 3/5
 	var normal_sharpness = 4
 	var normal_weight = clamp((1 - abs(normal.angle_to(Vector2.UP)) / normal_width) * normal_sharpness, 0, 1)
 	
 	# Distance
-	var rest_distance_ratio = 0.75
-	var distance_weight = clamp(1 - abs(leg_length*rest_distance_ratio/d.z - pos.length()/d.z), 0, 1)
+	var rest_distance_ratio = 0.7
+	var dist_smoothing = 50.0
+	var distance_weight = clamp(1 - abs(leg_length*rest_distance_ratio/dist_smoothing - pos.length()/dist_smoothing), 0, 1)
 	
 	# Angle
-	var angle_sharpness = d.w
+	var angle_sharpness = 4
 	var angle_weight = clamp((1 - abs(pos.angle_to(Vector2.from_angle(wanted_angle + PI/2))) * angle_width) * angle_sharpness, 0, 1)
 	
 	# Max length
-	var near_cap = 20
+	var near_cap = 5
 	var max_length_weight = int(leg_length > pos.length() && near_cap < pos.length())
 	
 	# Combine

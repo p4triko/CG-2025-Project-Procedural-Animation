@@ -28,6 +28,7 @@ enum states {
 
 var state = states.GROUNDED
 var current_position: Vector2 = Vector2.ZERO
+var current_normal: Vector2 = Vector2.DOWN
 var intermediate_position: Vector2 ## For bezier curve
 var stepping_progress: float = 0
 

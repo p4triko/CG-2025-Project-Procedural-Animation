@@ -19,7 +19,6 @@ radius = 33.13608
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_fwodp")
-d = Vector4(0.8, -1.1, 66.44, 9.405)
 debug_gradient = SubResource("GradientTexture1D_76bfe")
 
 [node name="SpiderBody" type="Sprite2D" parent="."]
@@ -32,7 +31,6 @@ unique_name_in_owner = true
 position = Vector2(-24, 0)
 wanted_position = Vector2(-34.807358, 87.84268)
 leg_polarity = true
-leg_reposition_speed = 0.2
 
 [node name="LegLeft2" parent="." instance=ExtResource("3_hi0mj")]
 unique_name_in_owner = true
