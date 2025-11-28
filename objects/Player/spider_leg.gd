@@ -1,5 +1,5 @@
 @tool
-extends SimRoot
+class_name SpiderLeg extends SimRoot
 
 @export_tool_button("blah") var a = func(): 
 	seed(Engine.get_physics_frames())
@@ -29,6 +29,7 @@ enum states {
 var state = states.GROUNDED
 var current_position: Vector2 = Vector2.ZERO
 var current_normal: Vector2 = Vector2.DOWN
+var wanted_normal: Vector2  = Vector2.DOWN
 var intermediate_position: Vector2 ## For bezier curve
 var stepping_progress: float = 0
 
@@ -40,10 +41,21 @@ func _physics_process(delta: float) -> void:
 	else:
 		move_leg_closest_to(wanted_position)
 
-func step(to: Vector2 = wanted_position):
+func step(to: Vector2 = wanted_position, normal: Vector2 = wanted_normal):
 	if state == states.GROUNDED:
 		wanted_position = to
+		wanted_normal = normal
 		intermediate_position = Vector2(lerpf(current_position.x, wanted_position.x, step_weight), min(current_position.y, wanted_position.y) - step_curve_height)
+		stepping_progress = 0
+		state = states.STEPPING
+
+func restep(to: Vector2 = wanted_position, normal: Vector2 = wanted_normal):
+	if state == states.STEPPING:
+		current_position = leg_node.wanted_position
+		current_normal = wanted_normal
+		wanted_position = to
+		wanted_normal = normal
+		intermediate_position = current_position.lerp(wanted_position, step_weight)
 		stepping_progress = 0
 		state = states.STEPPING
 
@@ -58,7 +70,10 @@ func progress_step(delta):
 	if stepping_progress == 1.0:
 		state = states.GROUNDED
 		current_position = wanted_position
+		current_normal = wanted_normal
 
 func move_leg_closest_to(target_position: Vector2):
-	leg_node.wanted_position = target_position.normalized() * min(leg_node.length, global_position.distance_to(target_position))
-	leg_node.wanted_position = target_position
+	var target_relative_position = target_position - global_position
+	var target_relative_distance = target_relative_position.length()
+	# Prevents the legs from stretching further then their length
+	leg_node.wanted_position = target_relative_position.normalized() * min(leg_node.length, target_relative_distance) + global_position

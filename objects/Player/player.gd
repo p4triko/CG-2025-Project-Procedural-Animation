@@ -20,13 +20,13 @@ var is_touching_wall: bool = false
 var left_legs: Array
 var right_legs: Array
 var legs: Array
-var leg_rays: Array[Vector2] = [Vector2(-100, 200), Vector2(-50, 200), Vector2(50, 200), Vector2(100, 200)]
+var leg_angles: Array = [1.4, 1.2, 1.0, 0.8, -0.8, -1.0, -1.2, -1.4]
 
 var debug_draw_surfaces: Array = []
 
 func _ready() -> void:
-	left_legs = [%LegLeft1, %LegLeft2]
-	right_legs = [%LegRight1, %LegRight2]
+	left_legs = [%LegLeft1, %LegLeft2, %LegLeft3, %LegLeft4]
+	right_legs = [%LegRight1, %LegRight2, %LegRight3, %LegRight4]
 	legs = left_legs + right_legs
 
 func _physics_process(delta: float) -> void:
@@ -51,23 +51,31 @@ func _physics_process(delta: float) -> void:
 	var surfaces = get_potential_surfaces()
 	debug_draw_surfaces = surfaces
 	
-	for leg in legs:
-		var if_left_leg: float = (1.0 if leg in left_legs else -1.0)
+	for leg_i in legs.size():
+		var leg = legs[leg_i]
+		var velocity_offset = velocity * 0.3
 		
 		# Pick best surface
 		var best_surface = surfaces[0]
 		var best_surface_weight: float = 0
 		for surface in surfaces:
-			var weight = calculate_weight(surface[0]- leg.global_position, surface[1], 0.8, 1.1 * if_left_leg)
+			var weight = calculate_weight(surface[0] - leg.global_position - velocity_offset, surface[1], 0.8, leg_angles[leg_i])
 			if weight > best_surface_weight:
 				best_surface = surface
 				best_surface_weight = weight
 		
 		# If new surface is way better than current surface, then step
-		var current_weight = calculate_weight(leg.current_position - leg.global_position, leg.current_normal, 0.8, 1.1 * if_left_leg)
-		if best_surface_weight > current_weight + 0.2:
-			leg.step(best_surface[0])
-			leg.current_normal = best_surface[1]
+		if leg.state == leg.states.GROUNDED:
+			var current_weight = calculate_weight(leg.current_position - leg.global_position, leg.current_normal, 0.8, leg_angles[leg_i])
+			if best_surface_weight > current_weight + 0.2: # Normal step, if weight is good enough
+				leg.step(best_surface[0], best_surface[1])
+		else:
+			pass
+			# Doesnt work very well
+			#var wanted_weight = calculate_weight(leg.wanted_position - leg.global_position, leg.wanted_normal, 0.8, leg_angles[leg_i])
+			#if best_surface_weight > wanted_weight + 0.98: # Change step end position if wanted position is too bad
+				#leg.restep(best_surface[0], best_surface[1])
+			
 	
 	queue_redraw()
 
