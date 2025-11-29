@@ -9,6 +9,7 @@ class_name SpiderLeg extends SimRoot
 # Exports
 @export var wanted_position: Vector2 = Vector2.ZERO
 @export var leg_polarity: bool = false
+@export var neighbour_legs: Array[SpiderLeg]
 
 @export_group("Stepping")
 @export var leg_reposition_speed: float = 0.3 ## In seconds
@@ -43,6 +44,9 @@ func _physics_process(delta: float) -> void:
 
 func step(to: Vector2 = wanted_position, normal: Vector2 = wanted_normal):
 	if state == states.GROUNDED:
+		for neighbour_leg in neighbour_legs:
+			if neighbour_leg.state == SpiderLeg.states.STEPPING: return
+		
 		wanted_position = to
 		wanted_normal = normal
 		intermediate_position = Vector2(lerpf(current_position.x, wanted_position.x, step_weight), min(current_position.y, wanted_position.y) - step_curve_height)

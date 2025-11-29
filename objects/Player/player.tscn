@@ -8,8 +8,8 @@
 [sub_resource type="Gradient" id="Gradient_hi0mj"]
 interpolation_mode = 2
 interpolation_color_space = 2
-offsets = PackedFloat32Array(0, 0.5057252, 1)
-colors = PackedColorArray(1, 0, 0, 1, 1, 0.89624393, 0, 1, 0, 1, 0, 1)
+offsets = PackedFloat32Array(0, 0.25, 0.5, 0.75, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.4627726, 0.00044520944, 0.5386295, 1, 1, 0, 0, 1, 1, 0.89624393, 0, 1, 0, 1, 0, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_76bfe"]
 gradient = SubResource("Gradient_hi0mj")
@@ -26,54 +26,62 @@ texture = ExtResource("2_76bfe")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="LegLeft1" parent="." instance=ExtResource("3_hi0mj")]
+[node name="LegLeft1" parent="." node_paths=PackedStringArray("neighbour_legs") instance=ExtResource("3_hi0mj")]
 unique_name_in_owner = true
 position = Vector2(-24, 0)
-wanted_position = Vector2(-34.807358, 87.84268)
+wanted_position = Vector2(-77.53792, 61.877224)
 leg_polarity = true
+neighbour_legs = [NodePath("../LegLeft2"), NodePath("../LegRight2")]
 step_weight = 0.5
 
-[node name="LegLeft2" parent="." instance=ExtResource("3_hi0mj")]
+[node name="LegLeft2" parent="." node_paths=PackedStringArray("neighbour_legs") instance=ExtResource("3_hi0mj")]
 unique_name_in_owner = true
 position = Vector2(-16, 0)
 wanted_position = Vector2(-49.061314, 92.95154)
 leg_polarity = true
+neighbour_legs = [NodePath("../LegLeft1"), NodePath("../LegRight1")]
 step_weight = 0.5
 
-[node name="LegLeft3" parent="." instance=ExtResource("3_hi0mj")]
+[node name="LegLeft3" parent="." node_paths=PackedStringArray("neighbour_legs") instance=ExtResource("3_hi0mj")]
 unique_name_in_owner = true
 position = Vector2(-8, 0)
-wanted_position = Vector2(-34.807358, 87.84268)
+wanted_position = Vector2(-79.09073, 69.62354)
 leg_polarity = true
+neighbour_legs = [NodePath("../LegLeft4"), NodePath("../LegRight4")]
 step_weight = 0.5
 
-[node name="LegLeft4" parent="." instance=ExtResource("3_hi0mj")]
+[node name="LegLeft4" parent="." node_paths=PackedStringArray("neighbour_legs") instance=ExtResource("3_hi0mj")]
 unique_name_in_owner = true
 wanted_position = Vector2(-49.061314, 92.95154)
 leg_polarity = true
+neighbour_legs = [NodePath("../LegLeft3"), NodePath("../LegRight3")]
 step_weight = 0.5
 
-[node name="LegRight1" parent="." instance=ExtResource("3_hi0mj")]
+[node name="LegRight1" parent="." node_paths=PackedStringArray("neighbour_legs") instance=ExtResource("3_hi0mj")]
 unique_name_in_owner = true
 wanted_position = Vector2(73.11943, 54.499714)
+neighbour_legs = [NodePath("../LegRight2"), NodePath("../LegLeft2")]
 step_weight = 0.5
 
-[node name="LegRight2" parent="." instance=ExtResource("3_hi0mj")]
+[node name="LegRight2" parent="." node_paths=PackedStringArray("neighbour_legs") instance=ExtResource("3_hi0mj")]
 unique_name_in_owner = true
 position = Vector2(8, 0)
 wanted_position = Vector2(2.3123076, 80.41855)
+neighbour_legs = [NodePath("../LegRight1"), NodePath("../LegLeft1")]
 step_weight = 0.5
 
-[node name="LegRight3" parent="." instance=ExtResource("3_hi0mj")]
+[node name="LegRight3" parent="." node_paths=PackedStringArray("neighbour_legs") instance=ExtResource("3_hi0mj")]
 unique_name_in_owner = true
 position = Vector2(16, 0)
 wanted_position = Vector2(73.11943, 54.499714)
+neighbour_legs = [NodePath("../LegRight4"), NodePath("../LegLeft4")]
 step_weight = 0.5
 
-[node name="LegRight4" parent="." instance=ExtResource("3_hi0mj")]
+[node name="LegRight4" parent="." node_paths=PackedStringArray("neighbour_legs") instance=ExtResource("3_hi0mj")]
 unique_name_in_owner = true
 position = Vector2(24, 0)
 wanted_position = Vector2(2.3123076, 80.41855)
+neighbour_legs = [NodePath("../LegRight3"), NodePath("../LegLeft3")]
 step_weight = 0.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
