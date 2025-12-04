@@ -75,7 +75,6 @@ func _physics_process(delta: float) -> void:
 		var leg: SpiderLeg = legs[data[0]]
 		var weight_diff = data[1]
 		var best_surface = data[2]
-		print(weight_diff)
 		
 		if leg.state == leg.states.GROUNDED:
 			if weight_diff > trigger_threshold: # If new surface is way better than current surface, then step
@@ -131,11 +130,11 @@ func _draw():
 		var pos = surface[0] - global_position
 		var normal = surface[1]
 		var weight = calculate_weight(pos, normal, 0)
-		draw_circle(pos, 3, debug_gradient.gradient.sample((weight + 0.5)/2))
+		draw_circle(pos, 3, debug_gradient.gradient.sample((weight/256 + 0.5)/2))
 	
 	## All positions, doesnt acco unt for normal or angle
 	for x in range(-128, 129, 8):
 		for y in range(-128, 129, 8):
 			var weight = calculate_weight(Vector2(x, y), Vector2.UP, 0)
-			draw_circle(Vector2(x, y), 3, debug_gradient.gradient.sample(weight))
+			draw_circle(Vector2(x, y), 3, debug_gradient.gradient.sample((weight/256 + 0.5)/2))
 	
