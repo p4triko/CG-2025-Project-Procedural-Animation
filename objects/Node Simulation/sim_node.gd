@@ -36,6 +36,7 @@ var sim_root: SimRoot
 var prev_global_position: Vector2 = Vector2.ZERO
 var visual_position: Vector2 = Vector2.ZERO
 var wanted_position = null
+var length = 0
 
 """
 Setup
@@ -53,9 +54,9 @@ func update_sim_root(root):
 """
 Simulation
 """
-# Returns joint that has variables for constraints between some two neighbour joints
-func chain_update():
+func chain_update(prev_length = 0):
 	# Updatig some variables
+	length = max(prev_length + distance_range.x, distance_range.y)
 	if Engine.is_editor_hint() && !sim_root.simulate_in_debug:
 		top_level = false
 	else:
@@ -64,7 +65,7 @@ func chain_update():
 	if wanted_position != null:
 		global_position = wanted_position
 		wanted_position = null
-	run_for_every_child("chain_update")
+	run_for_every_child("chain_update", [length])
 	
 	if is_anchored && !(Engine.is_editor_hint() && !sim_root.simulate_in_debug):
 		run_for_every_neighbour(null, "constraint_wave", [[self]])
@@ -145,8 +146,8 @@ func update_node_list():
 
 func _draw() -> void:
 	# Debug draw
-	var do_draw_bones = check_debug_enum(sim_root.draw_debug_bones)
-	var do_draw_constraints = check_debug_enum(sim_root.draw_distance_constraint)
+	var do_draw_bones = Utils.check_debug_enum(sim_root.draw_debug_bones)
+	var do_draw_constraints = Utils.check_debug_enum(sim_root.draw_distance_constraint)
 	seed(hash(get_path()))
 	var bone_color = Color(randf(), randf(), randf())
 	var local_visual_position = visual_position - global_position
