@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1valkcm8cbr1"]
+
+[ext_resource type="Script" uid="uid://rtcii0i3357j" path="res://scripts/tentacle.gd" id="1_spd53"]
+
+[sub_resource type="GDScript" id="GDScript_spd53"]
+
+[sub_resource type="Curve" id="Curve_tfhu0"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.054253936), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Root" type="Node2D"]
+script = SubResource("GDScript_spd53")
+
+[node name="Line2D" type="Line2D" parent="."]
+position = Vector2(504, 468)
+scale = Vector2(1.0368097, 1)
+points = PackedVector2Array(-2, -1, 121, -45)
+width = 30.0
+width_curve = SubResource("Curve_tfhu0")
+default_color = Color(0, 0, 0, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+script = ExtResource("1_spd53")

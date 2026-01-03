@@ -4,6 +4,7 @@ extends Node2D
 @export var segment_length = 10 # how far apart the points are
 @export var follow_strength = 0.85 # for smoothing, how quickly each point moves toward its target position
 @export var iterations = 3
+@export var debug_draw = false
 
 var pts: Array[Vector2] = [] # store every point as 2d vector, [0] being the head
 var segment_widths: Array[float] = []
@@ -47,8 +48,16 @@ func _process(_delta):
 	queue_redraw()
 
 func _draw():
+
 	for i in range(segment_count):
-		draw_circle(pts[i], segment_widths[i], Color.WHITE, false)
-	
+		draw_circle(pts[i], segment_widths[i], Color.BLACK, true)
+
 	for i in range(1, segment_count):
-		draw_line(pts[i - 1], pts[i], Color.RED)
+		draw_line(pts[i - 1], pts[i], Color.BLACK, 10.0)
+
+	if debug_draw:
+		for i in range(segment_count):
+			draw_circle(pts[i], segment_widths[i], Color.WHITE, false)
+		
+		for i in range(1, segment_count):
+			draw_line(pts[i - 1], pts[i], Color.RED)

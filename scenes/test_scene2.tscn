@@ -1,7 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://dlx0w7jlmress"]
+[gd_scene load_steps=3 format=3 uid="uid://dlx0w7jlmress"]
 
 [ext_resource type="Script" uid="uid://bkimi84ca4v7p" path="res://scripts/spine.gd" id="1_g2r3l"]
+[ext_resource type="PackedScene" uid="uid://d1valkcm8cbr1" path="res://scenes/tentacle.tscn" id="2_at5ck"]
 
 [node name="Spine" type="Node2D"]
 script = ExtResource("1_g2r3l")
-segment_length = 20
+segment_length = 15
+follow_strength = 0.92
+
+[node name="Tentacle" parent="." instance=ExtResource("2_at5ck")]
+position = Vector2(465, 133)
+rotation = -3.1219385
+scale = Vector2(1.048337, 1.0275731)
