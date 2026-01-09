@@ -41,5 +41,5 @@ func get_collisions() -> Array[Array]:
 func _draw() -> void:
 	if Utils.check_debug_enum(draw_debug):
 		draw_line(Vector2.ZERO, target_positon, Color(1, 0.2, 0.2, 0.7), 1.5)
-		for i in saved_hits:
-			draw_circle(i[0] - global_position, 2, Color(1, 0.2, 0.2, 0.7), false, 1)
+		#for i in saved_hits:
+			#draw_circle(i[0] - global_position, 2, Color(1, 0.2, 0.2, 0.7), false, 1)
