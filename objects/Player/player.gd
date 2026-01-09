@@ -51,35 +51,41 @@ func _physics_process(delta: float) -> void:
 	var surfaces = get_potential_surfaces()
 	debug_draw_surfaces = surfaces
 	
-	var leg_weights = []
+	var leg_scores = []
 	for leg_i in legs.size():
 		var leg: SpiderLeg = legs[leg_i]
-		var velocity_offset = velocity * 0.3 * 1.3
+		# Where player will be in 0.25 seconds (time it takes for leg to move)
+		var velocity_offset = velocity * 0.25 * 1.2  # Second number resembles anticipation
 		
 		# Pick best surface
 		var best_surface = surfaces[0]
-		var best_surface_weight: float = 0
+		var best_surface_score: float = 0
 		for surface in surfaces:
-			var weight = calculate_weight(surface[0] - leg.global_position - velocity_offset, surface[1], leg_angles[leg_i])
-			if weight > best_surface_weight:
+			var score = calculate_score(surface[0] - leg.global_position - velocity_offset, surface[1], leg_angles[leg_i])
+			if score > best_surface_score:
 				best_surface = surface
-				best_surface_weight = weight
+				best_surface_score = score
 		
-		var current_weight = calculate_weight(leg.current_position - leg.global_position, leg.current_normal, leg_angles[leg_i])
-		leg_weights.append([leg_i, best_surface_weight - current_weight, best_surface])
+		var current_score = calculate_score(leg.current_position - leg.global_position, leg.current_normal, leg_angles[leg_i])
+		leg_scores.append([leg_i, best_surface_score, current_score, best_surface])
 	
-	leg_weights.sort_custom(func(x, y): return x[1] > y[1])
+	leg_scores.sort_custom(func(x, y): return x[1] - x[2] > y[1] - y[2])
 	
-	var trigger_threshold = 0.2 * velocity.length() / h_target_velocity ## First number is for fine tuning
-	for data in leg_weights:
+	var trigger_threshold = max(0.2 * velocity.length() / h_target_velocity, 0.2) ## First number is for fine tuning
+	for data in leg_scores:
 		var leg: SpiderLeg = legs[data[0]]
-		var weight_diff = data[1]
-		var best_surface = data[2]
+		var best_surface_score = data[1]
+		var current_score = data[2]
+		var score_diff = best_surface_score - current_score
+		var best_surface = data[3]
+		
 		
 		if leg.state == leg.states.GROUNDED:
-			if weight_diff > trigger_threshold: # If new surface is way better than current surface, then step
+			if leg.name == "LegLeft1": print(current_score)
+			if score_diff > trigger_threshold: # If new surface is way better than current surface, then step
 				leg.step(best_surface[0], best_surface[1])
-		print(weight_diff)
+		if current_score < 0:
+			leg.step(best_surface[0], best_surface[1], true)
 	
 	queue_redraw()
 
@@ -93,51 +99,54 @@ func get_grounded_legs(list: Array[SpiderLeg]) -> Array[SpiderLeg]:
 ## Raycasts a bunch to find points where a leg could go
 func get_potential_surfaces() -> Array:
 	var all_collisions = []
+	var velocity_offset = velocity * 0.25 # Where player will be in 0.3 seconds (time it takes for leg to move)
+	$Raycasts.position = velocity_offset
 	for raycast: RecursiveRayCast2D in $Raycasts.get_children():
 		raycast.exclude = [self]
 		all_collisions += raycast.get_collisions()
 	return all_collisions
 
-static func combine_weights(args):
-	var mult = 1
+static func combine_scores(args):
+	var pos: float = 0
+	var neg: float = 0
 	for arg in args:
-		mult = abs(arg * mult) * (-1 if arg < 0 or mult < 0 else 1)
-	return mult
+		if arg < 0:
+			neg += arg
+		pos += arg
+	return pos if neg == 0.0 else neg
 
-func calculate_weight(pos: Vector2, normal: Vector2, wanted_angle: float = 1.1, angle_width: float = 0.8, leg_length: float = 128) -> float:
+## Score negative means that leg position is bad, if leg is there, it has to be moved. score positive means it is a viable position
+func calculate_score(pos: Vector2, normal: Vector2, wanted_angle: float = 1.1, angle_width: float = 0.8, leg_length: float = 128) -> float:
 	# Normal
 	var normal_width = PI * 3/5
-	var normal_sharpness = 4
-	var normal_weight = (1 - abs(normal.angle_to(Vector2.UP)) / normal_width) * normal_sharpness
+	var normal_score = (1 - abs(normal.angle_to(Vector2.UP)) / normal_width)
 	
 	# Distance
 	var rest_distance_ratio = 0.7
 	var dist_smoothing = 50.0
-	var distance_weight = 1 - abs(leg_length*rest_distance_ratio/dist_smoothing - pos.length()/dist_smoothing)
-	if pos.length() > leg_length: distance_weight = -10
+	var distance_score = 1 - abs(leg_length*rest_distance_ratio/dist_smoothing - pos.length()/dist_smoothing)
 	
 	# Angle
-	var angle_sharpness = 4
-	var angle_weight = (1 - abs(pos.angle_to(Vector2.from_angle(wanted_angle + PI/2))) * angle_width) * angle_sharpness
-	
-	# Max length
-	var max_length_weight = int(leg_length - pos.length())
+	var angle_score = (1 - abs(pos.angle_to(Vector2.from_angle(wanted_angle + PI/2))) * angle_width)
 	
 	# Combine
-	return combine_weights([normal_weight, distance_weight, angle_weight, max_length_weight])
-	#return normal_weight + distance_weight + angle_weight + max_length_weight
+	var normal_weight: float = 1.0
+	var distance_weight: float = 1.0
+	var angle_weight: float = 1.0
+	return combine_scores([normal_score*normal_weight, distance_score*distance_weight, angle_score*angle_weight]) \
+			/ (normal_weight+distance_weight+angle_weight)
 
 func _draw():
 	## For surfaces, doesnt account for the angle
 	for surface in debug_draw_surfaces:
 		var pos = surface[0] - global_position
 		var normal = surface[1]
-		var weight = calculate_weight(pos, normal, 0)
-		draw_circle(pos, 3, debug_gradient.gradient.sample((weight/256 + 0.5)/2))
+		var score = calculate_score(pos - velocity * 0.25, normal, 0)
+		draw_circle(pos, 3, debug_gradient.gradient.sample((score + 1)/2))
 	
 	## All positions, doesnt account for normal or angle
-	for x in range(-128, 129, 8):
-		for y in range(-128, 129, 8):
-			var weight = calculate_weight(Vector2(x, y), Vector2.UP, 0)
-			draw_circle(Vector2(x, y), 3, debug_gradient.gradient.sample((weight/256 + 0.5)/2))
+	#for x in range(-128, 129, 8):
+		#for y in range(-128, 129, 8):
+			#var score = calculate_score(Vector2(x, y), Vector2.UP, 1.1)
+			#draw_circle(Vector2(x, y) + velocity * 0.25, 3, debug_gradient.gradient.sample((score + 1)/2))
 	
