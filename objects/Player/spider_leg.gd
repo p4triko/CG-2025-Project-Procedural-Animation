@@ -1,7 +1,7 @@
 @tool
 class_name SpiderLeg extends SimRoot
 
-@export_tool_button("blah") var a = func(): 
+@export_tool_button("run_test") var a = func(): 
 	seed(Engine.get_physics_frames())
 	wanted_position = Vector2(randf_range(0, 100 * (-1 if leg_polarity else 1)), randf_range(-100, 100));
 	step()
@@ -42,10 +42,12 @@ func _physics_process(delta: float) -> void:
 	else:
 		move_leg_closest_to(wanted_position)
 
-func step(to: Vector2 = wanted_position, normal: Vector2 = wanted_normal):
+func step(to: Vector2 = wanted_position, normal: Vector2 = wanted_normal, forced: bool = false):
 	if state == states.GROUNDED:
-		for neighbour_leg in neighbour_legs:
-			if neighbour_leg.state == SpiderLeg.states.STEPPING: return
+		if !forced:
+			for neighbour_leg in neighbour_legs:
+				if neighbour_leg.state == SpiderLeg.states.STEPPING: 
+					return
 		
 		wanted_position = to
 		wanted_normal = normal
@@ -54,14 +56,14 @@ func step(to: Vector2 = wanted_position, normal: Vector2 = wanted_normal):
 		state = states.STEPPING
 
 func restep(to: Vector2 = wanted_position, normal: Vector2 = wanted_normal):
-	if state == states.STEPPING:
+	if leg_node.wanted_position:
 		current_position = leg_node.wanted_position
-		current_normal = wanted_normal
-		wanted_position = to
-		wanted_normal = normal
-		intermediate_position = current_position.lerp(wanted_position, step_weight)
-		stepping_progress = 0
-		state = states.STEPPING
+	current_normal = wanted_normal
+	wanted_position = to
+	wanted_normal = normal
+	intermediate_position = current_position.lerp(wanted_position, step_weight - 1)
+	stepping_progress = step_weight
+	state = states.STEPPING
 
 func progress_step(delta):
 	stepping_progress = min(stepping_progress + delta / leg_reposition_speed, 1.0)

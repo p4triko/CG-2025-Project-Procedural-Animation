@@ -54,7 +54,7 @@ func _physics_process(delta: float) -> void:
 	var leg_weights = []
 	for leg_i in legs.size():
 		var leg: SpiderLeg = legs[leg_i]
-		var velocity_offset = velocity * 0.3
+		var velocity_offset = velocity * 0.3 * 1.3
 		
 		# Pick best surface
 		var best_surface = surfaces[0]
@@ -79,6 +79,7 @@ func _physics_process(delta: float) -> void:
 		if leg.state == leg.states.GROUNDED:
 			if weight_diff > trigger_threshold: # If new surface is way better than current surface, then step
 				leg.step(best_surface[0], best_surface[1])
+		print(weight_diff)
 	
 	queue_redraw()
 
@@ -113,6 +114,7 @@ func calculate_weight(pos: Vector2, normal: Vector2, wanted_angle: float = 1.1, 
 	var rest_distance_ratio = 0.7
 	var dist_smoothing = 50.0
 	var distance_weight = 1 - abs(leg_length*rest_distance_ratio/dist_smoothing - pos.length()/dist_smoothing)
+	if pos.length() > leg_length: distance_weight = -10
 	
 	# Angle
 	var angle_sharpness = 4
@@ -123,6 +125,7 @@ func calculate_weight(pos: Vector2, normal: Vector2, wanted_angle: float = 1.1, 
 	
 	# Combine
 	return combine_weights([normal_weight, distance_weight, angle_weight, max_length_weight])
+	#return normal_weight + distance_weight + angle_weight + max_length_weight
 
 func _draw():
 	## For surfaces, doesnt account for the angle
@@ -132,7 +135,7 @@ func _draw():
 		var weight = calculate_weight(pos, normal, 0)
 		draw_circle(pos, 3, debug_gradient.gradient.sample((weight/256 + 0.5)/2))
 	
-	## All positions, doesnt acco unt for normal or angle
+	## All positions, doesnt account for normal or angle
 	for x in range(-128, 129, 8):
 		for y in range(-128, 129, 8):
 			var weight = calculate_weight(Vector2(x, y), Vector2.UP, 0)
