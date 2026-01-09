@@ -4,7 +4,7 @@ extends CharacterBody2D
 
 @export_group("Vertical")
 @export var gravity: float = 1.0
-@export var v_accel: float = 200.0
+@export var v_accel: float = 100.0
 
 @export_group("Horisontal")
 @export var h_accel: float = 2000.0
@@ -12,10 +12,12 @@ extends CharacterBody2D
 @export var h_target_velocity: float = 300
 @export var sprint_multiplier: float = 1.5
 
-var wanted_floor_distance = 100;
+var default_floor_distance: float = 80
+var wanted_floor_distance: float
 var wanted_velocity: Vector2
 var is_grounded: bool = false
 var is_touching_wall: bool = false
+var velocity_offset: Vector2
 
 var left_legs: Array
 var right_legs: Array
@@ -45,74 +47,86 @@ func _physics_process(delta: float) -> void:
 	for i: SpiderLeg in left_legs:
 		left_legs_grounded += 1 if i.state == i.states.GROUNDED else 0
 	
+	wanted_floor_distance = default_floor_distance + input_axis.y * 40.0
+	
 	# Find floor, where spider will be
 	var prediction_time = 0.25
-	var spider_predicted_positon = velocity * prediction_time
+	#var spider_predicted_positon = velocity * prediction_time
+	var spider_predicted_positon = input_axis * 90.0
 	floor_raycast.position.x = spider_predicted_positon.x
 	floor_raycast.exclude = [self]
 	var floor_points = floor_raycast.get_collisions()
-	var new_floor: Vector2 = null if floor_points.is_empty() else floor_points[0][0]
 	var current_floor = Vector2(0, wanted_floor_distance)
+	var new_floor = current_floor if floor_points.is_empty() else floor_points[0][0]
 	for floor_point in floor_points:
 		body_raycast.target_positon = floor_point[0] - body_raycast.global_position + floor_point[1]
 		if body_raycast.get_collisions().is_empty():
 			if new_floor.distance_to(current_floor) > floor_point[0].distance_to(current_floor) :
 				new_floor = floor_point[0]
-	body_raycast.target_positon = new_floor - body_raycast.global_position - Vector2(0, wanted_floor_distance) #Just for visualization
 	
 	# Wanted velocity is the ideal direction/speed player wants to be moving at,
 	# but it has to be interpolated for smoother movement
-	if abs(input_axis.y) > 0.5:
-		wanted_floor_distance += input_axis.y * v_accel * delta
-		wanted_floor_distance = clamp(wanted_floor_distance, 50, 128)
-	#print(wanted_floor_distance)
-	wanted_velocity.y = 0
 	
-	velocity.y = wanted_velocity.y
+	wanted_velocity.y = (new_floor.y - wanted_floor_distance - global_position.y) / 0.25
+	print(wanted_floor_distance)
+	
+	var velocity_diff_y: float = -(wanted_velocity.y - velocity.y)
+	velocity.y += sign(velocity_diff_y) * delta * min(h_accel, 1000)
+	if -sign(velocity_diff_y) == sign(wanted_velocity.y - velocity.y):
+		velocity.y = wanted_velocity.y
+	
 	
 	## Horizontal velocity
 	wanted_velocity.x = input_axis.x * h_target_velocity * (sprint_multiplier if input_sprint else 1.0)
-	var velocity_diff: float = wanted_velocity.x - velocity.x
-	var is_speeding_up: bool = sign(velocity.x) * wanted_velocity.x > sign(velocity.x) * velocity.x
-	velocity.x += sign(velocity_diff) * delta * (h_accel if is_speeding_up else h_deaccel)
-	if -sign(velocity_diff) == sign(wanted_velocity.x - velocity.x):
+	var velocity_diff_h: float = wanted_velocity.x - velocity.x
+	var is_speeding_up_h: bool = sign(velocity.x) * wanted_velocity.x > sign(velocity.x) * velocity.x
+	velocity.x += sign(velocity_diff_h) * delta * (h_accel if is_speeding_up_h else h_deaccel)
+	if -sign(velocity_diff_h) == sign(wanted_velocity.x - velocity.x):
 		velocity.x = wanted_velocity.x
 	move_and_slide()
 	
+	# Raycast where the spider is going to be
+	# Where player will be in 0.25 seconds (time it takes for leg to move)
+	velocity_offset = velocity * 0.25
+	body_raycast.target_positon = velocity_offset * 1.5
+	var collision_prediction = body_raycast.get_collisions()
+	if !collision_prediction.is_empty():
+		var wall: Vector2 = ((collision_prediction[0][0] - global_position).length() - 15.0) * (collision_prediction[0][0] - global_position)
+		if wall.length() < velocity_offset.length():
+			velocity_offset = wall
+	
 	## Leg movement
-	var leg_scores = []
-	for leg_i in legs.size():
-		var leg: SpiderLeg = legs[leg_i]
-		# Where player will be in 0.25 seconds (time it takes for leg to move)
-		var velocity_offset = velocity * 0.25 * 1.2  # Second number resembles anticipation
+	if !surfaces.is_empty(): # If no surfaces to step onto
+		var leg_scores = []
+		for leg_i in legs.size():
+			var leg: SpiderLeg = legs[leg_i]
+			# Pick best surface
+			var best_surface = surfaces[0]
+			var best_surface_score: float = 0
+			for surface in surfaces:
+				var score = calculate_score(surface[0] - leg.global_position - velocity_offset * 1.2, surface[1], leg_angles[leg_i])
+				if score > best_surface_score:
+					best_surface = surface
+					best_surface_score = score
+			
+			var current_score = calculate_score(leg.current_position - leg.global_position, leg.current_normal, leg_angles[leg_i])
+			leg_scores.append([leg_i, best_surface_score, current_score, best_surface])
 		
-		# Pick best surface
-		var best_surface = surfaces[0]
-		var best_surface_score: float = 0
-		for surface in surfaces:
-			var score = calculate_score(surface[0] - leg.global_position - velocity_offset, surface[1], leg_angles[leg_i])
-			if score > best_surface_score:
-				best_surface = surface
-				best_surface_score = score
+		leg_scores.sort_custom(func(x, y): return x[1] - x[2] > y[1] - y[2])
 		
-		var current_score = calculate_score(leg.current_position - leg.global_position, leg.current_normal, leg_angles[leg_i])
-		leg_scores.append([leg_i, best_surface_score, current_score, best_surface])
-	
-	leg_scores.sort_custom(func(x, y): return x[1] - x[2] > y[1] - y[2])
-	
-	var trigger_threshold = max(0.2 * velocity.length() / h_target_velocity, 0.2) ## First number is for fine tuning
-	for data in leg_scores:
-		var leg: SpiderLeg = legs[data[0]]
-		var best_surface_score = data[1]
-		var current_score = data[2]
-		var score_diff = best_surface_score - current_score
-		var best_surface = data[3]
-		
-		if leg.state == leg.states.GROUNDED:
-			if score_diff > trigger_threshold: # If new surface is way better than current surface, then step
-				leg.step(best_surface[0], best_surface[1])
-		if current_score < 0:
-			leg.step(best_surface[0], best_surface[1], true)
+		var trigger_threshold = max(0.2 * velocity.length() / h_target_velocity, 0.2) ## First number is for fine tuning
+		for data in leg_scores:
+			var leg: SpiderLeg = legs[data[0]]
+			var best_surface_score = data[1]
+			var current_score = data[2]
+			var score_diff = best_surface_score - current_score
+			var best_surface = data[3]
+			
+			if leg.state == leg.states.GROUNDED:
+				if score_diff > trigger_threshold: # If new surface is way better than current surface, then step
+					leg.step(best_surface[0], best_surface[1])
+			if current_score < 0:
+				leg.step(best_surface[0], best_surface[1], true)
 	
 	queue_redraw()
 
@@ -126,7 +140,6 @@ func get_grounded_legs(list: Array[SpiderLeg]) -> Array[SpiderLeg]:
 ## Raycasts a bunch to find points where a leg could go
 func get_potential_surfaces() -> Array:
 	var all_collisions = []
-	var velocity_offset = velocity * 0.25 # Where player will be in 0.3 seconds (time it takes for leg to move)
 	$Raycasts.position = velocity_offset
 	for raycast: RecursiveRayCast2D in $Raycasts.get_children():
 		raycast.exclude = [self]

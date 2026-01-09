@@ -16,7 +16,7 @@ colors = PackedColorArray(0, 0, 0, 1, 0.4627726, 0.00044520944, 0.5386295, 1, 1,
 gradient = SubResource("Gradient_hi0mj")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8e3mr"]
-radius = 33.13608
+radius = 30.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_fwodp")
@@ -1253,9 +1253,9 @@ script = ExtResource("4_76bfe")
 target_positon = Vector2(127.383644, -12.546194)
 
 [node name="FloorRayCast" type="Node2D" parent="."]
-position = Vector2(0, -128)
+position = Vector2(-128, -152)
 script = ExtResource("4_76bfe")
-target_positon = Vector2(0, 256)
+target_positon = Vector2(0, 318.55)
 draw_debug = 0
 metadata/_custom_type_script = "uid://bnyh50e0grrse"
 
