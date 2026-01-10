@@ -10,13 +10,13 @@ func create_raycasts():
 		i.queue_free()
 	
 	# Spawns raycasts in a pattern
-	spawn_bunch(Vector2(0, 0), 128, 128 + 64)
-	spawn_bunch(Vector2(20, 20), 64, 128)
-	spawn_bunch(Vector2(-20, 20), 64, 128)
+	spawn_bunch(Vector2(0, 0), 64, 128 + 64, 0.0)
+	spawn_bunch(Vector2(0, 0), 128,128 + 32, 0.5)
+	spawn_bunch(Vector2(0, 0), 64,128 + 0, -0.5)
 	
 func spawn_bunch(positon: Vector2, count: float, length: float, shift: float = 0):
 	for i in range(0, count):
-		var angle = float(i + shift) / count * 2.0 * PI
+		var angle = (float(i) + shift) / count * 2.0 * PI
 		var vec = Vector2(cos(angle), sin(angle))
 		var raycast = RecursiveRayCast2D.new()
 		raycast.position = positon

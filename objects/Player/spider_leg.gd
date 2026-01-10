@@ -82,4 +82,6 @@ func move_leg_closest_to(target_position: Vector2):
 	var target_relative_position = target_position - global_position
 	var target_relative_distance = target_relative_position.length()
 	# Prevents the legs from stretching further then their length
+	if target_relative_distance > leg_node.length:
+		state = states.STEPPING
 	leg_node.wanted_position = target_relative_position.normalized() * min(leg_node.length, target_relative_distance) + global_position

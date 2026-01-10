@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var debug_gradient: GradientTexture1D
 
 @export_group("Vertical")
-@export var gravity: float = 1.0
+@export var gravity: float = 4000.0
 @export var v_accel: float = 100.0
 
 @export_group("Horisontal")
@@ -32,7 +32,13 @@ var debug_draw_surfaces: Array = []
 func _ready() -> void:
 	left_legs = [%LegLeft1, %LegLeft2, %LegLeft3, %LegLeft4]
 	right_legs = [%LegRight1, %LegRight2, %LegRight3, %LegRight4]
+
 	legs = left_legs + right_legs
+
+# Fall/dont take input when no legs are touching the ground
+# Should try to maintain current y position if not moving left or right (dont predict slopes)
+#
+# Make legs go into PHYSICS state when cant stand anywhere (bug)
 
 func _physics_process(delta: float) -> void:
 	var input_axis: Vector2 = Vector2(Input.get_axis("game_left", "game_right"), Input.get_axis("game_down", "game_up"))
@@ -46,17 +52,20 @@ func _physics_process(delta: float) -> void:
 	var left_legs_grounded = 0
 	for i: SpiderLeg in left_legs:
 		left_legs_grounded += 1 if i.state == i.states.GROUNDED else 0
-	
-	wanted_floor_distance = default_floor_distance + input_axis.y * 40.0
+	var right_legs_grounded = 0
+	for i: SpiderLeg in left_legs:
+		right_legs_grounded += 1 if i.state == i.states.GROUNDED else 0
+	var is_falling = right_legs_grounded <= 1 || left_legs_grounded <= 1
+	print(right_legs_grounded, left_legs_grounded)
 	
 	# Find floor, where spider will be
-	var prediction_time = 0.25
+	#var prediction_time = 0.25
 	#var spider_predicted_positon = velocity * prediction_time
 	var spider_predicted_positon = input_axis * 90.0
 	floor_raycast.position.x = spider_predicted_positon.x
 	floor_raycast.exclude = [self]
 	var floor_points = floor_raycast.get_collisions()
-	var current_floor = Vector2(0, wanted_floor_distance)
+	var current_floor = Vector2(0, default_floor_distance)
 	var new_floor = current_floor if floor_points.is_empty() else floor_points[0][0]
 	for floor_point in floor_points:
 		body_raycast.target_positon = floor_point[0] - body_raycast.global_position + floor_point[1]
@@ -67,13 +76,15 @@ func _physics_process(delta: float) -> void:
 	# Wanted velocity is the ideal direction/speed player wants to be moving at,
 	# but it has to be interpolated for smoother movement
 	
-	wanted_velocity.y = (new_floor.y - wanted_floor_distance - global_position.y) / 0.25
-	print(wanted_floor_distance)
+	wanted_velocity.y = -input_axis.y * 400.0
+	#wanted_velocity.y = (new_floor.y - wanted_floor_distance - global_position.y) / 0.25
+	#wanted_velocity.y = 0
 	
 	var velocity_diff_y: float = -(wanted_velocity.y - velocity.y)
 	velocity.y += sign(velocity_diff_y) * delta * min(h_accel, 1000)
 	if -sign(velocity_diff_y) == sign(wanted_velocity.y - velocity.y):
 		velocity.y = wanted_velocity.y
+	if is_falling: velocity.y += gravity * delta
 	
 	
 	## Horizontal velocity
@@ -141,9 +152,15 @@ func get_grounded_legs(list: Array[SpiderLeg]) -> Array[SpiderLeg]:
 func get_potential_surfaces() -> Array:
 	var all_collisions = []
 	$Raycasts.position = velocity_offset
+	body_raycast.target_positon = velocity_offset
+	var flip_normals: bool = body_raycast.get_collisions().size() % 2 == 1
 	for raycast: RecursiveRayCast2D in $Raycasts.get_children():
 		raycast.exclude = [self]
-		all_collisions += raycast.get_collisions()
+		var collisions = raycast.get_collisions()
+		if flip_normals:
+			for point in collisions:
+				point[1] = Vector2.ZERO - point[1]
+		all_collisions += collisions
 	return all_collisions
 
 static func combine_scores(args):
@@ -178,11 +195,11 @@ func calculate_score(pos: Vector2, normal: Vector2, wanted_angle: float = 1.1, a
 
 func _draw():
 	## For surfaces, doesnt account for the angle
-	#for surface in debug_draw_surfaces:
-		#var pos = surface[0] - global_position
-		#var normal = surface[1]
-		#var score = calculate_score(pos - velocity * 0.25, normal, 0)
-		#draw_circle(pos, 3, debug_gradient.gradient.sample((score + 1)/2))
+	for surface in debug_draw_surfaces:
+		var pos = surface[0] - global_position
+		var normal = surface[1]
+		var score = calculate_score(pos - velocity * 0.25, normal, 0)
+		draw_circle(pos, 3, debug_gradient.gradient.sample((score + 1)/2))
 	
 	## All positions, doesnt account for normal or angle
 	#for x in range(-128, 129, 8):
