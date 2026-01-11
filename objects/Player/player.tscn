@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://c0pigba0ihfvs"]
+[gd_scene load_steps=10 format=3 uid="uid://c0pigba0ihfvs"]
 
 [ext_resource type="Script" uid="uid://btxtc8h4my7xj" path="res://objects/Player/player.gd" id="1_fwodp"]
 [ext_resource type="Texture2D" uid="uid://drkij5rd4qwh6" path="res://assets/images/Spider/spider_body.png" id="2_76bfe"]
 [ext_resource type="PackedScene" uid="uid://cq6t7jx8fbq3w" path="res://objects/Player/spider_leg.tscn" id="3_hi0mj"]
+[ext_resource type="Script" uid="uid://bogve6rqgyxme" path="res://objects/Player/player_camera.gd" id="3_sp50d"]
 [ext_resource type="Script" uid="uid://ck1easxuocsxh" path="res://objects/Player/spawn_raycasts.gd" id="4_8e3mr"]
 [ext_resource type="Script" uid="uid://bnyh50e0grrse" path="res://objects/RecursiveRayCast2D/RecursiveRayCast2D.gd" id="4_76bfe"]
 
@@ -29,6 +30,9 @@ sprint_multiplier = 1.25
 texture = ExtResource("2_76bfe")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+top_level = true
+position = Vector2(0, -64)
+script = ExtResource("3_sp50d")
 
 [node name="LegLeft1" parent="." node_paths=PackedStringArray("neighbour_legs") instance=ExtResource("3_hi0mj")]
 unique_name_in_owner = true

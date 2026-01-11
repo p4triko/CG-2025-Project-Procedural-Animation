@@ -29,8 +29,6 @@ var right_legs: Array
 var legs: Array
 var leg_angles: Array = [1.4, 1.2, 1.0, 0.8, -0.8, -1.0, -1.2, -1.4]
 
-
-
 var debug_draw_surfaces: Array = []
 
 @onready var floor_raycast: RecursiveRayCast2D = $FloorRayCast
@@ -88,8 +86,6 @@ func _physics_process(delta: float) -> void:
 	
 	# Wanted velocity is the ideal direction/speed player wants to be moving at,
 	# but it has to be interpolated for smoother movement
-	
-	#wanted_velocity.y = -input_axis.y * 400.0
 	wanted_floor_distance = input_axis.y * 40 + 80
 	wanted_velocity.y = (new_floor.y - wanted_floor_distance - global_position.y) / 0.25
 	
