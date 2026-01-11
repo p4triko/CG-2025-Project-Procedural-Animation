@@ -21,6 +21,9 @@ radius = 30.0
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_fwodp")
 debug_gradient = SubResource("GradientTexture1D_76bfe")
+h_accel = 1000.0
+h_target_velocity = 250.0
+sprint_multiplier = 1.25
 
 [node name="SpiderBody" type="Sprite2D" parent="."]
 texture = ExtResource("2_76bfe")
@@ -30,73 +33,75 @@ texture = ExtResource("2_76bfe")
 [node name="LegLeft1" parent="." node_paths=PackedStringArray("neighbour_legs") instance=ExtResource("3_hi0mj")]
 unique_name_in_owner = true
 position = Vector2(-24, 0)
-wanted_position = Vector2(-77.53792, 61.877224)
+wanted_position = Vector2(-103.198, 35.632)
 leg_polarity = true
 neighbour_legs = [NodePath("../LegRight1"), NodePath("../LegLeft4")]
-leg_reposition_speed = 0.25
+leg_reposition_speed = 0.15
 step_weight = 0.5
 
 [node name="LegLeft2" parent="." node_paths=PackedStringArray("neighbour_legs") instance=ExtResource("3_hi0mj")]
 unique_name_in_owner = true
 position = Vector2(-16, 0)
-wanted_position = Vector2(-49.061314, 92.95154)
+wanted_position = Vector2(-77.151, 56.737)
 leg_polarity = true
 neighbour_legs = [NodePath("../LegRight2"), NodePath("../LegLeft1")]
-leg_reposition_speed = 0.25
+leg_reposition_speed = 0.15
 step_weight = 0.5
 
 [node name="LegLeft3" parent="." node_paths=PackedStringArray("neighbour_legs") instance=ExtResource("3_hi0mj")]
 unique_name_in_owner = true
 position = Vector2(-8, 0)
-wanted_position = Vector2(-79.09073, 69.62354)
+wanted_position = Vector2(-51.786, 68.484)
 leg_polarity = true
 neighbour_legs = [NodePath("../LegRight3"), NodePath("../LegLeft2")]
-leg_reposition_speed = 0.25
+leg_reposition_speed = 0.15
 step_weight = 0.5
 
 [node name="LegLeft4" parent="." node_paths=PackedStringArray("neighbour_legs") instance=ExtResource("3_hi0mj")]
 unique_name_in_owner = true
-wanted_position = Vector2(-49.061314, 92.95154)
+wanted_position = Vector2(-16, 63.675)
 leg_polarity = true
 neighbour_legs = [NodePath("../LegRight4"), NodePath("../LegLeft3")]
-leg_reposition_speed = 0.25
+leg_reposition_speed = 0.15
 step_weight = 0.5
 
 [node name="LegRight1" parent="." node_paths=PackedStringArray("neighbour_legs") instance=ExtResource("3_hi0mj")]
 unique_name_in_owner = true
-wanted_position = Vector2(73.11943, 54.499714)
+wanted_position = Vector2(16.05, 64.75)
 neighbour_legs = [NodePath("../LegLeft1"), NodePath("../LegRight4")]
-leg_reposition_speed = 0.25
+leg_reposition_speed = 0.15
 step_weight = 0.5
 
 [node name="LegRight2" parent="." node_paths=PackedStringArray("neighbour_legs") instance=ExtResource("3_hi0mj")]
 unique_name_in_owner = true
 position = Vector2(8, 0)
-wanted_position = Vector2(2.3123076, 80.41855)
+wanted_position = Vector2(47.502, 70.124)
 neighbour_legs = [NodePath("../LegLeft2"), NodePath("../LegRight1")]
-leg_reposition_speed = 0.25
+leg_reposition_speed = 0.15
 step_weight = 0.5
 
 [node name="LegRight3" parent="." node_paths=PackedStringArray("neighbour_legs") instance=ExtResource("3_hi0mj")]
 unique_name_in_owner = true
 position = Vector2(16, 0)
-wanted_position = Vector2(73.11943, 54.499714)
+wanted_position = Vector2(81.269, 54.525)
 neighbour_legs = [NodePath("../LegLeft3"), NodePath("../LegRight2")]
-leg_reposition_speed = 0.25
+leg_reposition_speed = 0.15
 step_weight = 0.5
 
 [node name="LegRight4" parent="." node_paths=PackedStringArray("neighbour_legs") instance=ExtResource("3_hi0mj")]
 unique_name_in_owner = true
 position = Vector2(24, 0)
-wanted_position = Vector2(2.3123076, 80.41855)
+wanted_position = Vector2(104.547, 34.939)
 neighbour_legs = [NodePath("../LegLeft4"), NodePath("../LegRight3")]
-leg_reposition_speed = 0.25
+leg_reposition_speed = 0.15
 step_weight = 0.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CircleShape2D_8e3mr")
 
 [node name="Raycasts" type="Node2D" parent="."]
+visible = false
 script = ExtResource("4_8e3mr")
 
 [node name="@Node2D@32020" type="Node2D" parent="Raycasts"]
@@ -1124,13 +1129,15 @@ script = ExtResource("4_76bfe")
 target_positon = Vector2(126.61459, -18.7815)
 
 [node name="FloorRayCast" type="Node2D" parent="."]
-position = Vector2(-128, -152)
+visible = false
+position = Vector2(0, -152)
 script = ExtResource("4_76bfe")
 target_positon = Vector2(0, 318.55)
 draw_debug = 0
 metadata/_custom_type_script = "uid://bnyh50e0grrse"
 
 [node name="BodyRayCast" type="Node2D" parent="."]
+visible = false
 script = ExtResource("4_76bfe")
 draw_debug = 0
 metadata/_custom_type_script = "uid://bnyh50e0grrse"

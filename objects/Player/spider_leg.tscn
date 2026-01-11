@@ -31,7 +31,7 @@ metadata/_custom_type_script = "uid://dftxhty2hpwup"
 
 [node name="SimNode2" type="Node2D" parent="SimNode"]
 top_level = true
-position = Vector2(54.081768, 34.22225)
+position = Vector2(54.08176, 34.222263)
 script = ExtResource("2_06bij")
 distance_range = Vector2(64, 64)
 allowed_angle_polarity = 1

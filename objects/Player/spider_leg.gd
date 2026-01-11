@@ -33,37 +33,46 @@ var current_normal: Vector2 = Vector2.DOWN
 var wanted_normal: Vector2  = Vector2.DOWN
 var intermediate_position: Vector2 ## For bezier curve
 var stepping_progress: float = 0
+var default_positon: Vector2
+
+func _ready() -> void:
+	default_positon = wanted_position
 
 func _physics_process(delta: float) -> void:
 	super._physics_process(delta)
 	middle_node.allowed_angle_polarity = int(leg_polarity) + 1
 	if state == states.STEPPING:
 		progress_step(delta)
-	else:
+	elif state == states.GROUNDED:
 		move_leg_closest_to(wanted_position)
+	elif state == states.PHYSICS:
+		physics_follow()
 
-func step(to: Vector2 = wanted_position, normal: Vector2 = wanted_normal, forced: bool = false):
-	if state == states.GROUNDED:
-		if !forced:
-			for neighbour_leg in neighbour_legs:
-				if neighbour_leg.state == SpiderLeg.states.STEPPING: 
-					return
-		
-		wanted_position = to
-		wanted_normal = normal
-		intermediate_position = Vector2(lerpf(current_position.x, wanted_position.x, step_weight), min(current_position.y, wanted_position.y) - step_curve_height)
-		stepping_progress = 0
-		state = states.STEPPING
-
-func restep(to: Vector2 = wanted_position, normal: Vector2 = wanted_normal):
-	if leg_node.wanted_position:
-		current_position = leg_node.wanted_position
-	current_normal = wanted_normal
+func step(to: Vector2 = wanted_position, normal: Vector2 = wanted_normal, forced: bool = false, use_curve: bool = true):
+	if !forced:
+		for neighbour_leg in neighbour_legs:
+			if neighbour_leg.state == SpiderLeg.states.STEPPING: 
+				return
+	
 	wanted_position = to
 	wanted_normal = normal
-	intermediate_position = current_position.lerp(wanted_position, step_weight - 1)
-	stepping_progress = step_weight
+	if use_curve:
+		intermediate_position = Vector2(lerpf(current_position.x, wanted_position.x, step_weight), min(current_position.y, wanted_position.y) - step_curve_height)
+	else:
+		intermediate_position = lerp(current_position, wanted_position, step_weight)
+		
+	stepping_progress = 0
 	state = states.STEPPING
+#
+#func restep(to: Vector2 = wanted_position, normal: Vector2 = wanted_normal):
+	#if leg_node.wanted_position:
+		#current_position = leg_node.wanted_position
+	#current_normal = wanted_normal
+	#wanted_position = to
+	#wanted_normal = normal
+	#intermediate_position = current_position.lerp(wanted_position, step_weight - 1)
+	#stepping_progress = step_weight
+	#state = states.STEPPING
 
 func progress_step(delta):
 	stepping_progress = min(stepping_progress + delta / leg_reposition_speed, 1.0)
@@ -82,6 +91,12 @@ func move_leg_closest_to(target_position: Vector2):
 	var target_relative_position = target_position - global_position
 	var target_relative_distance = target_relative_position.length()
 	# Prevents the legs from stretching further then their length
-	if target_relative_distance > leg_node.length:
-		state = states.STEPPING
 	leg_node.wanted_position = target_relative_position.normalized() * min(leg_node.length, target_relative_distance) + global_position
+
+func physics_follow():
+	#current_position = lerp(current_position, wanted_position, 0.1)
+	if (wanted_position - current_position).length() < 14:
+		current_position = wanted_position
+	else:
+		current_position += (wanted_position - current_position).normalized() * 14
+	move_leg_closest_to(current_position)
