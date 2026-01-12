@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://ckdrfipawwquh" path="res://objects/Node Simulation/sim_root.gd" id="2_3r3xl"]
 [ext_resource type="Script" uid="uid://dftxhty2hpwup" path="res://objects/Node Simulation/sim_node.gd" id="3_x408e"]
 [ext_resource type="Script" uid="uid://b6v5i7wyjd843" path="res://scripts/point_towards.gd" id="4_x408e"]
-[ext_resource type="Script" uid="uid://wve0h3pk7sp0" path="res://scenes/track_mouse.gd" id="5_fe581"]
+[ext_resource type="Script" uid="uid://wve0h3pk7sp0" path="res://scripts/track_mouse.gd" id="5_fe581"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fe581"]
 radius = 25.0
