@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1valkcm8cbr1"]
+
+[ext_resource type="Script" uid="uid://c1f1q4skayaau" path="res://scripts/tentacle.gd" id="1_spd53"]
+
+[sub_resource type="Curve" id="Curve_tfhu0"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.054253936), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Tentacle" type="Node2D"]
+position = Vector2(584, 506)
+rotation = 0.099560015
+script = ExtResource("1_spd53")
+follows_mouse = true
+wave_amplitude = 1.0
+wave_frequency = 0.6
+wave_speed = 0.6
+
+[node name="Line2D" type="Line2D" parent="."]
+rotation = -1.3665895
+scale = Vector2(1.0368097, 1)
+points = PackedVector2Array(-2, -1, 121, -45)
+width = 30.0
+width_curve = SubResource("Curve_tfhu0")
+default_color = Color(0.16078432, 0.1764706, 0.25490198, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Tip" type="Marker2D" parent="Line2D"]
+position = Vector2(121.7099, -45.07862)
+rotation = -0.3259552

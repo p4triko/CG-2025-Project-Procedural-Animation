@@ -4,4 +4,5 @@
 
 [node name="Spine" type="Node2D"]
 script = ExtResource("1_g2r3l")
-segment_length = 20
+segment_length = 15
+follow_strength = 0.92
