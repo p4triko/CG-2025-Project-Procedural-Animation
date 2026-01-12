@@ -5,8 +5,9 @@ extends CharacterBody2D
 @export_group("Vertical")
 @export var gravity: float = 3000.0
 @export var v_accel: float = 100.0
-@export var v_max_velocity: float = 1000
+@export var v_max_velocity: float = 2000.0
 @export var coyote_time: float = 0.1
+@export var jump_velocity: float = 1200.0
 
 @export_group("Horisontal")
 @export var h_accel: float = 2000.0
@@ -23,6 +24,8 @@ var is_grounded: bool = false
 var is_touching_wall: bool = false
 var velocity_offset: Vector2
 var coyote_timer: float = 0
+var jump_charge: float = 0
+var jump_timer: float = 0
 
 var left_legs: Array
 var right_legs: Array
@@ -48,12 +51,14 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	var input_axis: Vector2 = Vector2(Input.get_axis("game_left", "game_right"), Input.get_axis("game_down", "game_up"))
 	var input_sprint: bool = Input.is_action_pressed("game_sprint")
+	var input_jump: bool = Input.is_action_pressed("game_jump")
 	
 	## Raycasting for nearby surfaces/walls
 	var surfaces = get_potential_surfaces()
 	debug_draw_surfaces = surfaces
 	
 	## Vertical velocity
+	jump_timer -= delta
 	var left_legs_grounded = 0
 	for leg: SpiderLeg in left_legs:
 		if leg.state == leg.states.GROUNDED && leg.current_normal.dot(Vector2.UP) > 0.5:
@@ -67,7 +72,18 @@ func _physics_process(delta: float) -> void:
 		coyote_timer = 0
 	else:
 		coyote_timer += delta
-	var is_falling = coyote_timer > coyote_time
+	var is_falling = jump_timer > 0.0 || coyote_timer > coyote_time
+	
+	if is_falling:
+		jump_charge = 0.0
+	elif input_jump:
+		jump_charge = min(1.0, jump_charge + 2.0 * delta)
+		input_axis.y = -jump_charge
+	elif jump_charge > 0.0:
+		velocity.y = max(0.5, jump_charge) * -jump_velocity
+		is_falling = true
+		jump_timer = 0.2
+		jump_charge = 0.0
 	
 	# Find floor, where spider will be
 	#var prediction_time = leg_reposition_speed
@@ -153,7 +169,7 @@ func _physics_process(delta: float) -> void:
 		var score_diff = best_score - current_score
 		var best_surface = data[3]
 		
-		if leg.name == "LegLeft1": print(leg.state)
+		# if leg.name == "LegLeft1": print(leg.state)
 		if leg.state == SpiderLeg.states.GROUNDED:
 			if score_diff > trigger_threshold: # If new surface is way better than current surface, then step
 				leg.step(best_surface[0], best_surface[1])
