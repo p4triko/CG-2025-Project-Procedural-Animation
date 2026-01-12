@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cone1jicp61he"
-path="res://.godot/imported/spider3.png-1a76fe52e76afd7e217b9455347d730c.ctex"
+uid="uid://bwovk1njwomyp"
+path="res://.godot/imported/cavelevel1.png-9f2bbb29b49c0201b5173a2d1bf2ca37.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/spider3.png"
-dest_files=["res://.godot/imported/spider3.png-1a76fe52e76afd7e217b9455347d730c.ctex"]
+source_file="res://assets/sprites/cavelevel1.png"
+dest_files=["res://.godot/imported/cavelevel1.png-9f2bbb29b49c0201b5173a2d1bf2ca37.ctex"]
 
 [params]
 

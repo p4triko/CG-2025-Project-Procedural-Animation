@@ -5,6 +5,7 @@ extends Node2D
 @export var follow_strength = 0.85 # for smoothing, how quickly each point moves toward its target position
 @export var iterations = 3
 @export var debug_draw = false
+@export var spine_color: Color = Color.from_rgba8(24, 25, 35) # The entire color of the spine
 
 var pts: Array[Vector2] = [] # store every point as 2d vector, [0] being the head
 var segment_widths: Array[float] = []
@@ -50,10 +51,10 @@ func _process(_delta):
 func _draw():
 
 	for i in range(segment_count):
-		draw_circle(pts[i], segment_widths[i], Color.BLACK, true)
+		draw_circle(pts[i], segment_widths[i], spine_color, true)
 
 	for i in range(1, segment_count):
-		draw_line(pts[i - 1], pts[i], Color.BLACK, 10.0)
+		draw_line(pts[i - 1], pts[i], spine_color, 10.0)
 
 	if debug_draw:
 		for i in range(segment_count):

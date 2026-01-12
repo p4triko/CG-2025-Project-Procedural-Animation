@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lcj8psuukyie"
-path="res://.godot/imported/spider5difshape.png-48c956b54eaad851a4b92f07f2883ee8.ctex"
+uid="uid://cwtx42u64fpxu"
+path="res://.godot/imported/light.png-87539b10c4b4cebc046b6b91ffea6f69.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/spider5difshape.png"
-dest_files=["res://.godot/imported/spider5difshape.png-48c956b54eaad851a4b92f07f2883ee8.ctex"]
+source_file="res://assets/light.png"
+dest_files=["res://.godot/imported/light.png-87539b10c4b4cebc046b6b91ffea6f69.ctex"]
 
 [params]
 

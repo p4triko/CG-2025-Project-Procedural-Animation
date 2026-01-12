@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lm1lrh0k4b58"
-path="res://.godot/imported/slab.png-dbcd03624816af5f300964fe0601e5dc.ctex"
+uid="uid://dahvltywh7up1"
+path="res://.godot/imported/spiderbody.png-bb75e385f037b10ed2d1332f6a512b6f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/slab.png"
-dest_files=["res://.godot/imported/slab.png-dbcd03624816af5f300964fe0601e5dc.ctex"]
+source_file="res://assets/images/Spider/spiderbody.png"
+dest_files=["res://.godot/imported/spiderbody.png-bb75e385f037b10ed2d1332f6a512b6f.ctex"]
 
 [params]
 
