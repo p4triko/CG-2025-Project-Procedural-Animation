@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cakvphaqkix4w" path="res://scenes/player_testing.tscn" id="5_4kt5k"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
+visible = false
 
 [node name="SceneMenu" type="VBoxContainer" parent="."]
 offset_right = 40.0

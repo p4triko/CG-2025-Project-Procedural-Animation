@@ -67,6 +67,8 @@ func _process(delta: float) -> void:
 
 	if tip_point:
 		tip_point.global_position = segments[-1]
+	
+	queue_redraw()
 
 func solve_ik(target: Vector2) -> void:
 	segments[-1] = target # Snap tip to the target
@@ -109,3 +111,7 @@ func update_line_visuals():
 	for i in range(segments.size()):
 		var local_pos = line_2d.to_local(segments[i])
 		line_2d.set_point_position(i, local_pos)
+
+func _draw():
+	#draw_circle(to_local(tip_point.global_position), 250.0, Color.RED, false)
+	pass
