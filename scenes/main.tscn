@@ -140,7 +140,7 @@ wave_frequency = 1.0
 wave_speed = 2.0
 
 [node name="Spine" parent="Cave" instance=ExtResource("6_o6xl0")]
-z_index = -1
+z_index = -2
 position = Vector2(274, -371)
 rotation = 0.23368782
 scale = Vector2(0.49999997, 0.49999997)
