@@ -15,6 +15,7 @@
 [node name="Background" type="Node2D" parent="."]
 
 [node name="Parallax4" type="Parallax2D" parent="Background"]
+z_index = -3
 scroll_scale = Vector2(0.3, 0.3)
 repeat_size = Vector2(960, 0)
 repeat_times = 3
@@ -27,6 +28,7 @@ region_enabled = true
 region_rect = Rect2(0, -250, 960, 1000)
 
 [node name="Parallax3" type="Parallax2D" parent="Background"]
+z_index = -2
 scroll_scale = Vector2(0.5, 0.5)
 repeat_size = Vector2(960, 0)
 repeat_times = 3
@@ -39,6 +41,7 @@ region_enabled = true
 region_rect = Rect2(0, -250, 960, 1000)
 
 [node name="Parallax2" type="Parallax2D" parent="Background"]
+z_index = -1
 scroll_scale = Vector2(0.7, 0.7)
 repeat_size = Vector2(960, 0)
 repeat_times = 3
@@ -67,8 +70,28 @@ position = Vector2(1630, 3)
 position = Vector2(2569.9998, 314.99997)
 rotation = -0.16003701
 
+[node name="CaveFloor" parent="Cave" instance=ExtResource("4_85g3d")]
+position = Vector2(3512, 256)
+rotation = 0.03155597
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="CaveFloor2" parent="Cave" instance=ExtResource("4_85g3d")]
+position = Vector2(4192, -88.00001)
+rotation = -1.0281534
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="CaveCeiling4" parent="Cave" instance=ExtResource("5_choun")]
+position = Vector2(3420.9998, -100.999985)
+rotation = 0.067354575
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="CaveCeiling5" parent="Cave" instance=ExtResource("5_choun")]
+position = Vector2(4336, -28.999939)
+rotation = 0.08646982
+scale = Vector2(0.99999994, 0.99999994)
+
 [node name="Tentacle" parent="Cave" instance=ExtResource("5_o6xl0")]
-position = Vector2(180, 64)
+position = Vector2(1341, 393)
 rotation = 0.23368782
 scale = Vector2(0.49999997, 0.49999997)
 follows_mouse = false
@@ -76,7 +99,7 @@ rest_angle = -90.0
 max_length = 200.0
 
 [node name="Tentacle2" parent="Cave" instance=ExtResource("5_o6xl0")]
-position = Vector2(274, -371)
+position = Vector2(1542.9999, -2.0000305)
 rotation = 0.23368782
 scale = Vector2(0.49999997, 0.49999997)
 follows_mouse = false
@@ -86,26 +109,10 @@ wave_frequency = 1.0
 wave_speed = 2.0
 
 [node name="Spine" parent="Cave" instance=ExtResource("6_o6xl0")]
-z_index = -1
-position = Vector2(274, -371)
+z_index = -2
+position = Vector2(1874, 220)
 rotation = 0.23368782
 scale = Vector2(0.49999997, 0.49999997)
-
-[node name="CaveFloor" parent="Cave" instance=ExtResource("4_85g3d")]
-position = Vector2(3512, 256)
-rotation = 0.03155597
-
-[node name="CaveFloor2" parent="Cave" instance=ExtResource("4_85g3d")]
-position = Vector2(4192, -88.00001)
-rotation = -1.0281534
-
-[node name="CaveCeiling4" parent="Cave" instance=ExtResource("5_choun")]
-position = Vector2(3420.9998, -100.999985)
-rotation = 0.067354575
-
-[node name="CaveCeiling5" parent="Cave" instance=ExtResource("5_choun")]
-position = Vector2(4336, -28.999939)
-rotation = 0.086469814
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 
