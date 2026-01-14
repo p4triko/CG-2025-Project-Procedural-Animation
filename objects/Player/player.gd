@@ -74,6 +74,7 @@ func _physics_process(delta: float) -> void:
 		coyote_timer += delta
 	var is_falling = jump_timer > 0.0 || coyote_timer > coyote_time
 	
+	# Jumping
 	if is_falling:
 		jump_charge = 0.0
 	elif input_jump:
@@ -201,7 +202,7 @@ func get_potential_surfaces() -> Array:
 	body_raycast.target_positon = velocity_offset
 	var flip_normals: bool = body_raycast.get_collisions().size() % 2 == 1
 	for raycast: RecursiveRayCast2D in $Raycasts.get_children():
-		raycast.exclude = [self]
+		raycast.exclude = [self] + get_tree().get_nodes_in_group("ignored_by_legs")
 		var collisions = raycast.get_collisions()
 		if flip_normals:
 			for point in collisions:
@@ -219,7 +220,7 @@ static func combine_scores(args):
 	return pos if neg == 0.0 else neg
 
 ## Score negative means that leg position is bad, if leg is there, it has to be moved. score positive means it is a viable position
-func calculate_score(pos: Vector2, normal: Vector2, wanted_angle: float = 1.1, angle_width: float = 0.8, leg_length: float = 128) -> float:
+func calculate_score(pos: Vector2, normal: Vector2, wanted_angle: float = 1.1, angle_width: float = 0.6, leg_length: float = 128) -> float:
 	# Normal
 	var normal_width = PI * 3/5
 	var normal_score = (1 - abs(normal.angle_to(Vector2.UP)) / normal_width)

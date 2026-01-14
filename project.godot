@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="CG 2025 Project Procedural Animation"
-run/main_scene="uid://cakvphaqkix4w"
+run/main_scene="uid://ct0ulycmcjs4x"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="uid://dyqq6uaewyaa1"
 
@@ -23,10 +23,15 @@ SceneMenu="*res://scenes/scene_menu.tscn"
 [display]
 
 window/size/always_on_top=true
+window/stretch/mode="canvas_items"
 
 [dotnet]
 
 project/assembly_name="CG 2025 Project Prodecural Animation"
+
+[global_group]
+
+ignored_by_legs=""
 
 [input]
 
