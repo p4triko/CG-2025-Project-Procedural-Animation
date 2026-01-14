@@ -2,13 +2,11 @@
 
 [sub_resource type="Gradient" id="Gradient_28qtp"]
 interpolation_mode = 2
-offsets = PackedFloat32Array(0.9203704, 1)
+offsets = PackedFloat32Array(0.9766355, 1)
 colors = PackedColorArray(0.1254902, 0.13333334, 0.19215687, 1, 0.12315822, 0.13335153, 0.1931151, 0)
 
 [resource]
 gradient = SubResource("Gradient_28qtp")
-width = 32
-height = 32
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 0)

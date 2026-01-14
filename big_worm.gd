@@ -6,8 +6,9 @@ var joint_texture = preload("res://assets/images/worm_joint_texture.tres")
 var bone_texture = preload("res://assets/images/worm_bone_texture.tres")
 @export var texture_scale: float = 1
 var _texture_scale = 0
-var texture_ratio: float = 34.0
-@export_exp_easing() var thickness_falloff: float = 0.99
+@export var texture_ratio: float = 32.525
+@export_exp_easing() var thickness_falloff: float = 0.05
+@export_exp_easing() var length_falloff: float = 0.05
 
 func delete_bones():
 	for i in get_children():
@@ -15,7 +16,7 @@ func delete_bones():
 		i.queue_free()
 
 var curr_seq: int = 0
-func build_sequence(seq, curr_node = self, curr_texture_scale = texture_scale):
+func build_sequence(seq, curr_node = self, curr_texture_scale = texture_scale, curr_length = 20):
 	var seq_len = seq.length()
 	while seq_len > curr_seq:
 		curr_seq += 1
@@ -26,7 +27,7 @@ func build_sequence(seq, curr_node = self, curr_texture_scale = texture_scale):
 				new_node.bone_texture_y_scale = curr_texture_scale / texture_ratio
 				new_node.joint_texture = joint_texture
 				new_node.joint_texture_scale = curr_texture_scale
-				new_node.distance_range = Vector2(20, 20)
+				new_node.distance_range = Vector2(curr_length, curr_length)
 				match(seq[curr_seq-1]):
 					"A": # Main anchor, there should be only one for a worm to work
 						new_node.is_anchored = true
@@ -39,6 +40,7 @@ func build_sequence(seq, curr_node = self, curr_texture_scale = texture_scale):
 				new_node.owner = get_tree().edited_scene_root
 				curr_node = new_node
 				curr_texture_scale *= 1 - thickness_falloff
+				curr_length *= 1 - length_falloff
 			"[":
 				build_sequence(seq, curr_node, curr_texture_scale)
 			"]":
@@ -47,26 +49,53 @@ func build_sequence(seq, curr_node = self, curr_texture_scale = texture_scale):
 				curr_node.target_angle += 0.1
 			"l":
 				curr_node.target_angle -= 0.1
+			"T":
+				curr_texture_scale *= 1 - thickness_falloff * 8
+			"t":
+				curr_texture_scale /= 1 - thickness_falloff * 8
 			_:
 				pass
 
 # Which symbol gets replaces with what, first number is weight (doesn't need to add up to 1)
 var rules = {
 	"|": [
-		[10, "F|"],
-		[0.5, "|"],
-		[0.5, "[Fr+][Fl-]F|"],
-		[0.5, "[Fr+]F|"],
-		[0.5, "[Fl-]F|"],
+		[5, "F|"],
+		[1, "T[Fr>][Fl<]tF|"],
+		[0.2, "T[Fr>]tF|"],
+		[0.2, "T[Fl<]tF|"]
+	],
+	">": [
+		[1, "Frr+"],
+	],
+	"<": [
+		[1, "Fll-"],
 	],
 	"+": [
-		[1, "Fr+"],
+		[0.3, "Frx+"],
 		[0.3, "+"],
+		[1, "FFFrx+"],
 	],
 	"-": [
-		[1, "Fl-"],
-		[0.3, "-"],
-	]
+		[1, "Flx-"],
+		[0.2, "-"],
+		[1, "FFFlx-"],
+	],
+	"}": [
+		[1, "llll+"],
+	],
+	"{": [
+		[1, "rrrr-"],
+	],
+	"x": [
+		[10, ""],
+		[1, "[Frr]"],
+		[1, "[Fll]"],
+	],
+	"F": [
+		[5, "F"],
+		[1, "Fr"],
+		[1, "Fl"]
+	],
 }
 func get_random_rule(ruletype: String):
 	# Choosing correct rule set based on type
@@ -84,10 +113,10 @@ func get_random_rule(ruletype: String):
 			return rule[1]
 	return ruleset[-1][1] # Just in case
 
-func perform_replacement(sequence: String, ruletype: String):
+func perform_replacement(sequence: String, type: String, ruletype: String):
 	var new_sequence = ""
 	for c in sequence:
-		if c == ruletype:
+		if c == type:
 			new_sequence += get_random_rule(ruletype)
 		else:
 			new_sequence += c
@@ -96,11 +125,20 @@ func perform_replacement(sequence: String, ruletype: String):
 func generate_sequence():
 	var sequence: String = "AO|"
 	for i in range(50):
-		sequence = perform_replacement(sequence, "|")
-	for i in range(10):
-		sequence = perform_replacement(sequence, "+")
-	for i in range(10):
-		sequence = perform_replacement(sequence, "-")
+		sequence = perform_replacement(sequence, "|", "|")
+	sequence = perform_replacement(sequence, ">", ">")
+	sequence = perform_replacement(sequence, "<", "<")
+	for i in range(5):
+		sequence = perform_replacement(sequence, "+", "+")
+		sequence = perform_replacement(sequence, "-", "-")
+	sequence = perform_replacement(sequence, "+", "}")
+	sequence = perform_replacement(sequence, "-", "{")
+	for i in range(3):
+		sequence = perform_replacement(sequence, "+", "+")
+		sequence = perform_replacement(sequence, "-", "-")
+	for i in range(5):
+		sequence = perform_replacement(sequence, "x", "x")
+	sequence = perform_replacement(sequence, "F", "F")
 	return sequence
 
 func generate_worm():
