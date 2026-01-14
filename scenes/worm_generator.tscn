@@ -1,0 +1,261 @@
+[gd_scene load_steps=3 format=3 uid="uid://lvwt453nnk7r"]
+
+[ext_resource type="Script" uid="uid://bbvc1mj1bxdad" path="res://big_worm.gd" id="1_j7sxy"]
+[ext_resource type="Script" uid="uid://dftxhty2hpwup" path="res://objects/Node Simulation/sim_node.gd" id="2_4bja3"]
+
+[node name="Worm" type="Node2D"]
+position = Vector2(43, 15)
+script = ExtResource("1_j7sxy")
+draw_distance_constraint = 2
+simulate_in_debug = true
+metadata/_custom_type_script = "uid://ckdrfipawwquh"
+
+[node name="@Node2D@104909" type="Node2D" parent="."]
+script = ExtResource("2_4bja3")
+is_anchored = true
+is_top_level = false
+
+[node name="@Node2D@104910" type="Node2D" parent="@Node2D@104909"]
+top_level = true
+position = Vector2(33.22982, 12.868423)
+script = ExtResource("2_4bja3")
+
+[node name="@Node2D@104911" type="Node2D" parent="@Node2D@104909/@Node2D@104910"]
+top_level = true
+position = Vector2(23.553898, 10.343246)
+script = ExtResource("2_4bja3")
+angle_sway = 0.1
+
+[node name="@Node2D@104912" type="Node2D" parent="@Node2D@104909/@Node2D@104910/@Node2D@104911"]
+top_level = true
+position = Vector2(15.13187, 4.9516373)
+script = ExtResource("2_4bja3")
+target_angle = 0.2
+angle_sway = 0.1
+
+[node name="@Node2D@104913" type="Node2D" parent="@Node2D@104909/@Node2D@104910/@Node2D@104911/@Node2D@104912"]
+top_level = true
+position = Vector2(5.6419487, 1.7986417)
+script = ExtResource("2_4bja3")
+angle_sway = 0.1
+
+[node name="@Node2D@104914" type="Node2D" parent="@Node2D@104909/@Node2D@104910/@Node2D@104911/@Node2D@104912/@Node2D@104913"]
+top_level = true
+position = Vector2(-3.8031664, -1.4861426)
+script = ExtResource("2_4bja3")
+angle_sway = 0.1
+
+[node name="@Node2D@104915" type="Node2D" parent="@Node2D@104909/@Node2D@104910/@Node2D@104911"]
+top_level = true
+position = Vector2(13.571226, 10.931689)
+script = ExtResource("2_4bja3")
+target_angle = -0.2
+angle_sway = 0.1
+
+[node name="@Node2D@104916" type="Node2D" parent="@Node2D@104909/@Node2D@104910/@Node2D@104911/@Node2D@104915"]
+top_level = true
+position = Vector2(3.8953018, 8.406518)
+script = ExtResource("2_4bja3")
+angle_sway = 0.1
+
+[node name="@Node2D@104917" type="Node2D" parent="@Node2D@104909/@Node2D@104910/@Node2D@104911"]
+top_level = true
+position = Vector2(13.961905, 7.5159407)
+script = ExtResource("2_4bja3")
+angle_sway = 0.1
+
+[node name="@Node2D@104918" type="Node2D" parent="@Node2D@104909/@Node2D@104910/@Node2D@104911/@Node2D@104917"]
+top_level = true
+position = Vector2(4.4261312, 4.5044603)
+script = ExtResource("2_4bja3")
+angle_sway = 0.1
+
+[node name="@Node2D@104919" type="Node2D" parent="@Node2D@104909/@Node2D@104910/@Node2D@104911/@Node2D@104917/@Node2D@104918"]
+top_level = true
+position = Vector2(-5.0968103, 1.4526448)
+script = ExtResource("2_4bja3")
+angle_sway = 0.1
+
+[node name="@Node2D@104920" type="Node2D" parent="@Node2D@104909/@Node2D@104910/@Node2D@104911/@Node2D@104917/@Node2D@104918/@Node2D@104919"]
+top_level = true
+position = Vector2(-14.659762, -1.471386)
+script = ExtResource("2_4bja3")
+angle_sway = 0.1
+
+[node name="@Node2D@104921" type="Node2D" parent="@Node2D@104909/@Node2D@104910/@Node2D@104911/@Node2D@104917/@Node2D@104918/@Node2D@104919/@Node2D@104920"]
+top_level = true
+position = Vector2(-24.31572, -4.071869)
+script = ExtResource("2_4bja3")
+angle_sway = 0.1
+
+[node name="@Node2D@104922" type="Node2D" parent="@Node2D@104909/@Node2D@104910/@Node2D@104911/@Node2D@104917/@Node2D@104918/@Node2D@104919/@Node2D@104920/@Node2D@104921"]
+top_level = true
+position = Vector2(-34.104244, -6.1175423)
+script = ExtResource("2_4bja3")
+angle_sway = 0.1
+
+[node name="@Node2D@104923" type="Node2D" parent="@Node2D@104909/@Node2D@104910/@Node2D@104911/@Node2D@104917/@Node2D@104918/@Node2D@104919/@Node2D@104920/@Node2D@104921/@Node2D@104922"]
+top_level = true
+position = Vector2(-42.781536, -11.087915)
+script = ExtResource("2_4bja3")
+target_angle = 0.2
+angle_sway = 0.1
+
+[node name="@Node2D@104924" type="Node2D" parent="@Node2D@104909/@Node2D@104910/@Node2D@104911/@Node2D@104917/@Node2D@104918/@Node2D@104919/@Node2D@104920/@Node2D@104921/@Node2D@104922/@Node2D@104923"]
+top_level = true
+position = Vector2(-52.57006, -13.133592)
+script = ExtResource("2_4bja3")
+angle_sway = 0.1
+
+[node name="@Node2D@104925" type="Node2D" parent="@Node2D@104909/@Node2D@104910/@Node2D@104911/@Node2D@104917/@Node2D@104918/@Node2D@104919/@Node2D@104920/@Node2D@104921/@Node2D@104922/@Node2D@104923/@Node2D@104924"]
+top_level = true
+position = Vector2(-62.569344, -13.013906)
+script = ExtResource("2_4bja3")
+angle_sway = 0.1
+
+[node name="@Node2D@104926" type="Node2D" parent="@Node2D@104909/@Node2D@104910/@Node2D@104911/@Node2D@104917/@Node2D@104918/@Node2D@104919/@Node2D@104920/@Node2D@104921/@Node2D@104922/@Node2D@104923/@Node2D@104924/@Node2D@104925"]
+top_level = true
+position = Vector2(-72.46916, -11.601984)
+script = ExtResource("2_4bja3")
+angle_sway = 0.1
+
+[node name="@Node2D@104927" type="Node2D" parent="@Node2D@104909/@Node2D@104910/@Node2D@104911/@Node2D@104917/@Node2D@104918/@Node2D@104919/@Node2D@104920/@Node2D@104921/@Node2D@104922"]
+top_level = true
+position = Vector2(-44.045834, -5.038274)
+script = ExtResource("2_4bja3")
+target_angle = -0.2
+angle_sway = 0.1
+
+[node name="@Node2D@104928" type="Node2D" parent="@Node2D@104909/@Node2D@104910/@Node2D@104911/@Node2D@104917/@Node2D@104918/@Node2D@104919/@Node2D@104920/@Node2D@104921/@Node2D@104922/@Node2D@104927"]
+top_level = true
+position = Vector2(-54.039608, -5.391087)
+script = ExtResource("2_4bja3")
+angle_sway = 0.1
+
+[node name="@Node2D@104929" type="Node2D" parent="@Node2D@104909/@Node2D@104910/@Node2D@104911/@Node2D@104917/@Node2D@104918/@Node2D@104919/@Node2D@104920/@Node2D@104921/@Node2D@104922/@Node2D@104927/@Node2D@104928"]
+top_level = true
+position = Vector2(-63.96617, -4.1814117)
+script = ExtResource("2_4bja3")
+angle_sway = 0.1
+
+[node name="@Node2D@104930" type="Node2D" parent="@Node2D@104909/@Node2D@104910/@Node2D@104911/@Node2D@104917/@Node2D@104918/@Node2D@104919/@Node2D@104920/@Node2D@104921/@Node2D@104922"]
+top_level = true
+position = Vector2(-44.03034, -7.331081)
+script = ExtResource("2_4bja3")
+angle_sway = 0.1
+
+[node name="@Node2D@104931" type="Node2D" parent="@Node2D@104909/@Node2D@104910/@Node2D@104911/@Node2D@104917/@Node2D@104918/@Node2D@104919/@Node2D@104920/@Node2D@104921/@Node2D@104922/@Node2D@104930"]
+top_level = true
+position = Vector2(-54.030205, -7.3826094)
+script = ExtResource("2_4bja3")
+angle_sway = 0.1
+
+[node name="@Node2D@104932" type="Node2D" parent="@Node2D@104909/@Node2D@104910/@Node2D@104911/@Node2D@104917/@Node2D@104918/@Node2D@104919/@Node2D@104920/@Node2D@104921/@Node2D@104922/@Node2D@104930/@Node2D@104931"]
+top_level = true
+position = Vector2(-63.919548, -5.8990784)
+script = ExtResource("2_4bja3")
+angle_sway = 0.1
+
+[node name="@Node2D@104933" type="Node2D" parent="@Node2D@104909/@Node2D@104910/@Node2D@104911/@Node2D@104917/@Node2D@104918/@Node2D@104919/@Node2D@104920/@Node2D@104921/@Node2D@104922/@Node2D@104930/@Node2D@104931/@Node2D@104932"]
+top_level = true
+position = Vector2(-73.32633, -2.5060844)
+script = ExtResource("2_4bja3")
+angle_sway = 0.1
+
+[node name="@Node2D@104934" type="Node2D" parent="@Node2D@104909/@Node2D@104910/@Node2D@104911/@Node2D@104917/@Node2D@104918/@Node2D@104919/@Node2D@104920/@Node2D@104921/@Node2D@104922/@Node2D@104930/@Node2D@104931/@Node2D@104932/@Node2D@104933"]
+top_level = true
+position = Vector2(-83.32121, -2.1860104)
+script = ExtResource("2_4bja3")
+target_angle = 0.2
+angle_sway = 0.1
+
+[node name="@Node2D@104935" type="Node2D" parent="@Node2D@104909/@Node2D@104910/@Node2D@104911/@Node2D@104917/@Node2D@104918/@Node2D@104919/@Node2D@104920/@Node2D@104921/@Node2D@104922/@Node2D@104930/@Node2D@104931/@Node2D@104932/@Node2D@104933/@Node2D@104934"]
+top_level = true
+position = Vector2(-92.728, 1.2069836)
+script = ExtResource("2_4bja3")
+angle_sway = 0.1
+
+[node name="@Node2D@104936" type="Node2D" parent="@Node2D@104909/@Node2D@104910/@Node2D@104911/@Node2D@104917/@Node2D@104918/@Node2D@104919/@Node2D@104920/@Node2D@104921/@Node2D@104922/@Node2D@104930/@Node2D@104931/@Node2D@104932/@Node2D@104933/@Node2D@104934/@Node2D@104935"]
+top_level = true
+position = Vector2(-100.625885, 7.340769)
+script = ExtResource("2_4bja3")
+angle_sway = 0.1
+
+[node name="@Node2D@104937" type="Node2D" parent="@Node2D@104909/@Node2D@104910/@Node2D@104911/@Node2D@104917/@Node2D@104918/@Node2D@104919/@Node2D@104920/@Node2D@104921/@Node2D@104922/@Node2D@104930/@Node2D@104931/@Node2D@104932/@Node2D@104933/@Node2D@104934/@Node2D@104935/@Node2D@104936"]
+top_level = true
+position = Vector2(-106.24178, 15.614926)
+script = ExtResource("2_4bja3")
+angle_sway = 0.1
+
+[node name="@Node2D@104938" type="Node2D" parent="@Node2D@104909/@Node2D@104910/@Node2D@104911/@Node2D@104917/@Node2D@104918/@Node2D@104919/@Node2D@104920/@Node2D@104921/@Node2D@104922/@Node2D@104930/@Node2D@104931/@Node2D@104932/@Node2D@104933"]
+top_level = true
+position = Vector2(-81.22422, 3.6277018)
+script = ExtResource("2_4bja3")
+target_angle = -0.2
+angle_sway = 0.1
+
+[node name="@Node2D@104939" type="Node2D" parent="@Node2D@104909/@Node2D@104910/@Node2D@104911/@Node2D@104917/@Node2D@104918/@Node2D@104919/@Node2D@104920/@Node2D@104921/@Node2D@104922/@Node2D@104930/@Node2D@104931/@Node2D@104932/@Node2D@104933/@Node2D@104938"]
+top_level = true
+position = Vector2(-87.53893, 11.381693)
+script = ExtResource("2_4bja3")
+angle_sway = 0.1
+
+[node name="@Node2D@104940" type="Node2D" parent="@Node2D@104909/@Node2D@104910/@Node2D@104911/@Node2D@104917/@Node2D@104918/@Node2D@104919/@Node2D@104920/@Node2D@104921/@Node2D@104922/@Node2D@104930/@Node2D@104931/@Node2D@104932/@Node2D@104933/@Node2D@104938/@Node2D@104939"]
+top_level = true
+position = Vector2(-91.14847, 20.707531)
+script = ExtResource("2_4bja3")
+angle_sway = 0.1
+
+[node name="@Node2D@104941" type="Node2D" parent="@Node2D@104909/@Node2D@104910/@Node2D@104911/@Node2D@104917/@Node2D@104918/@Node2D@104919/@Node2D@104920/@Node2D@104921/@Node2D@104922/@Node2D@104930/@Node2D@104931/@Node2D@104932/@Node2D@104933/@Node2D@104938/@Node2D@104939/@Node2D@104940"]
+top_level = true
+position = Vector2(-91.6995, 30.692337)
+script = ExtResource("2_4bja3")
+angle_sway = 0.1
+
+[node name="@Node2D@104942" type="Node2D" parent="@Node2D@104909/@Node2D@104910/@Node2D@104911/@Node2D@104917/@Node2D@104918/@Node2D@104919/@Node2D@104920/@Node2D@104921/@Node2D@104922/@Node2D@104930/@Node2D@104931/@Node2D@104932/@Node2D@104933"]
+top_level = true
+position = Vector2(-81.639534, 3.0518532)
+script = ExtResource("2_4bja3")
+angle_sway = 0.1
+
+[node name="@Node2D@104943" type="Node2D" parent="@Node2D@104909/@Node2D@104910/@Node2D@104911/@Node2D@104917/@Node2D@104918/@Node2D@104919/@Node2D@104920/@Node2D@104921/@Node2D@104922/@Node2D@104930/@Node2D@104931/@Node2D@104932/@Node2D@104933/@Node2D@104942"]
+top_level = true
+position = Vector2(-88.05667, 10.721294)
+script = ExtResource("2_4bja3")
+angle_sway = 0.1
+
+[node name="@Node2D@104944" type="Node2D" parent="@Node2D@104909/@Node2D@104910/@Node2D@104911/@Node2D@104917/@Node2D@104918/@Node2D@104919/@Node2D@104920/@Node2D@104921/@Node2D@104922/@Node2D@104930/@Node2D@104931/@Node2D@104932/@Node2D@104933/@Node2D@104942/@Node2D@104943"]
+top_level = true
+position = Vector2(-91.82051, 19.985931)
+script = ExtResource("2_4bja3")
+angle_sway = 0.1
+
+[node name="@Node2D@104945" type="Node2D" parent="@Node2D@104909/@Node2D@104910/@Node2D@104911/@Node2D@104917/@Node2D@104918/@Node2D@104919/@Node2D@104920/@Node2D@104921/@Node2D@104922/@Node2D@104930/@Node2D@104931/@Node2D@104932/@Node2D@104933/@Node2D@104942/@Node2D@104943/@Node2D@104944"]
+top_level = true
+position = Vector2(-92.53721, 29.960217)
+script = ExtResource("2_4bja3")
+angle_sway = 0.1
+
+[node name="@Node2D@104946" type="Node2D" parent="@Node2D@104909/@Node2D@104910/@Node2D@104911/@Node2D@104917/@Node2D@104918/@Node2D@104919/@Node2D@104920/@Node2D@104921/@Node2D@104922/@Node2D@104930/@Node2D@104931/@Node2D@104932/@Node2D@104933/@Node2D@104942/@Node2D@104943/@Node2D@104944/@Node2D@104945"]
+top_level = true
+position = Vector2(-90.136604, 39.667797)
+script = ExtResource("2_4bja3")
+angle_sway = 0.1
+
+[node name="@Node2D@104947" type="Node2D" parent="@Node2D@104909/@Node2D@104910/@Node2D@104911/@Node2D@104917/@Node2D@104918/@Node2D@104919/@Node2D@104920/@Node2D@104921/@Node2D@104922/@Node2D@104930/@Node2D@104931/@Node2D@104932/@Node2D@104933/@Node2D@104942/@Node2D@104943/@Node2D@104944/@Node2D@104945/@Node2D@104946"]
+top_level = true
+position = Vector2(-84.85368, 48.158424)
+script = ExtResource("2_4bja3")
+angle_sway = 0.1
+
+[node name="@Node2D@104948" type="Node2D" parent="@Node2D@104909/@Node2D@104910/@Node2D@104911/@Node2D@104917/@Node2D@104918/@Node2D@104919/@Node2D@104920/@Node2D@104921/@Node2D@104922/@Node2D@104930/@Node2D@104931/@Node2D@104932/@Node2D@104933/@Node2D@104942/@Node2D@104943/@Node2D@104944/@Node2D@104945/@Node2D@104946/@Node2D@104947"]
+top_level = true
+position = Vector2(-77.20558, 54.60098)
+script = ExtResource("2_4bja3")
+angle_sway = 0.1
+
+[node name="@Node2D@104949" type="Node2D" parent="@Node2D@104909/@Node2D@104910/@Node2D@104911/@Node2D@104917/@Node2D@104918/@Node2D@104919/@Node2D@104920/@Node2D@104921/@Node2D@104922/@Node2D@104930/@Node2D@104931/@Node2D@104932/@Node2D@104933/@Node2D@104942/@Node2D@104943/@Node2D@104944/@Node2D@104945/@Node2D@104946/@Node2D@104947/@Node2D@104948"]
+top_level = true
+position = Vector2(-67.94095, 58.364822)
+script = ExtResource("2_4bja3")
+angle_sway = 0.1
