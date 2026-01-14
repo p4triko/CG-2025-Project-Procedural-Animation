@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://c0pigba0ihfvs"]
 
 [ext_resource type="Script" uid="uid://btxtc8h4my7xj" path="res://objects/Player/player.gd" id="1_fwodp"]
-[ext_resource type="Texture2D" uid="uid://drkij5rd4qwh6" path="res://assets/images/Spider/spider_body.png" id="2_76bfe"]
+[ext_resource type="Texture2D" uid="uid://dq7vhn6lwaebc" path="res://assets/images/Spider/spiderbody.png" id="2_sp50d"]
 [ext_resource type="PackedScene" uid="uid://cq6t7jx8fbq3w" path="res://objects/Player/spider_leg.tscn" id="3_hi0mj"]
 [ext_resource type="Script" uid="uid://bogve6rqgyxme" path="res://objects/Player/player_camera.gd" id="3_sp50d"]
 [ext_resource type="Script" uid="uid://ck1easxuocsxh" path="res://objects/Player/spawn_raycasts.gd" id="4_8e3mr"]
@@ -27,7 +27,7 @@ h_target_velocity = 250.0
 sprint_multiplier = 1.25
 
 [node name="SpiderBody" type="Sprite2D" parent="."]
-texture = ExtResource("2_76bfe")
+texture = ExtResource("2_sp50d")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 top_level = true

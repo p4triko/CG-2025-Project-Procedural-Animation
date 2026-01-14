@@ -7,7 +7,7 @@ class_name Spine
 @export var follow_strength: float = 0.85 # for smoothing, how quickly each point moves toward its target position
 @export var iterations: int = 3
 @export var debug_draw: bool = false
-@export var spine_color: Color = Color.from_rgba8(24, 25, 35) # The entire color of the spine
+@export var spine_color: Color = Color.from_rgba8(32, 34, 49) # The entire color of the spine
 @export var follow_mouse: bool = false
 
 var pts: Array[Vector2] = [] # store every point as 2d vector, [0] being the head
