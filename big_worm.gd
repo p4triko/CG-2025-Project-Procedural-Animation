@@ -1,7 +1,7 @@
+@tool
 class_name Worm extends SimRoot
 
-# @export_tool_button("Generate worm") var a = func(): generate_worm()
-
+@export_tool_button("Generate worm") var a = func(): generate_worm()
 var joint_texture = preload("res://assets/images/worm_joint_texture.tres")
 var bone_texture = preload("res://assets/images/worm_bone_texture.tres")
 @export var texture_scale: float = 1
