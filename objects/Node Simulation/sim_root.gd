@@ -10,7 +10,7 @@ class_name SimRoot extends SimAbstract
 @export var enable_physics_interpolation: bool = true
 
 # Variables
-var sim_root: SimRoot
+var sim_root: SimRoot = self
 var sim_nodes: Array[SimNode]
 
 ## Event setup # Maybe change to ready?
