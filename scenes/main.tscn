@@ -1,7 +1,8 @@
-[gd_scene load_steps=24 format=3 uid="uid://ct0ulycmcjs4x"]
+[gd_scene load_steps=19 format=3 uid="uid://ct0ulycmcjs4x"]
 
 [ext_resource type="Script" uid="uid://ccd2q1fisma3t" path="res://scenes/main.gd" id="1_choun"]
 [ext_resource type="Texture2D" uid="uid://d31wyk8meby57" path="res://assets/sprites/cavelevel2.png" id="2_tbgi4"]
+[ext_resource type="Material" uid="uid://irq735qs3so3" path="res://shaders/palette_swap.tres" id="2_ya4ey"]
 [ext_resource type="Texture2D" uid="uid://8h5l0t55fnix" path="res://assets/sprites/cavelevel3.png" id="3_tefeu"]
 [ext_resource type="PackedScene" uid="uid://b58dxn6dr4lmi" path="res://objects/Terrain/CaveFloor.tscn" id="4_85g3d"]
 [ext_resource type="Texture2D" uid="uid://bjclmbvij6g2c" path="res://assets/sprites/cavelevel4.png" id="4_o6xl0"]
@@ -66,6 +67,7 @@ point_count = 49
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_choun")
+palettes = Array[PackedColorArray]([PackedColorArray(0.16078432, 0.1764706, 0.25490198, 1, 0.23137255, 0.2509804, 0.30980393, 1, 0.25882354, 0.28235295, 0.3529412, 1, 0.29803923, 0.32941177, 0.42745098, 1, 0.09411765, 0.09803922, 0.13725491, 1), PackedColorArray(0.112052895, 0.20633358, 0.14726251, 1, 0.16099021, 0.4453689, 0.21813136, 1, 0.25882354, 0.7019608, 0.3529412, 1, 0.29803923, 0.8745098, 0.42745098, 1, 0.023371818, 0.11826406, 0.13292998, 1), PackedColorArray(0.33406505, 0.14141423, 0.03767834, 1, 0.3166982, 0.18336847, 0.0640005, 1, 0.36078432, 0.22745098, 0.12941177, 1, 0.4449666, 0.301618, 0.16744822, 1, 0.18833414, 0.04120651, 0.08553188, 1)])
 
 [node name="Background" type="Node2D" parent="."]
 position = Vector2(-81, -432)
@@ -77,6 +79,7 @@ repeat_size = Vector2(960, 0)
 repeat_times = 5
 
 [node name="Cavelevel4" type="Sprite2D" parent="Background/Parallax4"]
+material = ExtResource("2_ya4ey")
 texture = ExtResource("4_o6xl0")
 centered = false
 offset = Vector2(0, -250)
@@ -90,6 +93,7 @@ repeat_size = Vector2(960, 0)
 repeat_times = 5
 
 [node name="Cavelevel3" type="Sprite2D" parent="Background/Parallax3"]
+material = ExtResource("2_ya4ey")
 position = Vector2(-5, 93)
 texture = ExtResource("3_tefeu")
 centered = false
@@ -105,6 +109,7 @@ repeat_size = Vector2(960, 0)
 repeat_times = 5
 
 [node name="Cavelevel2" type="Sprite2D" parent="Background/Parallax2"]
+material = ExtResource("2_ya4ey")
 position = Vector2(9, 51)
 texture = ExtResource("2_tbgi4")
 centered = false
@@ -1231,6 +1236,7 @@ bone_texture_y_scale = 1.0698911228957295
 joint_texture_scale = 36.3762981784548
 
 [node name="Filler" type="Polygon2D" parent="Cave"]
+material = ExtResource("2_ya4ey")
 color = Color(0.16078432, 0.1764706, 0.25490198, 1)
 polygon = PackedVector2Array(3004, -177, 2037, -62, 1080, -62, 1146, 416, 2102, 435, 3088, 283, 3979, 324, 4248, -64, 2510, -3894, 9040, -3353, 8439, 4035, -2593, 3375, -1952, -3343, 5770, -3904, 4349, -94)
 
