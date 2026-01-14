@@ -38,8 +38,8 @@ func _draw() -> void:
 		if sim_node.get_parent() is not SimNode: continue
 		
 		var tex: Texture2D = sim_node.bone_texture
-		var self_pos: Vector2 = sim_node.global_position
-		var parent_pos: Vector2 = sim_node.get_parent().global_position
+		var self_pos: Vector2 = sim_node.visual_position
+		var parent_pos: Vector2 = sim_node.get_parent().visual_position
 		var distance = self_pos.distance_to(parent_pos)
 		
 		var x_axis = (self_pos - parent_pos).normalized()
