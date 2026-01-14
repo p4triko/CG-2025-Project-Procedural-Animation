@@ -1,8 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://cakvphaqkix4w"]
+[gd_scene load_steps=2 format=3 uid="uid://cakvphaqkix4w"]
 
 [ext_resource type="PackedScene" uid="uid://c0pigba0ihfvs" path="res://objects/Player/player.tscn" id="1_grv1o"]
-[ext_resource type="PackedScene" uid="uid://d1valkcm8cbr1" path="res://scenes/tentacle.tscn" id="6_cb201"]
-[ext_resource type="PackedScene" uid="uid://dlx0w7jlmress" path="res://scenes/spine.tscn" id="7_qwiaf"]
 
 [node name="player_testing" type="Node2D"]
 
@@ -20,15 +18,4 @@ polygon = PackedVector2Array(85, -169, 128, -169, 202, -172, 262, -172, 331, -17
 
 [node name="Player" parent="." instance=ExtResource("1_grv1o")]
 position = Vector2(-1, -10)
-
-[node name="Tentacle" parent="." instance=ExtResource("6_cb201")]
-position = Vector2(-693.00006, 101)
-rotation = 0.024423122
-follows_mouse = false
-rest_angle = -84.798
-wave_amplitude = 2.0
-wave_frequency = 1.0
-
-[node name="Spine" parent="." instance=ExtResource("7_qwiaf")]
-position = Vector2(-694, 96)
-rotation = 0.024423122
+debug_draw = true

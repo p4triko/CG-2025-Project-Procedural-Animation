@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @export var debug_gradient: GradientTexture1D
+@export var debug_draw: bool = false
 
 @export_group("Vertical")
 @export var gravity: float = 3000.0
@@ -244,11 +245,13 @@ func calculate_score(pos: Vector2, normal: Vector2, wanted_angle: float = 1.1, a
 
 func _draw():
 	## For surfaces, doesnt account for the angle
-	for surface in debug_draw_surfaces:
-		var pos = surface[0] - global_position
-		var normal = surface[1]
-		var score = calculate_score(pos - velocity * leg_reposition_speed, normal, 0)
-		draw_circle(pos, 3, debug_gradient.gradient.sample((score + 1)/2))
+
+	if debug_draw:
+		for surface in debug_draw_surfaces:
+			var pos = surface[0] - global_position
+			var normal = surface[1]
+			var score = calculate_score(pos - velocity * leg_reposition_speed, normal, 0)
+			draw_circle(pos, 3, debug_gradient.gradient.sample((score + 1)/2))
 	
 	## All positions, doesnt account for normal or angle
 	#for x in range(-128, 129, 8):
