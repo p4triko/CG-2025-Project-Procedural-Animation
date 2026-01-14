@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctjorev4hdgge"]
+
+[ext_resource type="Script" uid="uid://c2ga4fxlyn3ll" path="res://objects/Tree/draggable_area.gd" id="1_jc6gq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jc6gq"]
+
+[node name="DraggableArea" type="Area2D"]
+monitorable = false
+script = ExtResource("1_jc6gq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_jc6gq")
