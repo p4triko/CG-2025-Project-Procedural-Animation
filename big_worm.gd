@@ -3,6 +3,10 @@ class_name Worm extends SimRoot
 
 @export_tool_button("Generate worm") var a = func(): generate_worm()
 
+var joint_texture = preload("res://assets/images/worm_joint_texture.tres")
+var bone_texture = preload("res://assets/images/worm_bone_texture.tres")
+var texture_scale = 50
+
 func delete_bones():
 	for i in get_children():
 		remove_child(i)
@@ -18,24 +22,32 @@ func build_sequence(seq, curr_node = self):
 				var new_node = SimNode.new()
 				new_node.is_anchored = true
 				new_node.is_top_level = false
+				#new_node.joint_texture = joint_texture
+				#new_node.joint_texture_scale = texture_scale
 				curr_node.add_child(new_node)
 				new_node.owner = get_tree().edited_scene_root 
 				
 				curr_node = new_node
 			"O": # Free rotation
 				var new_node = SimNode.new()
-				new_node.distance_range = Vector2(10, 10)
+				new_node.distance_range = Vector2(20, 20)
 				new_node.target_angle = 0
 				new_node.angle_sway = 1
+				#new_node.joint_texture = joint_texture
+				#new_node.joint_texture_scale = texture_scale
 				curr_node.add_child(new_node)
 				new_node.owner = get_tree().edited_scene_root 
 				
 				curr_node = new_node
 			"F":
 				var new_node = SimNode.new()
-				new_node.distance_range = Vector2(10, 10)
+				new_node.distance_range = Vector2(20, 20)
 				new_node.target_angle = 0
-				new_node.angle_sway = 0.1
+				new_node.angle_sway = 0.05
+				#new_node.joint_texture = joint_texture
+				#new_node.joint_texture_scale = texture_scale
+				new_node.bone_texture = bone_texture
+				new_node.bone_texture_y_scale = 0.1
 				curr_node.add_child(new_node)
 				new_node.owner = get_tree().edited_scene_root 
 				
@@ -56,7 +68,7 @@ var rules = {
 	"-": [
 		[1, "F-"],
 		[0.1, "-"],
-		[0.2, "[Fr/][Fl/]F-"]
+		[0.5, "[Fr/][Fl/]F-"]
 	],
 	"/": [
 		[1, "F/"],
@@ -87,13 +99,12 @@ func perform_replacement(sequence: String, ruletype: String):
 		else:
 			new_sequence += c
 	return new_sequence
-	
 
 func generate_sequence():
 	var sequence: String = "AO-"
-	for i in range(20):
+	for i in range(50):
 		sequence = perform_replacement(sequence, "-")
-	for i in range(3):
+	for i in range(10):
 		sequence = perform_replacement(sequence, "/")
 	return sequence
 

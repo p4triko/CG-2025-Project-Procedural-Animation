@@ -60,9 +60,9 @@ func _draw() -> void:
 		var child_joint_exists = sim_node.get_children() != [] and sim_node.get_child(0) is SimNode
 			
 		var tex: Texture2D = sim_node.joint_texture
-		var self_pos: Vector2 = sim_node.global_position
-		var parent_pos: Vector2 = sim_node.get_parent().global_position if parent_joint_exists else self_pos
-		var child_pos: Vector2 = sim_node.get_child(0).global_position if child_joint_exists else self_pos
+		var self_pos: Vector2 = sim_node.visual_position
+		var parent_pos: Vector2 = sim_node.get_parent().visual_position if parent_joint_exists else self_pos
+		var child_pos: Vector2 = sim_node.get_child(0).visual_position if child_joint_exists else self_pos
 		
 		var x_axis = ((self_pos - parent_pos).normalized() + (child_pos - self_pos).normalized()).normalized()
 		var y_axis = x_axis.rotated(deg_to_rad(90))
