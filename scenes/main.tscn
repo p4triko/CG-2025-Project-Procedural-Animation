@@ -19,9 +19,9 @@
 
 [sub_resource type="Curve2D" id="Curve2D_jbj1t"]
 _data = {
-"points": PackedVector2Array(140, 103, -140, -103, 4210, 257, 146, 13, -146, -13, 3895, 64, 160, 12, -160, -12, 3518, 106, 153, 75, -153, -75, 3254, -58, 237, -6, -237, 6, 2868, 275, 188.18181, 26.363636, -188.18181, -26.363636, 2425, -87, 150.90909, -9.090909, -150.90909, 9.090909, 2093, 94, 125.454544, -36.363636, -125.454544, 36.363636, 1759, 65, 222.72726, -7.272727, -222.72726, 7.272727, 1460, 245, 0, 0, 0, 0, 856, -166, 0, 0, 0, 0, 51, -1177, 0, 0, 0, 0, 387, -1975, 0, 0, 0, 0, 1682, -1703, 29.04, -147.62001, -29.04, 147.62001, 1924, -358, -49.61, -145.20001, 49.61, 145.20001, 1725, 112, -79.86, -156.09001, 79.86, 156.09001, 2137, 649, 0, 0, 0, 0, 2173, 1341, 0, 0, 0, 0, 3055, 1159, 88.33, 107.69, -88.33, -107.69, 3001, 478, 16.94, 210.54001, -16.94, -210.54001, 2700, 136, 0, 0, 0, 0, 3092, -498, 0, 0, 0, 0, 3526, -1576, 0, 0, 0, 0, 4394, -1758, 0, 0, 0, 0, 4477, -1013, 0, 0, 0, 0, 4077, -499, 60, -59, -60, 59, 3561, -210, 113, -76, -113, 76, 3405, 42, 136, -38, -136, 38, 2985, 50, 116, -75, -116, 75, 2678, 227, 80, -38, -80, 38, 2355, 257, 120, -59, -120, 59, 2155, 400, 68, -80, -68, 80, 1722, 530, -7, -95, 7, 95, 1686, 768, 0, 0, 0, 0, 1601, 1439, 0, 0, 0, 0, 2227, 1957, 0, 0, 0, 0, 3622, 2103, 0, 0, 0, 0, 4621, 1920, 0, 0, 0, 0, 4984, 1209, 0, 0, 0, 0, 4683, 575, 0, 0, 0, 0, 4210, 257)
+"points": PackedVector2Array(140, 103, -140, -103, 4210, 257, 146, 13, -146, -13, 3895, 64, 160, 12, -160, -12, 3518, 106, 153, 75, -153, -75, 3254, -58, 237, -6, -237, 6, 2868, 275, 188.18181, 26.363636, -188.18181, -26.363636, 2425, -87, 150.90909, -9.090909, -150.90909, 9.090909, 2093, 94, 125.454544, -36.363636, -125.454544, 36.363636, 1759, 65, 222.72726, -7.272727, -222.72726, 7.272727, 1460, 245, 0, 74.05127, 0, -74.05127, 856, -166, 0, 0, 0, 0, 1276, -493, 29.04, -147.62001, -29.04, 147.62001, 1924, -358, -49.61, -145.20001, 49.61, 145.20001, 1725, 112, -79.86, -156.09001, 79.86, 156.09001, 2137, 649, 0, 0, 0, 0, 2652, 717, 88.33, 107.69, -88.33, -107.69, 3001, 478, 16.94, 210.54001, -16.94, -210.54001, 2700, 136, -246.40807, 27.378674, 246.40807, -27.378674, 3092, -498, 5.242653, -120.19939, -5.242653, 120.19939, 3561, -210, 113, -76, -113, 76, 3405, 42, 136, -38, -136, 38, 2985, 50, 116, -75, -116, 75, 2678, 227, 80, -38, -80, 38, 2355, 257, 120, -59, -120, 59, 2155, 400, 68, -80, -68, 80, 1722, 530, -113.29367, -116.258736, 113.29367, 116.258736, 1704, 813, 0, 0, 0, 0, 3466, 770, 0, 0, 0, 0, 4210, 257)
 }
-point_count = 40
+point_count = 28
 
 [sub_resource type="Curve2D" id="Curve2D_85g3d"]
 _data = {
@@ -132,1108 +132,841 @@ speed = 1.0
 
 [node name="Worm" parent="Cave/WormPath/PathFollow2D" instance=ExtResource("9_a8y0u")]
 rotation = 2.3653643
+texture_ratio = 34.0
 
-[node name="@Node2D@70009" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm"]
+[node name="@Node2D@457338" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm"]
 script = ExtResource("10_jkv2x")
 is_anchored = true
 is_top_level = false
 distance_range = Vector2(20, 20)
 bone_texture = ExtResource("11_jbj1t")
 joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 1.5895588235294118
-joint_texture_scale = 54.045
+bone_texture_y_scale = 2.594411764705882
+joint_texture_scale = 88.21
 
-[node name="@Node2D@70010" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009"]
+[node name="@Node2D@457339" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338"]
 top_level = true
-position = Vector2(2863.0022, -73.879715)
+position = Vector2(2866.075, -76.89269)
 script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
+distance_range = Vector2(19.670124, 19.670124)
 bone_texture = ExtResource("11_jbj1t")
 joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 1.5508455920708824
-joint_texture_scale = 52.72875013041
+bone_texture_y_scale = 2.458969125919701
+joint_texture_scale = 83.60495028126984
 
-[node name="@Node2D@70011" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010"]
+[node name="@Node2D@457340" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339"]
 top_level = true
-position = Vector2(2846.332, -84.92984)
+position = Vector2(2852.1458, -90.31779)
 script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
+distance_range = Vector2(19.34569, 19.34569)
 angle_sway = 0.05
 bone_texture = ExtResource("11_jbj1t")
 joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 1.5130752098279825
-joint_texture_scale = 51.4445571341514
+bone_texture_y_scale = 2.330597341749169
+joint_texture_scale = 79.24030961947174
 
-[node name="@Node2D@70012" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011"]
+[node name="@Node2D@457341" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340"]
 top_level = true
-position = Vector2(2829.2808, -95.38231)
+position = Vector2(2838.2236, -103.28646)
 script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
+distance_range = Vector2(19.026606, 19.026606)
 angle_sway = 0.05
 bone_texture = ExtResource("11_jbj1t")
 joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 1.4762247139890345
-joint_texture_scale = 50.19164027562717
+bone_texture_y_scale = 2.208927274488141
+joint_texture_scale = 75.1035273325968
 
-[node name="@Node2D@70013" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012"]
+[node name="@Node2D@457342" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341"]
 top_level = true
-position = Vector2(2811.867, -105.21893)
+position = Vector2(2824.319, -115.80973)
 script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
+distance_range = Vector2(18.712786, 18.712786)
 angle_sway = 0.05
 bone_texture = ExtResource("11_jbj1t")
 joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 1.4402717009947963
-joint_texture_scale = 48.96923783382307
+bone_texture_y_scale = 2.0936090574597204
+joint_texture_scale = 71.1827079536305
 
-[node name="@Node2D@70014" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013"]
+[node name="@Node2D@457343" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342"]
 top_level = true
-position = Vector2(2794.1199, -114.440735)
+position = Vector2(2810.4424, -127.89896)
 script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
+distance_range = Vector2(18.40414, 18.40414)
 angle_sway = 0.05
 bone_texture = ExtResource("11_jbj1t")
 joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 1.4051943129180349
-joint_texture_scale = 47.776606639213185
+bone_texture_y_scale = 1.984311088961979
+joint_texture_scale = 67.46657702470729
 
-[node name="@Node2D@70015" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014"]
+[node name="@Node2D@457344" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343"]
 top_level = true
-position = Vector2(2776.0723, -123.059555)
+position = Vector2(2796.603, -139.5653)
 script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
+distance_range = Vector2(18.100588, 18.100588)
 angle_sway = 0.05
 bone_texture = ExtResource("11_jbj1t")
 joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 1.3709712241748215
-joint_texture_scale = 46.61302162194393
+bone_texture_y_scale = 1.880719078735276
+joint_texture_scale = 63.944448676999386
 
-[node name="@Node2D@70016" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015"]
+[node name="@Node2D@457345" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344"]
 top_level = true
-position = Vector2(2757.7568, -131.0936)
+position = Vector2(2782.81, -150.81995)
 script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
+distance_range = Vector2(17.80204, 17.80204)
 angle_sway = 0.05
 bone_texture = ExtResource("11_jbj1t")
 joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 1.3375816285594684
-joint_texture_scale = 45.47777537102193
+bone_texture_y_scale = 1.782535144209255
+joint_texture_scale = 60.60619490311467
 
-[node name="@Node2D@70017" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016"]
+[node name="@Node2D@457346" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345"]
 top_level = true
-position = Vector2(2739.2043, -138.56392)
+position = Vector2(2769.072, -161.67401)
 script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
+distance_range = Vector2(17.508417, 17.508417)
 angle_sway = 0.05
 bone_texture = ExtResource("11_jbj1t")
 joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 1.3050052265952279
-joint_texture_scale = 44.37017770423775
+bone_texture_y_scale = 1.6894769539307442
+joint_texture_scale = 57.4422164336453
 
-[node name="@Node2D@70018" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017"]
+[node name="@Node2D@457347" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346"]
 top_level = true
-position = Vector2(2719.7117, -143.04001)
+position = Vector2(2755.3972, -172.13896)
 script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
-target_angle = -0.1
+distance_range = Vector2(17.219637, 17.219637)
 angle_sway = 0.05
 bone_texture = ExtResource("11_jbj1t")
 joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 1.2732222131930586
-joint_texture_scale = 43.28955524856399
+bone_texture_y_scale = 1.6012769157094557
+joint_texture_scale = 54.443415134121494
 
-[node name="@Node2D@70019" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70018"]
+[node name="@Node2D@457348" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346/@Node2D@457347"]
 top_level = true
-position = Vector2(2699.7588, -144.41167)
-script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
-target_angle = -0.1
-angle_sway = 0.05
-bone_texture = ExtResource("11_jbj1t")
-joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 1.2422132656109612
-joint_texture_scale = 42.23525103077268
-
-[node name="@Node2D@70020" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70018/@Node2D@70019"]
-top_level = true
-position = Vector2(2679.837, -142.64511)
-script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
-target_angle = -0.1
-angle_sway = 0.05
-bone_texture = ExtResource("11_jbj1t")
-joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 1.2119595317065595
-joint_texture_scale = 41.20662407802302
-
-[node name="@Node2D@70021" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70018/@Node2D@70019/@Node2D@70020"]
-top_level = true
-position = Vector2(2660.4368, -137.78372)
-script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
-target_angle = -0.1
-angle_sway = 0.05
-bone_texture = ExtResource("11_jbj1t")
-joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 1.1824426184757866
-joint_texture_scale = 40.20304902817674
-
-[node name="@Node2D@70022" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70018/@Node2D@70019/@Node2D@70020/@Node2D@70021"]
-top_level = true
-position = Vector2(2642.036, -129.94733)
-script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
-target_angle = -0.1
-angle_sway = 0.05
-bone_texture = ExtResource("11_jbj1t")
-joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 1.1536445808707092
-joint_texture_scale = 39.22391574960411
-
-[node name="@Node2D@70023" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70018/@Node2D@70019/@Node2D@70020/@Node2D@70021/@Node2D@70022"]
-top_level = true
-position = Vector2(2625.0874, -119.32891)
-script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
-target_angle = -0.1
-angle_sway = 0.05
-bone_texture = ExtResource("11_jbj1t")
-joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 1.1255479108896882
-joint_texture_scale = 38.268628970249395
-
-[node name="@Node2D@70024" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70018/@Node2D@70019/@Node2D@70020/@Node2D@70021/@Node2D@70022/@Node2D@70023"]
-top_level = true
-position = Vector2(2610.0088, -106.18984)
-script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
-target_angle = -0.1
-angle_sway = 0.05
-bone_texture = ExtResource("11_jbj1t")
-joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 1.0981355269332471
-joint_texture_scale = 37.336607915730404
-
-[node name="@Node2D@70025" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70018/@Node2D@70019/@Node2D@70020/@Node2D@70021/@Node2D@70022/@Node2D@70023/@Node2D@70024"]
-top_level = true
-position = Vector2(2597.1711, -90.853745)
-script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
-target_angle = -0.1
-angle_sway = 0.05
-bone_texture = ExtResource("11_jbj1t")
-joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 1.071390763419175
-joint_texture_scale = 36.42728595625195
-
-[node name="@Node2D@70026" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70018/@Node2D@70019/@Node2D@70020/@Node2D@70021/@Node2D@70022/@Node2D@70023/@Node2D@70024/@Node2D@70025"]
-top_level = true
-position = Vector2(2586.8906, -73.69824)
-script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
-target_angle = -0.1
-angle_sway = 0.05
-bone_texture = ExtResource("11_jbj1t")
-joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 1.0452973606505485
-joint_texture_scale = 35.540110262118645
-
-[node name="@Node2D@70027" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70018/@Node2D@70019/@Node2D@70020/@Node2D@70021/@Node2D@70022/@Node2D@70023/@Node2D@70024/@Node2D@70025/@Node2D@70026"]
-top_level = true
-position = Vector2(2579.4204, -55.145725)
-script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
-target_angle = -0.1
-angle_sway = 0.05
-bone_texture = ExtResource("11_jbj1t")
-joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 1.0198394549305176
-joint_texture_scale = 34.6745414676376
-
-[node name="@Node2D@70028" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017"]
-top_level = true
-position = Vector2(2720.4434, -145.494)
-script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
-angle_sway = 0.05
-bone_texture = ExtResource("11_jbj1t")
-joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 1.2732222131930586
-joint_texture_scale = 43.28955524856399
-
-[node name="@Node2D@70029" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028"]
-top_level = true
-position = Vector2(2701.4995, -151.90738)
-script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
-angle_sway = 0.05
-bone_texture = ExtResource("11_jbj1t")
-joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 1.2422132656109612
-joint_texture_scale = 42.23525103077268
-
-[node name="@Node2D@70030" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029"]
-top_level = true
-position = Vector2(2682.396, -157.82822)
-script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
-angle_sway = 0.05
-bone_texture = ExtResource("11_jbj1t")
-joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 1.2119595317065595
-joint_texture_scale = 41.20662407802302
-
-[node name="@Node2D@70031" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030"]
-top_level = true
-position = Vector2(2663.1536, -163.28053)
-script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
-angle_sway = 0.05
-bone_texture = ExtResource("11_jbj1t")
-joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 1.1824426184757866
-joint_texture_scale = 40.20304902817674
-
-[node name="@Node2D@70032" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031"]
-top_level = true
-position = Vector2(2643.7908, -168.28864)
-script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
-angle_sway = 0.05
-bone_texture = ExtResource("11_jbj1t")
-joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 1.1536445808707092
-joint_texture_scale = 39.22391574960411
-
-[node name="@Node2D@70033" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032"]
-top_level = true
-position = Vector2(2624.324, -172.87585)
-script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
-angle_sway = 0.05
-bone_texture = ExtResource("11_jbj1t")
-joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 1.1255479108896882
-joint_texture_scale = 38.268628970249395
-
-[node name="@Node2D@70034" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033"]
-top_level = true
-position = Vector2(2604.7676, -177.06479)
-script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
-angle_sway = 0.05
-bone_texture = ExtResource("11_jbj1t")
-joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 1.0981355269332471
-joint_texture_scale = 37.336607915730404
-
-[node name="@Node2D@70035" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034"]
-top_level = true
-position = Vector2(2585.1348, -180.8794)
-script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
-angle_sway = 0.05
-bone_texture = ExtResource("11_jbj1t")
-joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 1.071390763419175
-joint_texture_scale = 36.42728595625195
-
-[node name="@Node2D@70036" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035"]
-top_level = true
-position = Vector2(2565.4365, -184.34036)
-script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
-angle_sway = 0.05
-bone_texture = ExtResource("11_jbj1t")
-joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 1.0452973606505485
-joint_texture_scale = 35.540110262118645
-
-[node name="@Node2D@70037" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036"]
-top_level = true
-position = Vector2(2545.6829, -187.4699)
-script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
-angle_sway = 0.05
-bone_texture = ExtResource("11_jbj1t")
-joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 1.0198394549305176
-joint_texture_scale = 34.6745414676376
-
-[node name="@Node2D@70038" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037"]
-top_level = true
-position = Vector2(2525.8826, -190.2888)
-script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
-angle_sway = 0.05
-bone_texture = ExtResource("11_jbj1t")
-joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.9950015689178424
-joint_texture_scale = 33.83005334320664
-
-[node name="@Node2D@70039" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038"]
-top_level = true
-position = Vector2(2506.043, -192.81717)
-script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
-angle_sway = 0.05
-bone_texture = ExtResource("11_jbj1t")
-joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.9707686022173159
-joint_texture_scale = 33.00613247538874
-
-[node name="@Node2D@70040" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039"]
-top_level = true
-position = Vector2(2486.171, -195.07568)
-script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
-angle_sway = 0.05
-bone_texture = ExtResource("11_jbj1t")
-joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.9471258221993566
-joint_texture_scale = 32.202277954778125
-
-[node name="@Node2D@70041" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039/@Node2D@70040"]
-top_level = true
-position = Vector2(2466.272, -197.0831)
-script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
-angle_sway = 0.05
-bone_texture = ExtResource("11_jbj1t")
-joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.9240588550431863
-joint_texture_scale = 31.418001071468336
-
-[node name="@Node2D@70042" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039/@Node2D@70040/@Node2D@70041"]
-top_level = true
-position = Vector2(2446.3508, -198.85748)
-script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
-angle_sway = 0.05
-bone_texture = ExtResource("11_jbj1t")
-joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.9015536769981484
-joint_texture_scale = 30.652825017937044
-
-[node name="@Node2D@70043" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039/@Node2D@70040/@Node2D@70041/@Node2D@70042"]
-top_level = true
-position = Vector2(2426.3975, -197.49367)
-script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
-target_angle = -0.1
-angle_sway = 0.05
-bone_texture = ExtResource("11_jbj1t")
-joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.8795966058578542
-joint_texture_scale = 29.90628459916704
-
-[node name="@Node2D@70044" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039/@Node2D@70040/@Node2D@70041/@Node2D@70042/@Node2D@70043"]
-top_level = true
-position = Vector2(2406.903, -193.02515)
-script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
-target_angle = -0.1
-angle_sway = 0.05
-bone_texture = ExtResource("11_jbj1t")
-joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.8581742926419746
-joint_texture_scale = 29.177925949827138
-
-[node name="@Node2D@70045" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039/@Node2D@70040/@Node2D@70041/@Node2D@70042/@Node2D@70043/@Node2D@70044"]
-top_level = true
-position = Vector2(2388.3477, -185.56203)
-script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
-target_angle = -0.1
-angle_sway = 0.05
-bone_texture = ExtResource("11_jbj1t")
-joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.8372737134806185
-joint_texture_scale = 28.46730625834103
-
-[node name="@Node2D@70046" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039/@Node2D@70040/@Node2D@70041/@Node2D@70042/@Node2D@70043/@Node2D@70044/@Node2D@70045"]
-top_level = true
-position = Vector2(2371.1882, -175.28809)
-script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
-target_angle = -0.1
-angle_sway = 0.05
-bone_texture = ExtResource("11_jbj1t")
-joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.8168821616963646
-joint_texture_scale = 27.773993497676397
-
-[node name="@Node2D@70047" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039/@Node2D@70040/@Node2D@70041/@Node2D@70042/@Node2D@70043/@Node2D@70044/@Node2D@70045/@Node2D@70046"]
-top_level = true
-position = Vector2(2355.8472, -162.45633)
-script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
-target_angle = -0.1
-angle_sway = 0.05
-bone_texture = ExtResource("11_jbj1t")
-joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.7969872400791339
-joint_texture_scale = 27.09756616269055
-
-[node name="@Node2D@70048" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039/@Node2D@70040/@Node2D@70041/@Node2D@70042/@Node2D@70043/@Node2D@70044/@Node2D@70045/@Node2D@70046/@Node2D@70047"]
-top_level = true
-position = Vector2(2342.7024, -147.38269)
-script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
-target_angle = -0.1
-angle_sway = 0.05
-bone_texture = ExtResource("11_jbj1t")
-joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.7775768533492041
-joint_texture_scale = 26.43761301387294
-
-[node name="@Node2D@70049" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039/@Node2D@70040/@Node2D@70041/@Node2D@70042/@Node2D@70043/@Node2D@70044/@Node2D@70045/@Node2D@70046/@Node2D@70047/@Node2D@70048"]
-top_level = true
-position = Vector2(2332.0774, -130.43837)
-script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
-target_angle = -0.1
-angle_sway = 0.05
-bone_texture = ExtResource("11_jbj1t")
-joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.7586392008037866
-joint_texture_scale = 25.793732827328743
-
-[node name="@Node2D@70050" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039/@Node2D@70040/@Node2D@70041/@Node2D@70042/@Node2D@70043/@Node2D@70044/@Node2D@70045/@Node2D@70046/@Node2D@70047/@Node2D@70048/@Node2D@70049"]
-top_level = true
-position = Vector2(2324.234, -112.04056)
-script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
-target_angle = -0.1
-angle_sway = 0.05
-bone_texture = ExtResource("11_jbj1t")
-joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.7401627691426922
-joint_texture_scale = 25.165534150851535
-
-[node name="@Node2D@70051" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039/@Node2D@70040/@Node2D@70041/@Node2D@70042"]
-top_level = true
-position = Vector2(2426.4119, -200.41782)
-script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
-angle_sway = 0.05
-bone_texture = ExtResource("11_jbj1t")
-joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.8795966058578542
-joint_texture_scale = 29.90628459916704
-
-[node name="@Node2D@70052" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039/@Node2D@70040/@Node2D@70041/@Node2D@70042/@Node2D@70051"]
-top_level = true
-position = Vector2(2406.4585, -201.78128)
-script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
-angle_sway = 0.05
-bone_texture = ExtResource("11_jbj1t")
-joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.8581742926419746
-joint_texture_scale = 29.177925949827138
-
-[node name="@Node2D@70053" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039/@Node2D@70040/@Node2D@70041/@Node2D@70042/@Node2D@70051/@Node2D@70052"]
-top_level = true
-position = Vector2(2386.4937, -202.96477)
-script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
-angle_sway = 0.05
-bone_texture = ExtResource("11_jbj1t")
-joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.8372737134806185
-joint_texture_scale = 28.46730625834103
-
-[node name="@Node2D@70054" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039/@Node2D@70040/@Node2D@70041/@Node2D@70042/@Node2D@70051/@Node2D@70052/@Node2D@70053"]
-top_level = true
-position = Vector2(2366.5198, -203.98451)
-script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
-angle_sway = 0.05
-bone_texture = ExtResource("11_jbj1t")
-joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.8168821616963646
-joint_texture_scale = 27.773993497676397
-
-[node name="@Node2D@70055" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039/@Node2D@70040/@Node2D@70041/@Node2D@70042/@Node2D@70051/@Node2D@70052/@Node2D@70053/@Node2D@70054"]
-top_level = true
-position = Vector2(2346.9512, -208.11632)
+position = Vector2(2741.6113, -186.6286)
 script = ExtResource("10_jkv2x")
 distance_range = Vector2(20, 20)
 target_angle = 0.1
 angle_sway = 0.05
 bone_texture = ExtResource("11_jbj1t")
 joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.7969872400791339
-joint_texture_scale = 27.09756616269055
+bone_texture_y_scale = 0.8838305206620697
+joint_texture_scale = 30.05023770251037
 
-[node name="@Node2D@70056" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039/@Node2D@70040/@Node2D@70041/@Node2D@70042/@Node2D@70051/@Node2D@70052/@Node2D@70053/@Node2D@70054/@Node2D@70055"]
+[node name="@Node2D@457349" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346/@Node2D@457347"]
 top_level = true
-position = Vector2(2328.27, -215.25871)
+position = Vector2(2741.7932, -182.22589)
+script = ExtResource("10_jkv2x")
+distance_range = Vector2(16.93562, 16.93562)
+angle_sway = 0.05
+bone_texture = ExtResource("11_jbj1t")
+joint_texture = ExtResource("12_muem4")
+bone_texture_y_scale = 1.5176814071469693
+joint_texture_scale = 51.60116784299696
+
+[node name="@Node2D@457350" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346/@Node2D@457347/@Node2D@457349"]
+top_level = true
+position = Vector2(2727.7888, -196.5045)
 script = ExtResource("10_jkv2x")
 distance_range = Vector2(20, 20)
 target_angle = 0.1
 angle_sway = 0.05
 bone_texture = ExtResource("11_jbj1t")
 joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.7775768533492041
-joint_texture_scale = 26.43761301387294
+bone_texture_y_scale = 0.8376896807280487
+joint_texture_scale = 28.481449144753658
 
-[node name="@Node2D@70057" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039/@Node2D@70040/@Node2D@70041/@Node2D@70042/@Node2D@70051/@Node2D@70052/@Node2D@70053/@Node2D@70054/@Node2D@70055/@Node2D@70056"]
+[node name="@Node2D@457351" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346/@Node2D@457347/@Node2D@457349"]
 top_level = true
-position = Vector2(2310.936, -225.23553)
-script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
-target_angle = 0.1
-angle_sway = 0.05
-bone_texture = ExtResource("11_jbj1t")
-joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.7586392008037866
-joint_texture_scale = 25.793732827328743
-
-[node name="@Node2D@70058" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039/@Node2D@70040/@Node2D@70041/@Node2D@70042/@Node2D@70051/@Node2D@70052/@Node2D@70053/@Node2D@70054/@Node2D@70055/@Node2D@70056/@Node2D@70057"]
-top_level = true
-position = Vector2(2295.3762, -237.80109)
-script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
-target_angle = 0.1
-angle_sway = 0.05
-bone_texture = ExtResource("11_jbj1t")
-joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.7401627691426922
-joint_texture_scale = 25.165534150851535
-
-[node name="@Node2D@70059" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039/@Node2D@70040/@Node2D@70041/@Node2D@70042/@Node2D@70051/@Node2D@70052/@Node2D@70053/@Node2D@70054/@Node2D@70055/@Node2D@70056/@Node2D@70057/@Node2D@70058"]
-top_level = true
-position = Vector2(2281.9736, -252.646)
-script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
-target_angle = 0.1
-angle_sway = 0.05
-bone_texture = ExtResource("11_jbj1t")
-joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.7221363254687272
-joint_texture_scale = 24.552635065936723
-
-[node name="@Node2D@70060" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039/@Node2D@70040/@Node2D@70041/@Node2D@70042/@Node2D@70051/@Node2D@70052/@Node2D@70053/@Node2D@70054/@Node2D@70055/@Node2D@70056/@Node2D@70057/@Node2D@70058/@Node2D@70059"]
-top_level = true
-position = Vector2(2271.0583, -269.40475)
-script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
-target_angle = 0.1
-angle_sway = 0.05
-bone_texture = ExtResource("11_jbj1t")
-joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.7045489104585613
-joint_texture_scale = 23.954662955591083
-
-[node name="@Node2D@70061" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039/@Node2D@70040/@Node2D@70041/@Node2D@70042/@Node2D@70051/@Node2D@70052/@Node2D@70053/@Node2D@70054/@Node2D@70055/@Node2D@70056/@Node2D@70057/@Node2D@70058/@Node2D@70059/@Node2D@70060"]
-top_level = true
-position = Vector2(2262.8992, -287.66476)
-script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
-target_angle = 0.1
-angle_sway = 0.05
-bone_texture = ExtResource("11_jbj1t")
-joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.6873898316999183
-joint_texture_scale = 23.371254277797224
-
-[node name="@Node2D@70062" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039/@Node2D@70040/@Node2D@70041/@Node2D@70042/@Node2D@70051/@Node2D@70052/@Node2D@70053/@Node2D@70054/@Node2D@70055/@Node2D@70056/@Node2D@70057/@Node2D@70058/@Node2D@70059/@Node2D@70060/@Node2D@70061"]
-top_level = true
-position = Vector2(2257.697, -306.97635)
-script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
-target_angle = 0.1
-angle_sway = 0.05
-bone_texture = ExtResource("11_jbj1t")
-joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.6706486571910366
-joint_texture_scale = 22.802054344495247
-
-[node name="@Node2D@70063" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039/@Node2D@70040/@Node2D@70041/@Node2D@70042/@Node2D@70051/@Node2D@70052/@Node2D@70053/@Node2D@70054"]
-top_level = true
-position = Vector2(2346.5388, -204.85611)
-script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
-angle_sway = 0.05
-bone_texture = ExtResource("11_jbj1t")
-joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.7969872400791339
-joint_texture_scale = 27.09756616269055
-
-[node name="@Node2D@70064" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039/@Node2D@70040/@Node2D@70041/@Node2D@70042/@Node2D@70051/@Node2D@70052/@Node2D@70053/@Node2D@70054/@Node2D@70063"]
-top_level = true
-position = Vector2(2326.5525, -205.59454)
-script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
-angle_sway = 0.05
-bone_texture = ExtResource("11_jbj1t")
-joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.7775768533492041
-joint_texture_scale = 26.43761301387294
-
-[node name="@Node2D@70065" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039/@Node2D@70040/@Node2D@70041/@Node2D@70042/@Node2D@70051/@Node2D@70052/@Node2D@70053/@Node2D@70054/@Node2D@70063/@Node2D@70064"]
-top_level = true
-position = Vector2(2306.562, -206.21408)
-script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
-angle_sway = 0.05
-bone_texture = ExtResource("11_jbj1t")
-joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.7586392008037866
-joint_texture_scale = 25.793732827328743
-
-[node name="@Node2D@70066" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039/@Node2D@70040/@Node2D@70041/@Node2D@70042/@Node2D@70051/@Node2D@70052/@Node2D@70053/@Node2D@70054/@Node2D@70063/@Node2D@70064/@Node2D@70065"]
-top_level = true
-position = Vector2(2286.5686, -206.72832)
-script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
-angle_sway = 0.05
-bone_texture = ExtResource("11_jbj1t")
-joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.7401627691426922
-joint_texture_scale = 25.165534150851535
-
-[node name="@Node2D@70067" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039/@Node2D@70040/@Node2D@70041/@Node2D@70042/@Node2D@70051/@Node2D@70052/@Node2D@70053/@Node2D@70054/@Node2D@70063/@Node2D@70064/@Node2D@70065/@Node2D@70066"]
-top_level = true
-position = Vector2(2266.573, -207.15019)
-script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
-angle_sway = 0.05
-bone_texture = ExtResource("11_jbj1t")
-joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.7221363254687272
-joint_texture_scale = 24.552635065936723
-
-[node name="@Node2D@70068" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039/@Node2D@70040/@Node2D@70041/@Node2D@70042/@Node2D@70051/@Node2D@70052/@Node2D@70053/@Node2D@70054/@Node2D@70063/@Node2D@70064/@Node2D@70065/@Node2D@70066/@Node2D@70067"]
-top_level = true
-position = Vector2(2246.576, -207.49194)
-script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
-angle_sway = 0.05
-bone_texture = ExtResource("11_jbj1t")
-joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.7045489104585613
-joint_texture_scale = 23.954662955591083
-
-[node name="@Node2D@70069" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039/@Node2D@70040/@Node2D@70041/@Node2D@70042/@Node2D@70051/@Node2D@70052/@Node2D@70053/@Node2D@70054/@Node2D@70063/@Node2D@70064/@Node2D@70065/@Node2D@70066/@Node2D@70067/@Node2D@70068"]
-top_level = true
-position = Vector2(2226.578, -207.7651)
-script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
-angle_sway = 0.05
-bone_texture = ExtResource("11_jbj1t")
-joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.6873898316999183
-joint_texture_scale = 23.371254277797224
-
-[node name="@Node2D@70070" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039/@Node2D@70040/@Node2D@70041/@Node2D@70042/@Node2D@70051/@Node2D@70052/@Node2D@70053/@Node2D@70054/@Node2D@70063/@Node2D@70064/@Node2D@70065/@Node2D@70066/@Node2D@70067/@Node2D@70068/@Node2D@70069"]
-top_level = true
-position = Vector2(2206.7832, -204.90651)
+position = Vector2(2724.062, -191.47812)
 script = ExtResource("10_jkv2x")
 distance_range = Vector2(20, 20)
 target_angle = -0.1
 angle_sway = 0.05
 bone_texture = ExtResource("11_jbj1t")
 joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.6706486571910366
-joint_texture_scale = 22.802054344495247
+bone_texture_y_scale = 0.8376896807280487
+joint_texture_scale = 28.481449144753658
 
-[node name="@Node2D@70071" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039/@Node2D@70040/@Node2D@70041/@Node2D@70042/@Node2D@70051/@Node2D@70052/@Node2D@70053/@Node2D@70054/@Node2D@70063/@Node2D@70064/@Node2D@70065/@Node2D@70066/@Node2D@70067/@Node2D@70068/@Node2D@70069/@Node2D@70070"]
+[node name="@Node2D@457352" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346/@Node2D@457347/@Node2D@457349"]
 top_level = true
-position = Vector2(2187.6794, -198.98654)
+position = Vector2(2728.267, -191.94576)
 script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
-target_angle = -0.1
+distance_range = Vector2(16.656288, 16.656288)
 angle_sway = 0.05
 bone_texture = ExtResource("11_jbj1t")
 joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.6543152089984487
-joint_texture_scale = 22.24671710594726
+bone_texture_y_scale = 1.4384500463363568
+joint_texture_scale = 48.90730157543613
 
-[node name="@Node2D@70072" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039/@Node2D@70040/@Node2D@70041/@Node2D@70042/@Node2D@70051/@Node2D@70052/@Node2D@70053/@Node2D@70054/@Node2D@70063/@Node2D@70064/@Node2D@70065/@Node2D@70066/@Node2D@70067/@Node2D@70068/@Node2D@70069/@Node2D@70070/@Node2D@70071"]
+[node name="@Node2D@457353" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346/@Node2D@457347/@Node2D@457349/@Node2D@457352"]
 top_level = true
-position = Vector2(2169.737, -190.1508)
+position = Vector2(2714.8257, -201.30972)
 script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
-target_angle = -0.1
+distance_range = Vector2(16.381563, 16.381563)
 angle_sway = 0.05
 bone_texture = ExtResource("11_jbj1t")
 joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.6383795570692239
-joint_texture_scale = 21.70490494035361
+bone_texture_y_scale = 1.3633550006353181
+joint_texture_scale = 46.35407002160082
 
-[node name="@Node2D@70073" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039/@Node2D@70040/@Node2D@70041/@Node2D@70042/@Node2D@70051/@Node2D@70052/@Node2D@70053/@Node2D@70054/@Node2D@70063/@Node2D@70064/@Node2D@70065/@Node2D@70066/@Node2D@70067/@Node2D@70068/@Node2D@70069/@Node2D@70070/@Node2D@70071/@Node2D@70072"]
+[node name="@Node2D@457354" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346/@Node2D@457347/@Node2D@457349/@Node2D@457352/@Node2D@457353"]
 top_level = true
-position = Vector2(2153.3977, -178.61705)
-script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
-target_angle = -0.1
-angle_sway = 0.05
-bone_texture = ExtResource("11_jbj1t")
-joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.6228320131939109
-joint_texture_scale = 21.17628844859297
-
-[node name="@Node2D@70074" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039/@Node2D@70040/@Node2D@70041/@Node2D@70042/@Node2D@70051/@Node2D@70052/@Node2D@70053/@Node2D@70054/@Node2D@70063/@Node2D@70064/@Node2D@70065/@Node2D@70066/@Node2D@70067/@Node2D@70068/@Node2D@70069/@Node2D@70070/@Node2D@70071/@Node2D@70072/@Node2D@70073"]
-top_level = true
-position = Vector2(2139.0637, -164.66933)
-script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
-target_angle = -0.1
-angle_sway = 0.05
-bone_texture = ExtResource("11_jbj1t")
-joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.6076631251165131
-joint_texture_scale = 20.660546253961446
-
-[node name="@Node2D@70075" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039/@Node2D@70040/@Node2D@70041/@Node2D@70042/@Node2D@70051/@Node2D@70052/@Node2D@70053/@Node2D@70054/@Node2D@70063/@Node2D@70064/@Node2D@70065/@Node2D@70066/@Node2D@70067/@Node2D@70068/@Node2D@70069/@Node2D@70070/@Node2D@70071/@Node2D@70072/@Node2D@70073/@Node2D@70074"]
-top_level = true
-position = Vector2(2127.0881, -148.65105)
-script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
-target_angle = -0.1
-angle_sway = 0.05
-bone_texture = ExtResource("11_jbj1t")
-joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.5928636707879117
-joint_texture_scale = 20.157364806788998
-
-[node name="@Node2D@70076" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039/@Node2D@70040/@Node2D@70041/@Node2D@70042/@Node2D@70051/@Node2D@70052/@Node2D@70053/@Node2D@70054/@Node2D@70063/@Node2D@70064/@Node2D@70065/@Node2D@70066/@Node2D@70067/@Node2D@70068/@Node2D@70069/@Node2D@70070/@Node2D@70071/@Node2D@70072/@Node2D@70073/@Node2D@70074/@Node2D@70075"]
-top_level = true
-position = Vector2(2117.7659, -130.95654)
-script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
-target_angle = -0.1
-angle_sway = 0.05
-bone_texture = ExtResource("11_jbj1t")
-joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.578424652759246
-joint_texture_scale = 19.666438193814365
-
-[node name="@Node2D@70077" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039/@Node2D@70040/@Node2D@70041/@Node2D@70042/@Node2D@70051/@Node2D@70052/@Node2D@70053/@Node2D@70054/@Node2D@70063/@Node2D@70064/@Node2D@70065/@Node2D@70066/@Node2D@70067/@Node2D@70068/@Node2D@70069/@Node2D@70070/@Node2D@70071/@Node2D@70072/@Node2D@70073/@Node2D@70074/@Node2D@70075/@Node2D@70076"]
-top_level = true
-position = Vector2(2111.3264, -112.02156)
-script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
-target_angle = -0.1
-angle_sway = 0.05
-bone_texture = ExtResource("11_jbj1t")
-joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.5643372927118412
-joint_texture_scale = 19.1874679522026
-
-[node name="@Node2D@70078" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039/@Node2D@70040/@Node2D@70041/@Node2D@70042/@Node2D@70051/@Node2D@70052/@Node2D@70053/@Node2D@70054/@Node2D@70063/@Node2D@70064/@Node2D@70065/@Node2D@70066/@Node2D@70067/@Node2D@70068/@Node2D@70069"]
-top_level = true
-position = Vector2(2206.579, -207.98055)
-script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
-angle_sway = 0.05
-bone_texture = ExtResource("11_jbj1t")
-joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.6706486571910366
-joint_texture_scale = 22.802054344495247
-
-[node name="@Node2D@70079" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039/@Node2D@70040/@Node2D@70041/@Node2D@70042/@Node2D@70051/@Node2D@70052/@Node2D@70053/@Node2D@70054/@Node2D@70063/@Node2D@70064/@Node2D@70065/@Node2D@70066/@Node2D@70067/@Node2D@70068/@Node2D@70069/@Node2D@70078"]
-top_level = true
-position = Vector2(2186.86, -211.32184)
+position = Vector2(2700.4058, -215.16849)
 script = ExtResource("10_jkv2x")
 distance_range = Vector2(20, 20)
 target_angle = 0.1
 angle_sway = 0.05
 bone_texture = ExtResource("11_jbj1t")
 joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.6543152089984487
-joint_texture_scale = 22.24671710594726
+bone_texture_y_scale = 0.7525086686988667
+joint_texture_scale = 25.585294735761465
 
-[node name="@Node2D@70080" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039/@Node2D@70040/@Node2D@70041/@Node2D@70042/@Node2D@70051/@Node2D@70052/@Node2D@70053/@Node2D@70054/@Node2D@70063/@Node2D@70064/@Node2D@70065/@Node2D@70066/@Node2D@70067/@Node2D@70068/@Node2D@70069/@Node2D@70078/@Node2D@70079"]
+[node name="@Node2D@457355" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346/@Node2D@457347/@Node2D@457349/@Node2D@457352/@Node2D@457353"]
 top_level = true
-position = Vector2(2167.9067, -217.7069)
+position = Vector2(2701.475, -210.32846)
+script = ExtResource("10_jkv2x")
+distance_range = Vector2(16.111368, 16.111368)
+angle_sway = 0.05
+bone_texture = ExtResource("11_jbj1t")
+joint_texture = ExtResource("12_muem4")
+bone_texture_y_scale = 1.292180331525183
+joint_texture_scale = 43.934131271856224
+
+[node name="@Node2D@457356" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346/@Node2D@457347/@Node2D@457349/@Node2D@457352/@Node2D@457353/@Node2D@457355"]
+top_level = true
+position = Vector2(2686.8577, -223.97876)
 script = ExtResource("10_jkv2x")
 distance_range = Vector2(20, 20)
 target_angle = 0.1
 angle_sway = 0.05
 bone_texture = ExtResource("11_jbj1t")
 joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.6383795570692239
-joint_texture_scale = 21.70490494035361
+bone_texture_y_scale = 0.7132235555242411
+joint_texture_scale = 24.249600887824197
 
-[node name="@Node2D@70081" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039/@Node2D@70040/@Node2D@70041/@Node2D@70042/@Node2D@70051/@Node2D@70052/@Node2D@70053/@Node2D@70054/@Node2D@70063/@Node2D@70064/@Node2D@70065/@Node2D@70066/@Node2D@70067/@Node2D@70068/@Node2D@70069/@Node2D@70078/@Node2D@70079/@Node2D@70080"]
+[node name="@Node2D@457357" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346/@Node2D@457347/@Node2D@457349/@Node2D@457352/@Node2D@457353/@Node2D@457355"]
 top_level = true
-position = Vector2(2150.1855, -226.9783)
-script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
-target_angle = 0.1
-angle_sway = 0.05
-bone_texture = ExtResource("11_jbj1t")
-joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.6228320131939109
-joint_texture_scale = 21.17628844859297
-
-[node name="@Node2D@70082" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039/@Node2D@70040/@Node2D@70041/@Node2D@70042/@Node2D@70051/@Node2D@70052/@Node2D@70053/@Node2D@70054/@Node2D@70063/@Node2D@70064/@Node2D@70065/@Node2D@70066/@Node2D@70067/@Node2D@70068/@Node2D@70069/@Node2D@70078/@Node2D@70079/@Node2D@70080/@Node2D@70081"]
-top_level = true
-position = Vector2(2134.1328, -238.90776)
-script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
-target_angle = 0.1
-angle_sway = 0.05
-bone_texture = ExtResource("11_jbj1t")
-joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.6076631251165131
-joint_texture_scale = 20.660546253961446
-
-[node name="@Node2D@70083" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039/@Node2D@70040/@Node2D@70041/@Node2D@70042/@Node2D@70051/@Node2D@70052/@Node2D@70053/@Node2D@70054/@Node2D@70063/@Node2D@70064/@Node2D@70065/@Node2D@70066/@Node2D@70067/@Node2D@70068/@Node2D@70069/@Node2D@70078/@Node2D@70079/@Node2D@70080/@Node2D@70081/@Node2D@70082"]
-top_level = true
-position = Vector2(2120.1438, -253.20146)
-script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
-target_angle = 0.1
-angle_sway = 0.05
-bone_texture = ExtResource("11_jbj1t")
-joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.5928636707879117
-joint_texture_scale = 20.157364806788998
-
-[node name="@Node2D@70084" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039/@Node2D@70040/@Node2D@70041/@Node2D@70042/@Node2D@70051/@Node2D@70052/@Node2D@70053/@Node2D@70054/@Node2D@70063/@Node2D@70064/@Node2D@70065/@Node2D@70066/@Node2D@70067/@Node2D@70068/@Node2D@70069/@Node2D@70078/@Node2D@70079/@Node2D@70080/@Node2D@70081/@Node2D@70082/@Node2D@70083"]
-top_level = true
-position = Vector2(2108.563, -269.50745)
-script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
-target_angle = 0.1
-angle_sway = 0.05
-bone_texture = ExtResource("11_jbj1t")
-joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.578424652759246
-joint_texture_scale = 19.666438193814365
-
-[node name="@Node2D@70085" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039/@Node2D@70040/@Node2D@70041/@Node2D@70042/@Node2D@70051/@Node2D@70052/@Node2D@70053/@Node2D@70054/@Node2D@70063/@Node2D@70064/@Node2D@70065/@Node2D@70066/@Node2D@70067/@Node2D@70068/@Node2D@70069/@Node2D@70078/@Node2D@70079/@Node2D@70080/@Node2D@70081/@Node2D@70082/@Node2D@70083/@Node2D@70084"]
-top_level = true
-position = Vector2(2099.6755, -287.4243)
-script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
-target_angle = 0.1
-angle_sway = 0.05
-bone_texture = ExtResource("11_jbj1t")
-joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.5643372927118412
-joint_texture_scale = 19.1874679522026
-
-[node name="@Node2D@70086" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039/@Node2D@70040/@Node2D@70041/@Node2D@70042/@Node2D@70051/@Node2D@70052/@Node2D@70053/@Node2D@70054/@Node2D@70063/@Node2D@70064/@Node2D@70065/@Node2D@70066/@Node2D@70067/@Node2D@70068/@Node2D@70069/@Node2D@70078/@Node2D@70079/@Node2D@70080/@Node2D@70081/@Node2D@70082/@Node2D@70083/@Node2D@70084/@Node2D@70085"]
-top_level = true
-position = Vector2(2093.7004, -306.5109)
-script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
-target_angle = 0.1
-angle_sway = 0.05
-bone_texture = ExtResource("11_jbj1t")
-joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.5505930261203575
-joint_texture_scale = 18.720162888092155
-
-[node name="@Node2D@70087" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039/@Node2D@70040/@Node2D@70041/@Node2D@70042/@Node2D@70051/@Node2D@70052/@Node2D@70053/@Node2D@70054/@Node2D@70063/@Node2D@70064/@Node2D@70065/@Node2D@70066/@Node2D@70067/@Node2D@70068/@Node2D@70069/@Node2D@70078"]
-top_level = true
-position = Vector2(2186.7927, -205.06482)
+position = Vector2(2683.355, -218.79356)
 script = ExtResource("10_jkv2x")
 distance_range = Vector2(20, 20)
 target_angle = -0.1
 angle_sway = 0.05
 bone_texture = ExtResource("11_jbj1t")
 joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.6543152089984487
-joint_texture_scale = 22.24671710594726
+bone_texture_y_scale = 0.7132235555242411
+joint_texture_scale = 24.249600887824197
 
-[node name="@Node2D@70088" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039/@Node2D@70040/@Node2D@70041/@Node2D@70042/@Node2D@70051/@Node2D@70052/@Node2D@70053/@Node2D@70054/@Node2D@70063/@Node2D@70064/@Node2D@70065/@Node2D@70066/@Node2D@70067/@Node2D@70068/@Node2D@70069/@Node2D@70078/@Node2D@70087"]
+[node name="@Node2D@457358" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346/@Node2D@457347/@Node2D@457349/@Node2D@457352/@Node2D@457353/@Node2D@457355"]
 top_level = true
-position = Vector2(2167.706, -199.08974)
+position = Vector2(2688.221, -219.01244)
+script = ExtResource("10_jkv2x")
+distance_range = Vector2(15.845632, 15.845632)
+angle_sway = 0.05
+bone_texture = ExtResource("11_jbj1t")
+joint_texture = ExtResource("12_muem4")
+bone_texture_y_scale = 1.2247213736718934
+joint_texture_scale = 41.640526704844376
+
+[node name="@Node2D@457359" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346/@Node2D@457347/@Node2D@457349/@Node2D@457352/@Node2D@457353/@Node2D@457355/@Node2D@457358"]
+top_level = true
+position = Vector2(2675.0688, -227.37259)
+script = ExtResource("10_jkv2x")
+distance_range = Vector2(15.584277, 15.584277)
+angle_sway = 0.05
+bone_texture = ExtResource("11_jbj1t")
+joint_texture = ExtResource("12_muem4")
+bone_texture_y_scale = 1.1607841464034367
+joint_texture_scale = 39.46666097771685
+
+[node name="@Node2D@457360" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346/@Node2D@457347/@Node2D@457349/@Node2D@457352/@Node2D@457353/@Node2D@457355/@Node2D@457358/@Node2D@457359"]
+top_level = true
+position = Vector2(2662.0237, -235.41916)
+script = ExtResource("10_jkv2x")
+distance_range = Vector2(15.327233, 15.327233)
+angle_sway = 0.05
+bone_texture = ExtResource("11_jbj1t")
+joint_texture = ExtResource("12_muem4")
+bone_texture_y_scale = 1.1001847959114113
+joint_texture_scale = 37.40628306098798
+
+[node name="@Node2D@457361" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346/@Node2D@457347/@Node2D@457349/@Node2D@457352/@Node2D@457353/@Node2D@457355/@Node2D@457358/@Node2D@457359/@Node2D@457360"]
+top_level = true
+position = Vector2(2649.0898, -243.16216)
+script = ExtResource("10_jkv2x")
+distance_range = Vector2(15.0744295, 15.0744295)
+angle_sway = 0.05
+bone_texture = ExtResource("11_jbj1t")
+joint_texture = ExtResource("12_muem4")
+bone_texture_y_scale = 1.042749066572753
+joint_texture_scale = 35.4534682634736
+
+[node name="@Node2D@457362" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346/@Node2D@457347/@Node2D@457349/@Node2D@457352/@Node2D@457353/@Node2D@457355/@Node2D@457358/@Node2D@457359/@Node2D@457360/@Node2D@457361"]
+top_level = true
+position = Vector2(2636.2715, -250.61156)
+script = ExtResource("10_jkv2x")
+distance_range = Vector2(14.825795, 14.825795)
+angle_sway = 0.05
+bone_texture = ExtResource("11_jbj1t")
+joint_texture = ExtResource("12_muem4")
+bone_texture_y_scale = 0.9883117998713928
+joint_texture_scale = 33.60260119562736
+
+[node name="@Node2D@457363" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346/@Node2D@457347/@Node2D@457349/@Node2D@457352/@Node2D@457353/@Node2D@457355/@Node2D@457358/@Node2D@457359/@Node2D@457360/@Node2D@457361/@Node2D@457362"]
+top_level = true
+position = Vector2(2623.5725, -257.77734)
+script = ExtResource("10_jkv2x")
+distance_range = Vector2(14.581262, 14.581262)
+angle_sway = 0.05
+bone_texture = ExtResource("11_jbj1t")
+joint_texture = ExtResource("12_muem4")
+bone_texture_y_scale = 0.936716459478972
+joint_texture_scale = 31.84835962228505
+
+[node name="@Node2D@457364" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346/@Node2D@457347/@Node2D@457349/@Node2D@457352/@Node2D@457353/@Node2D@457355/@Node2D@457358/@Node2D@457359/@Node2D@457360/@Node2D@457361/@Node2D@457362/@Node2D@457363"]
+top_level = true
+position = Vector2(2610.9963, -264.66913)
+script = ExtResource("10_jkv2x")
+distance_range = Vector2(14.340761, 14.340761)
+angle_sway = 0.05
+bone_texture = ExtResource("11_jbj1t")
+joint_texture = ExtResource("12_muem4")
+bone_texture_y_scale = 0.8878146811289716
+joint_texture_scale = 30.18569915838503
+
+[node name="@Node2D@457365" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346/@Node2D@457347/@Node2D@457349/@Node2D@457352/@Node2D@457353/@Node2D@457355/@Node2D@457358/@Node2D@457359/@Node2D@457360/@Node2D@457361/@Node2D@457362/@Node2D@457363/@Node2D@457364"]
+top_level = true
+position = Vector2(2595.1768, -276.90598)
+script = ExtResource("10_jkv2x")
+distance_range = Vector2(20, 20)
+target_angle = 0.1
+angle_sway = 0.05
+bone_texture = ExtResource("11_jbj1t")
+joint_texture = ExtResource("12_muem4")
+bone_texture_y_scale = 0.49003248855679155
+joint_texture_scale = 16.661104610930913
+
+[node name="@Node2D@457366" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346/@Node2D@457347/@Node2D@457349/@Node2D@457352/@Node2D@457353/@Node2D@457355/@Node2D@457358/@Node2D@457359/@Node2D@457360/@Node2D@457361/@Node2D@457362/@Node2D@457363/@Node2D@457364"]
+top_level = true
+position = Vector2(2592.1697, -271.41858)
 script = ExtResource("10_jkv2x")
 distance_range = Vector2(20, 20)
 target_angle = -0.1
 angle_sway = 0.05
 bone_texture = ExtResource("11_jbj1t")
 joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.6383795570692239
-joint_texture_scale = 21.70490494035361
+bone_texture_y_scale = 0.49003248855679155
+joint_texture_scale = 16.661104610930913
 
-[node name="@Node2D@70089" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039/@Node2D@70040/@Node2D@70041/@Node2D@70042/@Node2D@70051/@Node2D@70052/@Node2D@70053/@Node2D@70054/@Node2D@70063/@Node2D@70064/@Node2D@70065/@Node2D@70066/@Node2D@70067/@Node2D@70068/@Node2D@70069/@Node2D@70078/@Node2D@70087/@Node2D@70088"]
+[node name="@Node2D@457367" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346/@Node2D@457347/@Node2D@457349/@Node2D@457352/@Node2D@457353/@Node2D@457355/@Node2D@457358/@Node2D@457359/@Node2D@457360/@Node2D@457361/@Node2D@457362/@Node2D@457363/@Node2D@457364"]
 top_level = true
-position = Vector2(2149.789, -190.20244)
+position = Vector2(2598.546, -271.29596)
+script = ExtResource("10_jkv2x")
+distance_range = Vector2(14.104228, 14.104228)
+angle_sway = 0.05
+bone_texture = ExtResource("11_jbj1t")
+joint_texture = ExtResource("12_muem4")
+bone_texture_y_scale = 0.8414658459899004
+joint_texture_scale = 28.60983876365661
+
+[node name="@Node2D@457368" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346/@Node2D@457347/@Node2D@457349/@Node2D@457352/@Node2D@457353/@Node2D@457355/@Node2D@457358/@Node2D@457359/@Node2D@457360/@Node2D@457361/@Node2D@457362/@Node2D@457363/@Node2D@457364/@Node2D@457367"]
+top_level = true
+position = Vector2(2586.224, -277.66733)
+script = ExtResource("10_jkv2x")
+distance_range = Vector2(13.871596, 13.871596)
+angle_sway = 0.05
+bone_texture = ExtResource("11_jbj1t")
+joint_texture = ExtResource("12_muem4")
+bone_texture_y_scale = 0.7975366763107617
+joint_texture_scale = 27.1162469945659
+
+[node name="@Node2D@457369" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346/@Node2D@457347/@Node2D@457349/@Node2D@457352/@Node2D@457353/@Node2D@457355/@Node2D@457358/@Node2D@457359/@Node2D@457360/@Node2D@457361/@Node2D@457362/@Node2D@457363/@Node2D@457364/@Node2D@457367/@Node2D@457368"]
+top_level = true
+position = Vector2(2574.0334, -283.79208)
+script = ExtResource("10_jkv2x")
+distance_range = Vector2(13.642801, 13.642801)
+angle_sway = 0.05
+bone_texture = ExtResource("11_jbj1t")
+joint_texture = ExtResource("12_muem4")
+bone_texture_y_scale = 0.7559008521760622
+joint_texture_scale = 25.700628973986113
+
+[node name="@Node2D@457370" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346/@Node2D@457347/@Node2D@457349/@Node2D@457352/@Node2D@457353/@Node2D@457355/@Node2D@457358/@Node2D@457359/@Node2D@457360/@Node2D@457361/@Node2D@457362/@Node2D@457363/@Node2D@457364/@Node2D@457367/@Node2D@457368/@Node2D@457369"]
+top_level = true
+position = Vector2(2561.9758, -289.6785)
+script = ExtResource("10_jkv2x")
+distance_range = Vector2(13.41778, 13.41778)
+angle_sway = 0.05
+bone_texture = ExtResource("11_jbj1t")
+joint_texture = ExtResource("12_muem4")
+bone_texture_y_scale = 0.7164386482683277
+joint_texture_scale = 24.358914041123143
+
+[node name="@Node2D@457371" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346/@Node2D@457347/@Node2D@457349/@Node2D@457352/@Node2D@457353/@Node2D@457355/@Node2D@457358/@Node2D@457359/@Node2D@457360/@Node2D@457361/@Node2D@457362/@Node2D@457363/@Node2D@457364/@Node2D@457367/@Node2D@457368/@Node2D@457369/@Node2D@457370"]
+top_level = true
+position = Vector2(2550.0535, -295.33563)
+script = ExtResource("10_jkv2x")
+distance_range = Vector2(13.196469, 13.196469)
+angle_sway = 0.05
+bone_texture = ExtResource("11_jbj1t")
+joint_texture = ExtResource("12_muem4")
+bone_texture_y_scale = 0.6790365895936257
+joint_texture_scale = 23.087244046183272
+
+[node name="@Node2D@457372" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346/@Node2D@457347/@Node2D@457349/@Node2D@457352/@Node2D@457353/@Node2D@457355/@Node2D@457358/@Node2D@457359/@Node2D@457360/@Node2D@457361/@Node2D@457362/@Node2D@457363/@Node2D@457364/@Node2D@457367/@Node2D@457368/@Node2D@457369/@Node2D@457370/@Node2D@457371"]
+top_level = true
+position = Vector2(2538.2678, -300.77136)
+script = ExtResource("10_jkv2x")
+distance_range = Vector2(12.97881, 12.97881)
+angle_sway = 0.05
+bone_texture = ExtResource("11_jbj1t")
+joint_texture = ExtResource("12_muem4")
+bone_texture_y_scale = 0.6435871251801168
+joint_texture_scale = 21.881962256123973
+
+[node name="@Node2D@457373" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346/@Node2D@457347/@Node2D@457349/@Node2D@457352/@Node2D@457353/@Node2D@457355/@Node2D@457358/@Node2D@457359/@Node2D@457360/@Node2D@457361/@Node2D@457362/@Node2D@457363/@Node2D@457364/@Node2D@457367/@Node2D@457368/@Node2D@457369/@Node2D@457370/@Node2D@457371/@Node2D@457372"]
+top_level = true
+position = Vector2(2526.6204, -305.99387)
+script = ExtResource("10_jkv2x")
+distance_range = Vector2(12.764741, 12.764741)
+angle_sway = 0.05
+bone_texture = ExtResource("11_jbj1t")
+joint_texture = ExtResource("12_muem4")
+bone_texture_y_scale = 0.6099883188113486
+joint_texture_scale = 20.739602839585853
+
+[node name="@Node2D@457374" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346/@Node2D@457347/@Node2D@457349/@Node2D@457352/@Node2D@457353/@Node2D@457355/@Node2D@457358/@Node2D@457359/@Node2D@457360/@Node2D@457361/@Node2D@457362/@Node2D@457363/@Node2D@457364/@Node2D@457367/@Node2D@457368/@Node2D@457369/@Node2D@457370/@Node2D@457371/@Node2D@457372/@Node2D@457373"]
+top_level = true
+position = Vector2(2509.8757, -316.93082)
+script = ExtResource("10_jkv2x")
+distance_range = Vector2(20, 20)
+target_angle = 0.1
+angle_sway = 0.05
+bone_texture = ExtResource("11_jbj1t")
+joint_texture = ExtResource("12_muem4")
+bone_texture_y_scale = 0.3366852342175629
+joint_texture_scale = 11.447297963397139
+
+[node name="@Node2D@457375" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346/@Node2D@457347/@Node2D@457349/@Node2D@457352/@Node2D@457353/@Node2D@457355/@Node2D@457358/@Node2D@457359/@Node2D@457360/@Node2D@457361/@Node2D@457362/@Node2D@457363/@Node2D@457364/@Node2D@457367/@Node2D@457368/@Node2D@457369/@Node2D@457370/@Node2D@457371/@Node2D@457372/@Node2D@457373"]
+top_level = true
+position = Vector2(2507.3154, -311.22086)
 script = ExtResource("10_jkv2x")
 distance_range = Vector2(20, 20)
 target_angle = -0.1
 angle_sway = 0.05
 bone_texture = ExtResource("11_jbj1t")
 joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.6228320131939109
-joint_texture_scale = 21.17628844859297
+bone_texture_y_scale = 0.3366852342175629
+joint_texture_scale = 11.447297963397139
 
-[node name="@Node2D@70090" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039/@Node2D@70040/@Node2D@70041/@Node2D@70042/@Node2D@70051/@Node2D@70052/@Node2D@70053/@Node2D@70054/@Node2D@70063/@Node2D@70064/@Node2D@70065/@Node2D@70066/@Node2D@70067/@Node2D@70068/@Node2D@70069/@Node2D@70078/@Node2D@70087/@Node2D@70088/@Node2D@70089"]
+[node name="@Node2D@457376" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346/@Node2D@457347/@Node2D@457349/@Node2D@457352/@Node2D@457353/@Node2D@457355/@Node2D@457358/@Node2D@457359/@Node2D@457360/@Node2D@457361/@Node2D@457362/@Node2D@457363/@Node2D@457364/@Node2D@457367/@Node2D@457368/@Node2D@457369/@Node2D@457370/@Node2D@457371/@Node2D@457372/@Node2D@457373"]
 top_level = true
-position = Vector2(2133.483, -178.62177)
+position = Vector2(2515.112, -311.01062)
+script = ExtResource("10_jkv2x")
+distance_range = Vector2(12.554202, 12.554202)
+angle_sway = 0.05
+bone_texture = ExtResource("11_jbj1t")
+joint_texture = ExtResource("12_muem4")
+bone_texture_y_scale = 0.5781435559049788
+joint_texture_scale = 19.65688090076928
+
+[node name="@Node2D@457377" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346/@Node2D@457347/@Node2D@457349/@Node2D@457352/@Node2D@457353/@Node2D@457355/@Node2D@457358/@Node2D@457359/@Node2D@457360/@Node2D@457361/@Node2D@457362/@Node2D@457363/@Node2D@457364/@Node2D@457367/@Node2D@457368/@Node2D@457369/@Node2D@457370/@Node2D@457371/@Node2D@457372/@Node2D@457373/@Node2D@457376"]
+top_level = true
+position = Vector2(2503.7441, -315.82953)
+script = ExtResource("10_jkv2x")
+distance_range = Vector2(12.347136, 12.347136)
+angle_sway = 0.05
+bone_texture = ExtResource("11_jbj1t")
+joint_texture = ExtResource("12_muem4")
+bone_texture_y_scale = 0.5479612656940518
+joint_texture_scale = 18.630683033597762
+
+[node name="@Node2D@457378" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346/@Node2D@457347/@Node2D@457349/@Node2D@457352/@Node2D@457353/@Node2D@457355/@Node2D@457358/@Node2D@457359/@Node2D@457360/@Node2D@457361/@Node2D@457362/@Node2D@457363/@Node2D@457364/@Node2D@457367/@Node2D@457368/@Node2D@457369/@Node2D@457370/@Node2D@457371/@Node2D@457372/@Node2D@457373/@Node2D@457376/@Node2D@457377"]
+top_level = true
+position = Vector2(2486.778, -326.4197)
+script = ExtResource("10_jkv2x")
+distance_range = Vector2(20, 20)
+target_angle = 0.1
+angle_sway = 0.05
+bone_texture = ExtResource("11_jbj1t")
+joint_texture = ExtResource("12_muem4")
+bone_texture_y_scale = 0.3024491804070293
+joint_texture_scale = 10.283272133838995
+
+[node name="@Node2D@457379" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346/@Node2D@457347/@Node2D@457349/@Node2D@457352/@Node2D@457353/@Node2D@457355/@Node2D@457358/@Node2D@457359/@Node2D@457360/@Node2D@457361/@Node2D@457362/@Node2D@457363/@Node2D@457364/@Node2D@457367/@Node2D@457368/@Node2D@457369/@Node2D@457370/@Node2D@457371/@Node2D@457372/@Node2D@457373/@Node2D@457376/@Node2D@457377"]
+top_level = true
+position = Vector2(2484.336, -320.65854)
 script = ExtResource("10_jkv2x")
 distance_range = Vector2(20, 20)
 target_angle = -0.1
 angle_sway = 0.05
 bone_texture = ExtResource("11_jbj1t")
 joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.6076631251165131
-joint_texture_scale = 20.660546253961446
+bone_texture_y_scale = 0.3024491804070293
+joint_texture_scale = 10.283272133838995
 
-[node name="@Node2D@70091" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039/@Node2D@70040/@Node2D@70041/@Node2D@70042/@Node2D@70051/@Node2D@70052/@Node2D@70053/@Node2D@70054/@Node2D@70063/@Node2D@70064/@Node2D@70065/@Node2D@70066/@Node2D@70067/@Node2D@70068/@Node2D@70069/@Node2D@70078/@Node2D@70087/@Node2D@70088/@Node2D@70089/@Node2D@70090"]
+[node name="@Node2D@457380" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346/@Node2D@457347/@Node2D@457349/@Node2D@457352/@Node2D@457353/@Node2D@457355/@Node2D@457358/@Node2D@457359/@Node2D@457360/@Node2D@457361/@Node2D@457362/@Node2D@457363/@Node2D@457364/@Node2D@457367/@Node2D@457368/@Node2D@457369/@Node2D@457370/@Node2D@457371/@Node2D@457372/@Node2D@457373/@Node2D@457376/@Node2D@457377"]
 top_level = true
-position = Vector2(2119.1892, -164.63283)
+position = Vector2(2492.517, -320.45752)
+script = ExtResource("10_jkv2x")
+distance_range = Vector2(12.143484, 12.143484)
+angle_sway = 0.05
+bone_texture = ExtResource("11_jbj1t")
+joint_texture = ExtResource("12_muem4")
+bone_texture_y_scale = 0.5193546579119477
+joint_texture_scale = 17.65805836900622
+
+[node name="@Node2D@457381" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346/@Node2D@457347/@Node2D@457349/@Node2D@457352/@Node2D@457353/@Node2D@457355/@Node2D@457358/@Node2D@457359/@Node2D@457360/@Node2D@457361/@Node2D@457362/@Node2D@457363/@Node2D@457364/@Node2D@457367/@Node2D@457368/@Node2D@457369/@Node2D@457370/@Node2D@457371/@Node2D@457372/@Node2D@457373/@Node2D@457376/@Node2D@457377/@Node2D@457380"]
+top_level = true
+position = Vector2(2481.4316, -324.902)
+script = ExtResource("10_jkv2x")
+distance_range = Vector2(11.9431925, 11.9431925)
+angle_sway = 0.05
+bone_texture = ExtResource("11_jbj1t")
+joint_texture = ExtResource("12_muem4")
+bone_texture_y_scale = 0.4922414732238329
+joint_texture_scale = 16.736210089610317
+
+[node name="@Node2D@457382" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346/@Node2D@457347/@Node2D@457349/@Node2D@457352/@Node2D@457353/@Node2D@457355/@Node2D@457358/@Node2D@457359/@Node2D@457360/@Node2D@457361/@Node2D@457362/@Node2D@457363/@Node2D@457364/@Node2D@457367/@Node2D@457368/@Node2D@457369/@Node2D@457370/@Node2D@457371/@Node2D@457372/@Node2D@457373/@Node2D@457376/@Node2D@457377/@Node2D@457380/@Node2D@457381"]
+top_level = true
+position = Vector2(2464.261, -335.1572)
+script = ExtResource("10_jkv2x")
+distance_range = Vector2(20, 20)
+target_angle = 0.1
+angle_sway = 0.05
+bone_texture = ExtResource("11_jbj1t")
+joint_texture = ExtResource("12_muem4")
+bone_texture_y_scale = 0.27169444166884105
+joint_texture_scale = 9.237611016740596
+
+[node name="@Node2D@457383" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346/@Node2D@457347/@Node2D@457349/@Node2D@457352/@Node2D@457353/@Node2D@457355/@Node2D@457358/@Node2D@457359/@Node2D@457360/@Node2D@457361/@Node2D@457362/@Node2D@457363/@Node2D@457364/@Node2D@457367/@Node2D@457368/@Node2D@457369/@Node2D@457370/@Node2D@457371/@Node2D@457372/@Node2D@457373/@Node2D@457376/@Node2D@457377/@Node2D@457380/@Node2D@457381"]
+top_level = true
+position = Vector2(2461.9324, -329.34906)
 script = ExtResource("10_jkv2x")
 distance_range = Vector2(20, 20)
 target_angle = -0.1
 angle_sway = 0.05
 bone_texture = ExtResource("11_jbj1t")
 joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.5928636707879117
-joint_texture_scale = 20.157364806788998
+bone_texture_y_scale = 0.27169444166884105
+joint_texture_scale = 9.237611016740596
 
-[node name="@Node2D@70092" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039/@Node2D@70040/@Node2D@70041/@Node2D@70042/@Node2D@70051/@Node2D@70052/@Node2D@70053/@Node2D@70054/@Node2D@70063/@Node2D@70064/@Node2D@70065/@Node2D@70066/@Node2D@70067/@Node2D@70068/@Node2D@70069/@Node2D@70078/@Node2D@70087/@Node2D@70088/@Node2D@70089/@Node2D@70090/@Node2D@70091"]
+[node name="@Node2D@457384" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346/@Node2D@457347/@Node2D@457349/@Node2D@457352/@Node2D@457353/@Node2D@457355/@Node2D@457358/@Node2D@457359/@Node2D@457360/@Node2D@457361/@Node2D@457362/@Node2D@457363/@Node2D@457364/@Node2D@457367/@Node2D@457368/@Node2D@457369/@Node2D@457370/@Node2D@457371/@Node2D@457372/@Node2D@457373/@Node2D@457376/@Node2D@457377/@Node2D@457380/@Node2D@457381"]
 top_level = true
-position = Vector2(2107.2598, -148.58012)
+position = Vector2(2470.488, -329.16953)
+script = ExtResource("10_jkv2x")
+distance_range = Vector2(11.746204, 11.746204)
+angle_sway = 0.05
+bone_texture = ExtResource("11_jbj1t")
+joint_texture = ExtResource("12_muem4")
+bone_texture_y_scale = 0.4665437466869693
+joint_texture_scale = 15.862487387356957
+
+[node name="@Node2D@457385" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346/@Node2D@457347/@Node2D@457349/@Node2D@457352/@Node2D@457353/@Node2D@457355/@Node2D@457358/@Node2D@457359/@Node2D@457360/@Node2D@457361/@Node2D@457362/@Node2D@457363/@Node2D@457364/@Node2D@457367/@Node2D@457368/@Node2D@457369/@Node2D@457370/@Node2D@457371/@Node2D@457372/@Node2D@457373/@Node2D@457376/@Node2D@457377/@Node2D@457380/@Node2D@457381/@Node2D@457384"]
+top_level = true
+position = Vector2(2459.6868, -333.26743)
+script = ExtResource("10_jkv2x")
+distance_range = Vector2(11.5524645, 11.5524645)
+angle_sway = 0.05
+bone_texture = ExtResource("11_jbj1t")
+joint_texture = ExtResource("12_muem4")
+bone_texture_y_scale = 0.4421875835597033
+joint_texture_scale = 15.034377841029912
+
+[node name="@Node2D@457386" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346/@Node2D@457347/@Node2D@457349/@Node2D@457352/@Node2D@457353/@Node2D@457355/@Node2D@457358/@Node2D@457359/@Node2D@457360/@Node2D@457361/@Node2D@457362/@Node2D@457363/@Node2D@457364/@Node2D@457367/@Node2D@457368/@Node2D@457369/@Node2D@457370/@Node2D@457371/@Node2D@457372/@Node2D@457373/@Node2D@457376/@Node2D@457377/@Node2D@457380/@Node2D@457381/@Node2D@457384/@Node2D@457385"]
+top_level = true
+position = Vector2(2449.0276, -337.20117)
+script = ExtResource("10_jkv2x")
+distance_range = Vector2(11.361921, 11.361921)
+angle_sway = 0.05
+bone_texture = ExtResource("11_jbj1t")
+joint_texture = ExtResource("12_muem4")
+bone_texture_y_scale = 0.41910294681446375
+joint_texture_scale = 14.249500191691768
+
+[node name="@Node2D@457387" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346/@Node2D@457347/@Node2D@457349/@Node2D@457352/@Node2D@457353/@Node2D@457355/@Node2D@457358/@Node2D@457359/@Node2D@457360/@Node2D@457361/@Node2D@457362/@Node2D@457363/@Node2D@457364/@Node2D@457367/@Node2D@457368/@Node2D@457369/@Node2D@457370/@Node2D@457371/@Node2D@457372/@Node2D@457373/@Node2D@457376/@Node2D@457377/@Node2D@457380/@Node2D@457381/@Node2D@457384/@Node2D@457385/@Node2D@457386"]
+top_level = true
+position = Vector2(2431.5789, -346.97568)
+script = ExtResource("10_jkv2x")
+distance_range = Vector2(20, 20)
+target_angle = 0.1
+angle_sway = 0.05
+bone_texture = ExtResource("11_jbj1t")
+joint_texture = ExtResource("12_muem4")
+bone_texture_y_scale = 0.2313253704340827
+joint_texture_scale = 7.865062594758811
+
+[node name="@Node2D@457388" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346/@Node2D@457347/@Node2D@457349/@Node2D@457352/@Node2D@457353/@Node2D@457355/@Node2D@457358/@Node2D@457359/@Node2D@457360/@Node2D@457361/@Node2D@457362/@Node2D@457363/@Node2D@457364/@Node2D@457367/@Node2D@457368/@Node2D@457369/@Node2D@457370/@Node2D@457371/@Node2D@457372/@Node2D@457373/@Node2D@457376/@Node2D@457377/@Node2D@457380/@Node2D@457381/@Node2D@457384/@Node2D@457385/@Node2D@457386"]
+top_level = true
+position = Vector2(2429.4124, -341.10516)
 script = ExtResource("10_jkv2x")
 distance_range = Vector2(20, 20)
 target_angle = -0.1
 angle_sway = 0.05
 bone_texture = ExtResource("11_jbj1t")
 joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.578424652759246
-joint_texture_scale = 19.666438193814365
+bone_texture_y_scale = 0.2313253704340827
+joint_texture_scale = 7.865062594758811
 
-[node name="@Node2D@70093" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039/@Node2D@70040/@Node2D@70041/@Node2D@70042/@Node2D@70051/@Node2D@70052/@Node2D@70053/@Node2D@70054/@Node2D@70063/@Node2D@70064/@Node2D@70065/@Node2D@70066/@Node2D@70067/@Node2D@70068/@Node2D@70069/@Node2D@70078"]
+[node name="@Node2D@457389" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346/@Node2D@457347/@Node2D@457349/@Node2D@457352/@Node2D@457353/@Node2D@457355/@Node2D@457358/@Node2D@457359/@Node2D@457360/@Node2D@457361/@Node2D@457362/@Node2D@457363/@Node2D@457364/@Node2D@457367/@Node2D@457368/@Node2D@457369/@Node2D@457370/@Node2D@457371/@Node2D@457372/@Node2D@457373/@Node2D@457376/@Node2D@457377/@Node2D@457380/@Node2D@457381/@Node2D@457384/@Node2D@457385/@Node2D@457386"]
 top_level = true
-position = Vector2(2186.5798, -208.14842)
+position = Vector2(2438.5105, -340.9774)
 script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
+distance_range = Vector2(11.17452, 11.17452)
 angle_sway = 0.05
 bone_texture = ExtResource("11_jbj1t")
 joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.6543152089984487
-joint_texture_scale = 22.24671710594726
+bone_texture_y_scale = 0.39722345574375834
+joint_texture_scale = 13.505597495287784
 
-[node name="@Node2D@70094" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039/@Node2D@70040/@Node2D@70041/@Node2D@70042/@Node2D@70051/@Node2D@70052/@Node2D@70053/@Node2D@70054/@Node2D@70063/@Node2D@70064/@Node2D@70065/@Node2D@70066/@Node2D@70067/@Node2D@70068/@Node2D@70069/@Node2D@70078/@Node2D@70093"]
+[node name="@Node2D@457390" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346/@Node2D@457347/@Node2D@457349/@Node2D@457352/@Node2D@457353/@Node2D@457355/@Node2D@457358/@Node2D@457359/@Node2D@457360/@Node2D@457361/@Node2D@457362/@Node2D@457363/@Node2D@457364/@Node2D@457367/@Node2D@457368/@Node2D@457369/@Node2D@457370/@Node2D@457371/@Node2D@457372/@Node2D@457373/@Node2D@457376/@Node2D@457377/@Node2D@457380/@Node2D@457381/@Node2D@457384/@Node2D@457385/@Node2D@457386/@Node2D@457389"]
 top_level = true
-position = Vector2(2166.5803, -208.27818)
+position = Vector2(2420.976, -350.59744)
 script = ExtResource("10_jkv2x")
 distance_range = Vector2(20, 20)
+target_angle = 0.1
 angle_sway = 0.05
 bone_texture = ExtResource("11_jbj1t")
 joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.6383795570692239
-joint_texture_scale = 21.70490494035361
+bone_texture_y_scale = 0.2192489070846595
+joint_texture_scale = 7.454462840878422
 
-[node name="@Node2D@70095" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039/@Node2D@70040/@Node2D@70041/@Node2D@70042/@Node2D@70051/@Node2D@70052/@Node2D@70053/@Node2D@70054/@Node2D@70063/@Node2D@70064/@Node2D@70065/@Node2D@70066/@Node2D@70067/@Node2D@70068/@Node2D@70069/@Node2D@70078/@Node2D@70093/@Node2D@70094"]
+[node name="@Node2D@457391" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346/@Node2D@457347/@Node2D@457349/@Node2D@457352/@Node2D@457353/@Node2D@457355/@Node2D@457358/@Node2D@457359/@Node2D@457360/@Node2D@457361/@Node2D@457362/@Node2D@457363/@Node2D@457364/@Node2D@457367/@Node2D@457368/@Node2D@457369/@Node2D@457370/@Node2D@457371/@Node2D@457372/@Node2D@457373/@Node2D@457376/@Node2D@457377/@Node2D@457380/@Node2D@457381/@Node2D@457384/@Node2D@457385/@Node2D@457386/@Node2D@457389"]
 top_level = true
-position = Vector2(2146.5806, -208.37863)
+position = Vector2(2418.8616, -344.70816)
 script = ExtResource("10_jkv2x")
 distance_range = Vector2(20, 20)
+target_angle = -0.1
 angle_sway = 0.05
 bone_texture = ExtResource("11_jbj1t")
 joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.6228320131939109
-joint_texture_scale = 21.17628844859297
+bone_texture_y_scale = 0.2192489070846595
+joint_texture_scale = 7.454462840878422
 
-[node name="@Node2D@70096" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039/@Node2D@70040/@Node2D@70041/@Node2D@70042/@Node2D@70051/@Node2D@70052/@Node2D@70053/@Node2D@70054/@Node2D@70063/@Node2D@70064/@Node2D@70065/@Node2D@70066/@Node2D@70067/@Node2D@70068/@Node2D@70069/@Node2D@70078/@Node2D@70093/@Node2D@70094/@Node2D@70095"]
+[node name="@Node2D@457392" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346/@Node2D@457347/@Node2D@457349/@Node2D@457352/@Node2D@457353/@Node2D@457355/@Node2D@457358/@Node2D@457359/@Node2D@457360/@Node2D@457361/@Node2D@457362/@Node2D@457363/@Node2D@457364/@Node2D@457367/@Node2D@457368/@Node2D@457369/@Node2D@457370/@Node2D@457371/@Node2D@457372/@Node2D@457373/@Node2D@457376/@Node2D@457377/@Node2D@457380/@Node2D@457381/@Node2D@457384/@Node2D@457385/@Node2D@457386/@Node2D@457389"]
 top_level = true
-position = Vector2(2126.5808, -208.4579)
+position = Vector2(2428.1353, -344.60205)
 script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
+distance_range = Vector2(10.99021, 10.99021)
 angle_sway = 0.05
 bone_texture = ExtResource("11_jbj1t")
 joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.6076631251165131
-joint_texture_scale = 20.660546253961446
+bone_texture_y_scale = 0.3764861950800489
+joint_texture_scale = 12.800530632721662
 
-[node name="@Node2D@70097" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039/@Node2D@70040/@Node2D@70041/@Node2D@70042/@Node2D@70051/@Node2D@70052/@Node2D@70053/@Node2D@70054/@Node2D@70063/@Node2D@70064/@Node2D@70065/@Node2D@70066/@Node2D@70067/@Node2D@70068/@Node2D@70069/@Node2D@70078/@Node2D@70093/@Node2D@70094/@Node2D@70095/@Node2D@70096"]
+[node name="@Node2D@457393" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346/@Node2D@457347/@Node2D@457349/@Node2D@457352/@Node2D@457353/@Node2D@457355/@Node2D@457358/@Node2D@457359/@Node2D@457360/@Node2D@457361/@Node2D@457362/@Node2D@457363/@Node2D@457364/@Node2D@457367/@Node2D@457368/@Node2D@457369/@Node2D@457370/@Node2D@457371/@Node2D@457372/@Node2D@457373/@Node2D@457376/@Node2D@457377/@Node2D@457380/@Node2D@457381/@Node2D@457384/@Node2D@457385/@Node2D@457386/@Node2D@457389/@Node2D@457392"]
 top_level = true
-position = Vector2(2106.5808, -208.52342)
+position = Vector2(2417.9014, -348.08078)
 script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
+distance_range = Vector2(10.80894, 10.80894)
 angle_sway = 0.05
 bone_texture = ExtResource("11_jbj1t")
 joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.5928636707879117
-joint_texture_scale = 20.157364806788998
+bone_texture_y_scale = 0.3568315340806252
+joint_texture_scale = 12.132272158741257
 
-[node name="@Node2D@70098" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039/@Node2D@70040/@Node2D@70041/@Node2D@70042/@Node2D@70051/@Node2D@70052/@Node2D@70053/@Node2D@70054/@Node2D@70063/@Node2D@70064/@Node2D@70065/@Node2D@70066/@Node2D@70067/@Node2D@70068/@Node2D@70069/@Node2D@70078/@Node2D@70093/@Node2D@70094/@Node2D@70095/@Node2D@70096/@Node2D@70097"]
+[node name="@Node2D@457394" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346/@Node2D@457347/@Node2D@457349/@Node2D@457352/@Node2D@457353/@Node2D@457355/@Node2D@457358/@Node2D@457359/@Node2D@457360/@Node2D@457361/@Node2D@457362/@Node2D@457363/@Node2D@457364/@Node2D@457367/@Node2D@457368/@Node2D@457369/@Node2D@457370/@Node2D@457371/@Node2D@457372/@Node2D@457373/@Node2D@457376/@Node2D@457377/@Node2D@457380/@Node2D@457381/@Node2D@457384/@Node2D@457385/@Node2D@457386/@Node2D@457389/@Node2D@457392/@Node2D@457393"]
 top_level = true
-position = Vector2(2086.5808, -208.582)
+position = Vector2(2407.8086, -351.41962)
 script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
+distance_range = Vector2(10.630659, 10.630659)
 angle_sway = 0.05
 bone_texture = ExtResource("11_jbj1t")
 joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.578424652759246
-joint_texture_scale = 19.666438193814365
+bone_texture_y_scale = 0.3382029550572488
+joint_texture_scale = 11.49890047194646
 
-[node name="@Node2D@70099" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039/@Node2D@70040/@Node2D@70041/@Node2D@70042/@Node2D@70051/@Node2D@70052/@Node2D@70053/@Node2D@70054/@Node2D@70063/@Node2D@70064/@Node2D@70065/@Node2D@70066/@Node2D@70067/@Node2D@70068/@Node2D@70069/@Node2D@70078/@Node2D@70093/@Node2D@70094/@Node2D@70095/@Node2D@70096/@Node2D@70097/@Node2D@70098"]
+[node name="@Node2D@457395" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346/@Node2D@457347/@Node2D@457349/@Node2D@457352/@Node2D@457353/@Node2D@457355/@Node2D@457358/@Node2D@457359/@Node2D@457360/@Node2D@457361/@Node2D@457362/@Node2D@457363/@Node2D@457364/@Node2D@457367/@Node2D@457368/@Node2D@457369/@Node2D@457370/@Node2D@457371/@Node2D@457372/@Node2D@457373/@Node2D@457376/@Node2D@457377/@Node2D@457380/@Node2D@457381/@Node2D@457384/@Node2D@457385/@Node2D@457386/@Node2D@457389/@Node2D@457392/@Node2D@457393/@Node2D@457394"]
 top_level = true
-position = Vector2(2066.5808, -208.63982)
+position = Vector2(2397.8562, -354.62344)
 script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
+distance_range = Vector2(10.455319, 10.455319)
 angle_sway = 0.05
 bone_texture = ExtResource("11_jbj1t")
 joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.5643372927118412
-joint_texture_scale = 19.1874679522026
+bone_texture_y_scale = 0.3205468908574972
+joint_texture_scale = 10.898594289154905
 
-[node name="@Node2D@70100" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039/@Node2D@70040/@Node2D@70041/@Node2D@70042/@Node2D@70051/@Node2D@70052/@Node2D@70053/@Node2D@70054/@Node2D@70063/@Node2D@70064/@Node2D@70065/@Node2D@70066/@Node2D@70067/@Node2D@70068/@Node2D@70069/@Node2D@70078/@Node2D@70093/@Node2D@70094/@Node2D@70095/@Node2D@70096/@Node2D@70097/@Node2D@70098/@Node2D@70099"]
+[node name="@Node2D@457396" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346/@Node2D@457347/@Node2D@457349/@Node2D@457352/@Node2D@457353/@Node2D@457355/@Node2D@457358/@Node2D@457359/@Node2D@457360/@Node2D@457361/@Node2D@457362/@Node2D@457363/@Node2D@457364/@Node2D@457367/@Node2D@457368/@Node2D@457369/@Node2D@457370/@Node2D@457371/@Node2D@457372/@Node2D@457373/@Node2D@457376/@Node2D@457377/@Node2D@457380/@Node2D@457381/@Node2D@457384/@Node2D@457385/@Node2D@457386/@Node2D@457389/@Node2D@457392/@Node2D@457393/@Node2D@457394/@Node2D@457395"]
 top_level = true
-position = Vector2(2046.5809, -208.70244)
+position = Vector2(2380.0115, -363.65488)
 script = ExtResource("10_jkv2x")
 distance_range = Vector2(20, 20)
+target_angle = 0.1
 angle_sway = 0.05
 bone_texture = ExtResource("11_jbj1t")
 joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.5505930261203575
-joint_texture_scale = 18.720162888092155
+bone_texture_y_scale = 0.1769270028586327
+joint_texture_scale = 6.015518097193511
 
-[node name="@Node2D@70101" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039/@Node2D@70040/@Node2D@70041/@Node2D@70042/@Node2D@70051/@Node2D@70052/@Node2D@70053/@Node2D@70054/@Node2D@70063/@Node2D@70064/@Node2D@70065/@Node2D@70066/@Node2D@70067/@Node2D@70068/@Node2D@70069/@Node2D@70078/@Node2D@70093/@Node2D@70094/@Node2D@70095/@Node2D@70096/@Node2D@70097/@Node2D@70098/@Node2D@70099/@Node2D@70100"]
+[node name="@Node2D@457397" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346/@Node2D@457347/@Node2D@457349/@Node2D@457352/@Node2D@457353/@Node2D@457355/@Node2D@457358/@Node2D@457359/@Node2D@457360/@Node2D@457361/@Node2D@457362/@Node2D@457363/@Node2D@457364/@Node2D@457367/@Node2D@457368/@Node2D@457369/@Node2D@457370/@Node2D@457371/@Node2D@457372/@Node2D@457373/@Node2D@457376/@Node2D@457377/@Node2D@457380/@Node2D@457381/@Node2D@457384/@Node2D@457385/@Node2D@457386/@Node2D@457389/@Node2D@457392/@Node2D@457393/@Node2D@457394/@Node2D@457395"]
 top_level = true
-position = Vector2(2026.581, -208.77483)
+position = Vector2(2378.094, -357.6984)
 script = ExtResource("10_jkv2x")
 distance_range = Vector2(20, 20)
+target_angle = -0.1
 angle_sway = 0.05
 bone_texture = ExtResource("11_jbj1t")
 joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.537183497045918
-joint_texture_scale = 18.26423889956121
+bone_texture_y_scale = 0.1769270028586327
+joint_texture_scale = 6.015518097193511
 
-[node name="@Node2D@70102" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039/@Node2D@70040/@Node2D@70041/@Node2D@70042/@Node2D@70051/@Node2D@70052/@Node2D@70053/@Node2D@70054/@Node2D@70063/@Node2D@70064/@Node2D@70065/@Node2D@70066/@Node2D@70067/@Node2D@70068/@Node2D@70069/@Node2D@70078/@Node2D@70093/@Node2D@70094/@Node2D@70095/@Node2D@70096/@Node2D@70097/@Node2D@70098/@Node2D@70099/@Node2D@70100/@Node2D@70101"]
+[node name="@Node2D@457398" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346/@Node2D@457347/@Node2D@457349/@Node2D@457352/@Node2D@457353/@Node2D@457355/@Node2D@457358/@Node2D@457359/@Node2D@457360/@Node2D@457361/@Node2D@457362/@Node2D@457363/@Node2D@457364/@Node2D@457367/@Node2D@457368/@Node2D@457369/@Node2D@457370/@Node2D@457371/@Node2D@457372/@Node2D@457373/@Node2D@457376/@Node2D@457377/@Node2D@457380/@Node2D@457381/@Node2D@457384/@Node2D@457385/@Node2D@457386/@Node2D@457389/@Node2D@457392/@Node2D@457393/@Node2D@457394/@Node2D@457395"]
 top_level = true
-position = Vector2(2006.5813, -208.86137)
+position = Vector2(2388.0437, -357.69788)
 script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
+distance_range = Vector2(10.282872, 10.282872)
 angle_sway = 0.05
 bone_texture = ExtResource("11_jbj1t")
 joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.5241005530560467
-joint_texture_scale = 17.819418803905588
+bone_texture_y_scale = 0.3038125708304805
+joint_texture_scale = 10.329627408236338
 
-[node name="@Node2D@70103" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039/@Node2D@70040/@Node2D@70041/@Node2D@70042/@Node2D@70051/@Node2D@70052/@Node2D@70053/@Node2D@70054/@Node2D@70063/@Node2D@70064/@Node2D@70065/@Node2D@70066/@Node2D@70067/@Node2D@70068/@Node2D@70069/@Node2D@70078/@Node2D@70093/@Node2D@70094/@Node2D@70095/@Node2D@70096/@Node2D@70097/@Node2D@70098/@Node2D@70099/@Node2D@70100/@Node2D@70101/@Node2D@70102"]
+[node name="@Node2D@457399" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346/@Node2D@457347/@Node2D@457349/@Node2D@457352/@Node2D@457353/@Node2D@457355/@Node2D@457358/@Node2D@457359/@Node2D@457360/@Node2D@457361/@Node2D@457362/@Node2D@457363/@Node2D@457364/@Node2D@457367/@Node2D@457368/@Node2D@457369/@Node2D@457370/@Node2D@457371/@Node2D@457372/@Node2D@457373/@Node2D@457376/@Node2D@457377/@Node2D@457380/@Node2D@457381/@Node2D@457384/@Node2D@457385/@Node2D@457386/@Node2D@457389/@Node2D@457392/@Node2D@457393/@Node2D@457394/@Node2D@457395/@Node2D@457398"]
 top_level = true
-position = Vector2(1986.5815, -208.96593)
+position = Vector2(2378.37, -360.6476)
 script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
+distance_range = Vector2(10.113269, 10.113269)
 angle_sway = 0.05
 bone_texture = ExtResource("11_jbj1t")
 joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.5113362402683315
-joint_texture_scale = 17.38543216912327
+bone_texture_y_scale = 0.28795187483399953
+joint_texture_scale = 9.790363744355984
 
-[node name="@Node2D@70104" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@70009/@Node2D@70010/@Node2D@70011/@Node2D@70012/@Node2D@70013/@Node2D@70014/@Node2D@70015/@Node2D@70016/@Node2D@70017/@Node2D@70028/@Node2D@70029/@Node2D@70030/@Node2D@70031/@Node2D@70032/@Node2D@70033/@Node2D@70034/@Node2D@70035/@Node2D@70036/@Node2D@70037/@Node2D@70038/@Node2D@70039/@Node2D@70040/@Node2D@70041/@Node2D@70042/@Node2D@70051/@Node2D@70052/@Node2D@70053/@Node2D@70054/@Node2D@70063/@Node2D@70064/@Node2D@70065/@Node2D@70066/@Node2D@70067/@Node2D@70068/@Node2D@70069/@Node2D@70078/@Node2D@70093/@Node2D@70094/@Node2D@70095/@Node2D@70096/@Node2D@70097/@Node2D@70098/@Node2D@70099/@Node2D@70100/@Node2D@70101/@Node2D@70102/@Node2D@70103"]
+[node name="@Node2D@457400" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346/@Node2D@457347/@Node2D@457349/@Node2D@457352/@Node2D@457353/@Node2D@457355/@Node2D@457358/@Node2D@457359/@Node2D@457360/@Node2D@457361/@Node2D@457362/@Node2D@457363/@Node2D@457364/@Node2D@457367/@Node2D@457368/@Node2D@457369/@Node2D@457370/@Node2D@457371/@Node2D@457372/@Node2D@457373/@Node2D@457376/@Node2D@457377/@Node2D@457380/@Node2D@457381/@Node2D@457384/@Node2D@457385/@Node2D@457386/@Node2D@457389/@Node2D@457392/@Node2D@457393/@Node2D@457394/@Node2D@457395/@Node2D@457398/@Node2D@457399"]
 top_level = true
-position = Vector2(1966.5819, -209.09181)
+position = Vector2(2368.8347, -363.4776)
 script = ExtResource("10_jkv2x")
-distance_range = Vector2(20, 20)
+distance_range = Vector2(9.946463, 9.946463)
 angle_sway = 0.05
 bone_texture = ExtResource("11_jbj1t")
 joint_texture = ExtResource("12_muem4")
-bone_texture_y_scale = 0.4988827985147959
-joint_texture_scale = 16.96201514950306
+bone_texture_y_scale = 0.27291919486333716
+joint_texture_scale = 9.279252625353463
+
+[node name="@Node2D@457401" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346/@Node2D@457347/@Node2D@457349/@Node2D@457352/@Node2D@457353/@Node2D@457355/@Node2D@457358/@Node2D@457359/@Node2D@457360/@Node2D@457361/@Node2D@457362/@Node2D@457363/@Node2D@457364/@Node2D@457367/@Node2D@457368/@Node2D@457369/@Node2D@457370/@Node2D@457371/@Node2D@457372/@Node2D@457373/@Node2D@457376/@Node2D@457377/@Node2D@457380/@Node2D@457381/@Node2D@457384/@Node2D@457385/@Node2D@457386/@Node2D@457389/@Node2D@457392/@Node2D@457393/@Node2D@457394/@Node2D@457395/@Node2D@457398/@Node2D@457399/@Node2D@457400"]
+top_level = true
+position = Vector2(2359.4365, -366.19244)
+script = ExtResource("10_jkv2x")
+distance_range = Vector2(9.782408, 9.782408)
+angle_sway = 0.05
+bone_texture = ExtResource("11_jbj1t")
+joint_texture = ExtResource("12_muem4")
+bone_texture_y_scale = 0.25867130390379206
+joint_texture_scale = 8.79482433272893
+
+[node name="@Node2D@457402" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346/@Node2D@457347/@Node2D@457349/@Node2D@457352/@Node2D@457353/@Node2D@457355/@Node2D@457358/@Node2D@457359/@Node2D@457360/@Node2D@457361/@Node2D@457362/@Node2D@457363/@Node2D@457364/@Node2D@457367/@Node2D@457368/@Node2D@457369/@Node2D@457370/@Node2D@457371/@Node2D@457372/@Node2D@457373/@Node2D@457376/@Node2D@457377/@Node2D@457380/@Node2D@457381/@Node2D@457384/@Node2D@457385/@Node2D@457386/@Node2D@457389/@Node2D@457392/@Node2D@457393/@Node2D@457394/@Node2D@457395/@Node2D@457398/@Node2D@457399/@Node2D@457400/@Node2D@457401"]
+top_level = true
+position = Vector2(2350.1746, -368.79663)
+script = ExtResource("10_jkv2x")
+distance_range = Vector2(9.621058, 9.621058)
+angle_sway = 0.05
+bone_texture = ExtResource("11_jbj1t")
+joint_texture = ExtResource("12_muem4")
+bone_texture_y_scale = 0.24516723162983542
+joint_texture_scale = 8.335685875414404
+
+[node name="@Node2D@457403" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346/@Node2D@457347/@Node2D@457349/@Node2D@457352/@Node2D@457353/@Node2D@457355/@Node2D@457358/@Node2D@457359/@Node2D@457360/@Node2D@457361/@Node2D@457362/@Node2D@457363/@Node2D@457364/@Node2D@457367/@Node2D@457368/@Node2D@457369/@Node2D@457370/@Node2D@457371/@Node2D@457372/@Node2D@457373/@Node2D@457376/@Node2D@457377/@Node2D@457380/@Node2D@457381/@Node2D@457384/@Node2D@457385/@Node2D@457386/@Node2D@457389/@Node2D@457392/@Node2D@457393/@Node2D@457394/@Node2D@457395/@Node2D@457398/@Node2D@457399/@Node2D@457400/@Node2D@457401/@Node2D@457402"]
+top_level = true
+position = Vector2(2341.0479, -371.29474)
+script = ExtResource("10_jkv2x")
+distance_range = Vector2(9.462371, 9.462371)
+angle_sway = 0.05
+bone_texture = ExtResource("11_jbj1t")
+joint_texture = ExtResource("12_muem4")
+bone_texture_y_scale = 0.2323681465934583
+joint_texture_scale = 7.900516984177583
+
+[node name="@Node2D@457404" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346/@Node2D@457347/@Node2D@457349/@Node2D@457352/@Node2D@457353/@Node2D@457355/@Node2D@457358/@Node2D@457359/@Node2D@457360/@Node2D@457361/@Node2D@457362/@Node2D@457363/@Node2D@457364/@Node2D@457367/@Node2D@457368/@Node2D@457369/@Node2D@457370/@Node2D@457371/@Node2D@457372/@Node2D@457373/@Node2D@457376/@Node2D@457377/@Node2D@457380/@Node2D@457381/@Node2D@457384/@Node2D@457385/@Node2D@457386/@Node2D@457389/@Node2D@457392/@Node2D@457393/@Node2D@457394/@Node2D@457395/@Node2D@457398/@Node2D@457399/@Node2D@457400/@Node2D@457401/@Node2D@457402/@Node2D@457403"]
+top_level = true
+position = Vector2(2332.0552, -373.69058)
+script = ExtResource("10_jkv2x")
+distance_range = Vector2(9.306301, 9.306301)
+angle_sway = 0.05
+bone_texture = ExtResource("11_jbj1t")
+joint_texture = ExtResource("12_muem4")
+bone_texture_y_scale = 0.22023724456293964
+joint_texture_scale = 7.488066315139948
+
+[node name="@Node2D@457405" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346/@Node2D@457347/@Node2D@457349/@Node2D@457352/@Node2D@457353/@Node2D@457355/@Node2D@457358/@Node2D@457359/@Node2D@457360/@Node2D@457361/@Node2D@457362/@Node2D@457363/@Node2D@457364/@Node2D@457367/@Node2D@457368/@Node2D@457369/@Node2D@457370/@Node2D@457371/@Node2D@457372/@Node2D@457373/@Node2D@457376/@Node2D@457377/@Node2D@457380/@Node2D@457381/@Node2D@457384/@Node2D@457385/@Node2D@457386/@Node2D@457389/@Node2D@457392/@Node2D@457393/@Node2D@457394/@Node2D@457395/@Node2D@457398/@Node2D@457399/@Node2D@457400/@Node2D@457401/@Node2D@457402/@Node2D@457403/@Node2D@457404"]
+top_level = true
+position = Vector2(2323.1956, -375.9884)
+script = ExtResource("10_jkv2x")
+distance_range = Vector2(9.152805, 9.152805)
+angle_sway = 0.05
+bone_texture = ExtResource("11_jbj1t")
+joint_texture = ExtResource("12_muem4")
+bone_texture_y_scale = 0.20873964269094702
+joint_texture_scale = 7.097147851492199
+
+[node name="@Node2D@457406" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346/@Node2D@457347/@Node2D@457349/@Node2D@457352/@Node2D@457353/@Node2D@457355/@Node2D@457358/@Node2D@457359/@Node2D@457360/@Node2D@457361/@Node2D@457362/@Node2D@457363/@Node2D@457364/@Node2D@457367/@Node2D@457368/@Node2D@457369/@Node2D@457370/@Node2D@457371/@Node2D@457372/@Node2D@457373/@Node2D@457376/@Node2D@457377/@Node2D@457380/@Node2D@457381/@Node2D@457384/@Node2D@457385/@Node2D@457386/@Node2D@457389/@Node2D@457392/@Node2D@457393/@Node2D@457394/@Node2D@457395/@Node2D@457398/@Node2D@457399/@Node2D@457400/@Node2D@457401/@Node2D@457402/@Node2D@457403/@Node2D@457404/@Node2D@457405"]
+top_level = true
+position = Vector2(2314.4675, -378.19177)
+script = ExtResource("10_jkv2x")
+distance_range = Vector2(9.001841, 9.001841)
+angle_sway = 0.05
+bone_texture = ExtResource("11_jbj1t")
+joint_texture = ExtResource("12_muem4")
+bone_texture_y_scale = 0.19784227920764835
+joint_texture_scale = 6.726637493060044
+
+[node name="@Node2D@457407" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346/@Node2D@457347/@Node2D@457349/@Node2D@457352/@Node2D@457353/@Node2D@457355/@Node2D@457358/@Node2D@457359/@Node2D@457360/@Node2D@457361/@Node2D@457362/@Node2D@457363/@Node2D@457364/@Node2D@457367/@Node2D@457368/@Node2D@457369/@Node2D@457370/@Node2D@457371/@Node2D@457372/@Node2D@457373/@Node2D@457376/@Node2D@457377/@Node2D@457380/@Node2D@457381/@Node2D@457384/@Node2D@457385/@Node2D@457386/@Node2D@457389/@Node2D@457392/@Node2D@457393/@Node2D@457394/@Node2D@457395/@Node2D@457398/@Node2D@457399/@Node2D@457400/@Node2D@457401/@Node2D@457402/@Node2D@457403/@Node2D@457404/@Node2D@457405/@Node2D@457406"]
+top_level = true
+position = Vector2(2296.0806, -386.06058)
+script = ExtResource("10_jkv2x")
+distance_range = Vector2(20, 20)
+target_angle = 0.1
+angle_sway = 0.05
+bone_texture = ExtResource("11_jbj1t")
+joint_texture = ExtResource("12_muem4")
+bone_texture_y_scale = 0.10919975360014107
+joint_texture_scale = 3.7127916224047963
+
+[node name="@Node2D@457408" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346/@Node2D@457347/@Node2D@457349/@Node2D@457352/@Node2D@457353/@Node2D@457355/@Node2D@457358/@Node2D@457359/@Node2D@457360/@Node2D@457361/@Node2D@457362/@Node2D@457363/@Node2D@457364/@Node2D@457367/@Node2D@457368/@Node2D@457369/@Node2D@457370/@Node2D@457371/@Node2D@457372/@Node2D@457373/@Node2D@457376/@Node2D@457377/@Node2D@457380/@Node2D@457381/@Node2D@457384/@Node2D@457385/@Node2D@457386/@Node2D@457389/@Node2D@457392/@Node2D@457393/@Node2D@457394/@Node2D@457395/@Node2D@457398/@Node2D@457399/@Node2D@457400/@Node2D@457401/@Node2D@457402/@Node2D@457403/@Node2D@457404/@Node2D@457405/@Node2D@457406"]
+top_level = true
+position = Vector2(2294.5488, -379.99335)
+script = ExtResource("10_jkv2x")
+distance_range = Vector2(20, 20)
+target_angle = -0.1
+angle_sway = 0.05
+bone_texture = ExtResource("11_jbj1t")
+joint_texture = ExtResource("12_muem4")
+bone_texture_y_scale = 0.10919975360014107
+joint_texture_scale = 3.7127916224047963
+
+[node name="@Node2D@457409" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346/@Node2D@457347/@Node2D@457349/@Node2D@457352/@Node2D@457353/@Node2D@457355/@Node2D@457358/@Node2D@457359/@Node2D@457360/@Node2D@457361/@Node2D@457362/@Node2D@457363/@Node2D@457364/@Node2D@457367/@Node2D@457368/@Node2D@457369/@Node2D@457370/@Node2D@457371/@Node2D@457372/@Node2D@457373/@Node2D@457376/@Node2D@457377/@Node2D@457380/@Node2D@457381/@Node2D@457384/@Node2D@457385/@Node2D@457386/@Node2D@457389/@Node2D@457392/@Node2D@457393/@Node2D@457394/@Node2D@457395/@Node2D@457398/@Node2D@457399/@Node2D@457400/@Node2D@457401/@Node2D@457402/@Node2D@457403/@Node2D@457404/@Node2D@457405/@Node2D@457406"]
+top_level = true
+position = Vector2(2305.8699, -380.30447)
+script = ExtResource("10_jkv2x")
+distance_range = Vector2(8.853366, 8.853366)
+angle_sway = 0.05
+bone_texture = ExtResource("11_jbj1t")
+joint_texture = ExtResource("12_muem4")
+bone_texture_y_scale = 0.18751381835039732
+joint_texture_scale = 6.375469823913509
+
+[node name="@Node2D@457410" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346/@Node2D@457347/@Node2D@457349/@Node2D@457352/@Node2D@457353/@Node2D@457355/@Node2D@457358/@Node2D@457359/@Node2D@457360/@Node2D@457361/@Node2D@457362/@Node2D@457363/@Node2D@457364/@Node2D@457367/@Node2D@457368/@Node2D@457369/@Node2D@457370/@Node2D@457371/@Node2D@457372/@Node2D@457373/@Node2D@457376/@Node2D@457377/@Node2D@457380/@Node2D@457381/@Node2D@457384/@Node2D@457385/@Node2D@457386/@Node2D@457389/@Node2D@457392/@Node2D@457393/@Node2D@457394/@Node2D@457395/@Node2D@457398/@Node2D@457399/@Node2D@457400/@Node2D@457401/@Node2D@457402/@Node2D@457403/@Node2D@457404/@Node2D@457405/@Node2D@457406/@Node2D@457409"]
+top_level = true
+position = Vector2(2297.4014, -382.33014)
+script = ExtResource("10_jkv2x")
+distance_range = Vector2(8.707341, 8.707341)
+angle_sway = 0.05
+bone_texture = ExtResource("11_jbj1t")
+joint_texture = ExtResource("12_muem4")
+bone_texture_y_scale = 0.17772456025661526
+joint_texture_scale = 6.042635048724919
+
+[node name="@Node2D@457411" type="Node2D" parent="Cave/WormPath/PathFollow2D/Worm/@Node2D@457338/@Node2D@457339/@Node2D@457340/@Node2D@457341/@Node2D@457342/@Node2D@457343/@Node2D@457344/@Node2D@457345/@Node2D@457346/@Node2D@457347/@Node2D@457349/@Node2D@457352/@Node2D@457353/@Node2D@457355/@Node2D@457358/@Node2D@457359/@Node2D@457360/@Node2D@457361/@Node2D@457362/@Node2D@457363/@Node2D@457364/@Node2D@457367/@Node2D@457368/@Node2D@457369/@Node2D@457370/@Node2D@457371/@Node2D@457372/@Node2D@457373/@Node2D@457376/@Node2D@457377/@Node2D@457380/@Node2D@457381/@Node2D@457384/@Node2D@457385/@Node2D@457386/@Node2D@457389/@Node2D@457392/@Node2D@457393/@Node2D@457394/@Node2D@457395/@Node2D@457398/@Node2D@457399/@Node2D@457400/@Node2D@457401/@Node2D@457402/@Node2D@457403/@Node2D@457404/@Node2D@457405/@Node2D@457406/@Node2D@457409/@Node2D@457410"]
+top_level = true
+position = Vector2(2289.0608, -384.2726)
+script = ExtResource("10_jkv2x")
+distance_range = Vector2(8.563724, 8.563724)
+angle_sway = 0.05
+bone_texture = ExtResource("11_jbj1t")
+joint_texture = ExtResource("12_muem4")
+bone_texture_y_scale = 0.16844635556076257
+joint_texture_scale = 5.727176089065927
 
 [node name="Filler" type="Polygon2D" parent="Cave"]
 material = ExtResource("2_ya4ey")

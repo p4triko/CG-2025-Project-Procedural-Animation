@@ -136,8 +136,7 @@ func generate_sequence():
 	for i in range(3):
 		sequence = perform_replacement(sequence, "+", "+")
 		sequence = perform_replacement(sequence, "-", "-")
-	for i in range(5):
-		sequence = perform_replacement(sequence, "x", "x")
+	sequence = perform_replacement(sequence, "x", "x")
 	sequence = perform_replacement(sequence, "F", "F")
 	return sequence
 
@@ -149,4 +148,5 @@ func generate_worm():
 	build_sequence(seq)
 
 func _ready() -> void:
-	generate_worm()
+	if not Engine.is_editor_hint():
+		generate_worm()
