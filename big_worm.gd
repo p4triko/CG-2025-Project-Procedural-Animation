@@ -5,7 +5,10 @@ class_name Worm extends SimRoot
 
 var joint_texture = preload("res://assets/images/worm_joint_texture.tres")
 var bone_texture = preload("res://assets/images/worm_bone_texture.tres")
-var texture_scale = 50
+@export var texture_scale: float = 1
+var _texture_scale = 0
+var texture_ratio: float = 34.0
+@export_exp_easing() var thickness_falloff: float = 0.99
 
 func delete_bones():
 	for i in get_children():
@@ -13,67 +16,58 @@ func delete_bones():
 		i.queue_free()
 
 var curr_seq: int = 0
-func build_sequence(seq, curr_node = self):
+func build_sequence(seq, curr_node = self, curr_texture_scale = texture_scale):
 	var seq_len = seq.length()
 	while seq_len > curr_seq:
 		curr_seq += 1
 		match(seq[curr_seq-1]):
-			"A": # Main anchor, there should be only one for a worm to work
+			"A", "O", "F":
 				var new_node = SimNode.new()
-				new_node.is_anchored = true
-				new_node.is_top_level = false
-				#new_node.joint_texture = joint_texture
-				#new_node.joint_texture_scale = texture_scale
-				curr_node.add_child(new_node)
-				new_node.owner = get_tree().edited_scene_root 
-				
-				curr_node = new_node
-			"O": # Free rotation
-				var new_node = SimNode.new()
-				new_node.distance_range = Vector2(20, 20)
-				new_node.target_angle = 0
-				new_node.angle_sway = 1
-				#new_node.joint_texture = joint_texture
-				#new_node.joint_texture_scale = texture_scale
-				curr_node.add_child(new_node)
-				new_node.owner = get_tree().edited_scene_root 
-				
-				curr_node = new_node
-			"F":
-				var new_node = SimNode.new()
-				new_node.distance_range = Vector2(20, 20)
-				new_node.target_angle = 0
-				new_node.angle_sway = 0.05
-				#new_node.joint_texture = joint_texture
-				#new_node.joint_texture_scale = texture_scale
 				new_node.bone_texture = bone_texture
-				new_node.bone_texture_y_scale = 0.1
+				new_node.bone_texture_y_scale = curr_texture_scale / texture_ratio
+				new_node.joint_texture = joint_texture
+				new_node.joint_texture_scale = curr_texture_scale
+				new_node.distance_range = Vector2(20, 20)
+				match(seq[curr_seq-1]):
+					"A": # Main anchor, there should be only one for a worm to work
+						new_node.is_anchored = true
+						new_node.is_top_level = false
+					"O": # Free rotation
+						new_node.angle_sway = 1
+					"F":
+						new_node.angle_sway = 0.05
 				curr_node.add_child(new_node)
-				new_node.owner = get_tree().edited_scene_root 
-				
+				new_node.owner = get_tree().edited_scene_root
 				curr_node = new_node
+				curr_texture_scale *= 1 - thickness_falloff
 			"[":
-				build_sequence(seq, curr_node)
+				build_sequence(seq, curr_node, curr_texture_scale)
 			"]":
 				return
 			"r":
-				curr_node.target_angle += 0.2
+				curr_node.target_angle += 0.1
 			"l":
-				curr_node.target_angle -= 0.2
+				curr_node.target_angle -= 0.1
 			_:
 				pass
 
 # Which symbol gets replaces with what, first number is weight (doesn't need to add up to 1)
 var rules = {
+	"|": [
+		[10, "F|"],
+		[0.5, "|"],
+		[0.5, "[Fr+][Fl-]F|"],
+		[0.5, "[Fr+]F|"],
+		[0.5, "[Fl-]F|"],
+	],
+	"+": [
+		[1, "Fr+"],
+		[0.3, "+"],
+	],
 	"-": [
-		[1, "F-"],
-		[0.1, "-"],
-		[0.5, "[Fr/][Fl/]F-"]
-	],
-	"/": [
-		[1, "F/"],
-		[0.3, "/"]
-	],
+		[1, "Fl-"],
+		[0.3, "-"],
+	]
 }
 func get_random_rule(ruletype: String):
 	# Choosing correct rule set based on type
@@ -101,19 +95,20 @@ func perform_replacement(sequence: String, ruletype: String):
 	return new_sequence
 
 func generate_sequence():
-	var sequence: String = "AO-"
+	var sequence: String = "AO|"
 	for i in range(50):
-		sequence = perform_replacement(sequence, "-")
+		sequence = perform_replacement(sequence, "|")
 	for i in range(10):
-		sequence = perform_replacement(sequence, "/")
+		sequence = perform_replacement(sequence, "+")
+	for i in range(10):
+		sequence = perform_replacement(sequence, "-")
 	return sequence
 
 func generate_worm():
 	delete_bones()
-	
 	curr_seq = 0
+	_texture_scale = texture_scale
 	var seq = generate_sequence()
-	print(seq)
 	build_sequence(seq)
 
 func _ready() -> void:
