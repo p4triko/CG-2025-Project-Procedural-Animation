@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dlx0w7jlmress"]
+[gd_scene load_steps=3 format=3 uid="uid://dlx0w7jlmress"]
 
 [ext_resource type="Script" uid="uid://bkimi84ca4v7p" path="res://scripts/spine.gd" id="1_g2r3l"]
+[ext_resource type="Material" uid="uid://irq735qs3so3" path="res://shaders/palette_swap.tres" id="1_wph7y"]
 
 [node name="Spine" type="Node2D"]
+material = ExtResource("1_wph7y")
 script = ExtResource("1_g2r3l")
 follow_strength = 0.92
 speed = 250.0

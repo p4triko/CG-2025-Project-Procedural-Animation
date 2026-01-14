@@ -5,6 +5,10 @@ extends Node2D
 @export var palettes: Array[PackedColorArray] = []
 var current_palette: int = 0
 
+func _ready():
+	# First palette is always default palette
+	palettes[0] = palette_material.get_shader_parameter("palette")
+
 func _process(_delta):
 	if Input.is_action_just_pressed("restart"):
 		get_tree().reload_current_scene()

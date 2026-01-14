@@ -5,7 +5,7 @@ uniform vec3[8] palette : source_color;
 
 void fragment() {
 	for (int i = 0; i < 8; i++) {
-		if (abs(COLOR.b - reference_palette[i].b) < 0.01) {
+		if (abs(COLOR.r - reference_palette[i].r) < 0.01) {
 			COLOR.rgb = palette[i];
 			break;
 		}
