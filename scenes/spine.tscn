@@ -2,8 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bkimi84ca4v7p" path="res://scripts/spine.gd" id="1_g2r3l"]
 
-[node name="Spine" type="Node2D" node_paths=PackedStringArray("path_to_follow")]
+[node name="Spine" type="Node2D"]
 script = ExtResource("1_g2r3l")
 follow_strength = 0.92
-path_to_follow = NodePath("")
 speed = 250.0

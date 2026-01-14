@@ -1,11 +1,14 @@
 extends Node2D
 
+class_name Spine
+
 @export var segment_count: int = 20 # how many points make up the spine or chain
 @export var segment_length: float = 10.0 # how far apart the points are
 @export var follow_strength: float = 0.85 # for smoothing, how quickly each point moves toward its target position
 @export var iterations: int = 3
 @export var debug_draw: bool = false
 @export var spine_color: Color = Color.from_rgba8(24, 25, 35) # The entire color of the spine
+@export var follow_mouse: bool = false
 
 var pts: Array[Vector2] = [] # store every point as 2d vector, [0] being the head
 var segment_widths: Array[float] = []
@@ -21,7 +24,7 @@ var current_dist: float = 0.0
 @export var layer2_scale_levels: Vector2 = Vector2(0.5, 0.5)
 @export var layer3_scale_levels: Vector2 = Vector2(0.3, 0.3)
 
-var curr_scale: Vector2 = scale
+var curr_scale: Vector2 = scale	
 
 func _ready():
 	pts.resize(segment_count)
@@ -58,7 +61,6 @@ func adjust_scaling(index_of_z):
 
 func move_along_path(delta):
 	if path_to_follow == null:
-		print("No path assigned!")
 		return
 	
 	var curve = path_to_follow.curve
@@ -80,7 +82,8 @@ func solve_ik():
 	for _iter in range(iterations): # We do 3 passes here for better calculations and reduce the stretchiness
 
 		# Anchor point
-		#pts[0] = pts[0].lerp(to_local(get_global_mouse_position()), 0.2) # head follows the mouse 
+		if follow_mouse:
+			pts[0] = pts[0].lerp(to_local(get_global_mouse_position()), 0.2) # head follows the mouse 
 
 		# Forward pass
 		for i in range(1, segment_count): 
@@ -98,17 +101,8 @@ func solve_ik():
 
 
 func _draw():
-
 	for i in range(segment_count):
 		draw_circle(pts[i], segment_widths[i], spine_color, true)
 
 	for i in range(1, segment_count):
 		draw_line(pts[i - 1], pts[i], spine_color, 10.0)
-
-	if debug_draw:
-		for i in range(segment_count):
-			draw_circle(pts[i], segment_widths[i], Color.WHITE, false)
-		
-		for i in range(1, segment_count):
-			draw_line(pts[i - 1], pts[i], Color.RED)
-		

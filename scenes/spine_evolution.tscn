@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwq4pp8r4vvpx"]
+
+[ext_resource type="Script" uid="uid://bcvrwvjgt2fng" path="res://scripts/spineevolve.gd" id="1_5wk5s"]
+
+[sub_resource type="Curve2D" id="Curve2D_5wk5s"]
+_data = {
+"points": PackedVector2Array(87.97722, -93.58849, -87.97722, 93.58849, 288, 180, 22.599339, -58.66066, -22.599339, 58.66066, 240, 340, -6.18425, -25.548164, 6.18425, 25.548164, 470, 542, -41.510864, 37.45996, 41.510864, -37.45996, 789, 534, -45.621063, 22.730856, 45.621063, -22.730856, 1026, 487, -79.85955, 45.53741, 79.85955, -45.53741, 1081, 334, 88.079605, 51.05131, -88.079605, -51.05131, 1104, 134, 43.034588, 20.954105, -43.034588, -20.954105, 989, 40, 26.4352, 35.531837, -26.4352, -35.531837, 656.0908, 97.54548, 58.1693, -24.10804, -58.1693, 24.10804, 288, 180)
+}
+point_count = 10
+
+[node name="SpineEvolution" type="Node2D" node_paths=PackedStringArray("path_to_follow")]
+script = ExtResource("1_5wk5s")
+path_to_follow = NodePath("Path2D")
+speed = 300.0
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(185, 47.000004)
+scale = Vector2(0.5204863, 0.7662875)
+curve = SubResource("Curve2D_5wk5s")

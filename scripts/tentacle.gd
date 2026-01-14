@@ -28,6 +28,7 @@ extends Node2D
 var segments: Array[Vector2] = []
 var segment_lengths: Array[float] = []
 var wave_time: float = 0.0
+@export var apply_waviness: bool = true
 
 func _ready():
 	var segment_len = max_length / num_segments 
@@ -57,10 +58,12 @@ func _process(delta: float) -> void:
 		target_pos = global_position + (dir * max_length * 0.9)
 
 	solve_ik(target_pos)
-	apply_waves(delta)
+	if apply_waviness:
+		apply_waves(delta)
 	
 	# Pinning
 	if follows_mouse:
+		apply_waviness = false
 		segments[-1] = target_pos
 		
 	update_line_visuals()
