@@ -94,9 +94,5 @@ func move_leg_closest_to(target_position: Vector2):
 	leg_node.wanted_position = target_relative_position.normalized() * min(leg_node.length, target_relative_distance) + global_position
 
 func physics_follow():
-	#current_position = lerp(current_position, wanted_position, 0.1)
-	if (wanted_position - current_position).length() < 14:
-		current_position = wanted_position
-	else:
-		current_position += (wanted_position - current_position).normalized() * 14
+	current_position = lerp(current_position, default_positon + global_position, 0.2)
 	move_leg_closest_to(current_position)
