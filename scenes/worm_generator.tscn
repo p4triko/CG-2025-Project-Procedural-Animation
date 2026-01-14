@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://lvwt453nnk7r"]
+[gd_scene load_steps=6 format=3 uid="uid://lvwt453nnk7r"]
 
 [ext_resource type="Script" uid="uid://bbvc1mj1bxdad" path="res://big_worm.gd" id="1_j7sxy"]
+[ext_resource type="Material" uid="uid://irq735qs3so3" path="res://shaders/palette_swap.tres" id="1_oueut"]
 [ext_resource type="Script" uid="uid://dftxhty2hpwup" path="res://objects/Node Simulation/sim_node.gd" id="2_4bja3"]
 [ext_resource type="Texture2D" uid="uid://cbj41wgw7bxbg" path="res://assets/images/worm_bone_texture.tres" id="3_4bja3"]
 [ext_resource type="Texture2D" uid="uid://dgnsetxyv2l3a" path="res://assets/images/worm_joint_texture.tres" id="4_nhnwt"]
 
 [node name="Worm" type="Node2D"]
+material = ExtResource("1_oueut")
 position = Vector2(-532, 563)
 script = ExtResource("1_j7sxy")
 texture_scale = 54.045
@@ -116,8 +118,8 @@ target_angle = 0.1
 angle_sway = 0.05
 bone_texture = ExtResource("3_4bja3")
 joint_texture = ExtResource("4_nhnwt")
-bone_texture_y_scale = 1.3050052280747093
-joint_texture_scale = 44.370177754540116
+bone_texture_y_scale = 1.305005228074709
+joint_texture_scale = 44.37017775454011
 
 [node name="@Node2D@162038" type="Node2D" parent="@Node2D@162029/@Node2D@162030/@Node2D@162031/@Node2D@162032/@Node2D@162033/@Node2D@162034/@Node2D@162035/@Node2D@162036/@Node2D@162037"]
 top_level = true
@@ -220,8 +222,8 @@ target_angle = 0.1
 angle_sway = 0.05
 bone_texture = ExtResource("3_4bja3")
 joint_texture = ExtResource("4_nhnwt")
-bone_texture_y_scale = 1.3050052280747093
-joint_texture_scale = 44.370177754540116
+bone_texture_y_scale = 1.305005228074709
+joint_texture_scale = 44.37017775454011
 
 [node name="@Node2D@162047" type="Node2D" parent="@Node2D@162029/@Node2D@162030/@Node2D@162040/@Node2D@162041/@Node2D@162042/@Node2D@162043/@Node2D@162044/@Node2D@162045/@Node2D@162046"]
 top_level = true
@@ -292,8 +294,8 @@ target_angle = -0.1
 angle_sway = 0.05
 bone_texture = ExtResource("3_4bja3")
 joint_texture = ExtResource("4_nhnwt")
-bone_texture_y_scale = 1.3050052280747093
-joint_texture_scale = 44.370177754540116
+bone_texture_y_scale = 1.305005228074709
+joint_texture_scale = 44.37017775454011
 
 [node name="@Node2D@162053" type="Node2D" parent="@Node2D@162029/@Node2D@162030/@Node2D@162040/@Node2D@162041/@Node2D@162042/@Node2D@162043/@Node2D@162050/@Node2D@162051/@Node2D@162052"]
 top_level = true
@@ -375,8 +377,8 @@ target_angle = 0.1
 angle_sway = 0.05
 bone_texture = ExtResource("3_4bja3")
 joint_texture = ExtResource("4_nhnwt")
-bone_texture_y_scale = 1.3050052280747093
-joint_texture_scale = 44.370177754540116
+bone_texture_y_scale = 1.305005228074709
+joint_texture_scale = 44.37017775454011
 
 [node name="@Node2D@162060" type="Node2D" parent="@Node2D@162029/@Node2D@162030/@Node2D@162040/@Node2D@162041/@Node2D@162042/@Node2D@162043/@Node2D@162057/@Node2D@162058/@Node2D@162059"]
 top_level = true
@@ -469,8 +471,8 @@ distance_range = Vector2(20, 20)
 angle_sway = 0.05
 bone_texture = ExtResource("3_4bja3")
 joint_texture = ExtResource("4_nhnwt")
-bone_texture_y_scale = 1.3050052280747093
-joint_texture_scale = 44.370177754540116
+bone_texture_y_scale = 1.305005228074709
+joint_texture_scale = 44.37017775454011
 
 [node name="@Node2D@162068" type="Node2D" parent="@Node2D@162029/@Node2D@162030/@Node2D@162040/@Node2D@162041/@Node2D@162042/@Node2D@162043/@Node2D@162057/@Node2D@162066/@Node2D@162067"]
 top_level = true
@@ -598,7 +600,7 @@ target_angle = 0.1
 angle_sway = 0.05
 bone_texture = ExtResource("3_4bja3")
 joint_texture = ExtResource("4_nhnwt")
-bone_texture_y_scale = 0.9950015715969163
+bone_texture_y_scale = 0.9950015715969164
 joint_texture_scale = 33.83005343429515
 
 [node name="@Node2D@162079" type="Node2D" parent="@Node2D@162029/@Node2D@162030/@Node2D@162040/@Node2D@162041/@Node2D@162042/@Node2D@162043/@Node2D@162057/@Node2D@162066/@Node2D@162067/@Node2D@162068/@Node2D@162069/@Node2D@162070/@Node2D@162071/@Node2D@162072/@Node2D@162073/@Node2D@162074/@Node2D@162075/@Node2D@162076/@Node2D@162077/@Node2D@162078"]
@@ -801,7 +803,7 @@ target_angle = 0.1
 angle_sway = 0.05
 bone_texture = ExtResource("3_4bja3")
 joint_texture = ExtResource("4_nhnwt")
-bone_texture_y_scale = 0.9950015715969163
+bone_texture_y_scale = 0.9950015715969164
 joint_texture_scale = 33.83005343429515
 
 [node name="@Node2D@162096" type="Node2D" parent="@Node2D@162029/@Node2D@162030/@Node2D@162040/@Node2D@162041/@Node2D@162042/@Node2D@162043/@Node2D@162057/@Node2D@162066/@Node2D@162067/@Node2D@162068/@Node2D@162069/@Node2D@162070/@Node2D@162088/@Node2D@162089/@Node2D@162090/@Node2D@162091/@Node2D@162092/@Node2D@162093/@Node2D@162094/@Node2D@162095"]
@@ -903,7 +905,7 @@ target_angle = 0.1
 angle_sway = 0.05
 bone_texture = ExtResource("3_4bja3")
 joint_texture = ExtResource("4_nhnwt")
-bone_texture_y_scale = 0.9950015715969163
+bone_texture_y_scale = 0.9950015715969164
 joint_texture_scale = 33.83005343429515
 
 [node name="@Node2D@162105" type="Node2D" parent="@Node2D@162029/@Node2D@162030/@Node2D@162040/@Node2D@162041/@Node2D@162042/@Node2D@162043/@Node2D@162057/@Node2D@162066/@Node2D@162067/@Node2D@162068/@Node2D@162069/@Node2D@162070/@Node2D@162088/@Node2D@162098/@Node2D@162099/@Node2D@162100/@Node2D@162101/@Node2D@162102/@Node2D@162103/@Node2D@162104"]
@@ -1023,7 +1025,7 @@ target_angle = -0.1
 angle_sway = 0.05
 bone_texture = ExtResource("3_4bja3")
 joint_texture = ExtResource("4_nhnwt")
-bone_texture_y_scale = 0.9950015715969163
+bone_texture_y_scale = 0.9950015715969164
 joint_texture_scale = 33.83005343429515
 
 [node name="@Node2D@162115" type="Node2D" parent="@Node2D@162029/@Node2D@162030/@Node2D@162040/@Node2D@162041/@Node2D@162042/@Node2D@162043/@Node2D@162057/@Node2D@162066/@Node2D@162067/@Node2D@162068/@Node2D@162069/@Node2D@162070/@Node2D@162088/@Node2D@162098/@Node2D@162099/@Node2D@162100/@Node2D@162101/@Node2D@162102/@Node2D@162103/@Node2D@162114"]
@@ -1118,7 +1120,7 @@ distance_range = Vector2(20, 20)
 angle_sway = 0.05
 bone_texture = ExtResource("3_4bja3")
 joint_texture = ExtResource("4_nhnwt")
-bone_texture_y_scale = 0.9950015715969163
+bone_texture_y_scale = 0.9950015715969164
 joint_texture_scale = 33.83005343429515
 
 [node name="@Node2D@162123" type="Node2D" parent="@Node2D@162029/@Node2D@162030/@Node2D@162040/@Node2D@162041/@Node2D@162042/@Node2D@162043/@Node2D@162057/@Node2D@162066/@Node2D@162067/@Node2D@162068/@Node2D@162069/@Node2D@162070/@Node2D@162088/@Node2D@162098/@Node2D@162099/@Node2D@162100/@Node2D@162101/@Node2D@162102/@Node2D@162103/@Node2D@162122"]
@@ -1877,7 +1879,7 @@ angle_sway = 0.05
 bone_texture = ExtResource("3_4bja3")
 joint_texture = ExtResource("4_nhnwt")
 bone_texture_y_scale = 0.46331290850540696
-joint_texture_scale = 15.752638889183837
+joint_texture_scale = 15.752638889183835
 
 [node name="@Node2D@162188" type="Node2D" parent="@Node2D@162029/@Node2D@162030/@Node2D@162040/@Node2D@162041/@Node2D@162042/@Node2D@162043/@Node2D@162057/@Node2D@162066/@Node2D@162067/@Node2D@162068/@Node2D@162069/@Node2D@162070/@Node2D@162088/@Node2D@162098/@Node2D@162099/@Node2D@162100/@Node2D@162101/@Node2D@162102/@Node2D@162103/@Node2D@162122/@Node2D@162133/@Node2D@162134/@Node2D@162135/@Node2D@162145/@Node2D@162146/@Node2D@162154/@Node2D@162155/@Node2D@162156/@Node2D@162157/@Node2D@162158/@Node2D@162159/@Node2D@162160/@Node2D@162161/@Node2D@162162/@Node2D@162163/@Node2D@162164/@Node2D@162173/@Node2D@162174/@Node2D@162175/@Node2D@162176/@Node2D@162177/@Node2D@162178"]
 top_level = true
@@ -1985,7 +1987,7 @@ angle_sway = 0.05
 bone_texture = ExtResource("3_4bja3")
 joint_texture = ExtResource("4_nhnwt")
 bone_texture_y_scale = 0.46331290850540696
-joint_texture_scale = 15.752638889183837
+joint_texture_scale = 15.752638889183835
 
 [node name="@Node2D@162197" type="Node2D" parent="@Node2D@162029/@Node2D@162030/@Node2D@162040/@Node2D@162041/@Node2D@162042/@Node2D@162043/@Node2D@162057/@Node2D@162066/@Node2D@162067/@Node2D@162068/@Node2D@162069/@Node2D@162070/@Node2D@162088/@Node2D@162098/@Node2D@162099/@Node2D@162100/@Node2D@162101/@Node2D@162102/@Node2D@162103/@Node2D@162122/@Node2D@162133/@Node2D@162134/@Node2D@162135/@Node2D@162145/@Node2D@162146/@Node2D@162154/@Node2D@162155/@Node2D@162156/@Node2D@162157/@Node2D@162158/@Node2D@162159/@Node2D@162160/@Node2D@162161/@Node2D@162162/@Node2D@162163/@Node2D@162164/@Node2D@162173/@Node2D@162174/@Node2D@162175/@Node2D@162176/@Node2D@162177/@Node2D@162178"]
 top_level = true
@@ -2088,7 +2090,7 @@ angle_sway = 0.05
 bone_texture = ExtResource("3_4bja3")
 joint_texture = ExtResource("4_nhnwt")
 bone_texture_y_scale = 0.46331290850540696
-joint_texture_scale = 15.752638889183837
+joint_texture_scale = 15.752638889183835
 
 [node name="@Node2D@162206" type="Node2D" parent="@Node2D@162029/@Node2D@162030/@Node2D@162040/@Node2D@162041/@Node2D@162042/@Node2D@162043/@Node2D@162057/@Node2D@162066/@Node2D@162067/@Node2D@162068/@Node2D@162069/@Node2D@162070/@Node2D@162088/@Node2D@162098/@Node2D@162099/@Node2D@162100/@Node2D@162101/@Node2D@162102/@Node2D@162103/@Node2D@162122/@Node2D@162133/@Node2D@162134/@Node2D@162135/@Node2D@162145/@Node2D@162146/@Node2D@162154/@Node2D@162155/@Node2D@162156/@Node2D@162157/@Node2D@162158/@Node2D@162159/@Node2D@162160/@Node2D@162161/@Node2D@162162/@Node2D@162163/@Node2D@162164/@Node2D@162173/@Node2D@162174/@Node2D@162175/@Node2D@162176/@Node2D@162177/@Node2D@162178/@Node2D@162197/@Node2D@162198/@Node2D@162199/@Node2D@162200/@Node2D@162201/@Node2D@162202/@Node2D@162203/@Node2D@162204/@Node2D@162205"]
 top_level = true
@@ -2112,7 +2114,7 @@ angle_sway = 0.05
 bone_texture = ExtResource("3_4bja3")
 joint_texture = ExtResource("4_nhnwt")
 bone_texture_y_scale = 0.4410200277426528
-joint_texture_scale = 14.994680943250195
+joint_texture_scale = 14.994680943250197
 
 [node name="@Node2D@162208" type="Node2D" parent="@Node2D@162029/@Node2D@162030/@Node2D@162040/@Node2D@162041/@Node2D@162042/@Node2D@162043/@Node2D@162057/@Node2D@162066/@Node2D@162067/@Node2D@162068/@Node2D@162069/@Node2D@162070/@Node2D@162088/@Node2D@162098/@Node2D@162099/@Node2D@162100/@Node2D@162101/@Node2D@162102/@Node2D@162103/@Node2D@162122/@Node2D@162133/@Node2D@162134/@Node2D@162135/@Node2D@162145/@Node2D@162146/@Node2D@162154/@Node2D@162155/@Node2D@162156/@Node2D@162157/@Node2D@162158/@Node2D@162159/@Node2D@162160/@Node2D@162161/@Node2D@162162/@Node2D@162163/@Node2D@162164/@Node2D@162173/@Node2D@162174/@Node2D@162175/@Node2D@162176/@Node2D@162177/@Node2D@162178/@Node2D@162197/@Node2D@162198/@Node2D@162199/@Node2D@162200/@Node2D@162201/@Node2D@162202/@Node2D@162203/@Node2D@162204/@Node2D@162205/@Node2D@162206/@Node2D@162207"]
 top_level = true
@@ -2124,7 +2126,7 @@ angle_sway = 0.05
 bone_texture = ExtResource("3_4bja3")
 joint_texture = ExtResource("4_nhnwt")
 bone_texture_y_scale = 0.43027911645192457
-joint_texture_scale = 14.629489959365435
+joint_texture_scale = 14.629489959365436
 
 [node name="@Node2D@162209" type="Node2D" parent="@Node2D@162029/@Node2D@162030/@Node2D@162040/@Node2D@162041/@Node2D@162042/@Node2D@162043/@Node2D@162057/@Node2D@162066/@Node2D@162067/@Node2D@162068/@Node2D@162069/@Node2D@162070/@Node2D@162088/@Node2D@162098/@Node2D@162099/@Node2D@162100/@Node2D@162101/@Node2D@162102/@Node2D@162103/@Node2D@162122/@Node2D@162133/@Node2D@162134/@Node2D@162135/@Node2D@162145/@Node2D@162146/@Node2D@162154/@Node2D@162155/@Node2D@162156/@Node2D@162157/@Node2D@162158/@Node2D@162159/@Node2D@162160/@Node2D@162161/@Node2D@162162/@Node2D@162163/@Node2D@162164/@Node2D@162173/@Node2D@162174/@Node2D@162175/@Node2D@162176/@Node2D@162177/@Node2D@162178/@Node2D@162197/@Node2D@162198/@Node2D@162199/@Node2D@162200/@Node2D@162201/@Node2D@162202/@Node2D@162203/@Node2D@162204/@Node2D@162205/@Node2D@162206/@Node2D@162207/@Node2D@162208"]
 top_level = true
@@ -2136,7 +2138,7 @@ angle_sway = 0.05
 bone_texture = ExtResource("3_4bja3")
 joint_texture = ExtResource("4_nhnwt")
 bone_texture_y_scale = 0.41979979685340535
-joint_texture_scale = 14.273193093015783
+joint_texture_scale = 14.273193093015784
 
 [node name="@Node2D@162210" type="Node2D" parent="@Node2D@162029/@Node2D@162030/@Node2D@162040/@Node2D@162041/@Node2D@162042/@Node2D@162043/@Node2D@162057/@Node2D@162066/@Node2D@162067/@Node2D@162068/@Node2D@162069/@Node2D@162070/@Node2D@162088/@Node2D@162098/@Node2D@162099/@Node2D@162100/@Node2D@162101/@Node2D@162102/@Node2D@162103/@Node2D@162122/@Node2D@162133/@Node2D@162134/@Node2D@162135/@Node2D@162145/@Node2D@162146/@Node2D@162154/@Node2D@162155/@Node2D@162156/@Node2D@162157/@Node2D@162158/@Node2D@162159/@Node2D@162160/@Node2D@162161/@Node2D@162162/@Node2D@162163/@Node2D@162164/@Node2D@162173/@Node2D@162174/@Node2D@162175/@Node2D@162176/@Node2D@162177/@Node2D@162178/@Node2D@162197/@Node2D@162198/@Node2D@162199/@Node2D@162200/@Node2D@162201/@Node2D@162202/@Node2D@162203/@Node2D@162204/@Node2D@162205/@Node2D@162206/@Node2D@162207/@Node2D@162208/@Node2D@162209"]
 top_level = true
@@ -2195,7 +2197,7 @@ angle_sway = 0.05
 bone_texture = ExtResource("3_4bja3")
 joint_texture = ExtResource("4_nhnwt")
 bone_texture_y_scale = 0.46331290850540696
-joint_texture_scale = 15.752638889183837
+joint_texture_scale = 15.752638889183835
 
 [node name="@Node2D@162215" type="Node2D" parent="@Node2D@162029/@Node2D@162030/@Node2D@162040/@Node2D@162041/@Node2D@162042/@Node2D@162043/@Node2D@162057/@Node2D@162066/@Node2D@162067/@Node2D@162068/@Node2D@162069/@Node2D@162070/@Node2D@162088/@Node2D@162098/@Node2D@162099/@Node2D@162100/@Node2D@162101/@Node2D@162102/@Node2D@162103/@Node2D@162122/@Node2D@162133/@Node2D@162134/@Node2D@162135/@Node2D@162145/@Node2D@162146/@Node2D@162154/@Node2D@162155/@Node2D@162156/@Node2D@162157/@Node2D@162158/@Node2D@162159/@Node2D@162160/@Node2D@162161/@Node2D@162162/@Node2D@162163/@Node2D@162164/@Node2D@162173/@Node2D@162174/@Node2D@162175/@Node2D@162176/@Node2D@162177/@Node2D@162178/@Node2D@162197/@Node2D@162198/@Node2D@162199/@Node2D@162200/@Node2D@162201/@Node2D@162211/@Node2D@162212/@Node2D@162213/@Node2D@162214"]
 top_level = true
@@ -2219,7 +2221,7 @@ angle_sway = 0.05
 bone_texture = ExtResource("3_4bja3")
 joint_texture = ExtResource("4_nhnwt")
 bone_texture_y_scale = 0.4410200277426528
-joint_texture_scale = 14.994680943250195
+joint_texture_scale = 14.994680943250197
 
 [node name="@Node2D@162217" type="Node2D" parent="@Node2D@162029/@Node2D@162030/@Node2D@162040/@Node2D@162041/@Node2D@162042/@Node2D@162043/@Node2D@162057/@Node2D@162066/@Node2D@162067/@Node2D@162068/@Node2D@162069/@Node2D@162070/@Node2D@162088/@Node2D@162098/@Node2D@162099/@Node2D@162100/@Node2D@162101/@Node2D@162102/@Node2D@162103/@Node2D@162122/@Node2D@162133/@Node2D@162134/@Node2D@162135/@Node2D@162145/@Node2D@162146/@Node2D@162154/@Node2D@162155/@Node2D@162156/@Node2D@162157/@Node2D@162158/@Node2D@162159/@Node2D@162160/@Node2D@162161/@Node2D@162162/@Node2D@162163/@Node2D@162164/@Node2D@162173/@Node2D@162174/@Node2D@162175/@Node2D@162176/@Node2D@162177/@Node2D@162178/@Node2D@162197/@Node2D@162198/@Node2D@162199/@Node2D@162200/@Node2D@162201/@Node2D@162211/@Node2D@162212/@Node2D@162213/@Node2D@162214/@Node2D@162215/@Node2D@162216"]
 top_level = true
@@ -2231,7 +2233,7 @@ angle_sway = 0.05
 bone_texture = ExtResource("3_4bja3")
 joint_texture = ExtResource("4_nhnwt")
 bone_texture_y_scale = 0.43027911645192457
-joint_texture_scale = 14.629489959365435
+joint_texture_scale = 14.629489959365436
 
 [node name="@Node2D@162218" type="Node2D" parent="@Node2D@162029/@Node2D@162030/@Node2D@162040/@Node2D@162041/@Node2D@162042/@Node2D@162043/@Node2D@162057/@Node2D@162066/@Node2D@162067/@Node2D@162068/@Node2D@162069/@Node2D@162070/@Node2D@162088/@Node2D@162098/@Node2D@162099/@Node2D@162100/@Node2D@162101/@Node2D@162102/@Node2D@162103/@Node2D@162122/@Node2D@162133/@Node2D@162134/@Node2D@162135/@Node2D@162145/@Node2D@162146/@Node2D@162154/@Node2D@162155/@Node2D@162156/@Node2D@162157/@Node2D@162158/@Node2D@162159/@Node2D@162160/@Node2D@162161/@Node2D@162162/@Node2D@162163/@Node2D@162164/@Node2D@162173/@Node2D@162174/@Node2D@162175/@Node2D@162176/@Node2D@162177/@Node2D@162178/@Node2D@162197/@Node2D@162198/@Node2D@162199/@Node2D@162200/@Node2D@162201/@Node2D@162211/@Node2D@162212/@Node2D@162213/@Node2D@162214/@Node2D@162215/@Node2D@162216/@Node2D@162217"]
 top_level = true
@@ -2243,7 +2245,7 @@ angle_sway = 0.05
 bone_texture = ExtResource("3_4bja3")
 joint_texture = ExtResource("4_nhnwt")
 bone_texture_y_scale = 0.41979979685340535
-joint_texture_scale = 14.273193093015783
+joint_texture_scale = 14.273193093015784
 
 [node name="@Node2D@162219" type="Node2D" parent="@Node2D@162029/@Node2D@162030/@Node2D@162040/@Node2D@162041/@Node2D@162042/@Node2D@162043/@Node2D@162057/@Node2D@162066/@Node2D@162067/@Node2D@162068/@Node2D@162069/@Node2D@162070/@Node2D@162088/@Node2D@162098/@Node2D@162099/@Node2D@162100/@Node2D@162101/@Node2D@162102/@Node2D@162103/@Node2D@162122/@Node2D@162133/@Node2D@162134/@Node2D@162135/@Node2D@162145/@Node2D@162146/@Node2D@162154/@Node2D@162155/@Node2D@162156/@Node2D@162157/@Node2D@162158/@Node2D@162159/@Node2D@162160/@Node2D@162161/@Node2D@162162/@Node2D@162163/@Node2D@162164/@Node2D@162173/@Node2D@162174/@Node2D@162175/@Node2D@162176/@Node2D@162177/@Node2D@162178/@Node2D@162197/@Node2D@162198/@Node2D@162199/@Node2D@162200/@Node2D@162201/@Node2D@162211/@Node2D@162212/@Node2D@162213/@Node2D@162214/@Node2D@162215/@Node2D@162216/@Node2D@162217/@Node2D@162218"]
 top_level = true
@@ -2291,7 +2293,7 @@ angle_sway = 0.05
 bone_texture = ExtResource("3_4bja3")
 joint_texture = ExtResource("4_nhnwt")
 bone_texture_y_scale = 0.46331290850540696
-joint_texture_scale = 15.752638889183837
+joint_texture_scale = 15.752638889183835
 
 [node name="@Node2D@162223" type="Node2D" parent="@Node2D@162029/@Node2D@162030/@Node2D@162040/@Node2D@162041/@Node2D@162042/@Node2D@162043/@Node2D@162057/@Node2D@162066/@Node2D@162067/@Node2D@162068/@Node2D@162069/@Node2D@162070/@Node2D@162088/@Node2D@162098/@Node2D@162099/@Node2D@162100/@Node2D@162101/@Node2D@162102/@Node2D@162103/@Node2D@162122/@Node2D@162133/@Node2D@162134/@Node2D@162135/@Node2D@162145/@Node2D@162146/@Node2D@162154/@Node2D@162155/@Node2D@162156/@Node2D@162157/@Node2D@162158/@Node2D@162159/@Node2D@162160/@Node2D@162161/@Node2D@162162/@Node2D@162163/@Node2D@162164/@Node2D@162173/@Node2D@162174/@Node2D@162175/@Node2D@162176/@Node2D@162177/@Node2D@162178/@Node2D@162197/@Node2D@162198/@Node2D@162199/@Node2D@162200/@Node2D@162201/@Node2D@162211/@Node2D@162220/@Node2D@162221/@Node2D@162222"]
 top_level = true
@@ -2315,7 +2317,7 @@ angle_sway = 0.05
 bone_texture = ExtResource("3_4bja3")
 joint_texture = ExtResource("4_nhnwt")
 bone_texture_y_scale = 0.4410200277426528
-joint_texture_scale = 14.994680943250195
+joint_texture_scale = 14.994680943250197
 
 [node name="@Node2D@162225" type="Node2D" parent="@Node2D@162029/@Node2D@162030/@Node2D@162040/@Node2D@162041/@Node2D@162042/@Node2D@162043/@Node2D@162057/@Node2D@162066/@Node2D@162067/@Node2D@162068/@Node2D@162069/@Node2D@162070/@Node2D@162088/@Node2D@162098/@Node2D@162099/@Node2D@162100/@Node2D@162101/@Node2D@162102/@Node2D@162103/@Node2D@162122/@Node2D@162133/@Node2D@162134/@Node2D@162135/@Node2D@162145/@Node2D@162146/@Node2D@162154/@Node2D@162155/@Node2D@162156/@Node2D@162157/@Node2D@162158/@Node2D@162159/@Node2D@162160/@Node2D@162161/@Node2D@162162/@Node2D@162163/@Node2D@162164/@Node2D@162173/@Node2D@162174/@Node2D@162175/@Node2D@162176/@Node2D@162177/@Node2D@162178/@Node2D@162197/@Node2D@162198/@Node2D@162199/@Node2D@162200/@Node2D@162201/@Node2D@162211/@Node2D@162220/@Node2D@162221/@Node2D@162222/@Node2D@162223/@Node2D@162224"]
 top_level = true
@@ -2327,7 +2329,7 @@ angle_sway = 0.05
 bone_texture = ExtResource("3_4bja3")
 joint_texture = ExtResource("4_nhnwt")
 bone_texture_y_scale = 0.43027911645192457
-joint_texture_scale = 14.629489959365435
+joint_texture_scale = 14.629489959365436
 
 [node name="@Node2D@162226" type="Node2D" parent="@Node2D@162029/@Node2D@162030/@Node2D@162040/@Node2D@162041/@Node2D@162042/@Node2D@162043/@Node2D@162057/@Node2D@162066/@Node2D@162067/@Node2D@162068/@Node2D@162069/@Node2D@162070/@Node2D@162088/@Node2D@162098/@Node2D@162099/@Node2D@162100/@Node2D@162101/@Node2D@162102/@Node2D@162103/@Node2D@162122/@Node2D@162133/@Node2D@162134/@Node2D@162135/@Node2D@162145/@Node2D@162146/@Node2D@162154/@Node2D@162155/@Node2D@162156/@Node2D@162157/@Node2D@162158/@Node2D@162159/@Node2D@162160/@Node2D@162161/@Node2D@162162/@Node2D@162163/@Node2D@162164/@Node2D@162173/@Node2D@162174/@Node2D@162175/@Node2D@162176/@Node2D@162177/@Node2D@162178/@Node2D@162197/@Node2D@162198/@Node2D@162199/@Node2D@162200/@Node2D@162201/@Node2D@162211/@Node2D@162220/@Node2D@162221/@Node2D@162222/@Node2D@162223/@Node2D@162224/@Node2D@162225"]
 top_level = true
@@ -2339,7 +2341,7 @@ angle_sway = 0.05
 bone_texture = ExtResource("3_4bja3")
 joint_texture = ExtResource("4_nhnwt")
 bone_texture_y_scale = 0.41979979685340535
-joint_texture_scale = 14.273193093015783
+joint_texture_scale = 14.273193093015784
 
 [node name="@Node2D@162227" type="Node2D" parent="@Node2D@162029/@Node2D@162030/@Node2D@162040/@Node2D@162041/@Node2D@162042/@Node2D@162043/@Node2D@162057/@Node2D@162066/@Node2D@162067/@Node2D@162068/@Node2D@162069/@Node2D@162070/@Node2D@162088/@Node2D@162098/@Node2D@162099/@Node2D@162100/@Node2D@162101/@Node2D@162102/@Node2D@162103/@Node2D@162122/@Node2D@162133/@Node2D@162134/@Node2D@162135/@Node2D@162145/@Node2D@162146/@Node2D@162154/@Node2D@162155/@Node2D@162156/@Node2D@162157/@Node2D@162158/@Node2D@162159/@Node2D@162160/@Node2D@162161/@Node2D@162162/@Node2D@162163/@Node2D@162164/@Node2D@162173/@Node2D@162174/@Node2D@162175/@Node2D@162176/@Node2D@162177/@Node2D@162178/@Node2D@162197/@Node2D@162198/@Node2D@162199/@Node2D@162200/@Node2D@162201/@Node2D@162211/@Node2D@162220/@Node2D@162221/@Node2D@162222/@Node2D@162223/@Node2D@162224/@Node2D@162225/@Node2D@162226"]
 top_level = true
@@ -2363,7 +2365,7 @@ angle_sway = 0.05
 bone_texture = ExtResource("3_4bja3")
 joint_texture = ExtResource("4_nhnwt")
 bone_texture_y_scale = 0.39960060394580654
-joint_texture_scale = 13.586420534157423
+joint_texture_scale = 13.586420534157424
 
 [node name="@Node2D@162229" type="Node2D" parent="@Node2D@162029/@Node2D@162030/@Node2D@162040/@Node2D@162041/@Node2D@162042/@Node2D@162043/@Node2D@162057/@Node2D@162066/@Node2D@162067/@Node2D@162068/@Node2D@162069/@Node2D@162070/@Node2D@162088/@Node2D@162098/@Node2D@162099/@Node2D@162100/@Node2D@162101/@Node2D@162102/@Node2D@162103/@Node2D@162122/@Node2D@162133/@Node2D@162134/@Node2D@162135/@Node2D@162145/@Node2D@162146/@Node2D@162154/@Node2D@162155/@Node2D@162156/@Node2D@162157/@Node2D@162158/@Node2D@162159/@Node2D@162160/@Node2D@162161/@Node2D@162162/@Node2D@162163/@Node2D@162164/@Node2D@162173/@Node2D@162174/@Node2D@162175/@Node2D@162176/@Node2D@162177/@Node2D@162178/@Node2D@162197/@Node2D@162198/@Node2D@162199/@Node2D@162200/@Node2D@162201/@Node2D@162211"]
 top_level = true
@@ -2396,4 +2398,4 @@ angle_sway = 0.05
 bone_texture = ExtResource("3_4bja3")
 joint_texture = ExtResource("4_nhnwt")
 bone_texture_y_scale = 0.46331290850540696
-joint_texture_scale = 15.752638889183837
+joint_texture_scale = 15.752638889183835
