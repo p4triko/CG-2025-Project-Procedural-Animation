@@ -7,7 +7,7 @@ class_name RecursiveRayCast2D extends Node2D
 		target_positon = v
 		queue_redraw()
 @export var max_iterations: int = 20
-@export var exclude: Array[RID]
+@export var exclude: Array
 @export var epsilon: float = 1.0
 @export_enum("All", "Debug", "None") var draw_debug: int = 1
 
