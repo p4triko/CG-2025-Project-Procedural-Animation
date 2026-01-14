@@ -300,7 +300,6 @@ texture = ExtResource("5_tefeu")
 [node name="Player" parent="." instance=ExtResource("5_tipki")]
 position = Vector2(-1.9999981, -43)
 scale = Vector2(1.1802084, 1.1939065)
-debug_draw = true
 h_accel = 2000.0
 h_target_velocity = 300.0
 sprint_multiplier = 1.5
