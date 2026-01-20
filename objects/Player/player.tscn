@@ -23,9 +23,6 @@ radius = 30.0
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_fwodp")
 debug_gradient = SubResource("GradientTexture1D_76bfe")
-h_accel = 1000.0
-h_target_velocity = 250.0
-sprint_multiplier = 1.25
 
 [node name="SpiderBody" type="Sprite2D" parent="."]
 material = ExtResource("2_jkds8")
