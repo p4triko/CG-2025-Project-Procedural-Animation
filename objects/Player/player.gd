@@ -76,16 +76,20 @@ func _physics_process(delta: float) -> void:
 	var is_falling = jump_timer > 0.0 || coyote_timer > coyote_time
 	
 	# Jumping
+	var is_jump_charging = input_jump and !is_falling
 	if is_falling:
 		jump_charge = 0.0
-	elif input_jump:
-		jump_charge = min(1.0, jump_charge + 2.0 * delta)
-		input_axis.y = -jump_charge
-	elif jump_charge > 0.0:
-		velocity.y = max(0.5, jump_charge) * -jump_velocity
-		is_falling = true
-		jump_timer = 0.2
-		jump_charge = 0.0
+	if is_jump_charging:
+		pass
+			
+	#elif input_jump:
+		#jump_charge = min(1.0, jump_charge + 2.0 * delta)
+		#input_axis.y = -jump_charge
+	#elif jump_charge > 0.0:
+		#velocity.y = max(0.5, jump_charge) * -jump_velocity
+		#is_falling = true
+		#jump_timer = 0.2
+		#jump_charge = 0.0
 	
 	# Find floor, where spider will be
 	#var prediction_time = leg_reposition_speed
@@ -120,7 +124,7 @@ func _physics_process(delta: float) -> void:
 
 	
 	## Horizontal velocity
-	wanted_velocity.x = input_axis.x * h_target_velocity * (sprint_multiplier if input_sprint else 1.0)
+	wanted_velocity.x = input_axis.x * h_target_velocity * (sprint_multiplier if input_sprint else 1.0) * (0.5 if is_jump_charging else 1.0)
 	var velocity_diff_h: float = wanted_velocity.x - velocity.x
 	var is_speeding_up_h: bool = sign(velocity.x) * wanted_velocity.x > sign(velocity.x) * velocity.x
 	velocity.x += sign(velocity_diff_h) * delta * (h_accel if is_speeding_up_h else h_deaccel)

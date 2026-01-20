@@ -1,11 +1,14 @@
 extends CanvasLayer
 
+@onready var start_button: CheckBox = $"MarginContainer/VBoxContainer/Draw Surfaces"
 func _ready() -> void:
 	hide()
+	start_button.grab_focus.call_deferred()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("debug_menu"):
 		visible = !visible 
+		start_button.grab_focus.call_deferred()
 
 ## Buttons
 func _on_draw_surfaces_pressed() -> void:
