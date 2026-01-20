@@ -147,22 +147,23 @@ func update_node_list():
 func _draw() -> void:
 	# Debug draw
 	if sim_root:
-		var do_draw_bones = Utils.check_debug_enum(sim_root.draw_debug_bones)
-		var do_draw_constraints = Utils.check_debug_enum(sim_root.draw_distance_constraint)
+		var do_draw_bones = Utils.check_debug_enum(sim_root.draw_debug_bones) || Global.draw_bones
+		var do_draw_constraints = Utils.check_debug_enum(sim_root.draw_distance_constraint) || Global.draw_nodes
+		var _scale = 10.0
 		seed(hash(get_path()))
 		var bone_color = Color(randf(), randf(), randf())
 		var local_visual_position = visual_position - global_position
 		if get_parent() is SimNode:
 			var parent_local_visual_position = get_parent().visual_position - global_position
 			if do_draw_constraints:
-				draw_circle(parent_local_visual_position, lerpf(distance_range.y, distance_range.x, 0.5), Color(bone_color, 0.5), false, max(0.2, abs(distance_range.x - distance_range.y)), false)
-				draw_circle(parent_local_visual_position, distance_range.y, bone_color, false, 0.2)
-				draw_circle(parent_local_visual_position, distance_range.x, bone_color, false, 0.2)                            
+				draw_circle(parent_local_visual_position, lerpf(distance_range.y, distance_range.x, 0.5), Color(bone_color, 0.5), false, max(0.2*_scale, abs(distance_range.x - distance_range.y)), false)
+				draw_circle(parent_local_visual_position, distance_range.y, bone_color, false, 0.2*_scale)
+				draw_circle(parent_local_visual_position, distance_range.x, bone_color, false, 0.2*_scale)                            
 			if do_draw_bones:
-				draw_line(local_visual_position, parent_local_visual_position, bone_color, 0.2)
-				draw_circle(local_visual_position, 0.75, bone_color, true)
+				draw_line(local_visual_position, parent_local_visual_position, bone_color, 0.2*_scale)
+				draw_circle(local_visual_position, 0.75*_scale, bone_color, true)
 		if do_draw_bones:
 			if is_anchored:
-				draw_circle(local_visual_position, 0.5, Color(0.918, 0.167, 0.0), true)
+				draw_circle(local_visual_position, 0.5*_scale, Color(0.918, 0.167, 0.0), true)
 			else:
-				draw_circle(local_visual_position, 0.5, Color(0.339, 0.584, 0.0), true)
+				draw_circle(local_visual_position, 0.5*_scale, Color(0.339, 0.584, 0.0), true)

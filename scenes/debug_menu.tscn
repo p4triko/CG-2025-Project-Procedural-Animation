@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqcku4wh45u08"]
+
+[ext_resource type="Script" uid="uid://cfgj6abf3wko" path="res://scenes/debug_menu.gd" id="1_rta6x"]
+
+[node name="DebugMenu" type="CanvasLayer"]
+script = ExtResource("1_rta6x")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Draw Surfaces" type="CheckBox" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+focus_mode = 0
+text = "Draw surfaces"
+
+[node name="Draw Bones" type="CheckBox" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+focus_mode = 0
+text = "Draw bones"
+
+[node name="Draw Nodes" type="CheckBox" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+focus_mode = 0
+text = "Draw nodes"
+
+[node name="Restart Button" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Restart"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Draw Surfaces" to="." method="_on_draw_surfaces_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Draw Surfaces" to="." method="_on_check_box_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Draw Bones" to="." method="_on_draw_bones_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Draw Bones" to="." method="_on_check_box_2_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Draw Nodes" to="." method="_on_check_box_2_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Draw Nodes" to="." method="_on_draw_nodes_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Restart Button" to="." method="_on_restart_button_pressed"]

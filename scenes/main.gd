@@ -13,6 +13,10 @@ func _process(_delta):
 	if Input.is_action_just_pressed("restart"):
 		get_tree().reload_current_scene()
 	
+	if Global.restart_queued:
+		get_tree().reload_current_scene()
+		Global.restart_queued = false
+	
 	if Input.is_action_just_pressed("swap_palette"):
 		current_palette = (current_palette + 1) % len(palettes)
 		palette_material.set_shader_parameter("palette", palettes[current_palette])

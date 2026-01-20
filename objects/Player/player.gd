@@ -247,7 +247,7 @@ func calculate_score(pos: Vector2, normal: Vector2, wanted_angle: float = 1.1, a
 func _draw():
 	## For surfaces, doesnt account for the angle
 
-	if debug_draw:
+	if Global.draw_surfaces:
 		for surface in debug_draw_surfaces:
 			var pos = surface[0] - global_position
 			var normal = surface[1]
