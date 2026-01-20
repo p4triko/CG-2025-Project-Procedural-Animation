@@ -84,12 +84,9 @@ func _physics_process(delta: float) -> void:
 		if input_jump:
 			jump_charge = min(1.0, jump_charge + jump_charge_speed * delta)
 		elif jump_charge > 0:
-			var jump_direction = input_axis if input_axis.length() > 0.1 else Vector2(0, 1.0)
-			jump_direction.y = abs(jump_direction.y)
-			jump_direction.x = -jump_direction.x
+			var jump_direction = Vector2(-input_axis.normalized().x if abs(input_axis.x) > 0.1 else 0.0, 1.0)
 			jump_direction = jump_direction.normalized()
-			jump_direction.x *= 0.7
-			print(jump_direction.x)
+			jump_direction.x *= 0.75
 			velocity += jump_charge * -jump_velocity * jump_direction
 			
 			is_falling = true
