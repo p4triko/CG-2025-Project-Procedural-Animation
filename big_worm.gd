@@ -148,5 +148,6 @@ func generate_worm():
 	build_sequence(seq)
 
 func _ready() -> void:
+	seed(int(Time.get_unix_time_from_system()*1000))
 	if not Engine.is_editor_hint():
 		generate_worm()
