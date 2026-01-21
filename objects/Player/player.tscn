@@ -36,7 +36,7 @@ script = ExtResource("3_sp50d")
 [node name="LegLeft1" parent="." node_paths=PackedStringArray("neighbour_legs") instance=ExtResource("3_hi0mj")]
 unique_name_in_owner = true
 position = Vector2(-24, 0)
-wanted_position = Vector2(-103.198, 35.632)
+wanted_position = Vector2(-47.533, 89.092)
 leg_polarity = true
 neighbour_legs = [NodePath("../LegRight1"), NodePath("../LegLeft4")]
 leg_reposition_speed = 0.15
@@ -45,7 +45,7 @@ step_weight = 0.5
 [node name="LegLeft2" parent="." node_paths=PackedStringArray("neighbour_legs") instance=ExtResource("3_hi0mj")]
 unique_name_in_owner = true
 position = Vector2(-16, 0)
-wanted_position = Vector2(-77.151, 56.737)
+wanted_position = Vector2(-35.396, 96.337)
 leg_polarity = true
 neighbour_legs = [NodePath("../LegRight2"), NodePath("../LegLeft1")]
 leg_reposition_speed = 0.15
@@ -54,7 +54,7 @@ step_weight = 0.5
 [node name="LegLeft3" parent="." node_paths=PackedStringArray("neighbour_legs") instance=ExtResource("3_hi0mj")]
 unique_name_in_owner = true
 position = Vector2(-8, 0)
-wanted_position = Vector2(-51.786, 68.484)
+wanted_position = Vector2(-21.886, 95.374)
 leg_polarity = true
 neighbour_legs = [NodePath("../LegRight3"), NodePath("../LegLeft2")]
 leg_reposition_speed = 0.15
@@ -62,7 +62,7 @@ step_weight = 0.5
 
 [node name="LegLeft4" parent="." node_paths=PackedStringArray("neighbour_legs") instance=ExtResource("3_hi0mj")]
 unique_name_in_owner = true
-wanted_position = Vector2(-16, 63.675)
+wanted_position = Vector2(-8.195, 96.1)
 leg_polarity = true
 neighbour_legs = [NodePath("../LegRight4"), NodePath("../LegLeft3")]
 leg_reposition_speed = 0.15
@@ -70,7 +70,7 @@ step_weight = 0.5
 
 [node name="LegRight1" parent="." node_paths=PackedStringArray("neighbour_legs") instance=ExtResource("3_hi0mj")]
 unique_name_in_owner = true
-wanted_position = Vector2(16.05, 64.75)
+wanted_position = Vector2(7.37, 95.375)
 neighbour_legs = [NodePath("../LegLeft1"), NodePath("../LegRight4")]
 leg_reposition_speed = 0.15
 step_weight = 0.5
@@ -78,7 +78,7 @@ step_weight = 0.5
 [node name="LegRight2" parent="." node_paths=PackedStringArray("neighbour_legs") instance=ExtResource("3_hi0mj")]
 unique_name_in_owner = true
 position = Vector2(8, 0)
-wanted_position = Vector2(47.502, 70.124)
+wanted_position = Vector2(21.807, 95.374)
 neighbour_legs = [NodePath("../LegLeft2"), NodePath("../LegRight1")]
 leg_reposition_speed = 0.15
 step_weight = 0.5
@@ -86,7 +86,7 @@ step_weight = 0.5
 [node name="LegRight3" parent="." node_paths=PackedStringArray("neighbour_legs") instance=ExtResource("3_hi0mj")]
 unique_name_in_owner = true
 position = Vector2(16, 0)
-wanted_position = Vector2(81.269, 54.525)
+wanted_position = Vector2(33.729, 96.337)
 neighbour_legs = [NodePath("../LegLeft3"), NodePath("../LegRight2")]
 leg_reposition_speed = 0.15
 step_weight = 0.5
@@ -94,7 +94,7 @@ step_weight = 0.5
 [node name="LegRight4" parent="." node_paths=PackedStringArray("neighbour_legs") instance=ExtResource("3_hi0mj")]
 unique_name_in_owner = true
 position = Vector2(24, 0)
-wanted_position = Vector2(104.547, 34.939)
+wanted_position = Vector2(44.032, 89.092)
 neighbour_legs = [NodePath("../LegLeft4"), NodePath("../LegRight3")]
 leg_reposition_speed = 0.15
 step_weight = 0.5

@@ -1165,9 +1165,6 @@ texture = ExtResource("5_tefeu")
 [node name="Player" parent="." instance=ExtResource("5_tipki")]
 position = Vector2(-1.9999981, -43)
 scale = Vector2(1.1802084, 1.1939065)
-h_accel = 2000.0
-h_target_velocity = 300.0
-sprint_multiplier = 1.5
 
 [node name="CaveCeiling" parent="." instance=ExtResource("5_choun")]
 position = Vector2(1208.0001, -386.00006)

@@ -105,20 +105,22 @@ func _physics_process(delta: float) -> void:
 	for floor_point in floor_points:
 		body_raycast.target_positon = floor_point[0] - body_raycast.global_position + floor_point[1]
 		if body_raycast.get_collisions().is_empty():
-			if new_floor.distance_to(current_floor) > floor_point[0].distance_to(current_floor) :
-				new_floor = floor_point[0]
+			if floor_point[1].dot(Vector2.UP)>0.5:
+				if new_floor.distance_to(current_floor) > floor_point[0].distance_to(current_floor):
+					new_floor = floor_point[0]
 	
 	# Wanted velocity is the ideal direction/speed player wants to be moving at,
 	# but it has to be interpolated for smoother movement
 	var actual_v_input = (-1.0 if is_jump_charging else input_axis.y)
 	wanted_floor_distance = actual_v_input * 35.0 + 80.0
-	wanted_velocity.y = (new_floor.y - wanted_floor_distance - global_position.y) / 0.2
+	wanted_velocity.y = max(-500.0, (new_floor.y - wanted_floor_distance - global_position.y) / 0.2)
+	#print(wanted_velocity.y)
 	
 	if is_falling:
 		velocity.y += gravity * delta
 	else:
 		var velocity_diff_y: float = -(wanted_velocity.y - velocity.y)
-		velocity.y += sign(velocity_diff_y) * delta * min(h_accel, 1000)
+		velocity.y += sign(velocity_diff_y) * delta * v_accel
 		if -sign(velocity_diff_y) == sign(wanted_velocity.y - velocity.y):
 			velocity.y = wanted_velocity.y
 	velocity.y = clamp(velocity.y, -v_max_velocity, v_max_velocity)
@@ -126,6 +128,7 @@ func _physics_process(delta: float) -> void:
 	
 	## Horizontal velocity
 	wanted_velocity.x = input_axis.x * h_target_velocity * (0.5 if is_jump_charging else (sprint_multiplier if input_sprint else 1.0)) * (1.0 - abs(actual_v_input)*0.5 if abs(actual_v_input) > 0.76 else 1.0)
+	print(wanted_velocity.x)
 	var velocity_diff_h: float = wanted_velocity.x - velocity.x
 	var is_speeding_up_h: bool = sign(velocity.x) * wanted_velocity.x > sign(velocity.x) * velocity.x
 	velocity.x += sign(velocity_diff_h) * delta * (h_accel if is_speeding_up_h else (1.0 if is_falling else h_deaccel))
@@ -184,13 +187,12 @@ func _physics_process(delta: float) -> void:
 				leg.state = SpiderLeg.states.PHYSICS
 		if leg.state == SpiderLeg.states.PHYSICS:
 			if best_score > 0:
-
 				if is_falling:
 					leg.step(best_surface[0], best_surface[1], true, false)
 				else:
 					leg.step(best_surface[0], best_surface[1], true)
 			else:
-				leg.wanted_position = leg.default_positon + leg.global_position + (velocity + leg.global_position)/10
+				leg.wanted_position = velocity
 	
 	queue_redraw()
 
@@ -209,6 +211,7 @@ func get_potential_surfaces() -> Array:
 	var flip_normals: bool = body_raycast.get_collisions().size() % 2 == 1
 	for raycast: RecursiveRayCast2D in $Raycasts.get_children():
 		raycast.exclude = [self] + get_tree().get_nodes_in_group("ignored_by_legs")
+		raycast.max_iterations = 1
 		var collisions = raycast.get_collisions()
 		if flip_normals:
 			for point in collisions:
@@ -226,7 +229,7 @@ static func combine_scores(args):
 	return pos if neg == 0.0 else neg
 
 ## Score negative means that leg position is bad, if leg is there, it has to be moved. score positive means it is a viable position
-func calculate_score(pos: Vector2, normal: Vector2, wanted_angle: float = 1.1, angle_width: float = 0.6, leg_length: float = 128) -> float:
+func calculate_score(pos: Vector2, normal: Vector2, wanted_angle: float = 1.1, angle_width: float = 1.0, leg_length: float = 128) -> float:
 	# Normal
 	var normal_width = PI * 3/5
 	var normal_score = (1 - abs(normal.angle_to(Vector2.UP)) / normal_width)
@@ -236,7 +239,7 @@ func calculate_score(pos: Vector2, normal: Vector2, wanted_angle: float = 1.1, a
 	var dist_smoothing = 100.0
 	var distance_score = (1 - abs(leg_length*rest_distance_ratio/dist_smoothing - pos.length()/dist_smoothing))
 	
-	var length_score = -1 if pos.length() > leg_length else 0
+	var length_score = -1 if pos.length() > leg_length * 1 else 0
 	
 	# Angle
 	var angle_score = (1 - abs(pos.angle_to(Vector2.from_angle(wanted_angle + PI/2))) * angle_width)
