@@ -114,7 +114,6 @@ func _physics_process(delta: float) -> void:
 	var actual_v_input = (-1.0 if is_jump_charging else input_axis.y)
 	wanted_floor_distance = actual_v_input * 35.0 + 80.0
 	wanted_velocity.y = max(-500.0, (new_floor.y - wanted_floor_distance - global_position.y) / 0.2)
-	#print(wanted_velocity.y)
 	
 	if is_falling:
 		velocity.y += gravity * delta
@@ -128,7 +127,6 @@ func _physics_process(delta: float) -> void:
 	
 	## Horizontal velocity
 	wanted_velocity.x = input_axis.x * h_target_velocity * (0.5 if is_jump_charging else (sprint_multiplier if input_sprint else 1.0)) * (1.0 - abs(actual_v_input)*0.5 if abs(actual_v_input) > 0.76 else 1.0)
-	print(wanted_velocity.x)
 	var velocity_diff_h: float = wanted_velocity.x - velocity.x
 	var is_speeding_up_h: bool = sign(velocity.x) * wanted_velocity.x > sign(velocity.x) * velocity.x
 	velocity.x += sign(velocity_diff_h) * delta * (h_accel if is_speeding_up_h else (1.0 if is_falling else h_deaccel))
@@ -179,7 +177,6 @@ func _physics_process(delta: float) -> void:
 		var score_diff = best_score - current_score
 		var best_surface = data[3]
 		
-		# if leg.name == "LegLeft1": print(leg.state)
 		if leg.state == SpiderLeg.states.GROUNDED:
 			if score_diff > trigger_threshold: # If new surface is way better than current surface, then step
 				leg.step(best_surface[0], best_surface[1])

@@ -11,8 +11,6 @@ class_name RecursiveRayCast2D extends Node2D
 @export var epsilon: float = 1.0
 @export_enum("All", "Debug", "None") var draw_debug: int = 1
 
-#@export_tool_button("Run") var a = func (): print(get_collisions())
-
 var saved_hits: Array[Array] # For visualization
 
 ## Retturns [code]Array[[Vector2, Vector2]][/code] where vectors are [b]position[/b] and [b]normal[/b] vector of the collision.

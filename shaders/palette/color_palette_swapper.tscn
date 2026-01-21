@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6512bj8muevd"]
+
+[ext_resource type="Script" uid="uid://iig0ohwl6okx" path="res://shaders/palette/color_palette_swapper.gd" id="1_eps7d"]
+[ext_resource type="Shader" uid="uid://koxxs07pu7fa" path="res://shaders/palette/color_palette_swapper.gdshader" id="1_gvd2q"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j5ib8"]
+shader = ExtResource("1_gvd2q")
+shader_parameter/palette_1 = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+shader_parameter/palette_2 = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+shader_parameter/weight = 0.0
+
+[node name="ColorPaletteSwapper" type="ColorRect"]
+material = SubResource("ShaderMaterial_j5ib8")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eps7d")
