@@ -12,7 +12,6 @@ PALETTE_D;
 PALETTE_S;
 PALETTE_P;
 #endif
-const float eps = 0.00001;
 
 vec3 rgb2hsv(vec3 c) {
     vec4 K = vec4(0.0, -1.0 / 3.0, 2.0 / 3.0, -1.0);

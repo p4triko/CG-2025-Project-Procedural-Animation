@@ -1,10 +1,13 @@
 extends ColorRect
 
-@export var enabled: bool = true
+@export var enabled: bool = true:
+	set(v):
+		enabled = v
+		visible = enabled
 @export var default_palette: int = 0
 @export var primary_palette: int = 0
 @export var secondary_palette: int = 0
-@export_range(0, 1, 0.0001) var interpolation_weight: float = 0:
+@export_range(0, 1, 0.000001) var interpolation_weight: float = 0:
 	set(v):
 		interpolation_weight = v
 		material.set_shader_parameter("weight", interpolation_weight)
@@ -60,4 +63,6 @@ func _ready() -> void:
 	code = code.replace("__palette_p__", "const vec3[%s] palette_p = vec3[](%s)" % [palette_size, p_palette])
 	code = "#define PREPROCESSED\n" + code
 	shader.code = code
-	
+
+func _process(_delta: float) -> void:
+	enabled = Global.palette_enabled

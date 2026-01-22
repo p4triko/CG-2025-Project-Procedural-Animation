@@ -1204,11 +1204,10 @@ rotation = -0.13934512
 position = Vector2(-136.99998, 33)
 rotation = 1.4675587
 
-[node name="DebugMenu" parent="." instance=ExtResource("17_muem4")]
-
 [node name="ShaderLayer" type="CanvasLayer" parent="."]
 
 [node name="ColorPaletteSwapper" parent="ShaderLayer" instance=ExtResource("18_dp3eg")]
 secondary_palette = 1
-interpolation_weight = 1.0
 palettes = Array[ColorPalette]([SubResource("ColorPalette_muem4"), SubResource("ColorPalette_dp3eg")])
+
+[node name="DebugMenu" parent="." instance=ExtResource("17_muem4")]

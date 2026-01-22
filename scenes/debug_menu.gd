@@ -22,3 +22,7 @@ func _on_draw_nodes_pressed() -> void:
 
 func _on_restart_button_pressed() -> void:
 	Global.restart_queued = true
+
+
+func _on_palette_swap_pressed() -> void:
+	Global.palette_enabled = !Global.palette_enabled
