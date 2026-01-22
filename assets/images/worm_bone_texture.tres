@@ -1,6 +1,7 @@
 [gd_resource type="GradientTexture2D" load_steps=2 format=3 uid="uid://cbj41wgw7bxbg"]
 
 [sub_resource type="Gradient" id="Gradient_kda1j"]
+interpolation_mode = 1
 offsets = PackedFloat32Array(0)
 colors = PackedColorArray(0.1254902, 0.13333334, 0.19215687, 1)
 

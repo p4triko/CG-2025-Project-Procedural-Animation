@@ -1,8 +1,8 @@
 [gd_resource type="GradientTexture2D" load_steps=2 format=3 uid="uid://dgnsetxyv2l3a"]
 
 [sub_resource type="Gradient" id="Gradient_28qtp"]
-interpolation_mode = 2
-offsets = PackedFloat32Array(0.9766355, 1)
+interpolation_mode = 1
+offsets = PackedFloat32Array(0.9985337, 1)
 colors = PackedColorArray(0.1254902, 0.13333334, 0.19215687, 1, 0.12315822, 0.13335153, 0.1931151, 0)
 
 [resource]
