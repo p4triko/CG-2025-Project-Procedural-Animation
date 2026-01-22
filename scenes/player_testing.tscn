@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cakvphaqkix4w"]
+[gd_scene load_steps=3 format=3 uid="uid://cakvphaqkix4w"]
 
 [ext_resource type="PackedScene" uid="uid://c0pigba0ihfvs" path="res://objects/Player/player.tscn" id="1_grv1o"]
+[ext_resource type="PackedScene" uid="uid://o5dvaud0un0v" path="res://scenes/fake_spider.tscn" id="2_ehr7g"]
 
 [node name="player_testing" type="Node2D"]
 
@@ -19,3 +20,6 @@ polygon = PackedVector2Array(85, -169, 128, -169, 202, -172, 262, -172, 331, -17
 [node name="Player" parent="." instance=ExtResource("1_grv1o")]
 position = Vector2(-1, -10)
 debug_draw = true
+
+[node name="FakeSpider" parent="." instance=ExtResource("2_ehr7g")]
+position = Vector2(-527, -322)
