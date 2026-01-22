@@ -42,7 +42,7 @@ void fragment() {
 	int best_palette_i = -1;
 	float best_palette_dist = 1000000.0;
 	for (int i = 0; i < palette_d.length(); i++) {
-		float dist = length(hsv_color.r - rgb2hsv(palette_d[i]).r);
+		float dist = length(hsv_color - rgb2hsv(palette_d[i]));
 		if (dist <= best_palette_dist) {
 			best_palette_i = i;
 			best_palette_dist = dist;
