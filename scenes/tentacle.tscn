@@ -3,14 +3,13 @@
 [ext_resource type="Script" uid="uid://c1f1q4skayaau" path="res://scripts/tentacle.gd" id="1_spd53"]
 
 [sub_resource type="Curve" id="Curve_tfhu0"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.054253936), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.22491145), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [node name="Tentacle" type="Node2D"]
 position = Vector2(584, 506)
 rotation = 0.099560015
 script = ExtResource("1_spd53")
-follows_mouse = true
 wave_amplitude = 1.0
 wave_frequency = 0.6
 wave_speed = 0.6
