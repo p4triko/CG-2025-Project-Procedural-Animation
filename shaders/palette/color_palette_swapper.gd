@@ -28,14 +28,14 @@ extends ColorRect
 		value_shift = v
 		material.set_shader_parameter("value_shift", value_shift)
 
-var original_code: String = ""
 func _ready() -> void:
 	# Save original shader code
 	var shader = preload("res://shaders/palette/color_palette_swapper.gdshader")
-	original_code = shader.code
+	if Global.original_shader_code == "":
+		Global.original_shader_code = shader.code
 	
 	# Edit preprocessor code
-	var code = original_code
+	var code = Global.original_shader_code
 	#code = "#define not_matching_color_behavior_stuff" + "\n" + code
 	var d_palette: String = ""
 	var p_palette: String = ""

@@ -16,8 +16,6 @@ layout_mode = 2
 [node name="Draw Surfaces" type="CheckBox" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
-focus_neighbor_top = NodePath("../Restart Button")
-focus_neighbor_bottom = NodePath("../Draw Bones")
 focus_next = NodePath("../Draw Bones")
 focus_previous = NodePath("../Restart Button")
 text = "Draw surfaces"
@@ -25,8 +23,6 @@ text = "Draw surfaces"
 [node name="Draw Bones" type="CheckBox" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
-focus_neighbor_top = NodePath("../Draw Surfaces")
-focus_neighbor_bottom = NodePath("../Draw Nodes")
 focus_next = NodePath("../Draw Nodes")
 focus_previous = NodePath("../Draw Surfaces")
 text = "Draw bones"
@@ -34,28 +30,22 @@ text = "Draw bones"
 [node name="Draw Nodes" type="CheckBox" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
-focus_neighbor_top = NodePath("../Draw Bones")
-focus_neighbor_bottom = NodePath("../Restart Button")
-focus_next = NodePath("../Restart Button")
+focus_next = NodePath("../Palette Swap")
 focus_previous = NodePath("../Draw Bones")
 text = "Draw nodes"
 
 [node name="Palette Swap" type="CheckBox" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
-focus_neighbor_top = NodePath("../Draw Bones")
-focus_neighbor_bottom = NodePath("../Restart Button")
 focus_next = NodePath("../Restart Button")
-focus_previous = NodePath("../Draw Bones")
+focus_previous = NodePath("../Draw Nodes")
 button_pressed = true
 text = "Palette swap"
 
 [node name="Restart Button" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-focus_neighbor_top = NodePath("../Draw Nodes")
-focus_neighbor_bottom = NodePath("../Draw Surfaces")
 focus_next = NodePath("../Draw Surfaces")
-focus_previous = NodePath("../Draw Nodes")
+focus_previous = NodePath("../Palette Swap")
 text = "Restart"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Draw Surfaces" to="." method="_on_draw_surfaces_pressed"]
